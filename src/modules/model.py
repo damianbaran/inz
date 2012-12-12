@@ -6,17 +6,30 @@ import urllib2
 from bs4 import BeautifulSoup
 from wx.lib.pubsub import Publisher as pub
 
-class Model:
+class Record(object):
+    """"""
+    def __init__(self, cittxt, title, author, year, publish):
+        self.cittxt = cittxt
+        self.year = year
+        self.author = author
+        self.publish = publish
+        self.title = title
+
+class Model(Record):
     def __init__(self):
         """Konstruktor"""
         self.item = {'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
-        self.full = []
+        self.fulllist = []
         self.all_item = 0
 
     def addWord(self, value):
-        """Funkcja pobiera dane wprowadzone przez użytkownika wyszukania dancyh"""
+        """
+        Funkcja pobiera dane wprowadzone przez użytkownika
+        wyszukania dancyh
+        """
+        value = self.replString(value)
         self.item['query'] = str(value[0])
         self.item['exact'] = str(value[1])
         self.item['oneof'] = str(value[2])
@@ -25,13 +38,25 @@ class Model:
         self.item['pub'] = str(value[5])
         self.item['ylow'] = str(value[6])
         self.item['yhigh'] = str(value[7])
-        #pub.sendMessage("Word", self.item)
-        #print self.item
+
+    def replString(self, data):
+        """
+        Funkcja sprawdza czy string podany przez użytkownika
+        nie zawiera spacji, jeśli tak to zamienia na '+'
+        """
+        tmp = []
+        for i in range(len(data)):
+            s = re.sub(r' ','+', str(data[i]))
+            tmp.append(s)
+        tuple(tmp)
+        return tmp
+        
 
     def downloadData(self):
         """Funkcja pobiera wszystkie dane wyszukiwania"""
         self.queryScholar()
         self.allPages()
+        self.allRecords()
 
     def allPages(self):
         """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
@@ -44,7 +69,10 @@ class Model:
                 self.queryScholar()
 
     def urlScholar(self):
-        """Funkcja zawiera url wyszukiwania do którego można wprowadzić dane użytkownika"""
+        """
+        Funkcja zawiera url wyszukiwania do którego można wprowadzić
+        dane użytkownika
+        """
         self.s0 = 'start=%(num)s&'
         self.s1 = 'as_q=%(query)s&'
         self.s2 = 'as_epq=%(exact)s&'
@@ -58,8 +86,11 @@ class Model:
         self.scholar_url = 'http://scholar.google.com/scholar?'+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
 
     def queryScholar(self):
-        """Funkcja pobiera jedną stonę wyszukiwania. Zamienia na format do przeszkiwania html'a.
-        Pobiera wszystkie dane z tej strony do kolejnych działań"""
+        """
+        Funkcja pobiera jedną stonę wyszukiwania. Zamienia na format do
+        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
+        kolejnych działań
+        """
         if self.all_item == 0:
             self.urlScholar()
         
@@ -73,12 +104,13 @@ class Model:
             self.numberPageSearch()
         self.doThis()
         self.onePage()
-        self.allRecords()
         
     def numberRecordsOnPage(self):
         """Funkcja zlicza liczbę rekordów na stronie"""
-        div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
+        div_count = self.htmlsoup.find_all('div', {'class': "gs_r",
+                                                   'style': re.compile("z-index:")})
         self.item_count = len(div_count)
+        print self.item_count
         
     def numberPageSearch(self):
         """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""
@@ -89,10 +121,13 @@ class Model:
             num_page[1] = re.sub(r',', '', num_page[1])
             if num_page[0].isdigit() == True:
                 self.all_item = int(num_page[0])
+                print self.all_item
             elif num_page[1].isdigit() == True:
                 self.all_item = int(num_page[1])
+                print self.all_item
         except IndexError:
-            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad', wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad',
+                          wx.OK | wx.ICON_INFORMATION)
 
     def findData(self):
         """Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych"""
@@ -120,7 +155,7 @@ class Model:
              'z-index:396','z-index:395','z-index:394','z-index:393',
              'z-index:392','z-index:391']
         self.links = []
-        cit_txt = 'Brak'
+        cit_txt = 0
         cit_url = 'Brak'
         rel_txt = 'Brak'
         rel_url = 'Brak'
@@ -132,7 +167,7 @@ class Model:
                     text = tag2.get_text()
                     if text.startswith('Cited by'):
                         tmp = text.split()
-                        cit_txt = tmp[2]
+                        cit_txt = int(tmp[2])
                         cit_url = self.scholar_glo_url + tag2.get('href')
                     elif text.startswith('Related'):
                         rel_txt = text
@@ -159,7 +194,7 @@ class Model:
                 else:
                     self.links.append(ver_txt)
                     self.links.append(ver_url)
-                cit_txt = 'Brak'
+                cit_txt = 0
                 cit_url = 'Brak'
                 rel_txt = 'Brak'
                 rel_url = 'Brak'
@@ -180,41 +215,37 @@ class Model:
         """Funkcja zapisuje końcowe dane z jednej strony do listy"""
         self.all_items = []
         for i in range(self.item_count):
-            print self.title[i]
-            #1 title
-            self.all_items.append(self.title[i])
-            print self.title_url[i]
-            #2 url title
-            self.all_items.append(self.title_url[i])
-            print self.author[i] + " rok: " + self.year[i]
-            #3 author
-            self.all_items.append(self.author[i])
-            #4 year
-            self.all_items.append(self.year[i])
+            records = {'title':'','titleurl':'','author':'','year':'',
+                       'publish':'','cittxt':'','citurl':'','reltxt':'',
+                       'relurl':'','vertxt':'','verurl':''}
+            records['title'] = self.title[i]
+            records['titleurl'] = self.title_url[i]
+            records['author'] = self.author[i]
+            records['year'] = self.year[i]
+            records['publish'] = self.publish[i]
+            #print self.title[i]
+            #print self.title_url[i]
+            #print self.author[i] + " rok: " + self.year[i]
             for j in range(i*6,(i*6+6),6):
-                print 'Cited by ' + self.links[j] + ' url: ' + self.links[j+1]
-                #5 cited number
-                self.all_items.append(self.links[j])
-                #6 cited links
-                self.all_items.append(self.links[j+1])
-                print self.links[j+2] + ' url: ' + self.links[j+3]
-                #7 polecane text
-                self.all_items.append(self.links[j+2])
-                #8 polecane links
-                self.all_items.append(self.links[j+3])
-                print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
-                #9 version number
-                self.all_items.append(self.links[j+4])
-                #10 version links
-                self.all_items.append(self.links[j+5])
-            print self.publish[i] +'\n\n'
-            #11 publisher
-            self.all_items.append(self.publish[i])
-        #print self.all_items
-
+                records['cittxt'] = self.links[j]
+                records['citurl'] = self.links[j+1]
+                records['reltxt'] = self.links[j+2]
+                records['relurl'] = self.links[j+3]
+                records['vertxt'] = self.links[j+4]
+                records['verurl'] = self.links[j+5]
+                #print 'Cited by ' + self.links[j] + ' url: ' + self.links[j+1]
+                #print self.links[j+2] + ' url: ' + self.links[j+3]
+                #print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
+            #print 'Publish' + self.publish[i] +'\n\n'
+            one = Record(self.links[j], self.title[i],
+                         self.author[i], self.year[i], self.publish[i])
+            self.all_items.append(one)
+        self.fulllist += self.all_items
+        
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""
-        self.full += self.all_items
+        #print self.full
+        return self.fulllist
 
     def parseUrlTitle(self):
         """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""
@@ -235,7 +266,7 @@ class Model:
         for i in range(len(self.text)):
             d = re.findall(r'\b(?:20|19)\d{2}\b',self.text[i])
             if len(d) == 0:
-                d.append('0')
+                d.append(' ')
             d = d.pop()
             self.year.append(d)                
 

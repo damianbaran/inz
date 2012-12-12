@@ -1,19 +1,16 @@
-import wx 
+import wx
 from wx.lib.pubsub import Publisher as pub
 from src.lib.frames import MainFrame
-from wx.lib.mixins.listctrl import CheckListCtrlMixin, ListCtrlAutoWidthMixin
+from ObjectListView import ObjectListView, ColumnDefn
 
-class CheckListCtrl(wx.ListCtrl, CheckListCtrlMixin, ListCtrlAutoWidthMixin):
-    def __init__(self, parent):
-        wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.SUNKEN_BORDER)
-        CheckListCtrlMixin.__init__(self)
-        ListCtrlAutoWidthMixin.__init__(self)
 
 class View(MainFrame):
     def __init__(self, parent):
+        #ListViewFrame.__init__(self, None)
         MainFrame.__init__(self, None)
 
-        wx.StaticBox(self.panel1, -1, 'Wyszukiwanie Google Scholar', pos=(5, 5), size=(320, 200))
+        wx.StaticBox(self.panel1, -1, 'Wyszukiwanie Google Scholar',
+                     pos=(5, 5), size=(320, 200))
         #1
         text1 = wx.StaticText(self.panel1, label="Wszystkie slowa:", pos=(15,30))
         self.ctrl1 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,27.5))
@@ -38,15 +35,52 @@ class View(MainFrame):
         text8 = wx.StaticText(self.panel1, label=" do ", pos=(165,180))
         self.ctrl8 = wx.TextCtrl(self.panel1, size=(50,20), pos=(185,177.5))
         #button
-        butt = wx.Button(self.panel1, -1, label='Pobierz', pos=(245,177.5), name='btn1')
-
+        self.but1 = wx.Button(self.panel1, -1, label='Pobierz', pos=(245,177.5))
+        """
         self.list_ctrl = wx.ListCtrl(self.panel2, size=(300,100),
                                      style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.list_ctrl.InsertColumn(0, 'Tytul')
         self.list_ctrl.InsertColumn(1, 'Tytul')
         self.list_ctrl.InsertColumn(2, 'Tytul')
+        self.but2 = wx.Button(self.panel2, -1, label='Pobierz', pos=(10,110), name='btn1')
+        """
+ 
+        self.dataList = ObjectListView(self.panel2, -1,
+                                      style=wx.LC_REPORT|wx.SUNKEN_BORDER,
+                                      pos=(5,5), size=(780,400))
+        self.citColumn = ColumnDefn("Cytowan", "right", 70, "cittxt")
+        self.titleColumn = ColumnDefn("Tytul", "left", 300, "title")
+        self.authorColumn = ColumnDefn("Autor", "left", 150, "author")
+        self.yearColumn = ColumnDefn("Rok", "right", 50, "year")        
+        self.publishColumn = ColumnDefn("Wydawca", "left", 150, "publish")
+        self.setRecord()
+        #self.dataList.CreateCheckStateColumn()
+        #self.dataOlv.InstallCheckStateColumn(self.titleColumn)
+ 
+        # Allow the cell values to be edited when double-clicked
+        self.dataList.cellEditMode = ObjectListView.CELLEDIT_SINGLECLICK
+
+        self.but2 = wx.Button(self.panel2, -1, label='Usun Wszystko',
+                              pos=(790,5))
+        self.but3 = wx.Button(self.panel2, -1, label='Zaznacz Wszystko',
+                              pos=(790,30))
+        self.but4 = wx.Button(self.panel2, -1, label='Odznacz Wszystko', pos=(790,55))    
+
+    def setRecord(self, data=None):
+        self.dataList.SetColumns([
+            self.citColumn,
+            self.titleColumn,
+            self.authorColumn,
+            self.yearColumn,
+            self.publishColumn
+        ])
+ 
+    def updateRecord(self, data):
+        """
+        """
+        self.dataList.SetObjects(data)
         
-    def PrintWord(self):
+    def printWord(self):
         txt1 = self.ctrl1.GetValue()
         txt2 = self.ctrl2.GetValue()
         txt3 = self.ctrl3.GetValue()
@@ -55,5 +89,4 @@ class View(MainFrame):
         txt6 = self.ctrl6.GetValue()
         txt7 = self.ctrl7.GetValue()
         txt8 = self.ctrl8.GetValue()
-        t = (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
-        return t
+        return (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)

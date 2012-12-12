@@ -8,24 +8,23 @@ class Controler:
         self.model = Model()
         self.view = View(None)
         #self.view.PrintWord(self.model.item)
-        self.view.Bind(wx.EVT_BUTTON, self.AddWord)
-        #self.view.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
-        #pub.subscribe(self.WordChange, "Word")
-
+        self.view.but1.Bind(wx.EVT_BUTTON, self.AddWord)
+        self.view.but2.Bind(wx.EVT_BUTTON, self.clearAll)
+        self.view.but3.Bind(wx.EVT_BUTTON, self.selectAll)
+        self.view.but4.Bind(wx.EVT_BUTTON, self.deselectAll)
         self.view.Show()
 
-    #def OnKeyDown(self, event):
-    #    keycode = event.GetKeyCode()
-    #    if keycode == wx.WXK_ENTER:
-    #        self.AddWord()
-    #    event.Skip()
+    def clearAll(self, event):
+        self.view.dataList.DeleteAllItems()
+        self.model.fulllist = []
+
+    def selectAll(self, event):
+        self.view.dataList.SelectAll()
+
+    def deselectAll(self, event):
+        self.view.dataList.DeselectAll()
 
     def AddWord(self, event):
-        button = event.GetEventObject()
-        b = button.GetName()
-        if b =="btn1":
-            self.model.addWord(self.view.PrintWord())
-            self.model.downloadData()
-
-    #def WordChange(self, message):
-    #    self.view.PrintWord()
+        self.model.addWord(self.view.printWord())
+        self.model.downloadData()
+        self.view.updateRecord(self.model.allRecords())
