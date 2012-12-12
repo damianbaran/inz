@@ -1,10 +1,17 @@
 import wx 
 from wx.lib.pubsub import Publisher as pub
+from wx.lib.mixins.listctrl import CheckListCtrlMixin, ListCtrlAutoWidthMixin
 #from plikmvc import View
+
+class CheckListCtrl(wx.ListCtrl, CheckListCtrlMixin, ListCtrlAutoWidthMixin):
+    def __init__(self, parent):
+        wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.SUNKEN_BORDER)
+        CheckListCtrlMixin.__init__(self)
+        ListCtrlAutoWidthMixin.__init__(self)
 
 class MainFrame(wx.Frame):
     def __init__(self, master):
-        wx.Frame.__init__(self, None, title="Moja aplikacja", size=(640,480))
+        wx.Frame.__init__(self, None, title="Moja aplikacja", size=(1024,700))
 
         menu = wx.MenuBar()
         files = wx.Menu()
@@ -32,5 +39,10 @@ class MainFrame(wx.Frame):
         self.SetMenuBar(menu)
         self.CreateStatusBar()
 
-        self.panel1 = wx.Panel(self, pos=(0,0), size=(300,25))
-        #self.panel2 = wx.Panel(self, pos=(0,25), size=(300,25))
+        #self.frame_top = wx.Frame(self, None, title='Aaa' size=(320,220))
+        #top panel
+        #self.panel = wx.Panel(self, pos=(0,0), size=(1024,25))
+        #self.title = 'Google Scholar Search'
+        #wx.StaticText(self.panel, -1, self.title, pos=(10,5), style=wx.ALIGN_CENTER)
+        self.panel1 = wx.Panel(self, -1, pos=(0,0), size=(330,210))
+        self.panel2 = wx.Panel(self, -1, pos=(0,220), size=(450,400))

@@ -8,12 +8,15 @@ from wx.lib.pubsub import Publisher as pub
 
 class Model:
     def __init__(self):
+        """Konstruktor"""
         self.item = {'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
+        self.full = []
         self.all_item = 0
 
     def addWord(self, value):
+        """Funkcja pobiera dane wprowadzone przez użytkownika wyszukania dancyh"""
         self.item['query'] = str(value[0])
         self.item['exact'] = str(value[1])
         self.item['oneof'] = str(value[2])
@@ -25,21 +28,23 @@ class Model:
         #pub.sendMessage("Word", self.item)
         #print self.item
 
-    def pobierz(self):
-        self.query()
-        self.all_page()
+    def downloadData(self):
+        """Funkcja pobiera wszystkie dane wyszukiwania"""
+        self.queryScholar()
+        self.allPages()
 
-    def all_page(self):
-        #print self.all_item
+    def allPages(self):
+        """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
         if self.all_item > 10:
             for i in range(10,self.all_item,10):
                 item_add = {'num': 0}
                 self.item.update(item_add)
                 self.item['num'] = i
                 self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
-                self.query()
+                self.queryScholar()
 
     def urlScholar(self):
+        """Funkcja zawiera url wyszukiwania do którego można wprowadzić dane użytkownika"""
         self.s0 = 'start=%(num)s&'
         self.s1 = 'as_q=%(query)s&'
         self.s2 = 'as_epq=%(exact)s&'
@@ -52,62 +57,65 @@ class Model:
         self.s9 = 'as_yhi=%(yhigh)s&'
         self.scholar_url = 'http://scholar.google.com/scholar?'+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
 
-    def query(self):
+    def queryScholar(self):
+        """Funkcja pobiera jedną stonę wyszukiwania. Zamienia na format do przeszkiwania html'a.
+        Pobiera wszystkie dane z tej strony do kolejnych działań"""
         if self.all_item == 0:
             self.urlScholar()
         
         url = self.scholar_url % self.item
-        #print url
         r = urllib2.Request(url=url,
                             headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
         op = urllib2.urlopen(r)
         html = op.read()
         self.htmlsoup = BeautifulSoup(html)
         if self.all_item == 0:
-            self.number_page_sch()
-        self.download_all()
-        self.test()
-
-    def item_in_page(self):
+            self.numberPageSearch()
+        self.doThis()
+        self.onePage()
+        self.allRecords()
+        
+    def numberRecordsOnPage(self):
+        """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
         
-    def number_page_sch(self):
+    def numberPageSearch(self):
+        """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""
         num_page = self.htmlsoup.find('div', {'id': "gs_ab_md"}).get_text()
         num_page = num_page.split()
-        num_page[1] = re.sub(r',', '', num_page[1])
+        
+        try:
+            num_page[1] = re.sub(r',', '', num_page[1])
+            if num_page[0].isdigit() == True:
+                self.all_item = int(num_page[0])
+            elif num_page[1].isdigit() == True:
+                self.all_item = int(num_page[1])
+        except IndexError:
+            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad', wx.OK | wx.ICON_INFORMATION)
 
-        if num_page[0].isdigit() == True:
-            self.all_item = int(num_page[0])
-        elif num_page[1].isdigit() == True:
-            self.all_item = int(num_page[1])
-
-    """Parsery"""
-
-    def page_parse(self):
+    def findData(self):
+        """Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych"""
         self.title_2 = []
         self.title_url_2 = []
         self.text = []
+        
         """ Nazwa artykulu i link do niego """
         for tag in self.htmlsoup.find_all(True):
             if tag.name == 'div' and tag.get('class') and tag.h3:
-                #print tag.h3.get_text()
                 if tag.h3.span:
                     tag.h3.span.clear()
                 self.title_2.append(tag.h3.get_text())
                 if tag.h3.a:
-                    #print tag.h3.a['href']
                     self.title_url_2.append(tag.h3.a['href'])
                 else:
                     self.title_url_2.append("Brak")
-                    #print "Nie ma"
 
         """ Autorzy artykułu """
         for tag in self.htmlsoup.find_all('div','gs_a'):
-            #print tag.get_text()
             self.text.append(tag.get_text())
 
-        """ Pobieranie lików do kazdego artykulu """
+        """ Pobieranie lików do kazdego artykulu i odfiltorwanie ich z opcją dodanie brakującego fragmentu sdresu url"""
         l = ['z-index:400','z-index:399','z-index:398','z-index:397',
              'z-index:396','z-index:395','z-index:394','z-index:393',
              'z-index:392','z-index:391']
@@ -118,7 +126,6 @@ class Model:
         rel_url = 'Brak'
         ver_txt = 'Brak'
         ver_url = 'Brak'
-        #print self.item_count
         for i in range(self.item_count):
             for tag in self.htmlsoup.find_all('div',{'style': l[i]}):
                 for tag2 in (tag.find_all('a')):
@@ -158,56 +165,72 @@ class Model:
                 rel_url = 'Brak'
                 ver_txt = 'Brak'
                 ver_url = 'Brak'
-        #print self.links
 
-    def download_all(self):
-        self.item_in_page()
-        self.page_parse()
-        self.Title()
-        self.Url_title()
-        self.Author()
-        self.Year()
-        self.Publisher()
+    def doThis(self):
+        """Funkcja wywołuje kolejne funkcje"""
+        self.numberRecordsOnPage()
+        self.findData()
+        self.parseTitle()
+        self.parseUrlTitle()
+        self.parseAuthor()
+        self.parseYear()
+        self.parsePublisher()
 
-    def test(self):
-        all_items = []
+    def onePage(self):
+        """Funkcja zapisuje końcowe dane z jednej strony do listy"""
+        self.all_items = []
         for i in range(self.item_count):
             print self.title[i]
-            all_items.append(self.title[i])
+            #1 title
+            self.all_items.append(self.title[i])
             print self.title_url[i]
-            all_items.append(self.title_url[i])
+            #2 url title
+            self.all_items.append(self.title_url[i])
             print self.author[i] + " rok: " + self.year[i]
-            all_items.append(self.author[i])
-            all_items.append(self.year[i])
+            #3 author
+            self.all_items.append(self.author[i])
+            #4 year
+            self.all_items.append(self.year[i])
             for j in range(i*6,(i*6+6),6):
                 print 'Cited by ' + self.links[j] + ' url: ' + self.links[j+1]
-                all_items.append(self.links[j])
-                all_items.append(self.links[j+1])
+                #5 cited number
+                self.all_items.append(self.links[j])
+                #6 cited links
+                self.all_items.append(self.links[j+1])
                 print self.links[j+2] + ' url: ' + self.links[j+3]
-                all_items.append(self.links[j+2])
-                all_items.append(self.links[j+3])
+                #7 polecane text
+                self.all_items.append(self.links[j+2])
+                #8 polecane links
+                self.all_items.append(self.links[j+3])
                 print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
-                all_items.append(self.links[j+4])
-                all_items.append(self.links[j+5])
+                #9 version number
+                self.all_items.append(self.links[j+4])
+                #10 version links
+                self.all_items.append(self.links[j+5])
             print self.publish[i] +'\n\n'
-        #print all_items
+            #11 publisher
+            self.all_items.append(self.publish[i])
+        #print self.all_items
 
-    def Url_title(self):
+    def allRecords(self):
+        """Funckja sumuje wszystkie pobrane listy"""
+        self.full += self.all_items
+
+    def parseUrlTitle(self):
+        """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""
         self.title_url = []
         for i in range(0,len(self.title_url_2),2):
-            #print self.title_url_2[i]
             self.title_url.append(self.title_url_2[i])
-        #print self.title_url
         
-    def Title(self):
+    def parseTitle(self):
+        """Funkcja odfiltrowuje niepotrzebne dane dla tytulu rekordu"""
         self.title = []
         for i in range(0,len(self.title_2),2):
             self.title_2[i] = self.title_2[i].strip()
-            #print self.title_2[i]
             self.title.append(self.title_2[i])
-        #print self.title
     
-    def Year(self):
+    def parseYear(self):
+        """Funkcja odfiltrowuje rok z pobranego ciągu znaków"""
         self.year = []
         for i in range(len(self.text)):
             d = re.findall(r'\b(?:20|19)\d{2}\b',self.text[i])
@@ -215,17 +238,18 @@ class Model:
                 d.append('0')
             d = d.pop()
             self.year.append(d)                
-        #print self.year
 
-    def Author(self):
+    def parseAuthor(self):
+        """Funkcja odfiltrowuje autorów z pobranego ciągu znaków"""
         self.author = []
         for i in range(len(self.text)):
             a = self.text[i].split('-',1)
             self.author.append(a[0])
 
-    def Publisher(self):
+    def parsePublisher(self):
+        """Funkcja odfiltrowuje wydawce z pobranego ciągu znaków"""
         self.publish = []
         for i in range(len(self.text)):
             p = self.text[i].split('- ',-1)
             self.publish.append(p[len(p)-1])
-        
+            
