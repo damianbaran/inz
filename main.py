@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 import wx
+import sys
 from src.modules.controler import Controler
 
 
 class Main:
-    def __init__(self, app): 
+    def __init__(self, app):
         self.controler = Controler() 
 
 if __name__ == "__main__":

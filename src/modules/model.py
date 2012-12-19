@@ -1,21 +1,12 @@
-﻿import wx
+# -*- coding: utf-8 -*-
+import wx
 import re
 import sys
 import urllib
 import urllib2
 from bs4 import BeautifulSoup
-from wx.lib.pubsub import Publisher as pub
 
-class Record(object):
-    """"""
-    def __init__(self, cittxt, title, author, year, publish):
-        self.cittxt = cittxt
-        self.year = year
-        self.author = author
-        self.publish = publish
-        self.title = title
-
-class Model(Record):
+class Model:
     def __init__(self):
         """Konstruktor"""
         self.item = {'query': "", 'exact': "", 'oneof': "", 'without': "",
@@ -26,27 +17,29 @@ class Model(Record):
 
     def addWord(self, value):
         """
-        Funkcja pobiera dane wprowadzone przez użytkownika
-        wyszukania dancyh
+        Funkcja pobiera dane wprowadzone przez uzytkownika
+        wyszukania danych
         """
         value = self.replString(value)
-        self.item['query'] = str(value[0])
-        self.item['exact'] = str(value[1])
-        self.item['oneof'] = str(value[2])
-        self.item['without'] = str(value[3])
-        self.item['author'] = str(value[4])
-        self.item['pub'] = str(value[5])
-        self.item['ylow'] = str(value[6])
-        self.item['yhigh'] = str(value[7])
+        self.item['query'] = value[0]
+        self.item['exact'] = value[1]
+        self.item['oneof'] = value[2]
+        self.item['without'] = value[3]
+        self.item['author'] = value[4]
+        self.item['pub'] = value[5]
+        self.item['ylow'] = value[6]
+        self.item['yhigh'] = value[7]
 
     def replString(self, data):
         """
-        Funkcja sprawdza czy string podany przez użytkownika
-        nie zawiera spacji, jeśli tak to zamienia na '+'
+        Funkcja sprawdza czy string podany przez uzytkownika
+        nie zawiera spacji, jesli tak to zamienia na '+'
         """
+        print data
         tmp = []
         for i in range(len(data)):
-            s = re.sub(r' ','+', str(data[i]))
+            s = re.sub(u' ','+', data[i])
+            s = s.encode('utf-8')
             tmp.append(s)
         tuple(tmp)
         return tmp
@@ -70,8 +63,8 @@ class Model(Record):
 
     def urlScholar(self):
         """
-        Funkcja zawiera url wyszukiwania do którego można wprowadzić
-        dane użytkownika
+        Funkcja zawiera url wyszukiwania do ktorego można wprowadzic
+        dane uzytkownika
         """
         self.s0 = 'start=%(num)s&'
         self.s1 = 'as_q=%(query)s&'
@@ -80,14 +73,14 @@ class Model(Record):
         self.s4 = 'as_eq=%(without)s&'
         self.s5 = 'as_occt=any&'
         self.s6 = 'as_sauthors=%(author)s&'
-        self.s7 = '&as_publication=%(pub)s&'
+        self.s7 = 'as_publication=%(pub)s&'
         self.s8 = 'as_ylo=%(ylow)s&'
         self.s9 = 'as_yhi=%(yhigh)s&'
         self.scholar_url = 'http://scholar.google.com/scholar?'+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
 
     def queryScholar(self):
         """
-        Funkcja pobiera jedną stonę wyszukiwania. Zamienia na format do
+        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
         przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
         kolejnych działań
         """
@@ -95,6 +88,7 @@ class Model(Record):
             self.urlScholar()
         
         url = self.scholar_url % self.item
+        #print url
         r = urllib2.Request(url=url,
                             headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
         op = urllib2.urlopen(r)
@@ -237,8 +231,10 @@ class Model(Record):
                 #print self.links[j+2] + ' url: ' + self.links[j+3]
                 #print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
             #print 'Publish' + self.publish[i] +'\n\n'
-            one = Record(self.links[j], self.title[i],
-                         self.author[i], self.year[i], self.publish[i])
+            """Object record"""
+            #one = Record(self.links[j], self.title[i],
+            #             self.author[i], self.year[i], self.publish[i])
+            one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], self.title_url[i])
             self.all_items.append(one)
         self.fulllist += self.all_items
         

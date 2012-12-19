@@ -1,5 +1,5 @@
-import wx 
-from wx.lib.pubsub import Publisher as pub
+# -*- coding: utf-8 -*-
+import wx
 
 class MainFrame(wx.Frame):
     def __init__(self, master):
