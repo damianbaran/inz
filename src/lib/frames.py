@@ -39,5 +39,6 @@ class MainFrame(wx.Frame):
         
         self.panel1 = wx.Panel(self, -1, pos=(0,0), size=(330,210))
         self.panel2 = wx.Panel(self, -1, pos=(0,210), size=(1024,410))
+        self.panel3 = wx.Panel(self, -1, pos=(330,0), size=(330,210))
         
 

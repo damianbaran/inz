@@ -13,7 +13,6 @@ class Model:
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
         self.fulllist = []
-        self.selectlist = []
         self.all_item = 0
 
     def addWord(self, value):
@@ -44,13 +43,7 @@ class Model:
             tmp.append(s)
         tuple(tmp)
         return tmp
-    
-    def selectingString(self, data):
-        d = []
-        for i in range(len(data)):
-            d.append(self.fulllist[data[i]])
-        print d
-        return d
+        
 
     def downloadData(self):
         """Funkcja pobiera wszystkie dane wyszukiwania"""
@@ -94,19 +87,13 @@ class Model:
         if self.all_item == 0:
             self.urlScholar()
         
-        #url = self.scholar_url % self.item
+        url = self.scholar_url % self.item
         #print url
-        #r = urllib2.Request(url=url,
-        #                    headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
-        #op = urllib2.urlopen(r)
-        #html = op.read()
-        l = open("test.htm","r")
-        html = l.read()
-        #l.close()
-        #print html
-        #print html
+        r = urllib2.Request(url=url,
+                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
+        op = urllib2.urlopen(r)
+        html = op.read()
         self.htmlsoup = BeautifulSoup(html)
-        #print self.htmlsoup
         if self.all_item == 0:
             self.numberPageSearch()
         self.doThis()
@@ -245,25 +232,11 @@ class Model:
                 #print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
             #print 'Publish' + self.publish[i] +'\n\n'
             """Object record"""
-            #one = Record('', self.links[j], self.title[i],
+            #one = Record(self.links[j], self.title[i],
             #             self.author[i], self.year[i], self.publish[i])
             one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], self.title_url[i])
             self.all_items.append(one)
         self.fulllist += self.all_items
-        
-    def filtruj(self, record, filtr):
-        d = []
-        dic = {'Leszek Wojnar':'L Wojnar', 'Marcin Majorek':'M Majorek', 'Zbiegniew Latala':'Z Latala'}
-        for i in range(len(record)):
-            a = record[i]
-            #print a[3]
-            if re.findall(dic[filtr],a[3]):
-                print '--------------'
-                #print a
-                d.append(a)
-                print '--------------'
-        print d
-        return d
         
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""

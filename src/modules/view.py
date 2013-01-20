@@ -57,6 +57,12 @@ class View(MainFrame):
         self.but4 = wx.Button(self.panel2, -1, label='Odznacz Wszystko', pos=(790,55))
         self.but5 = wx.Button(self.panel2, -1, label='Zaznacz Rekord', pos=(790,80))
         self.but6 = wx.Button(self.panel2, -1, label='Odznacz Rekord', pos=(790,105))
+        self.but7 = wx.Button(self.panel2, -1, label='Dodaj', pos=(790,130))
+        
+        self.tmp = ['Leszek Wojnar','Marcin Majorek','Zbiegniew Latala','cc','dd','ee','ff']
+        text9 = wx.StaticText(self.panel3, label="Imie i nazwisko: ", pos=(10,12.5))
+        self.ch = wx.Choice(self.panel3, -1, choices=self.tmp, pos=(90,10))
+        self.but8 = wx.Button(self.panel3, -1, label='Filtruj', pos=(200,30))
         
     def updateRecord(self, data):
         """
@@ -64,6 +70,10 @@ class View(MainFrame):
         #self.dataList.SetObjects(data)
         for i in range(len(data)):
             self.dataList.Append(data[i])
+            
+    def getChoice(self):
+        h = self.ch.GetCurrentSelection()
+        return self.tmp[h]
             
     def selectAll(self):
         num = self.dataList.GetItemCount()
@@ -80,7 +90,16 @@ class View(MainFrame):
         for i in range(num):
             if self.dataList.IsSelected(i):
                 self.dataList.CheckItem(i)
-                
+
+    def selectOneClick(self):
+        l = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                l.append(i)
+        #print l
+        return l
+            
     def deselectOne(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
