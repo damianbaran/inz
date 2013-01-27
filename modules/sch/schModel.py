@@ -2,19 +2,25 @@
 import wx
 import re
 import sys
-import urllib
+#import urllib
 import urllib2
 from bs4 import BeautifulSoup
+#from src.lib.process import MainProcess
+#from threading import *
 
-class Model:
+class sModel:
     def __init__(self):
-        """Konstruktor"""
+        """Konstruktor""" 
         self.item = {'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
         self.fulllist = []
+        self.selectlist = []
         self.all_item = 0
-
+        self.mendata = []
+        self.c = float(0)
+        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
+        
     def addWord(self, value):
         """
         Funkcja pobiera dane wprowadzone przez uzytkownika
@@ -29,6 +35,8 @@ class Model:
         self.item['pub'] = value[5]
         self.item['ylow'] = value[6]
         self.item['yhigh'] = value[7]
+        
+#        print self.item
 
     def replString(self, data):
         """
@@ -43,13 +51,17 @@ class Model:
             tmp.append(s)
         tuple(tmp)
         return tmp
-        
+    
+    def selectingString(self, data):
+        self.mendata = []
+        for i in range(len(data)):
+            self.mendata.append(self.fulllist[data[i]])
+        return self.mendata
 
     def downloadData(self):
         """Funkcja pobiera wszystkie dane wyszukiwania"""
         self.queryScholar()
         self.allPages()
-        self.allRecords()
 
     def allPages(self):
         """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
@@ -60,6 +72,7 @@ class Model:
                 self.item['num'] = i
                 self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
                 self.queryScholar()
+                
 
     def urlScholar(self):
         """
@@ -87,22 +100,36 @@ class Model:
         if self.all_item == 0:
             self.urlScholar()
         
-        url = self.scholar_url % self.item
-        #print url
-        r = urllib2.Request(url=url,
-                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
-        op = urllib2.urlopen(r)
-        html = op.read()
+#        url = self.scholar_url % self.item
+#        r = urllib2.Request(url=url,
+#                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
+#        op = urllib2.urlopen(r)
+#        html = op.read()
+#        print url
+        l = open("test.htm","r")
+        html = l.read()
+#        print html
         self.htmlsoup = BeautifulSoup(html)
         if self.all_item == 0:
             self.numberPageSearch()
         self.doThis()
         self.onePage()
+        #self.procent()
+        
+    def procent(self):
+        done = float(0)
+        step = 10
+        
+        done = (float(step)/float(self.all_item))*100
+        self.c += done
+        if self.c < 100:
+            print self.c
+            #return self.c
+        
         
     def numberRecordsOnPage(self):
         """Funkcja zlicza liczbę rekordów na stronie"""
-        div_count = self.htmlsoup.find_all('div', {'class': "gs_r",
-                                                   'style': re.compile("z-index:")})
+        div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
         print self.item_count
         
@@ -134,7 +161,10 @@ class Model:
             if tag.name == 'div' and tag.get('class') and tag.h3:
                 if tag.h3.span:
                     tag.h3.span.clear()
-                self.title_2.append(tag.h3.get_text())
+                t = tag.h3.get_text()
+                if t.find('User profiles for author') == -1:
+#                    print tag.h3.get_text()
+                    self.title_2.append(tag.h3.get_text())
                 if tag.h3.a:
                     self.title_url_2.append(tag.h3.a['href'])
                 else:
@@ -232,15 +262,32 @@ class Model:
                 #print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
             #print 'Publish' + self.publish[i] +'\n\n'
             """Object record"""
-            #one = Record(self.links[j], self.title[i],
+            #one = Record('', self.links[j], self.title[i],
             #             self.author[i], self.year[i], self.publish[i])
             one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], self.title_url[i])
             self.all_items.append(one)
         self.fulllist += self.all_items
         
+    def filtruj(self, record, filtr, dbDane):
+        """
+        record = [('','',''),('','',''),('','','')]
+        filtr = ''
+        dbDane = {'':'','':''}
+        """
+        d = []
+        dict = dbDane        
+        for i in range(len(record)):
+            a = record[i]
+            c = dict[filtr].split(', ')
+            print c
+            for j in range(len(c)):
+                if re.findall(c[j],a[3]):
+                    d.append(a)
+        return d
+    
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""
-        #print self.full
+        #print self.fulllist
         return self.fulllist
 
     def parseUrlTitle(self):

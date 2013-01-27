@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import wx
-from src.lib.frames import MainFrame
 import wx.lib.mixins.listctrl as listmix
-from ObjectListView import ObjectListView, ColumnDefn
+from modules.sch.schControler import sControler
+
 
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
     def __init__(self, *args, **kwargs):
@@ -10,10 +10,21 @@ class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAuto
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
 
-class View(MainFrame):
+class mView(wx.Panel):
     def __init__(self, parent):
-        MainFrame.__init__(self, None)
+        wx.Panel.__init__(self, parent=parent)
+        
+        self.scontrol = sControler()
 
+        ########################################################################
+        #  Panel 1
+        ########################################################################
+        self.panel1 = wx.Panel(self, -1, pos=(0,0), size=(330,210))
+        self.panel2 = wx.Panel(self, -1, pos=(0,210), size=(1024,410))
+        self.panel3 = wx.Panel(self, -1, pos=(330,0), size=(330,210))
+        self.panel4 = wx.Panel(self, -1, pos=(660,0), size=(360,210))
+
+        
         wx.StaticBox(self.panel1, -1, 'Wyszukiwanie Google Scholar',
                      pos=(5, 5), size=(320, 200))
         #1
@@ -40,30 +51,14 @@ class View(MainFrame):
         text8 = wx.StaticText(self.panel1, label=" do ", pos=(165,180))
         self.ctrl8 = wx.TextCtrl(self.panel1, size=(50,20), pos=(185,177.5))
         #button
-        self.but1 = wx.Button(self.panel1, -1, label='Pobierz', pos=(245,177.5))
+        self.butt = wx.Button(self.panel1, -1, label='Pobierz', pos=(245,177.5))
         
+        ########################################################################
+        #  Panel 2
+        ########################################################################
         
-        self.dataList = TestListCtrl(self.panel2, pos=(5,5), size=(780,400),
-                                     style=wx.LC_REPORT | wx.BORDER_SUNKEN)
-        self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
-        self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=70)
-        self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=220)
-        self.dataList.InsertColumn(3, 'Autor', format=wx.LIST_FORMAT_LEFT, width=150)
-        self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=100)
-        self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=140)
-
-        self.but2 = wx.Button(self.panel2, -1, label='Usun Wszystko', pos=(790,5))
-        self.but3 = wx.Button(self.panel2, -1, label='Zaznacz Wszystko', pos=(790,30))
-        self.but4 = wx.Button(self.panel2, -1, label='Odznacz Wszystko', pos=(790,55))
-        self.but5 = wx.Button(self.panel2, -1, label='Zaznacz Rekord', pos=(790,80))
-        self.but6 = wx.Button(self.panel2, -1, label='Odznacz Rekord', pos=(790,105))
-        self.but7 = wx.Button(self.panel2, -1, label='Dodaj', pos=(790,130))
-        
-        self.tmp = ['Leszek Wojnar','Marcin Majorek','Zbiegniew Latala','cc','dd','ee','ff']
-        text9 = wx.StaticText(self.panel3, label="Imie i nazwisko: ", pos=(10,12.5))
-        self.ch = wx.Choice(self.panel3, -1, choices=self.tmp, pos=(90,10))
-        self.but8 = wx.Button(self.panel3, -1, label='Filtruj', pos=(200,30))
-        
+            
+        """        
     def updateRecord(self, data):
         """
         """
@@ -73,8 +68,11 @@ class View(MainFrame):
             
     def getChoice(self):
         h = self.ch.GetCurrentSelection()
+        if h == -1:
+            raise ValueError
+        print h
         return self.tmp[h]
-            
+        
     def selectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
@@ -116,3 +114,4 @@ class View(MainFrame):
         txt7 = self.ctrl7.GetValue()
         txt8 = self.ctrl8.GetValue()
         return (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
+        """
