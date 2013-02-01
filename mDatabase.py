@@ -10,83 +10,178 @@ DeclarativeBase = declarative_base(engine) #deklaracja mapowania
 metadata = DeclarativeBase.metadata #polaczenie klas z opisem tabel wraz z fizyczna tabela w bazie danych
 
 ###########################################
+## Documentation for a class.
+#   
+#   More details.
 class Person(DeclarativeBase):
     __tablename__ = 'person'
 
     id = Column(Integer, primary_key=True)
-    college_name = Column(String, ForeignKey('college.name'))
-    group_name = Column(String, ForeignKey('group.name'))
     name = Column(String)
     surname = Column(String)
     filtr = Column(String)
-    college = relation("College",  backref='person')
-    group = relation("Group",  backref='person')
     
-    def __init__(self, college_name, group_name, name, surname, filtr):
-        self.college_name = college_name
-        self.group_name = group_name
+    ## The constructor.
+    #  @param self name.
+    #  @param self surname.
+    #  @param self filtr.
+    def __init__(self, name, surname, filtr):
         self.name = name
         self.surname = surname
         self.filtr = filtr
-
+    
+    ## Documentation for a method.
+    #   @param self The object pointer.
     def __repr__(self):
-        return "Person('%s','%s','%s','%s','%s')" % (self.college_name,  self.group_name,  self.name, self.surname, self.filtr)
+        return "('%s','%s','%s')" % (self.name, self.surname, self.filtr)
 
 ###########################################
 class College(DeclarativeBase):
     __tablename__ = 'college'
     
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    name = Column(String,  unique=True)
     
     def __init__(self, name):
         self.name = name
     
     def __repr__(self):
-        return "College('%s')" % (self.name)
+        return "('%s')" % (self.name)
     
 ###########################################
 class Faculty(DeclarativeBase):
     __tablename__ = 'faculty'
     
     id = Column(Integer, primary_key=True)
-    college_name = Column(String, ForeignKey('college.name'))
+    college_id = Column(Integer, ForeignKey('college.id'))
     name = Column(String)
     college = relation("College",  backref='faculty')
     
-    def __init__(self, college_name,  name):
-        self.college_name = college_name
+    def __init__(self, college_id,  name):
+        self.college_id = college_id
         self.name = name
         
     def __repr__(self):
-        return "Faculty('%s','%s')" % (self.college_name,  self.name)
+        return "('%s','%s')" % (self.college_id,  self.name)
     
 ###########################################
 class Institute(DeclarativeBase):
     __tablename__ = 'institute'
     
     id = Column(Integer, primary_key=True)
-    faculty_name = Column(String, ForeignKey('faculty.name'))
+    faculty_id = Column(String, ForeignKey('faculty.id'))
     name = Column(String)
     faculty = relation('Faculty',  backref='institute')
     
-    def __init__(self, faculty_name,  name):
-        self.faculty_name = faculty_name
+    def __init__(self, faculty_id,  name):
+        self.faculty_id = faculty_id
         self.name = name
         
     def __repr__(self):
-        return "Institue('%s','%s')" % (self.faculty_name,  self.name)
+        return "('%s','%s')" % (self.faculty_id,  self.name)
 
 ###########################################
 class Group(DeclarativeBase):
     __tablename__ = 'group'
     
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    name = Column(String,  unique=True)
     
     def __init__(self, name):
         self.name = name
         
     def __repr__(self):
-        return "Group('%s')" % (self.name)
+        return "('%s')" % (self.name)
     
+###########################################
+class ColPer(DeclarativeBase):
+    """Tabela asocjacyjna tabel Person oraz College"""
+    __tablename__ = 'colper'
+    
+    college_id = Column(Integer, ForeignKey('college.id'),  primary_key=True)
+    person_id = Column(Integer, ForeignKey('person.id'),  primary_key=True)
+    college = relation("College",  backref='colper')
+    person = relation("Person",  backref='colper')
+    
+    def __init__(self, college_id,  person_id):
+        self.college_id = college_id
+        self.person_id = person_id
+        
+    def __rerp__(self):
+        return "('%s','%s')" % (self.college_id,  self.person_id)
+        
+###########################################
+class GroPer(DeclarativeBase):
+    """Tabela asocjacyjna tabel Person oraz Group"""
+    __tablename__ = 'groper'
+    
+    group_id = Column(Integer, ForeignKey('group.id'),  primary_key=True)
+    person_id = Column(Integer, ForeignKey('person.id'),  primary_key=True)
+    group = relation("Group",  backref='groper')
+    person = relation("Person",  backref='groper')
+    
+    def __init__(self, group_id,  person_id):
+        self.group_id = group_id
+        self.person_id = person_id
+        
+    def __rerp__(self):
+        return "('%s','%s')" % (self.group_id,  self.person_id)
+    
+###########################################
+class Publication(DeclarativeBase):
+    __tablename__ = 'publication'
+    
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    author = Column(String)
+    citation = Column(Integer)
+    type = Column(String)
+    year = Column(Integer)
+    doi = Column(String,  unique=True)
+    journal_id = Column(Integer, ForeignKey('journal.id'))
+    journal = relation('Journal',  backref='publication')
+    
+    def __init__(self, title, author, citation, type, year, doi, journal_id):
+        self.title = title
+        self.author = author
+        self.citation = citation
+        self.type = type
+        self.year = year
+        self.doi = doi
+        self.journal_id = journal_id
+        
+    def __repr__(self):
+        return "('%s','%s','%s','%s','%s','%s','%i')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.journal_id)
+    
+###########################################
+class Journal(DeclarativeBase):
+    __tablename__ = 'journal'
+    
+    id = Column(Integer, primary_key=True)
+    full_name = Column(String)
+    short_name = Column(String)
+    issn = Column(String,  unique=True)
+    
+    def __init__(self, full_name,  short_name,  issn):
+        self.full_name = full_name
+        self.short_name = short_name
+        self.issn = issn
+        
+    def __repr__(self):
+        return "('%s', '%s', '%s')" % (self.full_name,  self.short_name,  self.issn)
+        
+###########################################
+class PerPub(DeclarativeBase):
+    __tablename__ = 'perpub'
+    
+    person_id = Column(Integer, ForeignKey('person.id'),  primary_key=True)
+    pub_id = Column(Integer, ForeignKey('publication.id'),  primary_key=True)
+    person = relation("Person",  backref='perpub')
+    pub = relation("Publication",  backref='perpub')
+    
+    def __init__(self, person_id, pub_id):
+        self.person_id = person_id
+        self.pub_id = pub_id
+    
+    def __repr__(self):
+        return "('%s','%s')" % (self.person_id, self.pub_id)

@@ -18,14 +18,17 @@ class sModel:
         self.selectlist = []
         self.all_item = 0
         self.mendata = []
-        self.c = float(0)
-        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
+        self.allgroupitems = []
+        self.listauthor = []
+        ## A class variable.
+        self.c = float(0) ##  zmiennna do def procent
+#        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
         
     def addWord(self, value):
         """
         Funkcja pobiera dane wprowadzone przez uzytkownika
         wyszukania danych
-        """
+        """        
         value = self.replString(value)
         self.item['query'] = value[0]
         self.item['exact'] = value[1]
@@ -37,13 +40,16 @@ class sModel:
         self.item['yhigh'] = value[7]
         
 #        print self.item
+#        return 
+        
+#        print self.item
 
     def replString(self, data):
         """
         Funkcja sprawdza czy string podany przez uzytkownika
         nie zawiera spacji, jesli tak to zamienia na '+'
         """
-        print data
+#        print data
         tmp = []
         for i in range(len(data)):
             s = re.sub(u' ','+', data[i])
@@ -51,17 +57,48 @@ class sModel:
             tmp.append(s)
         tuple(tmp)
         return tmp
+
+#######################################
+## wyszukiwanie dla grupy uzytkownikow
+#######################################
+    
+    def searchGroup(self, data):
+        self.listauthor = data
+        print self.listauthor
+        
+    def downloadDataGroup(self):
+        """Funkcja pobiera wszystkie dane wyszukiwania"""
+        self.item['query'] = ''
+        self.item['exact'] = ''
+        self.item['oneof'] = ''
+        self.item['without'] = ''
+        self.item['author'] = ''
+        self.item['pub'] = ''
+        self.item['ylow'] = ''
+        self.item['yhigh'] = ''
+        tmp = len(self.listauthor)
+        for i in range(len(self.listauthor)):
+            self.item['author'] = self.listauthor[i]
+            print self.item['author']
+            self.queryScholar()
+            self.allPages()
+            self.all_item = 0
+
+#######################################
+## koniec funkcja dla wyszukiwania grupowego
+#######################################
     
     def selectingString(self, data):
+        """Funkcja przekazuje wybrane rekordy przez uzytkownika do medelu menadzera publikacji"""
         self.mendata = []
         for i in range(len(data)):
             self.mendata.append(self.fulllist[data[i]])
         return self.mendata
 
     def downloadData(self):
-        """Funkcja pobiera wszystkie dane wyszukiwania"""
         self.queryScholar()
         self.allPages()
+        self.all_item = 0
 
     def allPages(self):
         """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
@@ -100,14 +137,14 @@ class sModel:
         if self.all_item == 0:
             self.urlScholar()
         
-#        url = self.scholar_url % self.item
-#        r = urllib2.Request(url=url,
-#                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
-#        op = urllib2.urlopen(r)
-#        html = op.read()
+        url = self.scholar_url % self.item
+        r = urllib2.Request(url=url,
+                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
+        op = urllib2.urlopen(r)
+        html = op.read()
 #        print url
-        l = open("test.htm","r")
-        html = l.read()
+#        l = open("test.htm","r")
+#        html = l.read()
 #        print html
         self.htmlsoup = BeautifulSoup(html)
         if self.all_item == 0:
@@ -131,7 +168,7 @@ class sModel:
         """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
-        print self.item_count
+#        print self.item_count
         
     def numberPageSearch(self):
         """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""
@@ -275,19 +312,32 @@ class sModel:
         dbDane = {'':'','':''}
         """
         d = []
-        dict = dbDane        
+        dict = dbDane
+        c = dict[filtr].split(', ')
+        t = len(c)
+#        print t
+#        if t != 0 and t != 1:
         for i in range(len(record)):
             a = record[i]
             c = dict[filtr].split(', ')
-            print c
+#                print c
             for j in range(len(c)):
                 if re.findall(c[j],a[3]):
                     d.append(a)
+#        elif t == 1:
+#            for i in range(len(record)):
+#                a = record[i]
+##                print c
+#                if re.findall(c[0], a[3]):
+#                    d.append(a)
+#        else:
+#            print 'brak filtru'
         return d
     
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""
-        #print self.fulllist
+        t = len(self.fulllist)
+        print 'ilosc wszystkich rekordow: ' + str(t)
         return self.fulllist
 
     def parseUrlTitle(self):

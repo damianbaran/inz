@@ -17,3 +17,4 @@ class mModel():
         self.data = data
         print self.data
         print 'dziala model menadzera'
+

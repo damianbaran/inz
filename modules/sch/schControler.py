@@ -3,7 +3,7 @@ import wx
 from schModel import sModel
 from modules.men.menModel import mModel
 
-class sControler:
+class sControler(sModel, mModel):
     """Controler dla modules.sch czyli wyszukiwania"""
     def __init__(self):
         self.smodel = sModel()
@@ -29,5 +29,11 @@ class sControler:
         self.smodel.addWord(data)
         self.smodel.fulllist = []
         self.smodel.downloadData()
-        self.smodel.all_item = 0
+#        self.smodel.all_item = 0
         
+    def AddWordGroup(self,  data):
+        self.smodel.searchGroup(data)
+        self.smodel.fulllist = []
+#        self.smodel.all_item = 0
+        self.smodel.downloadDataGroup()
+#        self.smodel.all_item = 0

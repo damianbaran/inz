@@ -3,10 +3,13 @@ import wx
 from modules.sch.schView import sView
 from modules.men.menView import mView
 from modules.baz.bazView import bView
+from publikacja import PubDialog
+from grupa import GroupDialog
+from wydawca import JourDialog
 
 class MainFrame(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, id = wx.ID_ANY, title = u"Wyszukiwarka Publikacji", pos = wx.DefaultPosition, size = wx.Size( 1024,650 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+        wx.Frame.__init__(self, None, id = wx.ID_ANY, title = u"Wyszukiwarka Publikacji", pos = wx.DefaultPosition, size = wx.Size( 1030,650 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
         
         self.panel_sch = sView(self)
         self.panel_men = mView(self)
@@ -25,6 +28,7 @@ class MainFrame(wx.Frame):
         self.SetSizer( firstSizer )
         self.Layout()
         self.statusbar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
+        self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
         self.menubar = wx.MenuBar( 0 )
         self.menu1 = wx.Menu()
         
@@ -49,16 +53,19 @@ class MainFrame(wx.Frame):
         self.menubar.Append( self.menu1, u"Widok" ) 
         		
         self.menu2 = wx.Menu()
-        self.m_menuItem5 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Szukaj", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menuItem5 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj Publikację", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu2.AppendItem( self.m_menuItem5 )
+        self.Bind(wx.EVT_MENU, self.onAddPub, self.m_menuItem5)
         		
-        self.m_menuItem6 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Edytuj", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menuItem6 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj Grupę", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu2.AppendItem( self.m_menuItem6 )
+        self.Bind(wx.EVT_MENU, self.onAddGroup, self.m_menuItem6)
         		
-        self.m_menuItem7 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Zamień", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menuItem7 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj Wydawcę", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu2.AppendItem( self.m_menuItem7 )
+        self.Bind(wx.EVT_MENU, self.onAddJournal, self.m_menuItem7)
         		
-        self.menubar.Append( self.menu2, u"Edycja" ) 
+        self.menubar.Append( self.menu2, u"Baza danych" ) 
         		
         self.menu3 = wx.Menu()
         self.m_menuItem8 = wx.MenuItem( self.menu3, wx.ID_ANY, u"Pomoc", wx.EmptyString, wx.ITEM_NORMAL )
@@ -74,42 +81,12 @@ class MainFrame(wx.Frame):
         		
         self.Centre( wx.BOTH )
         
-        
-        """
-        self.menu = wx.MenuBar()
-        files = wx.Menu()
-        self.schol = wx.MenuItem(files, 101,'&Wyszukiwarka')
-        files.AppendItem(self.schol)
-        self.mena = wx.MenuItem(files, 102,'&Menadzer')
-        files.AppendItem(self.mena)
-        files.AppendSeparator()
-        quit = wx.MenuItem(files,105,'&Wyjdz\tCtrl+Q','Quit Application')
-        files.AppendItem(quit)
-                    
-        self.Bind(wx.EVT_MENU, self.SearchPanel, self.schol)
-        self.Bind(wx.EVT_MENU, self.ManagePanel, self.mena)
-                
-        self.menu.Append(files, '&Widoki')
-            
-        self.SetMenuBar(self.menu)
-        self.sb = self.CreateStatusBar()
-        
-        self.panel_sch = View(self)
-        self.panel_men = View_men(self)
-        self.panel_men.Hide()
-        self.Centre()
-        
-        self.sizer = wx.BoxSizer(wx.VERTICAL)
-        self.sizer.Add(self.panel_sch, 1, wx.EXPAND)
-        self.sizer.Add(self.panel_men, 1, wx.EXPAND)
-        self.SetSizer(self.sizer)
-        """
-        
     def SearchPanel(self, event):
         if self.panel_men.IsShown() or self.panel_baz.IsShown():
             self.panel_men.Hide()
             self.panel_baz.Hide()
             self.panel_sch.Show()
+            self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
         self.Layout()
         
     def ManagePanel(self, event):
@@ -117,6 +94,7 @@ class MainFrame(wx.Frame):
             self.panel_sch.Hide()
             self.panel_baz.Hide()
             self.panel_men.Show()
+            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
         self.Layout() 
         
     def BasePanel(self, event):
@@ -124,8 +102,23 @@ class MainFrame(wx.Frame):
             self.panel_men.Hide()
             self.panel_sch.Hide()
             self.panel_baz.Show()
+            self.statusbar.SetStatusText(u'Jesteś w panelu zarzadzania baza')
         self.Layout()
-    
+        
+    def onAddPub(self, event):
+        dlg = PubDialog()
+        dlg.ShowModal()
+        dlg.Destroy()
+        
+    def onAddGroup(self, event):
+        dlg = GroupDialog()
+        dlg.ShowModal()
+        dlg.Destroy()
+        
+    def onAddJournal(self, event):
+        dlg = JourDialog()
+        dlg.ShowModal()
+        dlg.Destroy()
         
 if __name__ == "__main__":
     app = wx.App(False)
