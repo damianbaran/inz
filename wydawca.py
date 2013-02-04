@@ -40,7 +40,7 @@ class JourDialog ( wx.Dialog ):
         self.m_staticText2.Wrap( -1 )
         bSizer3.Add( self.m_staticText2, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
         
-        m_comboBox1Choices = cDatabase.getJournalName2(self.session)
+        m_comboBox1Choices = cDatabase.getJournalName(self.session)
         self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"", wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox1Choices, 0 )
         bSizer3.Add( self.m_comboBox1, 0, wx.ALL, 5 )
         
@@ -79,6 +79,9 @@ class JourDialog ( wx.Dialog ):
         self.m_button3 = wx.Button( self, wx.ID_ANY, u"Aktualizuj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button3, 0, wx.ALL, 5 )
         
+#        self.m_button2 = wx.Button( self, wx.ID_ANY, u"Usuń", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        bSizer11.Add( self.m_button2, 0, wx.ALL, 5 )
+        
         self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button4, 0, wx.ALL, 5 )
         
@@ -90,26 +93,51 @@ class JourDialog ( wx.Dialog ):
         self.Layout()
         
         self.Centre( wx.BOTH )
+
+###################################################
+## Bind
+###################################################
         
         self.m_button1.Bind(wx.EVT_BUTTON, self.addJournalValue)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
         self.m_button3.Bind(wx.EVT_BUTTON, self.editJournalValue)
+#        self.m_button2.Bind(wx.EVT_BUTTON, self.deleteJournalValue)
         
-    def __del__( self ):
-        pass
+###################################################
+## Metody
+###################################################
+        
+#    def deleteJournalValue(self, event):
+#        """Usuwanie wybranego wydawcy z bazy danych"""
+#        tx1 = self.m_comboBox1.GetValue()   #pobieranie nazwy wydawcy z kontrolki
+#        
+#        if tx1 != '':
+#            cDatabase.delJournalData(self.session, tx1) #wywoałnie metody usuwajcej rekord z bazy
+#        else:
+#            wx.MessageBox(u'Nie ma takiego wydawcy w bazie!', u'Błąd!', wx.OK | wx.ICON_INFORMATION) 
+#        
+#        #Po usunięciu wyświetlnie w kontrolce nowej listy wydawców
+#        m_comboBox1Choices = cDatabase.getJournalName(self.session)
+#        self.m_comboBox1.Clear()
+#        self.m_comboBox1.AppendItems(m_comboBox1Choices)
+#        self.m_comboBox1.SetSelection( 0 )
     
     def addJournalValue(self, event):
+        """Dodawanie nowego wydawcy do bazy danych"""
+        #Pobieranie danych wydawcy z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
         tx3 = self.m_textCtrl4.GetValue()
         t = (tx1, tx2, tx3)
         
+        #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' or tx3 != '':
-            cDatabase.setJournalData(self.session, t)
+            cDatabase.addJournalData(self.session, t)
         else:
-            wx.MessageBox(u'Nie podano pełnej nazwy \nlub numeru ISSN.', u'Bład', wx.OK | wx.ICON_INFORMATION)   
+            wx.MessageBox(u'Nie podano pełnej nazwy \nlub numeru ISSN.', u'Błąd', wx.OK | wx.ICON_INFORMATION)   
         
-        m_comboBox1Choices = cDatabase.getJournalName2(self.session)
+        #Wyczysczenie wszystkich kontrolek i aktualizacja listy wydawców
+        m_comboBox1Choices = cDatabase.getJournalName(self.session)
         self.m_comboBox1.Clear()
         self.m_comboBox1.AppendItems(m_comboBox1Choices)
 #        self.m_comboBox1.SetSelection( 0 )
@@ -117,21 +145,35 @@ class JourDialog ( wx.Dialog ):
         self.m_textCtrl4.SetValue('')
         
     def editJournalValue(self, event):
+        """Edytowanie wybranego wydawcy w bazie danych"""
+        #Pobieranie danych wydawcy z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
         tx3 = self.m_textCtrl4.GetValue()
         t = (tx1, tx2, tx3)
         
+        #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' or tx3 != '':
             try:
                 cDatabase.editJournalData(self.session, t)
                 wx.MessageBox(u'Dane zaktualizowano pomyślnie!', u'Sukces!', wx.OK | wx.ICON_INFORMATION) 
-            except Exception, e:
+            except Exception, e: #Wywołanie wyjtku, który został stworzony w zapytaniu do bazy
                 e
         
+        #Wyczysczenie wszystkich kontrolek i aktualizacja listy wydawców
         m_comboBox1Choices = cDatabase.getJournalName(self.session)
         self.m_comboBox1.Clear()
         self.m_comboBox1.AppendItems(m_comboBox1Choices)
+#        self.m_comboBox1.SetSelection( 0 )
+        self.m_textCtrl3.SetValue('')
+        self.m_textCtrl4.SetValue('')
     
     def close(self, event):
+        """Zamyka okienko wydawcy"""
         self.Destroy()
+
+if __name__ == "__main__":
+    app = wx.App(False)
+    controller = JourDialog()
+    controller.Show()
+    app.MainLoop()

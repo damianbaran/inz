@@ -168,7 +168,18 @@ class AuthorDialog ( wx.Dialog ):
 ## Metody
 ###################################################
 
+    def deletePerson(self, event):
+        """Usuwa wybranego autora"""
+        t = self.m_choice1.GetStringSelection()
+        a = cDatabase.getUserNameID(self.session)
+        self.tmp = a[t]
+        #dokończ bo nie działa :P
+        
+
     def editPersonID(self, event):
+        """Edycja wybranego autora"""
+        
+        #Pobieranie wartosci z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_comboBox2.GetValue()
         tx3 = self.m_comboBox3.GetValue()
@@ -178,6 +189,7 @@ class AuthorDialog ( wx.Dialog ):
         
         t = (tx1, tx2, tx3, tx4, tx5, tx6)
         
+        #Sprawdzanie czy wymagane wartości nie sa puste
         if tx1 == '' or tx2 == '' or tx3 == '' or tx4 == '' or tx5 == '' or tx6 == '':
             wx.MessageBox(u'Wszystkie wartości musz być uzupełnione!', u'Bład!', wx.OK | wx.ICON_INFORMATION)
             return
@@ -185,12 +197,14 @@ class AuthorDialog ( wx.Dialog ):
             cDatabase.editUserDialog(self.session, t, self.tmp)
             wx.MessageBox(u'Dane zostały zaktualizowane!', u'Sukces!', wx.OK | wx.ICON_INFORMATION)
         
+        #Aktualizacja listy autorów
         m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1.Clear()
         self.m_choice1.AppendItems(m_choice1Choices)
         self.m_choice1.SetSelection( 0 )
         
     def getPersonID(self, event):
+        """Funkcja pobiera wartosci z bazy i ustawia je w kontrolkach"""
         t = self.m_choice1.GetStringSelection()
         a = cDatabase.getUserNameID(self.session)
         self.tmp = a[t]
@@ -220,4 +234,5 @@ class AuthorDialog ( wx.Dialog ):
         self.m_textCtrl41.SetValue(data[5])
     
     def close(self, event):
+        """Zamknięcie okienka autorów"""
         self.Destroy()

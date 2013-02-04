@@ -97,22 +97,11 @@ def getCheckedUser(session, gname):
     return result
     
 ###############################################
-## metody polaczone z widokiem baz.bazView
+## zapytania dla tabeli Journal
 ###############################################
-    
-def addPubData(session, data):
-    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])
-    session.add(pub)
-    session.commit()
-    
-    id = data[8]
-    for i in range(len(id)):
-        tmp = PerPub(int(id[i]), pub.id)
-        session.add(tmp)
-    
-    session.commit()
-    
-def setJournalData(session,  data):
+
+def addJournalData(session, data):
+    """Dodawanie nowego wydawcy"""
     tmp =[]
     for t in session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id):
         tmp.append(t)
@@ -125,6 +114,7 @@ def setJournalData(session,  data):
         wx.MessageBox(u'Nazwa wydawcy jest unikatowa.\n Nie można dodać drugiego takiego wydawcy.', u'Wydawca istnieje!', wx.OK | wx.ICON_INFORMATION)
 
 def editJournalData(session, data):
+    """Edytuje wybranego wydawcę"""
     jou = session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id).first()
     print jou
     if jou != None:
@@ -134,15 +124,17 @@ def editJournalData(session, data):
         session.add(jou)
         session.commit()
     else:
-        raise RuntimeError, wx.MessageBox(u'Brak takiego wydawcy.\n Rekord nie istnieje w bazie.', u'Wydawca nie istnieje!', wx.OK | wx.ICON_INFORMATION)        
-    
+        raise RuntimeError, wx.MessageBox(u'Brak takiego wydawcy.\n Rekord nie istnieje w bazie.', u'Wydawca nie istnieje!', wx.OK | wx.ICON_INFORMATION)
+
 def getJournalName(session):
+    """Pobiera nazwy wydawców"""
     result = []
     for jou in session.query(Journal):
         result.append(jou.full_name)
     return result
-    
+
 def getJournalNameID(session):
+    """Pobiera nazwy wydawców wraz z unikatowym numerem ID"""
     result = {}
     for jou in session.query(Journal):
         d = (jou.full_name)
@@ -150,12 +142,91 @@ def getJournalNameID(session):
         tmp = {d:id}
         result.update(tmp)
     return result
+    
+###############################################
+## zapytania dla tabeli Publication
+###############################################
 
-def getJournalName2(session):
-    result = []
-    for jou in session.query(Journal):
-        result.append(jou.full_name)
+def delPubData(session, id):
+    """Usuwa wybrane publikacje z bazy oraz powiazania danej publikacji z autorami
+    Wykorzystywane w publikacja.py"""
+    pub = session.query(Publication).filter(Publication.id == id).one()
+    for pub, perpub in session.query(Publication, PerPub).\
+            filter(Publication.id == id).\
+            filter(PerPub.pub_id == id):
+        session.delete(perpub)
+
+    session.delete(pub)
+    session.commit()
+    
+def addPubData(session, data):
+    """Dodaje publikacje do bazy danych"""
+    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])
+    session.add(pub)
+    session.commit()
+    
+    id = data[8]
+    for i in range(len(id)):
+        tmp = PerPub(int(id[i]), pub.id)
+        session.add(tmp)
+    
+    session.commit()
+    
+def geteditPubData(session, id):
+    """Pobiera dane publikacji o danym ID do pozniejszej edycji"""
+    t = []
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Journal.id == Publication.journal_id).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        t.append(per.id)
+    result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t)
     return result
+    
+def editPubData(session, data, id):
+    """Edytuje wartości w bazie danych dla danej publikacji"""
+    print data, id
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Journal.id == Publication.journal_id).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        print pub.id
+
+    pub.title = data[0]
+    pub.author = data[1]
+    pub.citation = data[2]
+    pub.type = data[3]
+    pub.year = data[4]
+    pub.doi = data[5]
+    pub.ident = data[6]
+    pub.journal_id = data[7]
+    session.add(pub)
+    
+    tmpid = data[8]
+    for i in range(len(tmpid)):
+        tmp = PerPub(tmpid[i], id)
+        session.add(tmp)
+    
+    session.commit()
+
+def getCheckItemAuthor(session, id):
+    """Zapytanie zwraca ID użytkowników, którzy sa powiazani z dana publikacja"""
+    t = []
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        t.append(per.id)
+    return t
+    
+
+###############################################
+## zapytania połaczone widokiem baz.bazView
+###############################################
+
+
 
 def getRecords(session, key, search):
     if key == 'AutorID':
@@ -174,7 +245,7 @@ def getRecords(session, key, search):
         for pub, jou in session.query(Publication, Journal).\
                         filter(Publication.author.like('%' + search + '%')).\
                         filter(Journal.id == Publication.journal_id).group_by(Publication.id):
-            print pub.title, jou.full_name
+#            print pub.title, jou.full_name
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
             tmp.append(c)
         return tmp
@@ -234,10 +305,9 @@ def getRecords(session, key, search):
     else:
         print 'tak'
     
-    
 
 ###################################################
-## Polaczone z widokiem sch.view
+## Polaczone z widokiem sch.view, zapytani głównie dla tabeli Person
 ###################################################
 
 def addUser(session, data):
@@ -290,6 +360,40 @@ def addUser(session, data):
     session.add(tmp)
     session.commit()
     
+def getUserName(session):
+    """Pobiera imie i nazwisko z bazy.
+    Wykorzystywane do wyswietlania autorów przy wyborze do filtracji danych."""
+    result = []
+    for per in session.query(Person):
+        d = (per.name + ' ' + per.surname)
+        result.append(d)
+    return result
+
+def getUserNameID(session):
+    """Pobiera imie i nazwisko z bazy, w połaczeniu z ID"""
+    result = {}
+    for per in session.query(Person):
+        d = (per.name + ' ' + per.surname)
+        id = per.id
+        tmp = {d:id}
+        result.update(tmp)
+    return result
+
+def getUserFilter(session):
+    """Pobieranie wszystkich informacji o autorze.
+    Tworzenie słownika na podstawie którego odbywa się filtracja danych dla wybranego użytkownika."""
+    result = {}
+    for per in session.query(Person):
+        a = (per.name + ' ' + per.surname)
+        b = per.filtr
+        d = {a:b}
+        result.update(d)
+    return result
+
+###################################################
+## zapytania dla tabeli Group
+###################################################
+    
 def addGroup(session,  data):
     """Pobiera tworzona grupe, sprawdza czy taka istnieje i robi update uzytkownikow o klucz FK
     Dodaje też dane do tablicy asocjacyjnej pomiędzy Groupa i Autorem"""
@@ -315,34 +419,18 @@ def addGroup(session,  data):
     
     session.commit()
     
-def getUserName(session):
-    """Pobiera imie i nazwisko z bazy.
-    Wykorzystywane do wyswietlania autorów przy wyborze do filtracji danych."""
-    result = []
-    for per in session.query(Person):
-        d = (per.name + ' ' + per.surname)
-        result.append(d)
-    return result
+def delGroup(session, data):
+    """Usuwa grupy, wraz z powiazanymi autorami"""
+    gro = session.query(Group).filter(Group.name == data).one()
 
-def getUserNameID(session):
-    result = {}
-    for per in session.query(Person):
-        d = (per.name + ' ' + per.surname)
-        id = per.id
-        tmp = {d:id}
-        result.update(tmp)
-    return result
-
-def getUserFilter(session):
-    """Pobieranie wszystkich informacji o autorze.
-    Tworzenie słownika na podstawie którego odbywa się filtracja danych dla wybranego użytkownika."""
-    result = {}
-    for per in session.query(Person):
-        a = (per.name + ' ' + per.surname)
-        b = per.filtr
-        d = {a:b}
-        result.update(d)
-    return result
+    for grup, groper in session.query(Group, GroPer).\
+            filter(Group.id == gro.id).\
+            filter(GroPer.group_id == gro.id):
+        print groper
+        session.delete(groper)
+    
+    session.delete(gro)
+    session.commit()
     
 ###################################################
 ## Polaczone z modelem sch.model
@@ -358,6 +446,7 @@ def sendGroupSurname(session, gname):
 ###################################################
 
 def getUserDialog(session, id):
+    """Pobiera z bazy dane na temat wybranego autora"""
     for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
             filter(Person.id == id).\
             filter(ColPer.person_id == Person.id).\
@@ -387,63 +476,16 @@ def editUserDialog(session, data, id):
     session.add(ins)
     session.add(per)
     session.commit()
-
-###################################################
-## Polaczone z publikacja.py
-###################################################
-
-def geteditPubData(session, id):
-    t = []
-    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-            filter(Journal.id == Publication.journal_id).\
-            filter(Person.id == PerPub.person_id).\
-            filter(Publication.id == PerPub.pub_id).\
-            filter(Publication.id == id).group_by(Person.id):
-        t.append(per.id)
-    result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t)
-    return result
     
-def getCheckItemAuthor(session, id):
-    t = []
-    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-            filter(Person.id == PerPub.person_id).\
-            filter(Publication.id == PerPub.pub_id).\
-            filter(Publication.id == id).group_by(Person.id):
-        t.append(per.id)
-    return t
+def delUserDialog(session, id):
+    for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
+            filter(Person.id == id).\
+            filter(ColPer.person_id == Person.id).\
+            filter(ColPer.college_id == College.id).\
+            filter(College.id == Faculty.college_id).\
+            filter(Faculty.id == Institute.faculty_id):
+        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
     
-def setEditPubData(session, data, id):
-    print data, id
-    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-            filter(Journal.id == Publication.journal_id).\
-            filter(Person.id == PerPub.person_id).\
-            filter(Publication.id == PerPub.pub_id).\
-            filter(Publication.id == id).group_by(Person.id):
-        print pub.id
-
-    pub.title = data[0]
-    pub.author = data[1]
-    pub.citation = data[2]
-    pub.type = data[3]
-    pub.year = data[4]
-    pub.doi = data[5]
-    pub.ident = data[6]
-    pub.journal_id = data[7]
-    session.add(pub)
-    
-    tmpid = data[8]
-    for i in range(len(tmpid)):
-        tmp = PerPub(int(tmpid[i]), id)
-        session.add(tmp)
-    
-    session.commit()
-
-
-#    for per, pub, perpub in session.query(Person, Publication, PerPub).\
-#            filter(Person.id == PerPub.person_id).\
-#            filter(Publication.id == PerPub.pub_id).\
-#            filter(Publication.id == 1).group_by(Person.id):
-#        print per.id
 
 #engine = create_engine("sqlite:///schdatabase.db", echo=True)
 #Session = sessionmaker(bind=engine)

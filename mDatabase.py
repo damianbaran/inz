@@ -125,7 +125,7 @@ class GroPer(DeclarativeBase):
         self.person_id = person_id
         
     def __rerp__(self):
-        return "('%s','%s')" % (self.group_id,  self.person_id)
+        return "('%i','%i')" % (self.group_id,  self.person_id)
     
 ###########################################
 class Publication(DeclarativeBase):

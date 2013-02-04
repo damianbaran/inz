@@ -174,13 +174,15 @@ class PubDialog ( wx.Dialog ):
         
         self.m_button1.Bind(wx.EVT_BUTTON, self.addPubValue)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
-        self.m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
+        self.m_button3.Bind(wx.EVT_BUTTON, self.editPubValue)
         
 ###################################################
 ## Metody
 ###################################################
     
-    def getEditRecord(self, event):
+    def editPubValue(self, event):
+        """Edytowanie wybranej publikacji"""
+        #Pobiera wartosci z kontrolek do edycji
         tmp = self.m_staticText1.GetLabel()
         tmp = tmp.split('. ', 1)
         t0 = tmp[1]
@@ -192,18 +194,23 @@ class PubDialog ( wx.Dialog ):
         t6 = self.m_textCtrl6.GetValue()
         t7 = self.m_textCtrl7.GetValue()
         t8 = self.m_choice2.GetStringSelection()
+        
+        #Odznacza już powiazanych autorów
         ch = cDatabase.getCheckItemAuthor(self.session, t0)
         for i in range(len(ch)):
             self.m_checkList3.Check(ch[i]-1, False)
         
         t9 = self.getCheckUser()
+        
+        #Pobiera wartosci ID dla zaznaczonych autorów
         tmp = cDatabase.getJournalNameID(self.session)
         t8 = tmp[t8]
         
         t = (t1, t2, t3, t4, t5, t6, t7, t8, t9)
         
+        #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if t1 != '' and t2 != '' and t3 != '' and t5 != '':
-            cDatabase.setEditPubData(self.session, t, t0)
+            cDatabase.editPubData(self.session, t, t0)
             wx.MessageBox(u'Zauktualizowano wartości!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
         else:
             wx.MessageBox(u'Nie podana nazwy grupy \nlub nie wybrano autorów.', u'Bład', wx.OK | wx.ICON_INFORMATION)
@@ -212,6 +219,7 @@ class PubDialog ( wx.Dialog ):
 
         
     def addPubValue(self, event):
+        #Pobiera wartosci z kontrolek do edycji
         tx1 = self.m_textCtrl2.GetValue()
         tx2 = self.m_textCtrl4.GetValue()
         tx3 = self.m_textCtrl3.GetValue()
@@ -222,36 +230,48 @@ class PubDialog ( wx.Dialog ):
         tx7 = self.m_choice2.GetStringSelection()
         tx8 = self.getCheckUser()
         
+        #Pobiera wartosci ID dla zaznaczonych autorów
         tmp = cDatabase.getJournalNameID(self.session)
         tx7 = tmp[tx7]
         
         t = (tx1, tx2, tx3, tx4, tx5, tx6, tx9, tx7, tx8)
         
+        #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' and tx2 != '' and tx3 != '' and tx5 != '' and tx8 != []:
             cDatabase.addPubData(self.session, t)
         else:
             wx.MessageBox(u'Pola "Tytuł, Autor, Cytowania, Rok" sa wymagane!', u'Bład', wx.OK | wx.ICON_INFORMATION)
         
+        #Czyszczenie kontrolek po dodaniu publikacji
+        self.m_choice1.SetSelection( 0 )        
+        self.m_choice2.SetSelection( 0 )
         self.m_textCtrl2.SetValue('')
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
         self.m_textCtrl5.SetValue('')
         self.m_textCtrl6.SetValue('')
+        self.m_textCtrl7.SetValue('')
         guser = cDatabase.getUserName(self.session)
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
 
     def getCheckUser(self):
-        """"""
+        """Pobiera id wszystkich powiazanych autorów do publikacji"""
         result = []
-        guser = cDatabase.getUserName(self.session)
+        guser = cDatabase.getUserName(self.session) 
         t = cDatabase.getUserNameID(self.session)
         for i in range(len(guser)):
             if self.m_checkList3.IsChecked(i):
                 id = t[guser[i]]
                 result.append(id)
-        print result
         return result
     
     def close(self, event):
+        """Zamyka okienko publikacji"""
         self.Destroy()
+
+if __name__ == "__main__":
+    app = wx.App(False)
+    controller = PubDialog()
+    controller.Show()
+    app.MainLoop()

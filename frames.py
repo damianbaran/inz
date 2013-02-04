@@ -59,11 +59,11 @@ class MainFrame(wx.Frame):
         self.menu2.AppendItem( self.m_menuItem5 )
         self.Bind(wx.EVT_MENU, self.onAddPub, self.m_menuItem5)
         
-        self.m_menuItem6 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj Grupę", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menuItem6 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj/Edytuj Grupę", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu2.AppendItem( self.m_menuItem6 )
         self.Bind(wx.EVT_MENU, self.onAddGroup, self.m_menuItem6)
         
-        self.m_menuItem7 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj Wydawcę", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menuItem7 = wx.MenuItem( self.menu2, wx.ID_ANY, u"Dodaj/Edytuj Wydawcę", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu2.AppendItem( self.m_menuItem7 )
         self.Bind(wx.EVT_MENU, self.onAddJournal, self.m_menuItem7)
         

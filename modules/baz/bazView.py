@@ -83,23 +83,29 @@ class bView(wx.Panel, PubDialog):
         self.panel.Layout()
         globalBox.Fit( self.panel )
         
-        #############################################################
-        ## Bindowanie
-        #############################################################
+#############################################################
+## Bindowanie
+#############################################################
         
         self.m_searchCtrl1.Bind(wx.EVT_TEXT_ENTER, self.searchPub)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
 #        PubDialog().m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
         
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz', 3:'Edytuj rekord',4:'Zaznacz wszystko',5:'Odznacz wszystko',6:'Czysc liste'}
+#############################################################
+## Metody
+#############################################################
+
+        #Pozycje dal popmenu
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz', 3:'Edytuj rekord', 4:u'Usuń rekord',5:'Zaznacz wszystko',6:'Odznacz wszystko',7:'Czysc liste'}
         
     def searchPub(self,  event):
-        self.dataList.DeleteAllItems()
-        t = self.m_searchCtrl1.GetValue()
-        d = self.m_choice31.GetStringSelection()
-        tmp = cDatabase.getRecords(self.session, d, t)
-        self.updateRecord(tmp)
+        """Funkcja wyszukuje wartości w bazie podane przez użytkownika"""
+        self.dataList.DeleteAllItems() #Ksowanie listy w wx.ListCtrl
+        t = self.m_searchCtrl1.GetValue() #Pobieranie wartości wpisanej przez użytkownika
+        d = self.m_choice31.GetStringSelection() #pobieranie wartości z listy wybranej przez użytkownika
+        tmp = cDatabase.getRecords(self.session, d, t) #zapytanie do bazy, zwracajace szukane elementy
+        self.updateRecord(tmp) #wyswietlenie wartosci w ListCtrl
         
 #    def getEditRecord(self, event):
 #        dlg = PubDialog()
@@ -107,6 +113,7 @@ class bView(wx.Panel, PubDialog):
 #        print t1
         
     def editRecord(self, id, data):
+        """Ustawienia wartości z zapytania w kontrolkach do edycji wybranej publikacji"""
         dlg = PubDialog()
         dlg.m_staticText1.SetLabel('Edytujesz rekord o nr. '+str(data[0]))
         dlg.m_textCtrl2.SetValue(data[1])
@@ -120,6 +127,8 @@ class bView(wx.Panel, PubDialog):
         
         u = data[9]
 #        print u
+
+        #Ustawianie wartości w checklist dla powiazanych autorów z publikacja
         if len(u) == 1:
             dlg.m_checkList3.Check(int(u[0])-1)
         elif len(u) == 0:
@@ -130,19 +139,12 @@ class bView(wx.Panel, PubDialog):
         dlg.ShowModal()
     
     def updateRecord(self, data):
-        """
-        """
+        """Funkcja uaktualnia wartości listctrl o podane wartosci"""
         try:
             for i in range(len(data)):
                 self.dataList.Append(data[i])
         except TypeError:
             wx.MessageBox(u'Brak wyszukanych danych', 'Brak danych', wx.OK | wx.ICON_INFORMATION)
-    
-    def selectOne(self, event):
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            if self.dataList.IsSelected(i):
-                self.dataList.CheckItem(i)
     
     def RightClickCb(self, event):
         self.currentItem = event.m_itemIndex
@@ -157,7 +159,6 @@ class bView(wx.Panel, PubDialog):
 
     def MenuSelectionCb(self, event):
         operation = self.menu_title_by_id[event.GetId()]
-        print event.GetId()
         print operation
         if operation == 'Zaznacz':
             self.selectOne(self)
@@ -172,6 +173,10 @@ class bView(wx.Panel, PubDialog):
         elif operation == 'Edytuj rekord':
             t = self.dataList.GetItemText(self.currentItem)
             self.editRecord(t, cDatabase.geteditPubData(self.session, t))
+        elif operation == u'Usuń rekord':
+            """usuwanie wybranego rekordu z bazy wraz z powiazaniami autorów"""
+            t = self.dataList.GetItemText(self.currentItem)
+            cDatabase.delPubData(self.session, t)
     
     def selectAll(self):
         num = self.dataList.GetItemCount()
