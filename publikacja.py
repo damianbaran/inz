@@ -127,7 +127,7 @@ class PubDialog ( wx.Dialog ):
         self.m_staticText8.Wrap( -1 )
         bSizer9.Add( self.m_staticText8, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
         
-        m_choice2Choices = self.getJouName()
+        m_choice2Choices = cDatabase.getJournalName(self.session)
         self.m_choice2 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_choice2Choices, 0 )
         self.m_choice2.SetSelection( 0 )
         bSizer9.Add( self.m_choice2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -141,7 +141,7 @@ class PubDialog ( wx.Dialog ):
         self.m_staticText9.Wrap( -1 )
         bSizer10.Add( self.m_staticText9, 1, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
-        m_checkList3Choices = self.printList()
+        m_checkList3Choices = cDatabase.getUserName(self.session)
         self.m_checkList3 = wx.CheckListBox( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_checkList3Choices, 0 )
         bSizer10.Add( self.m_checkList3, 0, wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -172,62 +172,86 @@ class PubDialog ( wx.Dialog ):
 ## Bind
 ###################################################
         
-        self.m_button1.Bind(wx.EVT_BUTTON, self.getPubValue)
+        self.m_button1.Bind(wx.EVT_BUTTON, self.addPubValue)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
-    
-    def __del__( self ):
-        pass
+        self.m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
         
-    def getPubValue(self, event):
+###################################################
+## Metody
+###################################################
+    
+    def getEditRecord(self, event):
+        tmp = self.m_staticText1.GetLabel()
+        tmp = tmp.split('. ', 1)
+        t0 = tmp[1]
+        t1 = self.m_textCtrl2.GetValue()
+        t2 = self.m_textCtrl4.GetValue()
+        t3 = self.m_textCtrl3.GetValue()
+        t4 = self.m_choice1.GetStringSelection()
+        t5 = self.m_textCtrl5.GetValue()
+        t6 = self.m_textCtrl6.GetValue()
+        t7 = self.m_textCtrl7.GetValue()
+        t8 = self.m_choice2.GetStringSelection()
+        ch = cDatabase.getCheckItemAuthor(self.session, t0)
+        for i in range(len(ch)):
+            self.m_checkList3.Check(ch[i]-1, False)
+        
+        t9 = self.getCheckUser()
+        tmp = cDatabase.getJournalNameID(self.session)
+        t8 = tmp[t8]
+        
+        t = (t1, t2, t3, t4, t5, t6, t7, t8, t9)
+        
+        if t1 != '' and t2 != '' and t3 != '' and t5 != '':
+            cDatabase.setEditPubData(self.session, t, t0)
+            wx.MessageBox(u'Zauktualizowano wartości!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
+        else:
+            wx.MessageBox(u'Nie podana nazwy grupy \nlub nie wybrano autorów.', u'Bład', wx.OK | wx.ICON_INFORMATION)
+        
+        self.Destroy()
+
+        
+    def addPubValue(self, event):
         tx1 = self.m_textCtrl2.GetValue()
-        tx2 = self.m_textCtrl3.GetValue()
-        tx3 = self.m_textCtrl5.GetValue()
+        tx2 = self.m_textCtrl4.GetValue()
+        tx3 = self.m_textCtrl3.GetValue()
         tx4 = self.m_choice1.GetStringSelection()
-        tx5 = self.m_textCtrl4.GetValue()
+        tx5 = self.m_textCtrl5.GetValue()
         tx6 = self.m_textCtrl6.GetValue()
         tx9 = self.m_textCtrl7.GetValue()
         tx7 = self.m_choice2.GetStringSelection()
-        tx8 = self.getDataGroup()
+        tx8 = self.getCheckUser()
+        
+        tmp = cDatabase.getJournalNameID(self.session)
+        tx7 = tmp[tx7]
         
         t = (tx1, tx2, tx3, tx4, tx5, tx6, tx9, tx7, tx8)
-#        print t
         
-        if tx1 != '' or tx2 != '' or tx3 != '' or tx5 != '':
+        if tx1 != '' and tx2 != '' and tx3 != '' and tx5 != '' and tx8 != []:
             cDatabase.addPubData(self.session, t)
         else:
-            wx.MessageBox(u'Wszystkie dane sa wymagane! \nPowiazanie z autorami można pominać.', u'Bład', wx.OK | wx.ICON_INFORMATION)      
-        
+            wx.MessageBox(u'Pola "Tytuł, Autor, Cytowania, Rok" sa wymagane!', u'Bład', wx.OK | wx.ICON_INFORMATION)
         
         self.m_textCtrl2.SetValue('')
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
         self.m_textCtrl5.SetValue('')
         self.m_textCtrl6.SetValue('')
-        guser = self.printList()
+        guser = cDatabase.getUserName(self.session)
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
 
-    def getDataGroup(self):
-        """Funkcja pobiera dane do utworzenia grupy widoku bazy danych"""
+    def getCheckUser(self):
+        """"""
         result = []
-        guser = self.printList()
+        guser = cDatabase.getUserName(self.session)
+        t = cDatabase.getUserNameID(self.session)
         for i in range(len(guser)):
             if self.m_checkList3.IsChecked(i):
-                tmp = guser[i].split(' ')
-                id = tmp[0]
+                id = t[guser[i]]
                 result.append(id)
+        print result
         return result
-        
-    def getJouName(self):
-        t = cDatabase.getJournalName(self.session)
-        return t
-        
-    def printList(self):
-        """Funkcja pobiera dane z bazy i wyswietla w checklistbox.
-        id, imie i nazwisko autorow"""
-        t = cDatabase.getAllRecord(self.session)
-        return t
     
     def close(self, event):
         self.Destroy()
-    

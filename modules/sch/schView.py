@@ -151,19 +151,19 @@ class sView(wx.Panel, sControler):
         
         oneSB2.Add( oneBox121, 0, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
         
-        oneBox122 = wx.BoxSizer( wx.HORIZONTAL )
+        self.oneBox122 = wx.BoxSizer( wx.HORIZONTAL )
         
         self.txt22 = wx.StaticText( self.panel, wx.ID_ANY, u"Grupa:", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.txt22.Wrap( -1 )
-        oneBox122.Add( self.txt22, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
+        self.oneBox122.Add( self.txt22, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
         
         ch1Choices = self.SetGroupName()
         self.ch1 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 190,-1 ), ch1Choices, 0 )
-#        self.ch1.SetSelection( 0 )
-        oneBox122.Add( self.ch1, 0, wx.BOTTOM|wx.LEFT|wx.RIGHT, 5 )
+        self.ch1.SetSelection( 0 )
+        self.oneBox122.Add( self.ch1, 0, wx.BOTTOM|wx.LEFT|wx.RIGHT, 5 )
         
         
-        oneSB2.Add( oneBox122, 0, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
+        oneSB2.Add( self.oneBox122, 0, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
         
         oneBox123 = wx.BoxSizer( wx.VERTICAL )
         
@@ -195,7 +195,7 @@ class sView(wx.Panel, sControler):
         
         self.ch4Choices = self.SetUserName()
         self.ch4 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 190,-1 ), self.ch4Choices, 0 )
-#        self.ch4.SetSelection( 0 )
+        self.ch4.SetSelection( 0 )
         oneBox125.Add( self.ch4, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -508,7 +508,6 @@ class sView(wx.Panel, sControler):
             wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
             return
         
-        #print dbName
         ColDict['name'] = dbCollege
         FacDict['name'] = dbFaculty
         InsDict['name'] = dbInstitut
@@ -521,12 +520,42 @@ class sView(wx.Panel, sControler):
         print AllDict
         cDatabase.addUser(self.session,AllDict)
         
+        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
+        self.ch4Choices = self.SetUserName()
+        self.ch4.Clear()
+        self.ch4.AppendItems(self.ch4Choices)
+        self.ch4.SetSelection( 0 )
+        
+        """Aktualizacja kontrolki z nazwami uczelni"""
+        cb1Choices = self.SetCollegeName()
+        self.cb1.Clear()
+        self.cb1.AppendItems(cb1Choices)
+#        self.cb1.SetSelection( 0 )
+        
+        """Aktualizacja kontrolki z nazwami wydziałów"""
+        cb2Choices = self.SetFacultyName()
+        self.cb2.Clear()
+        self.cb2.AppendItems(cb2Choices)
+#        self.cb2.SetSelection( 0 )
+        
+        """Aktualizacja kontrolki z nazwami instytutów"""
+        cb3Choices = self.SetInstituteName()
+        self.cb3.Clear()
+        self.cb3.AppendItems(cb3Choices)
+#        self.cb3.SetSelection( 0 )
+        
         self.ctrl17.SetValue('')
         self.ctrl18.SetValue('')
         self.ctrl19.SetValue('')
-        
-        
+    
+    def updateGroupName(self):
+        ch1Choices = self.SetGroupName()
+        self.ch1.Clear()
+        self.ch1.AppendItems(ch1Choices)
+        self.ch1.SetSelection( 0 )
+    
     def SetUserName(self):
+        """Metoda pobiera dane z lista uzytkowników i aktualizuję dane w kontrolkach"""
         t = cDatabase.getUserName(self.session)
         return t
     

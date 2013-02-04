@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import re
-from sqlalchemy import create_engine
+import wx
+from sqlalchemy import create_engine, or_, and_
+from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 #### wyjatki
 import sqlalchemy
@@ -35,7 +37,7 @@ def getCollegeName(session):
     """Pobiera wszystkie nazwy Uczelni.
     Wykorzystywane przy dodawaniu użytkownika."""
     c = []
-    for name in session.query(College.name).group_by(College.id):
+    for name in session.query(College.name).group_by(College.name):
         c.append(name[0])
     result = c
     return result
@@ -44,7 +46,7 @@ def getFacultyName(session):
     """Pobiera wszystkie nazwy wydziałów.
     Wykorzystywane przy dodawaniu użytkownika."""
     c = []
-    for name in session.query(Faculty.name).group_by(Faculty.id):
+    for name in session.query(Faculty.name).group_by(Faculty.name):
         c.append(name[0])
     result = c
     return result
@@ -53,7 +55,7 @@ def getInstituteName(session):
     """Pobiera wszystkie nazwy Instytutów.
     Wykorzystywane przy dodawaniu użytkownika."""
     c = []
-    for name in session.query(Institute.name).group_by(Institute.id):
+    for name in session.query(Institute.name).group_by(Institute.name):
         c.append(name[0])
     result = c
     return result
@@ -62,8 +64,8 @@ def getAllRecord(session):
     """Pobiera z bazy ID, Imie, Nazwisko autorów.
     Zapytanie używane przy dodawaniu autorów do grupy"""
     d = []
-    for id,  name, surname, filtr in session.query(Person.id,  Person.name, Person.surname, Person.filtr):
-        c = (str(id)+ ' ' + name + ' ' + surname)
+    for per in session.query(Person):
+        c = (str(per.id)+ ' ' + per.name + ' ' + per.surname)
         d.append(c)
     return d
     
@@ -78,76 +80,159 @@ def getUserInGroup(session, gname):
     """Pobiera nazwiska autorów z bazy danych dla odpowiedniej grupy.
     Wykorzystywane przy wyszukiwaniu grupowym."""
     result = []
-    for g, p, l in session.query(Group, Person.surname, GroPer).\
+    for g, p, l in session.query(Group, Person, GroPer).\
                 filter(GroPer.person_id == Person.id).\
                 filter(GroPer.group_id == Group.id).\
                 filter(Group.name == gname).group_by(Person.id):
-        result.append(p)
-#    print result
+        result.append(p.surname)
     return result
     
 def getCheckedUser(session, gname):
     result = []
-    for g, p, pg in session.query(Group, Person.id, GroPer).\
+    for g, p, pg in session.query(Group, Person, GroPer).\
                 filter(Group.id == GroPer.group_id).\
                 filter(Person.id == GroPer.person_id).\
                 filter(Group.name == gname).group_by(Person.id):
-        result.append(p)
+        result.append(p.id)
     return result
     
 ###############################################
 ## metody polaczone z widokiem baz.bazView
 ###############################################
     
-def addPubData(session,  data):
-
-    jouid = data[6].split(' ')
-    jouid = jouid[0]
-
-    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5],  jouid)
+def addPubData(session, data):
+    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])
     session.add(pub)
     session.commit()
     
-    id = data[7]
+    id = data[8]
     for i in range(len(id)):
-        print id[i]
         tmp = PerPub(int(id[i]), pub.id)
         session.add(tmp)
     
     session.commit()
     
 def setJournalData(session,  data):
-    print data
-    jou = Journal(data[0], data[1], data[2])
-    session.add(jou)
-    session.commit()
+    tmp =[]
+    for t in session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id):
+        tmp.append(t)
+    print tmp
+    if tmp == []:
+        jou = Journal(data[0], data[1], data[2])
+        session.add(jou)
+        session.commit()
+    else:
+        wx.MessageBox(u'Nazwa wydawcy jest unikatowa.\n Nie można dodać drugiego takiego wydawcy.', u'Wydawca istnieje!', wx.OK | wx.ICON_INFORMATION)
+
+def editJournalData(session, data):
+    jou = session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id).first()
+    print jou
+    if jou != None:
+        jou.full_name = data[0]
+        jou.short_name = data[1]
+        jou.issn = data[2]
+        session.add(jou)
+        session.commit()
+    else:
+        raise RuntimeError, wx.MessageBox(u'Brak takiego wydawcy.\n Rekord nie istnieje w bazie.', u'Wydawca nie istnieje!', wx.OK | wx.ICON_INFORMATION)        
     
 def getJournalName(session):
     result = []
-    for id, name in session.query(Journal.id, Journal.full_name).group_by(Journal.id):
-        print id
-        t = name
-        result.append(str(id) + ' ' +  t)
+    for jou in session.query(Journal):
+        result.append(jou.full_name)
     return result
     
+def getJournalNameID(session):
+    result = {}
+    for jou in session.query(Journal):
+        d = (jou.full_name)
+        id = jou.id
+        tmp = {d:id}
+        result.update(tmp)
+    return result
+
+def getJournalName2(session):
+    result = []
+    for jou in session.query(Journal):
+        result.append(jou.full_name)
+    return result
+
 def getRecords(session, key, search):
-    if key == 'Autor':
-        print 'tak autor'
-#        for per, pub, jou in session.query(Person.name, Person.surname, Publication.title, Journal.full_name, PerPub):
-    elif key == 'Tytuł':
-        print 'tak tytul'
+    if key == 'AutorID':
+        tmp = []
+        for per, pub, jou, perpub in session.query(Person, Publication, Journal, PerPub).\
+                        filter(PerPub.person_id == Person.id).\
+                        filter(PerPub.pub_id == Publication.id).\
+                        filter(or_(Person.name.like('%' + search + '%'), Person.surname.like('%' + search + '%'))).\
+                        filter(Journal.id == Publication.journal_id).group_by(Publication.id):
+            print per.name, per.surname, pub.title, jou.full_name
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'Autor':
+        tmp =[]
+        for pub, jou in session.query(Publication, Journal).\
+                        filter(Publication.author.like('%' + search + '%')).\
+                        filter(Journal.id == Publication.journal_id).group_by(Publication.id):
+            print pub.title, jou.full_name
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'Tytul':
+        tmp =[]
+        for pub, jou in session.query(Publication, Journal).\
+                        filter(Publication.title.like('%' + search + '%')).\
+                        filter(Journal.id == Publication.journal_id).group_by(Publication.id):
+            print pub.title, jou.full_name
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
     elif key == 'Rok':
-        t =  []
-        print 'tak rok'
-        for pub_tit, pub_y, jou in session.query(Publication.title, Publication.year, Journal.full_name).\
+        tmp =  []
+        for pub, jou in session.query(Publication, Journal).\
                         filter(Journal.id == Publication.journal_id).\
                         filter(Publication.year == search).group_by(Publication.id):
-            print pub_tit, pub_y, jou
-            c = ('','1', pub_tit, 'autor', pub_y, jou)
-            t.append(c)
-        return t
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
     elif key == 'Wydawca':
-        print 'tak wydawca'
+        tmp =[]
+        for pub, jou in session.query(Publication, Journal).\
+                        filter(Journal.id == Publication.journal_id).\
+                        filter(Journal.full_name.like('%' + search + '%')).group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'DOI':
+        tmp =[]
+        for pub, jou in session.query(Publication, Journal).\
+                        filter(Journal.id == Publication.journal_id).\
+                        filter(Publication.doi == search).group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'Grupa':
+        tmp = []
+        for pub, jou, gro, groper, per, perpub in session.query(Publication, Journal, Group, GroPer, Person, PerPub).\
+                        filter(Journal.id == Publication.journal_id).\
+                        filter(GroPer.group_id == Group.id).\
+                        filter(GroPer.person_id == Person.id).\
+                        filter(PerPub.person_id == Person.id).\
+                        filter(PerPub.pub_id == Publication.id).\
+                        filter(Group.name == search).group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'ISSN':
+        tmp = []
+        for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+                        filter(Journal.id == Publication.journal_id).\
+                        filter(Journal.issn == search).group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    else:
+        print 'tak'
     
     
 
@@ -162,36 +247,44 @@ def addUser(session, data):
     session.add(user)
     session.commit()
     tmpPersonID = user.id
+    print tmpPersonID
     
-    uni_query = session.query(College).filter(College.name == data['college']['name']).first()
-    if uni_query == None:
-        uni = College(data['college']['name'])
-        session.add(uni)
+#    uni_query = session.query(College).filter(College.name == data['college']['name']).first()
+#    if uni_query == None:
+    uni = College(data['college']['name'])
+    session.add(uni)
     session.commit()
     
-    if uni_query == None:
-        tmpCollegeID = uni.id
-    else:
-        tmpCollegeID = uni_query.id
+#    if uni_query == None:
+    tmpCollegeID = uni.id
+#    else:
+#        tmpCollegeID = uni_query.id
+    print tmpCollegeID
     
-    
-    fac_query = session.query(Faculty).filter(Faculty.name == data['faculty']['name']).first()
-    if fac_query == None:
-        fac = Faculty(tmpCollegeID,  data['faculty']['name'])
-        session.add(fac)
+#    fac_query = session.query(Faculty).filter(Faculty.name == data['faculty']['name']).first()
+#    if fac_query == None:
+    fac = Faculty(tmpCollegeID,  data['faculty']['name'])
+    session.add(fac)
     session.commit()
     
-    if fac_query == None:
-        tmpFacultyID = fac.id
-    else:
-        tmpFacultyID = fac_query.id
+#    if fac_query == None:
+    tmpFacultyID = fac.id
+#    else:
+#        tmpFacultyID = fac_query.id
+    print tmpFacultyID
     
     
-    ins_query = session.query(Institute).filter(Institute.name == data['institute']['name']).first()
-    if ins_query == None:
-        ins = Institute(tmpFacultyID,  data['institute']['name'])
-        session.add(ins)
+#    ins_query = session.query(Institute).filter(Institute.name == data['institute']['name']).first()
+#    if ins_query == None:
+    ins = Institute(tmpFacultyID,  data['institute']['name'])
+    session.add(ins)
     session.commit()
+    
+#    if ins_query == None:
+    tmpInsID = ins.id
+#    else:
+#        tmpInsID = ins_query.id
+    print tmpInsID
     
     tmp = ColPer(tmpCollegeID, tmpPersonID)
     session.add(tmp)
@@ -209,48 +302,46 @@ def addGroup(session,  data):
     
     if qGro == None:
         tmpGroID = gro.id
-        print tmpGroID
+#        print tmpGroID
     else:
         tmpGroID = qGro.id
-        print tmpGroID
+#        print tmpGroID
     
     
     for i in range(len(data)):
         t = data[i]
         g = GroPer(tmpGroID,  int(t[0]))
-        try:
-            session.add(g)
-            session.flush()
-        except sqlalchemy.exc.IntegrityError, exc:
-            reason = exc.message
-            if reason.endswith('is not unique'):
-                print "%s already exists" % exc.params[0]
-                session.rollback()
+        session.add(g)
     
     session.commit()
     
 def getUserName(session):
     """Pobiera imie i nazwisko z bazy.
     Wykorzystywane do wyswietlania autorów przy wyborze do filtracji danych."""
-    c = []
-    for name, surname in session.query(Person.name, Person.surname):
-        d = (name + ' ' + surname)
-        c.append(d)
-    result = c
-    #print result
+    result = []
+    for per in session.query(Person):
+        d = (per.name + ' ' + per.surname)
+        result.append(d)
+    return result
+
+def getUserNameID(session):
+    result = {}
+    for per in session.query(Person):
+        d = (per.name + ' ' + per.surname)
+        id = per.id
+        tmp = {d:id}
+        result.update(tmp)
     return result
 
 def getUserFilter(session):
     """Pobieranie wszystkich informacji o autorze.
     Tworzenie słownika na podstawie którego odbywa się filtracja danych dla wybranego użytkownika."""
-    c = {}
-    for name, surname, filtr in session.query(Person.name, Person.surname, Person.filtr):
-        a = (name + ' ' + surname)
-        b = filtr
+    result = {}
+    for per in session.query(Person):
+        a = (per.name + ' ' + per.surname)
+        b = per.filtr
         d = {a:b}
-        c.update(d)
-    result = c
-    #print result
+        result.update(d)
     return result
     
 ###################################################
@@ -262,12 +353,170 @@ def sendGroupSurname(session, gname):
     data = getUserInGroup(session, gname)
     return data
 
+###################################################
+## Połaczone z autor.py
+###################################################
+
+def getUserDialog(session, id):
+    for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
+            filter(Person.id == id).\
+            filter(ColPer.person_id == Person.id).\
+            filter(ColPer.college_id == College.id).\
+            filter(College.id == Faculty.college_id).\
+            filter(Faculty.id == Institute.faculty_id):
+        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+    return t
+    
+def editUserDialog(session, data, id):
+    for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
+            filter(Person.id == id).\
+            filter(ColPer.person_id == Person.id).\
+            filter(ColPer.college_id == College.id).\
+            filter(College.id == Faculty.college_id).\
+            filter(Faculty.id == Institute.faculty_id):
+        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+    
+    col.name = data[0]
+    fac.name = data[1]
+    ins.name = data[2]
+    per.name = data[3]
+    per.surname = data[4]
+    per.filtr = data[5]
+    session.add(col)
+    session.add(fac)
+    session.add(ins)
+    session.add(per)
+    session.commit()
+
+###################################################
+## Polaczone z publikacja.py
+###################################################
+
+def geteditPubData(session, id):
+    t = []
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Journal.id == Publication.journal_id).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        t.append(per.id)
+    result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t)
+    return result
+    
+def getCheckItemAuthor(session, id):
+    t = []
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        t.append(per.id)
+    return t
+    
+def setEditPubData(session, data, id):
+    print data, id
+    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+            filter(Journal.id == Publication.journal_id).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        print pub.id
+
+    pub.title = data[0]
+    pub.author = data[1]
+    pub.citation = data[2]
+    pub.type = data[3]
+    pub.year = data[4]
+    pub.doi = data[5]
+    pub.ident = data[6]
+    pub.journal_id = data[7]
+    session.add(pub)
+    
+    tmpid = data[8]
+    for i in range(len(tmpid)):
+        tmp = PerPub(int(tmpid[i]), id)
+        session.add(tmp)
+    
+    session.commit()
+
+
+#    for per, pub, perpub in session.query(Person, Publication, PerPub).\
+#            filter(Person.id == PerPub.person_id).\
+#            filter(Publication.id == PerPub.pub_id).\
+#            filter(Publication.id == 1).group_by(Person.id):
+#        print per.id
+
 #engine = create_engine("sqlite:///schdatabase.db", echo=True)
 #Session = sessionmaker(bind=engine)
 #session = Session()
+#getJournalName(session)
+
+#getUserNameID(session)
+#for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
+#            filter(Person.id == 3).\
+#            filter(ColPer.person_id == Person.id).\
+#            filter(ColPer.college_id == College.id).\
+#            filter(College.id == Faculty.college_id).\
+#            filter(Faculty.id == Institute.faculty_id).group_by(Person.id):
+#    print col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+
+#for per, col, cp in session.query(Person, College, ColPer).\
+#        filter(Person.id == 1).\
+#        filter(ColPer.person_id == Person.id).\
+#        filter(ColPer.college_id == College.id):
+#    print col.id, col.name, per.name, per.surname, per.filtr
+#colid = col.id
+#
+#for col, fac in session.query(College, Faculty).\
+#        filter(College.id == colid).\
+#        filter(Faculty.college_id == colid):
+#    print col.name, fac.name
+    
+
+#t = session.query.join(College.faculty)
+#print t
+
+#t = session.query(Person).get(1)
+#print t 
+    #print col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+
+#getCheckItemAuthor(session, 1)
+
+#editPubData(session, 1)
+#for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+#                        filter(Journal.id == Publication.journal_id).\
+#                        filter(Person.id == PerPub.person_id).\
+#                        filter(Publication.id == PerPub.pub_id).\
+#                        filter(Publication.id == 1).group_by(Publication.id):
+#    print pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name
+#    
+#for per, pub, perpub in session.query(Person, Publication, PerPub).\
+#                        filter(Person.id == PerPub.person_id).\
+#                        filter(Publication.id == PerPub.pub_id).\
+#                        filter(Publication.id == 1).group_by(Person.id):
+#        print per.id
+##
+#for pub in session.query(Publication):
+#    print pub.title, pub.author, pub.year, pub.journal_id, pub.doi
+
+#for jou in session.query(Journal):
+#    print jou
+#    
+
+#for per_name, per_surname, pub_title, jou_name, perpub in session.query(Person.name, Person.surname, Publication.title, Journal.full_name, PerPub).\
+#                        filter(PerPub.person_id == Person.id).\
+#                        filter(PerPub.pub_id == Publication.id).\
+#                        filter(or_(Person.name.like('%' + search + '%'), Person.surname.like('%' + search + '%'))).group_by(Publication.id):
+#    print per_name, per_surname, pub_title, jou_name
+
+#for p in session.query(Publication):
+#    print p
+#
+#for pub_tit, pub_y, jou in session.query(Publication.title, Publication.year, Journal.full_name).\
+#                        group_by(Publication.id):
+#    print pub_tit, pub_y, jou
 
 #sendGroupSurname()
-
+#
 #for g, p, l in session.query(Group, Person.filtr, GroPer).\
 #                filter(GroPer.person_id == Person.id).\
 #                filter(GroPer.group_id == Group.id).\

@@ -40,7 +40,7 @@ class College(DeclarativeBase):
     __tablename__ = 'college'
     
     id = Column(Integer, primary_key=True)
-    name = Column(String,  unique=True)
+    name = Column(String)
     
     def __init__(self, name):
         self.name = name
@@ -138,20 +138,22 @@ class Publication(DeclarativeBase):
     type = Column(String)
     year = Column(Integer)
     doi = Column(String,  unique=True)
+    ident = Column(String,  unique=True)
     journal_id = Column(Integer, ForeignKey('journal.id'))
     journal = relation('Journal',  backref='publication')
     
-    def __init__(self, title, author, citation, type, year, doi, journal_id):
+    def __init__(self, title, author, citation, type, year, doi, ident, journal_id):
         self.title = title
         self.author = author
         self.citation = citation
         self.type = type
         self.year = year
         self.doi = doi
+        self.ident = ident
         self.journal_id = journal_id
         
     def __repr__(self):
-        return "('%s','%s','%s','%s','%s','%s','%i')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.journal_id)
+        return "('%s','%s','%i','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id)
     
 ###########################################
 class Journal(DeclarativeBase):
@@ -168,7 +170,7 @@ class Journal(DeclarativeBase):
         self.issn = issn
         
     def __repr__(self):
-        return "('%s', '%s', '%s')" % (self.full_name,  self.short_name,  self.issn)
+        return "('%s','%s','%s')" % (self.full_name,  self.short_name,  self.issn)
         
 ###########################################
 class PerPub(DeclarativeBase):

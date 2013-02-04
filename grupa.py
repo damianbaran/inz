@@ -53,7 +53,7 @@ class GroupDialog ( wx.Dialog ):
         self.m_staticText9.Wrap( -1 )
         bSizer10.Add( self.m_staticText9, 1, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
-        m_checkList3Choices = self.printList()
+        m_checkList3Choices = cDatabase.getUserName(self.session)
         self.m_checkList3 = wx.CheckListBox( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_checkList3Choices, 0 )
         bSizer10.Add( self.m_checkList3, 0, wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -84,14 +84,12 @@ class GroupDialog ( wx.Dialog ):
         self.m_button5.Bind(wx.EVT_BUTTON, self.checkDataGroup)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
         
-    def __del__( self ):
-        pass
     
-    def printList(self):
-        """Funkcja pobiera dane z bazy i wyswietla w checklistbox.
-        id, imie i nazwisko autorow"""
-        t = cDatabase.getAllRecord(self.session)
-        return t
+#    def printList(self):
+#        """Funkcja pobiera dane z bazy i wyswietla w checklistbox.
+#        id, imie i nazwisko autorow"""
+#        t = cDatabase.getAllRecord(self.session)
+#        return t
     
     def printGroupList(self):
         t = cDatabase.getGroupName(self.session)
@@ -101,25 +99,37 @@ class GroupDialog ( wx.Dialog ):
         """Funkcja pobiera dane do utworzenia grupy widoku bazy danych"""
         result = []
         gname = self.m_comboBox1.GetValue()
-        guser = self.printList()
+        guser = cDatabase.getCheckedUser(self.session, gname)
+        for i in range(len(guser)):
+            self.m_checkList3.Check(guser[i]-1, False)
+            
+        guser = cDatabase.getUserName(self.session)
+        t = cDatabase.getUserNameID(self.session)
         for i in range(len(guser)):
             if self.m_checkList3.IsChecked(i):
                 tmp = guser[i].split(' ')
-                id = tmp[0]
+                id = t[guser[i]]
                 l = (id,  gname)
                 result.append(l)
                 
-        if gname != '' or len(result) != 0:
+        if gname != '' and len(result) != 0:
             cDatabase.addGroup(self.session, result)
         else:
-            wx.MessageBox(u'Nie podana nazwy grupy \nlub nie wybrano autorów.', u'Bład', wx.OK | wx.ICON_INFORMATION)   
+            wx.MessageBox(u'Nie podana nazwy grupy \nlub nie wybrano autorów.', u'Bład', wx.OK | wx.ICON_INFORMATION)
+            
+        """Update kontrolki z nazwami grup do wyszukiwania"""
+        m_comboBox1Choices = self.printGroupList()
+        self.m_comboBox1.Clear()
+        self.m_comboBox1.AppendItems(m_comboBox1Choices)
+        self.m_comboBox1.SetSelection( 0 )
+        
         
         self.m_comboBox1.SetValue('')
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
     
     def checkDataGroup(self, event):
-        alluser = self.printList()
+        alluser = cDatabase.getUserName(self.session)
         for i in range(len(alluser)):
             self.m_checkList3.Check(i,  False)
         

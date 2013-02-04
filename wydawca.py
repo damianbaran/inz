@@ -40,8 +40,9 @@ class JourDialog ( wx.Dialog ):
         self.m_staticText2.Wrap( -1 )
         bSizer3.Add( self.m_staticText2, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
         
-        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-        bSizer3.Add( self.m_textCtrl2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
+        m_comboBox1Choices = cDatabase.getJournalName2(self.session)
+        self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"", wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox1Choices, 0 )
+        bSizer3.Add( self.m_comboBox1, 0, wx.ALL, 5 )
         
         
         bSizer1.Add( bSizer3, 0, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -90,14 +91,15 @@ class JourDialog ( wx.Dialog ):
         
         self.Centre( wx.BOTH )
         
-        self.m_button1.Bind(wx.EVT_BUTTON, self.getJournalValue)
+        self.m_button1.Bind(wx.EVT_BUTTON, self.addJournalValue)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
+        self.m_button3.Bind(wx.EVT_BUTTON, self.editJournalValue)
         
     def __del__( self ):
         pass
     
-    def getJournalValue(self, event):
-        tx1 = self.m_textCtrl2.GetValue()
+    def addJournalValue(self, event):
+        tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
         tx3 = self.m_textCtrl4.GetValue()
         t = (tx1, tx2, tx3)
@@ -107,12 +109,29 @@ class JourDialog ( wx.Dialog ):
         else:
             wx.MessageBox(u'Nie podano pełnej nazwy \nlub numeru ISSN.', u'Bład', wx.OK | wx.ICON_INFORMATION)   
         
-        
-        
-        self.m_textCtrl2.SetValue('')
+        m_comboBox1Choices = cDatabase.getJournalName2(self.session)
+        self.m_comboBox1.Clear()
+        self.m_comboBox1.AppendItems(m_comboBox1Choices)
+#        self.m_comboBox1.SetSelection( 0 )
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
+        
+    def editJournalValue(self, event):
+        tx1 = self.m_comboBox1.GetValue()
+        tx2 = self.m_textCtrl3.GetValue()
+        tx3 = self.m_textCtrl4.GetValue()
+        t = (tx1, tx2, tx3)
+        
+        if tx1 != '' or tx3 != '':
+            try:
+                cDatabase.editJournalData(self.session, t)
+                wx.MessageBox(u'Dane zaktualizowano pomyślnie!', u'Sukces!', wx.OK | wx.ICON_INFORMATION) 
+            except Exception, e:
+                e
+        
+        m_comboBox1Choices = cDatabase.getJournalName(self.session)
+        self.m_comboBox1.Clear()
+        self.m_comboBox1.AppendItems(m_comboBox1Choices)
     
     def close(self, event):
         self.Destroy()
-
