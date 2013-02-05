@@ -137,14 +137,14 @@ class sModel:
         if self.all_item == 0:
             self.urlScholar()
         
-#        url = self.scholar_url % self.item
-#        r = urllib2.Request(url=url,
-#                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
-#        op = urllib2.urlopen(r)
-#        html = op.read()
+        url = self.scholar_url % self.item
+        r = urllib2.Request(url=url,
+                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
+        op = urllib2.urlopen(r)
+        html = op.read()
 #        print url
-        l = open("test.htm","r")
-        html = l.read()
+#        l = open("test.htm","r")
+#        html = l.read()
 #        print html
         self.htmlsoup = BeautifulSoup(html)
         if self.all_item == 0:

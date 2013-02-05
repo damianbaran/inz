@@ -163,6 +163,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button6.Bind(wx.EVT_BUTTON, self.getPersonID)
         self.m_button1.Bind(wx.EVT_BUTTON, self.editPersonID)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
+        self.m_button7.Bind(wx.EVT_BUTTON, self.deletePerson)
 
 ###################################################
 ## Metody
@@ -170,10 +171,20 @@ class AuthorDialog ( wx.Dialog ):
 
     def deletePerson(self, event):
         """Usuwa wybranego autora"""
+        
+        #Pobiera Imie i Nazwisko użytkownika, wraz z jego ID
         t = self.m_choice1.GetStringSelection()
         a = cDatabase.getUserNameID(self.session)
         self.tmp = a[t]
-        #dokończ bo nie działa :P
+        
+        #Usuwanie użytkownika
+        cDatabase.delUserDialog(self.session, self.tmp)
+        
+        #Aktualizacja kontrolki z imionami i nazwiskami autorów
+        m_choice1Choices = cDatabase.getUserName(self.session)
+        self.m_choice1.Clear()
+        self.m_choice1.AppendItems(m_choice1Choices)
+        self.m_choice1.SetSelection( 0 )
         
 
     def editPersonID(self, event):
@@ -236,3 +247,9 @@ class AuthorDialog ( wx.Dialog ):
     def close(self, event):
         """Zamknięcie okienka autorów"""
         self.Destroy()
+
+if __name__ == "__main__":
+    app = wx.App(False)
+    controller = AuthorDialog()
+    controller.Show()
+    app.MainLoop()

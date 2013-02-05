@@ -457,6 +457,7 @@ def getUserDialog(session, id):
     return t
     
 def editUserDialog(session, data, id):
+    """Edytuje nowego użytkownika"""
     for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
             filter(Person.id == id).\
             filter(ColPer.person_id == Person.id).\
@@ -478,14 +479,32 @@ def editUserDialog(session, data, id):
     session.commit()
     
 def delUserDialog(session, id):
+    """usuwa wybranego użytkownika i wszystkie powizane z nim tabele"""
+    for perpub in session.query(PerPub).\
+            filter(PerPub.person_id == id):
+        print perpub
+        session.delete(perpub)
+    
+    for groper in session.query(GroPer).\
+            filter(GroPer.person_id == id):
+        print groper
+        session.delete(groper)
+    
     for per, col, fac, ins, colper in session.query(Person, College, Faculty, Institute, ColPer).\
             filter(Person.id == id).\
             filter(ColPer.person_id == Person.id).\
             filter(ColPer.college_id == College.id).\
             filter(College.id == Faculty.college_id).\
             filter(Faculty.id == Institute.faculty_id):
-        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+        t =  col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+        print t
+        session.delete(colper)
+        session.delete(col)
+        session.delete(fac)
+        session.delete(ins)
+        session.delete(per)
     
+    session.commit()
 
 #engine = create_engine("sqlite:///schdatabase.db", echo=True)
 #Session = sessionmaker(bind=engine)
