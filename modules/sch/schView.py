@@ -217,7 +217,7 @@ class sView(wx.Panel, sControler):
         
         oneBox13 = wx.BoxSizer( wx.VERTICAL )
         
-        oneSB4 = wx.StaticBoxSizer( wx.StaticBox( self.panel, wx.ID_ANY, u"Dodaj użytkownika" ), wx.VERTICAL )
+        oneSB4 = wx.StaticBoxSizer( wx.StaticBox( self.panel, wx.ID_ANY, u"Dodaj autora" ), wx.VERTICAL )
         
         oneBox132 = wx.BoxSizer( wx.HORIZONTAL )
         
@@ -227,6 +227,7 @@ class sView(wx.Panel, sControler):
         
         cb1Choices = self.SetCollegeName()
         self.cb1 = wx.ComboBox( self.panel, wx.ID_ANY, u"Uczelnia", wx.DefaultPosition, wx.Size( 202,21 ), cb1Choices, 0 )
+        self.cb1.SetSelection( 0 )
         oneBox132.Add( self.cb1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -240,6 +241,7 @@ class sView(wx.Panel, sControler):
         
         cb2Choices = self.SetFacultyName()
         self.cb2 = wx.ComboBox( self.panel, wx.ID_ANY, u"Wydział", wx.DefaultPosition, wx.Size( 202,21 ), cb2Choices, 0 )
+        self.cb2.SetSelection( 0 )
         oneBox133.Add( self.cb2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -253,6 +255,7 @@ class sView(wx.Panel, sControler):
         
         cb3Choices = self.SetInstituteName()
         self.cb3 = wx.ComboBox( self.panel, wx.ID_ANY, u"Instytut", wx.DefaultPosition, wx.Size( 202,21 ), cb3Choices, 0 )
+        self.cb3.SetSelection( 0 )
         oneBox134.Add( self.cb3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         

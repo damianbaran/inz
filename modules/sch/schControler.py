@@ -16,7 +16,7 @@ class sControler(sModel, mModel):
     def SelectAllClick(self, data):
         t = self.smodel.selectingString(data)
         self.mmodel.getData(t)
-        return t
+#        return t
     
     def DataforMen(self):
         return self.smodel.mendata

@@ -15,6 +15,7 @@ class MainFrame(wx.Frame):
         
         self.panel_sch = sView(self)
         self.panel_men = mView(self)
+        
         self.panel_baz = bView(self)
         self.panel_men.Hide()
         self.panel_baz.Hide()

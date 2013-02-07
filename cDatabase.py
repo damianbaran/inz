@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import wx
+import unicodedata
 from sqlalchemy import create_engine, or_, and_
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
@@ -12,9 +13,32 @@ import sqlalchemy.exc
 import sqlalchemy.orm.exc
 
 from modules.sch.schModel import sModel
+from modules.men.menModel import mModel
 
 
 from mDatabase import Person, College, Faculty, Institute, Group, ColPer, GroPer, Publication, Journal, PerPub, metadata
+
+###################################################
+## Polaczone z modelami
+###################################################
+
+mmodel = mModel()
+
+def getChoiceRecord(session, data):
+    tmp = []
+    for i in range(len(data)):
+        print data[i]
+        for p, j in session.query(Publication, Journal).\
+                filter(Publication.id == data[i]).\
+                filter(Publication.journal_id == Journal.id):
+            t = ('', p.citation, p.title, p.author, p.year, j.full_name)
+            tmp.append(t)
+#    return tmp
+    
+    mmodel.getBaseData(tmp)
+#    return t
+    
+
 
 ###################################################
 ## Polaczone z baza danych
@@ -84,7 +108,9 @@ def getUserInGroup(session, gname):
                 filter(GroPer.person_id == Person.id).\
                 filter(GroPer.group_id == Group.id).\
                 filter(Group.name == gname).group_by(Person.id):
-        result.append(p.surname)
+        e = unichr(380)
+        t = p.surname.encode('utf-8')
+        result.append(t)
     return result
     
 def getCheckedUser(session, gname):

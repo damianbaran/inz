@@ -90,14 +90,34 @@ class bView(wx.Panel, PubDialog):
         self.m_searchCtrl1.Bind(wx.EVT_TEXT_ENTER, self.searchPub)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
+        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
 #        PubDialog().m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
+
+        #Pozycje dal popmenu
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz', 3:'Edytuj rekord', 4:u'Usuń rekord',5:'Zaznacz wszystko',6:'Odznacz wszystko',7:'Czysc liste'}
+
+#############################################################
+## Przekazywanie rekordow do modelu menadzera
+#############################################################
+
+    def getItem(self):
+        """Pobiera ID wybranych rekordow do przeniesienia do menadzera zadan"""
+        l = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                t = self.dataList.GetItemText(i)
+                l.append(t)
+        return l
+        
+    def GetItem(self, event):
+        """Pobieranie danych z wyszukiwania bazy i tworzenie listy do przekazania dla menadzera publikacji"""
+        cDatabase.getChoiceRecord(self.session, self.getItem())
         
 #############################################################
 ## Metody
 #############################################################
 
-        #Pozycje dal popmenu
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz', 3:'Edytuj rekord', 4:u'Usuń rekord',5:'Zaznacz wszystko',6:'Odznacz wszystko',7:'Czysc liste'}
         
     def searchPub(self,  event):
         """Funkcja wyszukuje wartości w bazie podane przez użytkownika"""
@@ -111,7 +131,8 @@ class bView(wx.Panel, PubDialog):
 #        dlg = PubDialog()
 #        t1 = dlg.m_textCtrl2.GetValue()
 #        print t1
-        
+
+       
     def editRecord(self, id, data):
         """Ustawienia wartości z zapytania w kontrolkach do edycji wybranej publikacji"""
         dlg = PubDialog()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import wx
 import wx.lib.mixins.listctrl as listmix
-from modules.sch.schControler import sControler
+from modules.men.menControler import mControler
 
 
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
@@ -14,104 +14,145 @@ class mView(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent=parent)
         
-        self.scontrol = sControler()
+        self.mcontrol = mControler()
 
-        ########################################################################
-        #  Panel 1
-        ########################################################################
-        self.panel1 = wx.Panel(self, -1, pos=(0,0), size=(330,210))
-        self.panel2 = wx.Panel(self, -1, pos=(0,210), size=(1024,410))
-        self.panel3 = wx.Panel(self, -1, pos=(330,0), size=(330,210))
-        self.panel4 = wx.Panel(self, -1, pos=(660,0), size=(360,210))
-
+        self.panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+        globalBox = wx.BoxSizer( wx.VERTICAL )
         
-        wx.StaticBox(self.panel1, -1, 'Wyszukiwanie Google Scholar',
-                     pos=(5, 5), size=(320, 200))
-        #1
-        text1 = wx.StaticText(self.panel1, label="Wszystkie slowa:", pos=(15,30))
-        self.ctrl1 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,27.5))
-        #2
-        text2 = wx.StaticText(self.panel1, label="Wyrazenie:", pos=(15,55))
-        self.ctrl2 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,52.5))
-        #3
-        text3 = wx.StaticText(self.panel1, label="Jedno ze slow:", pos=(15,80))
-        self.ctrl3 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,77.5))
-        #4
-        text4 = wx.StaticText(self.panel1, label="Bez slow:", pos=(15,105))
-        self.ctrl4 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,102.5))
-        #5
-        text5 = wx.StaticText(self.panel1, label="Autor:", pos=(15,130))
-        self.ctrl5 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,127.5))
-        #6
-        text6 = wx.StaticText(self.panel1, label="Dziedzina:", pos=(15,155))
-        self.ctrl6 = wx.TextCtrl(self.panel1, size=(200,20), pos=(105,152.5))
-        #7
-        text7 = wx.StaticText(self.panel1, label="Rok od:", pos=(15,180))
-        self.ctrl7 = wx.TextCtrl(self.panel1, size=(50,20), pos=(105,177.5))
-        text8 = wx.StaticText(self.panel1, label=" do ", pos=(165,180))
-        self.ctrl8 = wx.TextCtrl(self.panel1, size=(50,20), pos=(185,177.5))
-        #button
-        self.butt = wx.Button(self.panel1, -1, label='Pobierz', pos=(245,177.5))
+        oneBox1 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        oneBox11 = wx.BoxSizer( wx.VERTICAL )
+        
+        oneSB1 = wx.StaticBoxSizer( wx.StaticBox( self.panel, wx.ID_ANY, u"Dodaj Publikacje" ), wx.VERTICAL )
+        
+        oneBox111 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.txt1 = wx.StaticText( self.panel, wx.ID_ANY, u"Tytył:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.txt1.Wrap( -1 )
+        oneBox111.Add( self.txt1, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        self.ctrl1 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 200,20 ), 0 )
+        oneBox111.Add( self.ctrl1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox111, 0, wx.EXPAND, 5 )
+        
+        oneBox112 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.txt2 = wx.StaticText( self.panel, wx.ID_ANY, u"Imie:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.txt2.Wrap( -1 )
+        oneBox112.Add( self.txt2, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        self.ctrl2 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.Point( -1,-1 ), wx.Size( 200,20 ), 0 )
+        oneBox112.Add( self.ctrl2, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox112, 0, wx.EXPAND, 5 )
+        
+        oneBox113 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.txt3 = wx.StaticText( self.panel, wx.ID_ANY, u"Nazwisko:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.txt3.Wrap( -1 )
+        oneBox113.Add( self.txt3, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        self.ctrl3 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 200,20 ), 0 )
+        oneBox113.Add( self.ctrl3, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox113, 0, wx.EXPAND, 5 )
+        
+        oneBox114 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.txt4 = wx.StaticText( self.panel, wx.ID_ANY, u"Rok:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.txt4.Wrap( -1 )
+        oneBox114.Add( self.txt4, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        self.ctrl4 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 200,20 ), 0 )
+        oneBox114.Add( self.ctrl4, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox114, 0, wx.EXPAND, 5 )
+        
+        oneBox115 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.txt5 = wx.StaticText( self.panel, wx.ID_ANY, u"Wydawca:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.txt5.Wrap( -1 )
+        oneBox115.Add( self.txt5, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        self.ctrl5 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 200,20 ), 0 )
+        oneBox115.Add( self.ctrl5, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox115, 0, wx.EXPAND, 5 )
+        
+        oneBox117 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.but1 = wx.Button( self.panel, wx.ID_ANY, u"Pobierz", wx.DefaultPosition, wx.DefaultSize, 0 )
+        oneBox117.Add( self.but1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+        
+        
+        oneSB1.Add( oneBox117, 0, wx.ALIGN_RIGHT, 5 )
+        
+        
+        oneBox11.Add( oneSB1, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_LEFT|wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
+        
+        
+        oneBox1.Add( oneBox11, 0, wx.EXPAND|wx.ALL, 5 )
+        
+        
+        globalBox.Add( oneBox1, 0, wx.EXPAND, 5 )
+        
+        twoBox1 = wx.BoxSizer( wx.VERTICAL )
+        
+        twoBox11 = wx.BoxSizer( wx.VERTICAL )
+        
+#        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1000,295 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
+        self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=70)
+        self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=320)
+        self.dataList.InsertColumn(3, 'Autor', format=wx.LIST_FORMAT_LEFT, width=180)
+        self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
+        self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=120)
+        twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.LEFT|wx.RIGHT, 5 )
+        
+        
+        twoBox1.Add( twoBox11, 1, wx.RIGHT|wx.EXPAND, 5 )
+        
+        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Wyświetl wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
+        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
+        
+        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Przywróć liste", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
+        
+        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
+        
+        
+        twoBox1.Add( twoBox12, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+        
+        
+        globalBox.Add( twoBox1, 1, wx.TOP|wx.BOTTOM|wx.EXPAND, 5 )
+        
+        
+        self.panel.SetSizer( globalBox )
+        self.panel.Layout()
+        globalBox.Fit( self.panel )
         
         ########################################################################
         #  Panel 2
         ########################################################################
         
-            
-        """        
+        self.but5.Bind(wx.EVT_BUTTON, self.test)
+        
+    def test(self, event):
+        self.dataList.DeleteAllItems()
+        t = self.mcontrol.getRecords()
+        self.updateRecord(t)
+    
     def updateRecord(self, data):
         """
         """
-        #self.dataList.SetObjects(data)
         for i in range(len(data)):
             self.dataList.Append(data[i])
-            
-    def getChoice(self):
-        h = self.ch.GetCurrentSelection()
-        if h == -1:
-            raise ValueError
-        print h
-        return self.tmp[h]
-        
-    def selectAll(self):
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            self.dataList.CheckItem(i)
-        
-    def deselectAll(self):
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            self.dataList.CheckItem(i, False)
-            
-    def selectOne(self):
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            if self.dataList.IsSelected(i):
-                self.dataList.CheckItem(i)
-
-    def selectOneClick(self):
-        l = []
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            if self.dataList.IsChecked(i):
-                l.append(i)
-        #print l
-        return l
-            
-    def deselectOne(self):
-        num = self.dataList.GetItemCount()
-        for i in range(num):
-            if self.dataList.IsSelected(i):
-                self.dataList.CheckItem(i, False)
-        
-    def printWord(self):
-        txt1 = self.ctrl1.GetValue()
-        txt2 = self.ctrl2.GetValue()
-        txt3 = self.ctrl3.GetValue()
-        txt4 = self.ctrl4.GetValue()
-        txt5 = self.ctrl5.GetValue()
-        txt6 = self.ctrl6.GetValue()
-        txt7 = self.ctrl7.GetValue()
-        txt8 = self.ctrl8.GetValue()
-        return (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
-        """
