@@ -1,0 +1,878 @@
+(lp0
+(I0
+I36
+VKomputerowa analiza obrazu
+p1
+VL Wojnar, M Majorek 
+p2
+V1994
+p3
+VFotobit-Design
+p4
+S'Brak'
+p5
+tp6
+a(I1
+I4
+VAnaliza kraniometryczna czaszek psów rasy american staffordshire terrier
+p7
+VM Janeczek, A Chrószcz, A Wojnar, N Pospieszny 
+p8
+V2005
+p9
+VMedycyna Wet, 2005
+p10
+g5
+tp11
+a(I2
+I3
+VAnaliza strategii, modeli dzia\u0142ania oraz \u015bcie\u017cek ewolucji wiod\u0105cych szkó\u0142 wy\u017cszych na \u015bwiecie
+p12
+VA Olechnicka, W Pander, A P\u0142oszaj, K Wojnar 
+p13
+V2010
+p14
+VPolitechnika Warszawska, Warszawa, 2010
+p15
+g5
+tp16
+a(I3
+I2
+V\u2026  chorych z niepowik\u0142anym zawa\u0142em serca oraz zawa\u0142em z obecno\u015bci\u0105 wstrz\u0105su kardiogennego, leczonych angioplastyk\u0105 wie\u0144cow\u0105. Analiza z Rejestru ZABRZE
+p17
+V\u2026, M Kondys, K Wilczek, R Wojnar\u2026 
+p18
+V2002
+p19
+Vfce.viamedica.pl
+p20
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=47&indeks_art=579'
+p21
+tp22
+a(I4
+I7
+VNasza wspó\u0142czesno\u015b\u0107 a wychowanie
+p23
+VB Suchodolski, I Wojnar 
+p24
+V1972
+p25
+VNasza Ksi\u0119g
+p26
+g5
+tp27
+a(I5
+I2
+VAnaliza sieci wspó\u0142pracy o\u015brodków naukowo-badawczych\u2013przyk\u0142ad programu ESPON
+p28
+VA P\u0142oszaj, K Wojnar 
+p29
+V2009
+p30
+Vceeol.com
+p31
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=fd30d0559a4d420e9b6277a1d00439de'
+p32
+tp33
+a(I6
+I2
+VAnaliza poziomu rozwoju spo\u0142eczno-gospodarczego województw
+p34
+VM Cierpia\u0142
+p35
+V2001
+p36
+VWiadomo\u015bci Statystyczne, 2001
+p37
+g5
+tp38
+a(I7
+I2
+VKomputerowa analiza obrazu.[Computer image analysis]
+p39
+VL Wojnar, M Majorek 
+p40
+V1994
+p41
+VFotobit Design [in Polish], 1994
+p42
+g5
+tp43
+a(I8
+I1
+VAnaliza fraktalna struktury geometrycznej powierzchni
+p44
+V\u2026, J MAGDZIARCZYK, L WOJNAR 
+p45
+V2011
+p46
+Vptzp.org.pl
+p47
+S'http://www.ptzp.org.pl/files/konferencje/kzz/artyk_pdf_2011/035.pdf'
+p48
+tp49
+a(I9
+I1
+VKomputerowe przetwarzanie i analiza obrazu mikroskopowego
+p50
+VL Wojnar 
+p51
+V2000
+p52
+Vbaztech.icm.edu.pl
+p53
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?LOD7-0022-0019'
+p54
+tp55
+a(I0
+I1
+VAnaliza teksturalna i petrologia ska\u0142 metamorficznych po\u0142udiowej cz\u0119\u015bci masywu strzeli\u0144skiego
+p56
+VB Wojnar 
+p57
+V1995
+p58
+VWydawn. Uniw. Wroc\u0142awskiego
+p59
+g5
+tp60
+a(I1
+I3
+VDepresja a ból: ogólnopolskie badanie epidemiologiczne
+p61
+VD Wasilewski, M Wojnar, J Chatizow 
+p62
+V2010
+p63
+Vpsychiatriapolska.pl
+p64
+S'http://www.psychiatriapolska.pl/uploads/images/PP_3_2010/WasilewskiPP2010n3s435.pdf'
+p65
+tp66
+a(I2
+I1
+VWyniki leczenia zawa\u0142u serca z uniesieniem odcinka ST u chorych z wielonaczyniow\u0105 chorob\u0105 wie\u0144cow\u0105 za pomoc\u0105 wczesnej interwencji wie\u0144cowej
+p67
+V\u2026, A Lekston, K Wilczek, R Wojnar\u2026 
+p68
+V2003
+p69
+Vfce.viamedica.pl
+p70
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=54&indeks_art=727'
+p71
+tp72
+a(I3
+I0
+VAnaliza ekspresji izoform PRA i PRB receptora progesteronowego w raku endometrium oraz w prawid\u0142owych tkankach b\u0142ony \u015bluzowej trzonu macicy
+p73
+V\u2026, J Heimrath, J Grze\u015bko, M Elias, A Wojnar\u2026 
+p74
+V2007
+p75
+Vwww.cornetis.pl
+p76
+S'http://www.www.cornetis.pl/pliki/OP/2007/4/OP_2007_4_203.pdf'
+p77
+tp78
+a(I4
+I0
+VAnaliza poziomu rozwoju spoleczno-gospodarczego wojewodztw
+p79
+VM Cierpial
+p80
+V2001
+p81
+VPolska/ Glowny Urzad Statystyczny: Wiadomosci  \u2026, 2001
+p82
+g5
+tp83
+a(I5
+I0
+VAnaliza wp\u0142ywu p\u0119kni\u0119cia podstawy z\u0119ba obci\u0105\u017canego du\u017c\u0105 si\u0142\u0105 dynamiczn\u0105 na zmiany rozk\u0142adu czasowo-cz\u0119stotliwo\u015bciowego sygna\u0142u WA
+p84
+VG Wojnar 
+p85
+S' '
+p86
+Vbaztech.icm.edu.pl
+p87
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0017-0089'
+p88
+tp89
+a(I6
+I0
+VWyniki leczenia chorych z zawalem serca w wieku do 40 lat w porÓwnaniu ze starszymi poddanymi angioplastyce wie\u0144cowej: Analiza z rejestru zabrze
+p90
+V\u2026, A LEKSTON, J SZKODZINSKI, R WOJNAR\u2026 
+p91
+V2003
+p92
+Vcat.inist.fr
+p93
+S'http://cat.inist.fr/?aModele=afficheN&cpsidt=14915482'
+p94
+tp95
+a(I7
+I0
+VAnaliza teksturalna i petrologia skal metamorficznych poludniowej czasci masywu Strzelinskiego
+p96
+VB Wojnar 
+p97
+g86
+VWroclaw
+p98
+g5
+tp99
+a(I8
+I0
+VWYKORZYSTANIE ESTYMAT AMPLITUDOWYCH I DYSKRYMINANT BEZWYMIAROWYCH SYGNA\u0141U WA DO WYKRYWANIA ZU YCIA  \u2026
+p100
+VG WOJNAR, P CZECH, Z STANIK 
+p101
+V2011
+p102
+Vpolsl.pl
+p103
+S'http://www.polsl.pl/Wydzialy/RT/ZN_T/pelne_teksty/z72/107_ZN72_WojnarCzechStanik.pdf'
+p104
+tp105
+a(I9
+I0
+VAnaliza u\u017cyteczno\u015bci do celów diagnostycznych ró\u017cnych sygna\u0142ów drganiowych generowanych przez przek\u0142adni\u0119 z\u0119bat\u0105
+p106
+VG WOJNAR 
+p107
+V2009
+p108
+Vbaztech.icm.edu.pl
+p109
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB2-0034-0080'
+p110
+tp111
+a(I0
+I0
+VWykorzystanie analizy falkowej w diagnozowaniu lokalnych uszkodze\u0144 kó\u0142 z\u0119batych
+p112
+VG Wojnar, B \u0141azarz 
+p113
+g86
+Vbaztech.icm.edu.pl
+p114
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAT3-0033-0043'
+p115
+tp116
+a(I1
+I0
+VAnaliza rozk\u0142adu napr\u0119\u017ce\u0144 w trzonie komina obci\u0105\u017conego nierównomiernym parciem wiatru
+p117
+VA Wojnar, A Koz\u0142owski 
+p118
+g86
+Vbaztech.icm.edu.pl
+p119
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0040-0062'
+p120
+tp121
+a(I2
+I0
+VWP\u0141YW PARAMETRÓW ELEKTROOSADZANIA NA ZMIANY NANOSTRUKTURY WARSTW Al2O3/WS2 O PRZEZNACZENIU TRIBOLOGICZNYM THE  \u2026
+p122
+VJ KORZEKWA, W SKONECZNY, L WOJNAR 
+p123
+g86
+Vsuw.biblos.pk.edu.pl
+p124
+S'http://suw.biblos.pk.edu.pl/resources/i5/i3/i4/i3/r5343/KorzekwaJ_WplywParametrow.pdf'
+p125
+tp126
+a(I3
+I0
+V(1947-1990)
+p127
+VDRB WOJNAR 
+p128
+V1992
+p129
+VWydawnictwo Uniwersytetu  \u2026
+p130
+g5
+tp131
+a(I4
+I0
+VWp\u0142yw polityki spójno\u015bci na spójno\u015b\u0107 spo\u0142eczn\u0105 polskich miast\u2013wnioski z bada\u0144 ewaluacyjnych
+p132
+VK Wojnar 
+p133
+V2011
+p134
+Vceeol.com
+p135
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=cf18b6355973415b96682a752c9121ce'
+p136
+tp137
+a(I5
+I0
+VNowowiejska skala nasilenia objawów alkoholowego zespo\u0142u abstynencyjnego (skala NOWA)
+p138
+VD Wasilewski, M Wojnar, I Grobel\u2026 
+p139
+V2006
+p140
+Vipin.edu.pl
+p141
+S'http://ipin.edu.pl/ain/aktualne/1/t19n1_1.pdf'
+p142
+tp143
+a(I6
+I0
+VWYKRYWANIE WYKRUSZENIA WIERZCHO\u0141KA Z\u0118BA W PRZYPADKU PRZEK\u0141ADNI PRACUJ\u0104CEJ ZE ZMIENN\u0104 W CZASIE PR\u0118DKO\u015aCI\u0104 OBROTOW\u0104
+p144
+VG WOJNAR 
+p145
+V2011
+p146
+Vpolsl.pl
+p147
+S'http://www.polsl.pl/Wydzialy/RT/ZN_T/pelne_teksty/z70/103_ZN70_Wojnar.pdf'
+p148
+tp149
+a(I7
+I0
+VWp\u0142yw palenia tytoniu na wczesne wyniki leczenia chorych z zawa\u0142em serca za pomoc\u0105 agioplastyki wie\u0144cowej
+p150
+V\u2026, M Kondys, A Wn\u0119k, R Wojnar\u2026 
+p151
+V2003
+p152
+Vfce.viamedica.pl
+p153
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=55&indeks_art=748'
+p154
+tp155
+a(I8
+I0
+V0. ROLI WYDZIELEÑ W PROCESIE PÇKANIA NA PRZYKLADZIE ZELIWA SFERÓIDALNEGO 0 OSNOWIE FERRYTYCZNEJ
+p156
+VL WOJNAR, W DZIADUR 
+p157
+V1988
+p158
+VPolitechnika Krakowska im.  \u2026
+p159
+g5
+tp160
+a(I9
+I0
+VZESZYTY NAUKOWE POLITECHNIKI^ \u0141ASKIEJ 1 9
+p161
+V\u2026, M KRUPA, W WOJNAR 
+p162
+V1988
+p163
+VDzia\u0142 Wydawn. Politechniki \u015al\u0105skiej
+p164
+g5
+tp165
+a(I0
+I0
+VAveraged wavelet power spectrum as a method of piston-skirt clearance detection
+p166
+VG Wojnar, H Madej 
+p167
+g86
+Vbaztech.icm.edu.pl
+p168
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0042-0133'
+p169
+tp170
+a(I1
+I0
+VAveraging of the vibration signal with the synchronizing impulse location correction in tooth gear diagnostics
+p171
+VG Wojnar, B \u0141azarz 
+p172
+g86
+Vbaztech.icm.edu.pl
+p173
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0032-0064'
+p174
+tp175
+a(I2
+I0
+VSelekcja przestrzenna sygna\u0142u drganiowego zorientowana na diagnozowanie przek\u0142adni z\u0119batych
+p176
+VG Wojnar 
+p177
+V2005
+p178
+Vbaztech.icm.edu.pl
+p179
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAT3-0032-0089'
+p180
+tp181
+a(I3
+I0
+VMetoda pozyskiwania sygna\u0142ów resztkowego i ró\u017cnicowego w przypadku pracy przek\u0142adni z\u0119batej ze zmiennymi w czasie pr\u0119dko\u015bciami obrotowymi i obci\u0105\u017ceniami
+p182
+VG Wojnar, B \u0141azarz, H Madej 
+p183
+g86
+Vbaztech.icm.edu.pl
+p184
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0017-0083'
+p185
+tp186
+a(I4
+I0
+VNierówno\u015bci dochodowe gospodarstw domowych w regionie podkarpackim
+p187
+VB Kasprzyk, J Wojnar 
+p188
+g86
+Vuniv.rzeszow.pl
+p189
+S'http://www.univ.rzeszow.pl/pliki/Zeszyt17/39.pdf'
+p190
+tp191
+a(I5
+I0
+VCa\u0142kowita abstynencja czy redukcja szkód\u2013ró\u017cne strategie terapii uzale\u017cnienia od alkoholu w \u015bwietle bada\u0144 i mi\u0119dzynarodowych zalece\u0144
+p192
+VA Jakubczyk, M Wojnar 
+p193
+g86
+Vpsychiatriapolska.pl
+p194
+S'http://www.psychiatriapolska.pl/uploads/images/PP_3_2012/373Jakubczyk_PsychiatrPol_3_2012.pdf'
+p195
+tp196
+a(I6
+I0
+VNeurobiologia impulsywno\u015bci i jej implikacje kliniczne
+p197
+VA JAKUBCZYK, M WOJNAR 
+p198
+V2009
+p199
+Vipin.edu.pl
+p200
+S'http://www.ipin.edu.pl/ppn/aktualne/2009/4/t18n4_7.pdf'
+p201
+tp202
+a(I7
+I0
+VSpondylodeza mi\u0119dzytrzonowa i przeznasadowa stabilizacja w leczeniu kr\u0119gozmyków
+p203
+VJ Skowro\u0144ski, J Wojnar, M Bielecki 
+p204
+V2007
+p205
+Vortopedia.com.pl
+p206
+S'http://www.ortopedia.com.pl/fulltxt.php?ICID=480899'
+p207
+tp208
+a(I8
+I0
+VNawroty w uzale\u017cnieniu od alkoholu Cz\u0119\u015b\u0107 2: Biologiczne predyktory
+p209
+VM Wojnar, A \u015alufarska, M Lipi\u0144ski 
+p210
+V2007
+p211
+Vain.ipin.edu.pl
+p212
+S'http://ain.ipin.edu.pl/aktualne/1-1/materialy/AiN1-2007.pdf#page=65'
+p213
+tp214
+a(I9
+I7
+VComputer-aided versus manual grain size assessment in a single phase material
+p215
+VZ Lata\u0142a, L Wojnar 
+p216
+V2001
+p217
+VElsevier
+p218
+S'http://www.sciencedirect.com/science/article/pii/S1044580301001280'
+p219
+tp220
+a(I0
+I0
+VAnalysis of Defects Formation in as-Cast Metal Saturated Composites
+p221
+VK GAWDZI\u0143SKA, J Grabian, L Wojnar 
+p222
+V2003
+p223
+Vpublic.carnet.hr
+p224
+S'http://public.carnet.hr/metalurg/Metalurgija/2003_vol_42/No_2/1000_Gawdzinska.pdf'
+p225
+tp226
+a(I1
+I4
+VPetrografia utworów karbonu Gór Sowich
+p227
+V\u0141 W\u0142odzimierz, H Adam, U Zdzis\u0142awa\u2026 
+p228
+V1986
+p229
+VGeol. Sudet, 1986
+p230
+g5
+tp231
+a(I2
+I4
+VRt\u0119\u0107 w polskiej energetyce
+p232
+VMK Wojnar, J Wisz 
+p233
+V2006
+p234
+Vinformatyzacja-w-energetyce.cire.pl
+p235
+S'http://www.informatyzacja-w-energetyce.cire.pl/pliki/2/rtecwenerg.pdf'
+p236
+tp237
+a(I3
+I0
+VWp\u0142yw zu\u017cycia \u0142o\u017cysk kó\u0142 jezdnych pojazdu na zmiany sygna\u0142u ci\u015bnienia akustycznego
+p238
+VG WOJNAR, Z STANIK 
+p239
+V2010
+p240
+Vpolsl.pl
+p241
+S'https://www.polsl.pl/Wydzialy/RT/ZN_T/pelne_teksty/z66/117_ZN66_WojnarStanik.pdf'
+p242
+tp243
+a(I4
+I0
+VTENDENCJE NA RYNKU MLEKA I PRODUKTÓW MLECZ-NYCH W POLSCE
+p244
+VJ Wojnar, D Jankowska
+p245
+g86
+g245
+g5
+tp246
+a(I5
+I0
+VIC Conferences
+p247
+VD Wasilewski, M Wojnar, J Chatizow 
+p248
+V2010
+p249
+Vjournals.indexcopernicus.com
+p250
+S'http://journals.indexcopernicus.com/abstracted.php?icid=917782'
+p251
+tp252
+a(I6
+I0
+VStrategie przoduj\u0105cych uczelni wobec nowych uwarunkowa\u0144 i funkcji szkó\u0142 wy\u017cszych
+p253
+VA P\u0142oszaj, A Olechnicka, K Wojnar 
+p254
+V2011
+p255
+Vceeol.com
+p256
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=6967019444f94c2185dd9037a13f8375'
+p257
+tp258
+a(I7
+I0
+VDepresja a ból: ogólnopolskie badanie epidemiologiczne 435-445
+p259
+VD Wasilewski, M Wojnar\u2026 
+p260
+V2011
+p261
+Vpsychiatriapsychoterapia.pl
+p262
+S'http://www.psychiatriapsychoterapia.pl/?a=articles_show&id=1109'
+p263
+tp264
+a(I8
+I0
+VWP\u0141YW NIERÓWNOMIERNEGO OGRZEWANIA NA NAPR\u0118\u017bENIA W RURACH PRZEGRZEWACZA GRODZIOWEGO
+p265
+VM PRONOBIS, W WOJNAR, J CZEPELAK
+p266
+g86
+g266
+g5
+tp267
+a(I9
+I0
+Vstrategie przoDuj\u0105cych uczelni wobec nowych uwarunkowa\u0144 i Funkcji szkó\u0142 wy\u017cszych1
+p268
+VA Olechnicka, A P\u0142oszaj, K Wojnar 
+p269
+g86
+Veuroreg.uw.edu.pl
+p270
+S'http://www.euroreg.uw.edu.pl/dane/web_euroreg_publications_files/243/2011_1_olechnicka_ploszaj_wojnar.pdf'
+p271
+tp272
+a(I0
+I0
+VWykorzystanie sygna\u0142u pr\u0119dko\u015bci drga\u0144 k\u0105towych wa\u0142u przek\u0142adni do wykrywania uszkodze\u0144 kó\u0142 z\u0119batych
+p273
+VG WOJNAR 
+p274
+V2010
+p275
+Vpolsl.pl
+p276
+S'https://www.polsl.pl/Wydzialy/RT/ZN_T/pelne_teksty/z66/123_ZN66_Wojnar.pdf'
+p277
+tp278
+a(I1
+I0
+VJako\u015b\u0107 \u017cycia a parametry echokardiograficzne u pacjentów po ablacji \u0142\u0105cza przedsionkowo-komorowego z nast\u0119pcz\u0105 stymulacj\u0105 prawej komory
+p279
+V\u2026, K Go\u015bci\u0144ska
+p280
+V2006
+p281
+Vcornetis.pl
+p282
+S'http://cornetis.pl/pliki/PPK/2006/2/PPK_2006_2_101.pdf'
+p283
+tp284
+a(I2
+I0
+VWp\u0142yw wyj\u015bciowego przep\u0142ywu w t\u0119tnicy odpowiedzialnej za zawa\u0142 na wyniki leczenia chorych z ostrym zawa\u0142em serca, u których zastosowano streptokinaz\u0119  \u2026
+p285
+V\u2026, M Gierlotka, T Z\u0119bik, A Wn\u0119k, R Wojnar\u2026 
+p286
+V2003
+p287
+Vfce.viamedica.pl
+p288
+S'http://www.fce.viamedica.pl/zamow_art_pdf.phtml?id=52&indeks_art=663'
+p289
+tp290
+a(I3
+I0
+VOCENA POWTARZALNO\u015aCI WYNIKÓW ILO\u015aCIOWEJ OCENY STRUKTURY
+p291
+VL WOJNAR, A G\u0104DEK 
+p292
+V2006
+p293
+Vafe.polsl.pl
+p294
+S'http://www.afe.polsl.pl/index.php/pl/2589/ocena-powtarzalnosci-wynikow-ilosciowej-oceny-struktury.pdf'
+p295
+tp296
+a(I4
+I0
+V\u0422\u0430\u0431\u043b\u0438\u0446\u0430 \u041f
+p297
+VB WOJNAR 
+p298
+V1977
+p299
+VPa\u0144stwowe Wydawn. Naukowe
+p300
+g5
+tp301
+a(I5
+I0
+VImpulsywno\u015b\u0107\u2013definicje, teorie, modele
+p302
+VA JAKUBCZYK, M WOJNAR 
+p303
+V2009
+p304
+Vppn.ipin.edu.pl
+p305
+S'http://www.ppn.ipin.edu.pl/aktualne/2009/4/t18n4_6.pdf'
+p306
+tp307
+a(I6
+I0
+VRozmowa w Profesorem Bogdanem Suchodolskim1
+p308
+VI Wojnar 
+p309
+V2000
+p310
+VKomitet Prognoz" Polska 2000 Plus"  \u2026
+p311
+g5
+tp312
+a(I7
+I0
+VMental disorders and level of emotional and cognitive preparation of patients with maxillofacial defects undergoing orthognathic surgery
+p313
+VK Mika, M Wojnar, D Samolczyk
+p314
+V2011
+p315
+Vczas.stomat.net
+p316
+S'http://czas.stomat.net/upload/articles/15/1426.pdf'
+p317
+tp318
+a(I8
+I0
+VSTRENGTH ANALYSIS OF NITRIDED LAYERS ON AUSTENITIC STAINLESS STEEL BASED ON ACOUSTIC EMISSION (AE) MEASUREMENTS
+p319
+VJ Wojnar 
+p320
+V2009
+p321
+Vilot.edu.pl
+p322
+S'http://ilot.edu.pl/wp-content/uploads/2011/03/PIL_200.pdf#page=111'
+p323
+tp324
+a(I9
+I0
+VIII Sympozjum Jesienne \u201eElektroterapia (i farmakoterapia) w arytmiach przedsionkowych (dla zaawansowanych)\u201d Sieniawa 7\u20139 listopada 2007 roku
+p325
+VM Wnuk
+p326
+V2007
+p327
+Vfce.viamedica.pl
+p328
+S'http://www.fce.viamedica.pl/darmowy_pdf.phtml?indeks=112&indeks_art=1283'
+p329
+tp330
+a(I0
+I0
+VGenetyka zachowa\u0144 samobójczych
+p331
+VS FUDALEJ, M WOJNAR, H MATSUMOTO\u2026 
+p332
+g86
+Vipin.edu.pl
+p333
+S'http://www.ipin.edu.pl/ppn/archiwum/2006/2/t15n2_5.pdf'
+p334
+tp335
+a(I1
+I0
+VNETWORK ANALYSIS OF CO-OPERATION BETWEEN RESEARCH INSTITUTIONS\u2013EXAMPLE OF ESPON PROGRAMME
+p336
+VA P\u0141OSZAJ, K WOJNAR 
+p337
+g86
+Veuroreg.uw.edu.pl
+p338
+S'http://www.euroreg.uw.edu.pl/dane/web_euroreg_publications_files/2453/poszaj2010-network_analysis_of_co-operation_between_research_institutions__example_of_espon_programme.pdf'
+p339
+tp340
+a(I2
+I0
+VWykszta\u0142cenie jako czynnik determinuj\u0105cy poziom dobrobytu ekonomicznego gospodarstw domowych w regionie podkarpackim
+p341
+VB Kasprzyk, J Wojnar 
+p342
+g86
+Vuniv.rzeszow.pl
+p343
+S'http://www.univ.rzeszow.pl/pliki/Zeszyt19/21.pdf'
+p344
+tp345
+a(I3
+I0
+VMaurice Debesse (1903-1998) francuski pedagog, psycholog moralista
+p346
+VI Wojnar 
+p347
+V2001
+p348
+Vceeol.com
+p349
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=d57f8e69fb944ad9b45bb6651ace90b4'
+p350
+tp351
+a(I4
+I0
+VZnaczenie objawów resztkowych w przebiegu leczenia depresji
+p352
+VM BUGAJ, A JAKUBCZYK, M WOJNAR 
+p353
+V2012
+p354
+Vipin.edu.pl
+p355
+S'http://www.ipin.edu.pl/ppn/aktualne/2012/3/06_PPiN_3-2012.pdf'
+p356
+tp357
+a(I5
+I0
+VAutomatic analysis of echocardiographic video recordings
+p358
+VZ Latala, L Wojnar, L Szydlowski 
+p359
+V2003
+p360
+VWorld Scientific
+p361
+S'http://www.worldscientific.com/doi/abs/10.1142/S0218001403002381'
+p362
+tp363
+a(I6
+I0
+VPrzemoc pomi\u0119dzy partnerami i zachowania ryzykowne u osób uzale\u017cnionych od alkoholu i innych substancji psychoaktywnych
+p364
+V\u2026, A Topolewska
+p365
+V2012
+p366
+Vipin.edu.pl
+p367
+S'http://www.ipin.edu.pl/wordpress/wp-content/uploads/2012/11/4.pdf'
+p368
+tp369
+a(I7
+I15
+VAge-related differences in the course of alcohol withdrawal in hospitalized patients
+p370
+VM Wojnar, D Wasilewski, I \u017bmigrodzka\u2026 
+p371
+V2001
+p372
+VMed Council on Alcohol
+p373
+S'http://alcalc.oxfordjournals.org/content/36/6/577.short'
+p374
+tp375
+a(I8
+I0
+VMulticriteria Decision Making Model for the New Team Member Selection Based on Individual and Group-Related Factors
+p376
+VJ Wojnar 
+p377
+V2011
+p378
+VVersita
+p379
+S'http://versita.metapress.com/index/T462J0Q250653084.pdf'
+p380
+tp381
+a(I9
+I0
+VARCHIVES OF PSYCHIATRY AND PSYCHOTHERAPY
+p382
+V\u2026, A Grzywacz, A Konopka, J Samochowiec, M Wojnar\u2026 
+p383
+g86
+Vserver.activeweb.pl
+p384
+S'http://server.activeweb.pl/wwwfiles/app_3_2007.pdf'
+p385
+tp386
+a.

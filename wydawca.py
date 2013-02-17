@@ -102,6 +102,7 @@ class JourDialog ( wx.Dialog ):
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
         self.m_button3.Bind(wx.EVT_BUTTON, self.editJournalValue)
 #        self.m_button2.Bind(wx.EVT_BUTTON, self.deleteJournalValue)
+        self.m_comboBox1.Bind(wx.EVT_COMBOBOX, self.viewJournalValue)
         
 ###################################################
 ## Metody
@@ -121,6 +122,14 @@ class JourDialog ( wx.Dialog ):
 #        self.m_comboBox1.Clear()
 #        self.m_comboBox1.AppendItems(m_comboBox1Choices)
 #        self.m_comboBox1.SetSelection( 0 )
+
+    def viewJournalValue(self, event):
+        tx1 = self.m_comboBox1.GetValue()
+        
+        data = cDatabase.getJournalData(self.session, tx1)
+        
+        self.m_textCtrl3.SetValue(data[0])
+        self.m_textCtrl4.SetValue(data[1])
     
     def addJournalValue(self, event):
         """Dodawanie nowego wydawcy do bazy danych"""

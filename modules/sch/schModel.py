@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 import wx
 import re
+import os
 import sys
+import time
+import pickle
 #import urllib
 import urllib2
 from bs4 import BeautifulSoup
@@ -20,6 +23,7 @@ class sModel:
         self.mendata = []
         self.allgroupitems = []
         self.listauthor = []
+        self.schlist = []
         ## A class variable.
         self.c = float(0) ##  zmiennna do def procent
 #        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
@@ -83,6 +87,8 @@ class sModel:
             self.queryScholar()
             self.allPages()
             self.all_item = 0
+        self.saveResult(self.fulllist)
+        self.searchList(self.fulllist)
 
 #######################################
 ## koniec funkcja dla wyszukiwania grupowego
@@ -99,6 +105,8 @@ class sModel:
         self.queryScholar()
         self.allPages()
         self.all_item = 0
+        self.saveResult(self.fulllist)
+        self.searchList(self.fulllist)
 
     def allPages(self):
         """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
@@ -136,22 +144,24 @@ class sModel:
         """
         if self.all_item == 0:
             self.urlScholar()
-        
+            
         url = self.scholar_url % self.item
         r = urllib2.Request(url=url,
-                            headers={'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'})
+                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
         op = urllib2.urlopen(r)
         html = op.read()
+        
 #        print url
 #        l = open("test.htm","r")
 #        html = l.read()
 #        print html
+
         self.htmlsoup = BeautifulSoup(html)
         if self.all_item == 0:
             self.numberPageSearch()
         self.doThis()
         self.onePage()
-        #self.procent()
+#        self.procent()     
         
     def procent(self):
         done = float(0)
@@ -161,9 +171,9 @@ class sModel:
         self.c += done
         if self.c < 100:
             print self.c
-            #return self.c
+#            return self.c
         
-        
+
     def numberRecordsOnPage(self):
         """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
@@ -332,6 +342,7 @@ class sModel:
 #                    d.append(a)
 #        else:
 #            print 'brak filtru'
+        self.fulllist = d
         return d
     
     def allRecords(self):
@@ -339,7 +350,27 @@ class sModel:
         t = len(self.fulllist)
         print 'ilosc wszystkich rekordow: ' + str(t)
         return self.fulllist
-
+    
+    def searchList(self, data):
+        self.schlist = data
+        return self.schlist
+    
+    def saveResult(self, data):
+        home = os.getcwd()
+#        print home
+        os.chdir('raport')
+        t = time.asctime( time.localtime(time.time()) )
+        t = re.sub(u':','', t)
+        fo = open(t+'.txt', 'w')
+        pickle.dump(data, fo)
+        fo.close()
+        os.chdir(home)
+#        print os.getcwd()
+        
+#        f = open('Sun Feb 17 00,48,53 2013.txt', 'r')
+#        x = pickle.load(f)
+#        print x
+    
     def parseUrlTitle(self):
         """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""
         self.title_url = []

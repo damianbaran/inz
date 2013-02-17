@@ -17,7 +17,7 @@ import cDatabase
 
 class GroupDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodawanie grup i uzytkowników", pos = wx.DefaultPosition, size = wx.Size( 330,350 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodawanie grup i uzytkowników", pos = wx.DefaultPosition, size = wx.Size( 330,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
@@ -62,11 +62,11 @@ class GroupDialog ( wx.Dialog ):
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj/Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
-        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Sprawdź", wx.DefaultPosition, wx.DefaultSize, 0 )
-        bSizer11.Add( self.m_button5, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
+#        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Sprawdź", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        bSizer11.Add( self.m_button5, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
         self.m_button3 = wx.Button( self, wx.ID_ANY, u"Usuń", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button3, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
@@ -88,9 +88,10 @@ class GroupDialog ( wx.Dialog ):
 ###################################################
         
         self.m_button1.Bind(wx.EVT_BUTTON, self.addDataGroup)
-        self.m_button5.Bind(wx.EVT_BUTTON, self.checkDataGroup)
+#        self.m_button5.Bind(wx.EVT_BUTTON, self.checkDataGroup)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
         self.m_button3.Bind(wx.EVT_BUTTON, self.deleteGroupValue)
+        self.m_comboBox1.Bind(wx.EVT_COMBOBOX, self.checkDataGroup)
         
 ###################################################
 ## Metody

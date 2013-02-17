@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 import wx
 import wx.lib.mixins.listctrl as listmix
+
+from publikacja import PubDialog
 from modules.men.menControler import mControler
 
 
-class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
+class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin, listmix.TextEditMixin):
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
+#        listmix.TextEditMixin.__init__(self)
 
-class mView(wx.Panel):
+class mView(wx.Panel, PubDialog):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent=parent)
         
@@ -107,7 +110,7 @@ class mView(wx.Panel):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1000,295 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1000,285 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=70)
         self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=320)
@@ -144,9 +147,18 @@ class mView(wx.Panel):
         #  Panel 2
         ########################################################################
         
-        self.but5.Bind(wx.EVT_BUTTON, self.test)
+        self.but5.Bind(wx.EVT_BUTTON, self.viewRecord)
+#        self.but6.Bind(wx.EVT_BUTTON, self.editRecord)
+        self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
+        self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
+        
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste', 6:'Zapisz do bazy'}
         
     def test(self, event):
+        tmp = self.dataList.GetEditControl()
+        print tmp
+
+    def viewRecord(self, event):
         self.dataList.DeleteAllItems()
         t = self.mcontrol.getRecords()
         self.updateRecord(t)
@@ -156,3 +168,81 @@ class mView(wx.Panel):
         """
         for i in range(len(data)):
             self.dataList.Append(data[i])
+            
+#    def editRecord(self, id):
+#        t = self.mcontrol.getRecords()
+#        for i in range(len(t)):
+#            if i == id:
+#                print id
+#                tmp = self.dataList.GetItem()
+#                #nie dziala, trzeba poprawic :P
+#                print tmp
+#                return id
+    
+    def RightClickCb(self, event):
+        self.currentItem = event.m_itemIndex
+        menu = wx.Menu()
+        for (id,title) in self.menu_title_by_id.items():
+            menu.Append(id, title)
+            wx.EVT_MENU(menu, id, self.MenuSelectionCb)        
+        ### 5. Launcher displays menu with call to PopupMenu, invoked on the source component, passing event's GetPoint. ###
+        self.dataList.PopupMenu(menu, event.GetPoint())
+        menu.Destroy() # destroy to avoid mem leak
+            
+    def MenuSelectionCb(self, event):
+        operation = self.menu_title_by_id[event.GetId()]
+        print operation
+        if operation == 'Zaznacz':
+            self.selectOne(self)
+        elif operation == 'Odznacz':
+            self.deselectOne()
+        elif operation == 'Czysc liste':
+            self.dataList.DeleteAllItems()
+        elif operation == 'Zaznacz wszystko':
+            self.selectAll()
+        elif operation == 'Odznacz wszystko':
+            self.deselectAll()
+        elif operation == 'Zapisz do bazy':
+#            t = self.mcontrol.getRecords()
+#            tmp = self.editRecord(self.currentItem)
+#            updateList(tmp)
+            print self.currentItem
+            tmp =  self.mcontrol.updateList(self.currentItem)
+#            print tmp
+            self.editPubDial(tmp)
+    
+    def editPubDial(self, data):
+        dlg = PubDialog()
+#        print data
+        dlg.m_textCtrl2.SetValue(data[2])
+        dlg.m_textCtrl4.SetValue(data[3])
+        dlg.m_textCtrl3.SetValue(str(data[1]))
+#        dlg.m_choice1.SetStringSelection(data[4])
+        dlg.m_textCtrl5.SetValue(str(data[4]))
+#        dlg.m_textCtrl6.SetValue(data[6])
+#        dlg.m_textCtrl7.SetValue(data[7])
+#        dlg.m_choice2.SetStringSelection(data[8])
+#        print data
+        dlg.ShowModal()
+
+    def selectAll(self):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            self.dataList.CheckItem(i)
+        
+    def deselectAll(self):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            self.dataList.CheckItem(i, False)
+            
+    def selectOne(self, event):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsSelected(i):
+                self.dataList.CheckItem(i)
+    
+    def deselectOne(self):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsSelected(i):
+                self.dataList.CheckItem(i, False)

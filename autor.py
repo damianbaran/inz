@@ -38,25 +38,25 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer9 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Pełna nazwa:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Edytuj Autora:", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText2.Wrap( -1 )
         bSizer9.Add( self.m_staticText2, 1, wx.ALL, 5 )
         
         self.m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), self.m_choice1Choices, 0 )
-        self.m_choice1.SetSelection( 0 )
+#        self.m_choice1.SetSelection( 0 )
         bSizer9.Add( self.m_choice1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
         bSizer3.Add( bSizer9, 1, wx.EXPAND, 5 )
         
-        bSizer111 = wx.BoxSizer( wx.VERTICAL )
-        
-        self.m_button6 = wx.Button( self, wx.ID_ANY, u"Wybierz", wx.DefaultPosition, wx.DefaultSize, 0 )
-        bSizer111.Add( self.m_button6, 0, wx.ALIGN_RIGHT|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-        
-        
-        bSizer3.Add( bSizer111, 1, wx.EXPAND, 5 )
+#        bSizer111 = wx.BoxSizer( wx.VERTICAL )
+#        
+#        self.m_button6 = wx.Button( self, wx.ID_ANY, u"Wybierz", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        bSizer111.Add( self.m_button6, 0, wx.ALIGN_RIGHT|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
+#        
+#        
+#        bSizer3.Add( bSizer111, 1, wx.EXPAND, 5 )
         
         
         bSizer1.Add( bSizer3, 0, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL, 5 )
@@ -67,7 +67,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText6.Wrap( -1 )
         bSizer13.Add( self.m_staticText6, 1, wx.ALL, 5 )
         
-        m_comboBox1Choices = []
+        m_comboBox1Choices = cDatabase.getCollegeName(self.session)
         self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox1Choices, 0 )
         bSizer13.Add( self.m_comboBox1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -80,7 +80,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText7.Wrap( -1 )
         bSizer16.Add( self.m_staticText7, 1, wx.ALL, 5 )
         
-        m_comboBox2Choices = []
+        m_comboBox2Choices = cDatabase.getFacultyName(self.session)
         self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox2Choices, 0 )
         bSizer16.Add( self.m_comboBox2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -93,7 +93,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText8.Wrap( -1 )
         bSizer17.Add( self.m_staticText8, 1, wx.ALL, 5 )
         
-        m_comboBox3Choices = []
+        m_comboBox3Choices = cDatabase.getInstituteName(self.session)
         self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox3Choices, 0 )
         bSizer17.Add( self.m_comboBox3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -138,6 +138,9 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
+        self.m_button2 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer11.Add( self.m_button2, 0, wx.EXPAND|wx.ALL, 5 )
+        
         self.m_button1 = wx.Button( self, wx.ID_ANY, u"Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.EXPAND|wx.ALL, 5 )
         
@@ -160,14 +163,83 @@ class AuthorDialog ( wx.Dialog ):
 ## Bind
 ###################################################
         
-        self.m_button6.Bind(wx.EVT_BUTTON, self.getPersonID)
+#        self.m_button6.Bind(wx.EVT_BUTTON, self.getPersonID)
         self.m_button1.Bind(wx.EVT_BUTTON, self.editPersonID)
+        self.m_button2.Bind(wx.EVT_BUTTON, self.getUserData)
         self.m_button4.Bind(wx.EVT_BUTTON, self.close)
         self.m_button7.Bind(wx.EVT_BUTTON, self.deletePerson)
+        self.m_choice1.Bind(wx.EVT_CHOICE,  self.getPersonID)
 
 ###################################################
 ## Metody
 ###################################################
+
+    def getUserData(self, event):
+        AllDict = {}
+        UserDict = {}
+        ColDict = {}
+        FacDict = {}
+        InsDict = {}
+        
+        dbCollege = self.m_comboBox1.GetValue()
+        dbFaculty = self.m_comboBox2.GetValue()
+        dbInstitut = self.m_comboBox3.GetValue()
+        dbName = self.m_textCtrl3.GetValue()
+        dbSurname = self.m_textCtrl4.GetValue()
+        dbFilter = self.m_textCtrl41.GetValue()
+        
+        if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
+            wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
+            return
+        
+        ColDict['name'] = dbCollege
+        FacDict['name'] = dbFaculty
+        InsDict['name'] = dbInstitut
+        UserDict['name'] = dbName
+        UserDict['surname'] = dbSurname
+        UserDict['filtr'] = dbFilter
+        
+        AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
+        
+        print AllDict
+        cDatabase.addUser(self.session,AllDict)
+        
+#        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
+#        self.ch4Choices = self.SetUserName()
+#        self.ch4.Clear()
+#        self.ch4.AppendItems(self.ch4Choices)
+#        self.ch4.SetSelection( 0 )
+        
+        #Aktualizacja kontrolki z imionami i nazwiskami autorów
+        m_choice1Choices = cDatabase.getUserName(self.session)
+        self.m_choice1.Clear()
+        self.m_choice1.AppendItems(m_choice1Choices)
+        self.m_choice1.SetSelection( 0 )
+
+        self.clear()
+
+    def clear(self):
+        """Aktualizacja kontrolki z nazwami uczelni"""
+        m_comboBox1Choices = cDatabase.getCollegeName(self.session)
+        self.m_comboBox1.Clear()
+        self.m_comboBox1.AppendItems(m_comboBox1Choices)
+#        self.cb1.SetSelection( 0 )
+        
+        """Aktualizacja kontrolki z nazwami wydziałów"""
+        m_comboBox2Choices = cDatabase.getFacultyName(self.session)
+        self.m_comboBox2.Clear()
+        self.m_comboBox2.AppendItems(m_comboBox2Choices)
+#        self.cb2.SetSelection( 0 )
+        
+        """Aktualizacja kontrolki z nazwami instytutów"""
+        m_comboBox3Choices = cDatabase.getInstituteName(self.session)
+        self.m_comboBox3.Clear()
+        self.m_comboBox3.AppendItems(m_comboBox3Choices)
+#        self.cb3.SetSelection( 0 )
+        
+        self.m_textCtrl3.SetValue('')
+        self.m_textCtrl4.SetValue('')
+        self.m_textCtrl41.SetValue('')
 
     def deletePerson(self, event):
         """Usuwa wybranego autora"""
@@ -186,6 +258,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_choice1.AppendItems(m_choice1Choices)
         self.m_choice1.SetSelection( 0 )
         
+        self.clear()
 
     def editPersonID(self, event):
         """Edycja wybranego autora"""
@@ -213,6 +286,8 @@ class AuthorDialog ( wx.Dialog ):
         self.m_choice1.Clear()
         self.m_choice1.AppendItems(m_choice1Choices)
         self.m_choice1.SetSelection( 0 )
+        
+        self.clear()
         
     def getPersonID(self, event):
         """Funkcja pobiera wartosci z bazy i ustawia je w kontrolkach"""

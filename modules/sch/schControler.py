@@ -24,6 +24,11 @@ class sControler(sModel, mModel):
     def SetItems(self):
         r = self.smodel.allRecords()
         return r
+        
+    def SetSearchItem(self):
+        r = self.smodel.schlist
+        self.smodel.fulllist = r
+        return r
     
     def AddWord(self, data):
         self.smodel.addWord(data)
@@ -37,3 +42,7 @@ class sControler(sModel, mModel):
 #        self.smodel.all_item = 0
         self.smodel.downloadDataGroup()
 #        self.smodel.all_item = 0
+    
+#    def getProc(self):
+#        t = self.smodel.c
+#        return t

@@ -137,12 +137,14 @@ class Publication(DeclarativeBase):
     citation = Column(Integer)
     type = Column(String)
     year = Column(Integer)
-    doi = Column(String,  unique=True)
-    ident = Column(String,  unique=True)
+    doi = Column(String)
+    ident = Column(String)
     journal_id = Column(Integer, ForeignKey('journal.id'))
+    urljour = Column(String)
+    urlcit = Column(String)
     journal = relation('Journal',  backref='publication')
     
-    def __init__(self, title, author, citation, type, year, doi, ident, journal_id):
+    def __init__(self, title, author, citation, type, year, doi, ident, journal_id, urljour, urlcit):
         self.title = title
         self.author = author
         self.citation = citation
@@ -151,9 +153,11 @@ class Publication(DeclarativeBase):
         self.doi = doi
         self.ident = ident
         self.journal_id = journal_id
+        self.urljour = urljour
+        self.urlcit = urlcit
         
     def __repr__(self):
-        return "('%s','%s','%i','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id)
+        return "('%s','%s','%i','%s','%s','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id, self.urljour, self.urlcit)
     
 ###########################################
 class Journal(DeclarativeBase):

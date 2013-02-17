@@ -12,3 +12,8 @@ class mControler():
     def getRecords(self):
         tmp = self.mmodel.allChoiceRekord()
         return tmp
+    
+    def updateList(self, id):
+        result = self.mmodel.getEditRec(id, self.getRecords())
+#        print result
+        return result

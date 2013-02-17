@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import wx
 import os
+import webbrowser
 #from src.frames import MainFrame
 from schControler import sControler
 import cDatabase
@@ -19,6 +20,7 @@ class sView(wx.Panel, sControler):
         wx.Panel.__init__(self, parent=parent)
         
         self.control = sControler()
+        self.handlerweb = webbrowser.get()
         
         if not os.path.exists('schdatabase.db'):
             cDatabase.createDatabase()
@@ -157,7 +159,7 @@ class sView(wx.Panel, sControler):
         self.txt22.Wrap( -1 )
         self.oneBox122.Add( self.txt22, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
         
-        ch1Choices = self.SetGroupName()
+        ch1Choices = cDatabase.getGroupName(self.session)
         self.ch1 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 190,-1 ), ch1Choices, 0 )
         self.ch1.SetSelection( 0 )
         self.oneBox122.Add( self.ch1, 0, wx.BOTTOM|wx.LEFT|wx.RIGHT, 5 )
@@ -193,7 +195,7 @@ class sView(wx.Panel, sControler):
         self.txt13.Wrap( -1 )
         oneBox125.Add( self.txt13, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         
-        self.ch4Choices = self.SetUserName()
+        self.ch4Choices = cDatabase.getUserName(self.session)
         self.ch4 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 190,-1 ), self.ch4Choices, 0 )
         self.ch4.SetSelection( 0 )
         oneBox125.Add( self.ch4, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -225,7 +227,7 @@ class sView(wx.Panel, sControler):
         self.txt14.Wrap( -1 )
         oneBox132.Add( self.txt14, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         
-        cb1Choices = self.SetCollegeName()
+        cb1Choices = []
         self.cb1 = wx.ComboBox( self.panel, wx.ID_ANY, u"Uczelnia", wx.DefaultPosition, wx.Size( 202,21 ), cb1Choices, 0 )
         self.cb1.SetSelection( 0 )
         oneBox132.Add( self.cb1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -239,7 +241,7 @@ class sView(wx.Panel, sControler):
         self.txt15.Wrap( -1 )
         oneBox133.Add( self.txt15, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         
-        cb2Choices = self.SetFacultyName()
+        cb2Choices = []
         self.cb2 = wx.ComboBox( self.panel, wx.ID_ANY, u"Wydział", wx.DefaultPosition, wx.Size( 202,21 ), cb2Choices, 0 )
         self.cb2.SetSelection( 0 )
         oneBox133.Add( self.cb2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -253,7 +255,7 @@ class sView(wx.Panel, sControler):
         self.txt16.Wrap( -1 )
         oneBox134.Add( self.txt16, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         
-        cb3Choices = self.SetInstituteName()
+        cb3Choices = []
         self.cb3 = wx.ComboBox( self.panel, wx.ID_ANY, u"Instytut", wx.DefaultPosition, wx.Size( 202,21 ), cb3Choices, 0 )
         self.cb3.SetSelection( 0 )
         oneBox134.Add( self.cb3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -323,7 +325,7 @@ class sView(wx.Panel, sControler):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,315 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,280 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_RIGHT, width=70)
         self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=400)
@@ -374,14 +376,14 @@ class sView(wx.Panel, sControler):
         self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
         self.but6.Bind(wx.EVT_BUTTON, self.backList)
         self.but2.Bind(wx.EVT_BUTTON, self.GetChoice)
-        self.but4.Bind(wx.EVT_BUTTON, self.getUserData)
+#        self.but4.Bind(wx.EVT_BUTTON, self.getUserData)
         self.but7.Bind(wx.EVT_BUTTON, self.settmp)
         
         ########################################################################
         #  Metody sch.controler.py
         ########################################################################
         
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste'}
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste', 6:'Otworz artykul'}
         
     def GetChoice(self, event):
         try:
@@ -395,10 +397,11 @@ class sView(wx.Panel, sControler):
         
     def backList(self, event):
         self.dataList.DeleteAllItems()
-        self.updateRecord(self.control.SetItems())
+        self.updateRecord(self.control.SetSearchItem())
     
         
     def RightClickCb(self, event):        
+        self.currentItem = event.m_itemIndex
         menu = wx.Menu()
         for (id,title) in self.menu_title_by_id.items():
             menu.Append(id, title)
@@ -420,6 +423,18 @@ class sView(wx.Panel, sControler):
             self.selectAll()
         elif operation == 'Odznacz wszystko':
             self.deselectAll()
+        elif operation == 'Otworz artykul':
+            self.getLink(self.currentItem)
+            
+    def getLink(self, id):
+        data = self.control.SetItems()
+        t = self.dataList.GetItemCount()
+        for i in range(t):
+            if i == id:
+                tmp = data[i]
+                self.handlerweb.open_new_tab(tmp[6])
+                if tmp[6] == 'Brak':
+                    wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
     def updateRecord(self, data):
         """
@@ -488,95 +503,96 @@ class sView(wx.Panel, sControler):
         self.dataList.DeleteAllItems()
         self.control.AddWord(self.printWord())
         self.updateRecord(self.control.SetItems())
-        
+    
+#    def upStat(self):
+#        t = self.control.getProc()
+#        return t
+#        
         ########################################################################
         ## Metody cDatabase.py
         ########################################################################
         
-    def getUserData(self, event):
-        AllDict = {}
-        UserDict = {}
-        ColDict = {}
-        FacDict = {}
-        InsDict = {}
-        
-        dbCollege = self.cb1.GetValue()
-        dbFaculty = self.cb2.GetValue()
-        dbInstitut = self.cb3.GetValue()
-        dbName = self.ctrl17.GetValue()
-        dbSurname = self.ctrl18.GetValue()
-        dbFilter = self.ctrl19.GetValue()
-        
-        if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
-            wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
-            return
-        
-        ColDict['name'] = dbCollege
-        FacDict['name'] = dbFaculty
-        InsDict['name'] = dbInstitut
-        UserDict['name'] = dbName
-        UserDict['surname'] = dbSurname
-        UserDict['filtr'] = dbFilter
-        
-        AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
-        
-        print AllDict
-        cDatabase.addUser(self.session,AllDict)
-        
-        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
-        self.ch4Choices = self.SetUserName()
-        self.ch4.Clear()
-        self.ch4.AppendItems(self.ch4Choices)
-        self.ch4.SetSelection( 0 )
-        
-        """Aktualizacja kontrolki z nazwami uczelni"""
-        cb1Choices = self.SetCollegeName()
-        self.cb1.Clear()
-        self.cb1.AppendItems(cb1Choices)
-#        self.cb1.SetSelection( 0 )
-        
-        """Aktualizacja kontrolki z nazwami wydziałów"""
-        cb2Choices = self.SetFacultyName()
-        self.cb2.Clear()
-        self.cb2.AppendItems(cb2Choices)
-#        self.cb2.SetSelection( 0 )
-        
-        """Aktualizacja kontrolki z nazwami instytutów"""
-        cb3Choices = self.SetInstituteName()
-        self.cb3.Clear()
-        self.cb3.AppendItems(cb3Choices)
-#        self.cb3.SetSelection( 0 )
-        
-        self.ctrl17.SetValue('')
-        self.ctrl18.SetValue('')
-        self.ctrl19.SetValue('')
+#    def getUserData(self, event):
+#        AllDict = {}
+#        UserDict = {}
+#        ColDict = {}
+#        FacDict = {}
+#        InsDict = {}
+#        
+#        dbCollege = self.cb1.GetValue()
+#        dbFaculty = self.cb2.GetValue()
+#        dbInstitut = self.cb3.GetValue()
+#        dbName = self.ctrl17.GetValue()
+#        dbSurname = self.ctrl18.GetValue()
+#        dbFilter = self.ctrl19.GetValue()
+#        
+#        if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
+#            wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
+#            return
+#        
+#        ColDict['name'] = dbCollege
+#        FacDict['name'] = dbFaculty
+#        InsDict['name'] = dbInstitut
+#        UserDict['name'] = dbName
+#        UserDict['surname'] = dbSurname
+#        UserDict['filtr'] = dbFilter
+#        
+#        AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
+#        
+#        print AllDict
+#        cDatabase.addUser(self.session,AllDict)
+#        
+#        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
+#        self.ch4Choices = self.SetUserName()
+#        self.ch4.Clear()
+#        self.ch4.AppendItems(self.ch4Choices)
+#        self.ch4.SetSelection( 0 )
+#        
+#        """Aktualizacja kontrolki z nazwami uczelni"""
+#        cb1Choices = self.SetCollegeName()
+#        self.cb1.Clear()
+#        self.cb1.AppendItems(cb1Choices)
+##        self.cb1.SetSelection( 0 )
+#        
+#        """Aktualizacja kontrolki z nazwami wydziałów"""
+#        cb2Choices = self.SetFacultyName()
+#        self.cb2.Clear()
+#        self.cb2.AppendItems(cb2Choices)
+##        self.cb2.SetSelection( 0 )
+#        
+#        """Aktualizacja kontrolki z nazwami instytutów"""
+#        cb3Choices = self.SetInstituteName()
+#        self.cb3.Clear()
+#        self.cb3.AppendItems(cb3Choices)
+##        self.cb3.SetSelection( 0 )
+#        
+#        self.ctrl17.SetValue('')
+#        self.ctrl18.SetValue('')
+#        self.ctrl19.SetValue('')
     
     def updateGroupName(self):
-        ch1Choices = self.SetGroupName()
+        ch1Choices = cDatabase.getGroupName(self.session)
         self.ch1.Clear()
         self.ch1.AppendItems(ch1Choices)
         self.ch1.SetSelection( 0 )
     
-    def SetUserName(self):
-        """Metoda pobiera dane z lista uzytkowników i aktualizuję dane w kontrolkach"""
-        t = cDatabase.getUserName(self.session)
-        return t
+    def updateAutorName(self):
+        self.ch4Choices = cDatabase.getUserName(self.session)
+        self.ch4.Clear()
+        self.ch4.AppendItems(self.ch4Choices)
+        self.ch4.SetSelection( 0 )
     
-    def SetCollegeName(self):
-        t = cDatabase.getCollegeName(self.session)
-        return t
-    
-    def SetFacultyName(self):
-        t = cDatabase.getFacultyName(self.session)
-        return t
-    
-    def SetInstituteName(self):
-        t = cDatabase.getInstituteName(self.session)
-        return t
-        
-    def SetGroupName(self):
-        t = cDatabase.getGroupName(self.session)
-        return t
+#    def SetCollegeName(self):
+#        t = cDatabase.getCollegeName(self.session)
+#        return t
+#    
+#    def SetFacultyName(self):
+#        t = cDatabase.getFacultyName(self.session)
+#        return t
+#    
+#    def SetInstituteName(self):
+#        t = cDatabase.getInstituteName(self.session)
+#        return t
         
     ###########################################
     ## Funkcje z Bindowane z kontrlolera bazy danych

@@ -18,7 +18,7 @@ class bView(wx.Panel, PubDialog):
         wx.Panel.__init__(self, parent=parent)
         
         self.session = cDatabase.connectDatabase()
-        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'ISSN', u'Rok', u'Tytul', u'Wydawca']
+        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'ISSN', u'Rok', u'Tytul', u'Wydawca', u'Wszystko']
 
         ########################################################################
         #  Panel 1
@@ -50,7 +50,7 @@ class bView(wx.Panel, PubDialog):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 995,490 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 995,460 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=50)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=70)
         self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=320)
@@ -150,13 +150,13 @@ class bView(wx.Panel, PubDialog):
 #        print u
 
         #Ustawianie wartości w checklist dla powiazanych autorów z publikacja
-        if len(u) == 1:
-            dlg.m_checkList3.Check(int(u[0])-1)
-        elif len(u) == 0:
-            print 'nie ma powiazanych danych'
-        else:
-            for i in range(len(u)):
-                dlg.m_checkList3.Check(u[i]-1)
+#        if len(u) == 1:
+#            dlg.m_checkList3.Check(int(u[0])-1)
+#        elif len(u) == 0:
+#            print 'nie ma powiazanych danych'
+#        else:
+        for i in range(len(u)):
+            dlg.m_checkList3.Check(u[i]-1)
         dlg.ShowModal()
     
     def updateRecord(self, data):

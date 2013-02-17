@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 
 dataS = []
 dataB = []
+all =[]
 
 class mModel:
     def __init__(self):
@@ -21,16 +22,22 @@ class mModel:
 #        self.dataS = []
         dataS.extend(data)
 #        print self.dataS
-        print 'dziala model menadzera'
+#        print 'dziala model menadzera'
     
     def getBaseData(self, data):
 #        dataB = []
         dataB.extend(data)
 #        print self.dataB
-        print 'dziala model menadzera'
+#        print 'dziala model menadzera'
         
     def allChoiceRekord(self):
+        all = []
         all = dataS + dataB
-        print all
-        print 'wszystkie wyniki'
+#        print all
+#        print 'wszystkie wyniki'
         return all
+
+    def getEditRec(self, id, data):
+#        print len(data)
+#        print data[id]
+        return data[id]

@@ -15,7 +15,6 @@ class MainFrame(wx.Frame):
         
         self.panel_sch = sView(self)
         self.panel_men = mView(self)
-        
         self.panel_baz = bView(self)
         self.panel_men.Hide()
         self.panel_baz.Hide()
@@ -85,15 +84,38 @@ class MainFrame(wx.Frame):
         
         self.SetMenuBar( self.menubar )
         
+        self.m_toolBar1 = self.CreateToolBar( wx.TB_HORIZONTAL, wx.ID_ANY ) 
+        self.m_toolBar1.AddSeparator()
+        
+        stool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"search.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyszukiwarka", wx.EmptyString, None ) 
+        mtool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"stock_home.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Menadżer Publikacji", wx.EmptyString, None )         
+        btool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"file-manager.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Baza danych", wx.EmptyString, None ) 
+        self.m_toolBar1.AddSeparator()
+        
+        addpub = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"gnome-applications.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Usuń Publikację", wx.EmptyString, None ) 
+        addgru = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"gnome-joystick.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj/Usuń Grupę", wx.EmptyString, None ) 
+        addwyd = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"applications-graphics.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj Wydawcę", wx.EmptyString, None ) 
+        addaut = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"distributor-logo.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj/Usuń Autora", wx.EmptyString, None ) 
+        
+        self.m_toolBar1.Realize() 
+        
         
         self.Centre( wx.BOTH )
+        
+        self.Bind( wx.EVT_TOOL, self.SearchPanel, stool )
+        self.Bind( wx.EVT_TOOL, self.ManagePanel, mtool )
+        self.Bind( wx.EVT_TOOL, self.BasePanel, btool )
+        self.Bind( wx.EVT_TOOL, self.onAddPub, addpub )
+        self.Bind( wx.EVT_TOOL, self.onAddGroup, addgru )
+        self.Bind( wx.EVT_TOOL, self.onAddJournal, addwyd )
+        self.Bind( wx.EVT_TOOL, self.onEditAuthor, addaut )
         
     def SearchPanel(self, event):
         if self.panel_men.IsShown() or self.panel_baz.IsShown():
             self.panel_men.Hide()
             self.panel_baz.Hide()
             self.panel_sch.Show()
-            self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
+#            self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
         self.Layout()
         
     def ManagePanel(self, event):
@@ -101,7 +123,7 @@ class MainFrame(wx.Frame):
             self.panel_sch.Hide()
             self.panel_baz.Hide()
             self.panel_men.Show()
-            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
+#            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
         self.Layout() 
         
     def BasePanel(self, event):
@@ -109,7 +131,7 @@ class MainFrame(wx.Frame):
             self.panel_men.Hide()
             self.panel_sch.Hide()
             self.panel_baz.Show()
-            self.statusbar.SetStatusText(u'Jesteś w panelu zarzadzania baza')
+#            self.statusbar.SetStatusText(u'Jesteś w panelu zarzadzania baza')
         self.Layout()
         
     def onAddPub(self, event):
@@ -132,6 +154,12 @@ class MainFrame(wx.Frame):
         dlg = AuthorDialog()
         dlg.ShowModal()
         dlg.Destroy()
+        self.panel_sch.updateAutorName()
+    
+#    def UpdateStatus(self):
+#        t = self.panel_sch.upStat()
+#        t = str(t)
+#        self.statusbar.SetStatusText(t)
         
 if __name__ == "__main__":
     app = wx.App(False)

@@ -168,6 +168,12 @@ def getJournalNameID(session):
         tmp = {d:id}
         result.update(tmp)
     return result
+
+def getJournalData(session, name):
+    for jou in session.query(Journal).\
+            filter(Journal.full_name == name):
+        t = (jou.short_name, jou.issn)
+    return t
     
 ###############################################
 ## zapytania dla tabeli Publication
@@ -186,8 +192,8 @@ def delPubData(session, id):
     session.commit()
     
 def addPubData(session, data):
-    """Dodaje publikacje do bazy danych"""
-    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])
+    """Dodaje publikacje do bazy danych wpisana przez uzytkownika"""
+    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], '', '')
     session.add(pub)
     session.commit()
     
@@ -198,6 +204,9 @@ def addPubData(session, data):
     
     session.commit()
     
+#def addPubSearchData(session, data):
+    
+
 def geteditPubData(session, id):
     """Pobiera dane publikacji o danym ID do pozniejszej edycji"""
     t = []
@@ -255,7 +264,15 @@ def getCheckItemAuthor(session, id):
 
 
 def getRecords(session, key, search):
-    if key == 'AutorID':
+    if search == '*' and key != '':
+        tmp = []
+        for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+                        filter(Journal.id == Publication.journal_id).\
+                        group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        return tmp
+    elif key == 'AutorID':
         tmp = []
         for per, pub, jou, perpub in session.query(Person, Publication, Journal, PerPub).\
                         filter(PerPub.person_id == Person.id).\
@@ -268,6 +285,7 @@ def getRecords(session, key, search):
         return tmp
     elif key == 'Autor':
         tmp =[]
+        print search
         for pub, jou in session.query(Publication, Journal).\
                         filter(Publication.author.like('%' + search + '%')).\
                         filter(Journal.id == Publication.journal_id).group_by(Publication.id):
