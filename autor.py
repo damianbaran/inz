@@ -147,7 +147,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button7 = wx.Button( self, wx.ID_ANY, u"Usuń", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button7, 0, wx.RIGHT|wx.ALL, 5 )
         
-        self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button4 = wx.Button( self, wx.ID_ANY, u"Anuluj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button4, 0, wx.RIGHT|wx.ALL, 5 )
         
         
@@ -159,6 +159,9 @@ class AuthorDialog ( wx.Dialog ):
         
         self.Centre( wx.BOTH )
         
+        self.m_button1.Hide()
+        self.m_button7.Hide()
+        
 ###################################################
 ## Bind
 ###################################################
@@ -166,7 +169,7 @@ class AuthorDialog ( wx.Dialog ):
 #        self.m_button6.Bind(wx.EVT_BUTTON, self.getPersonID)
         self.m_button1.Bind(wx.EVT_BUTTON, self.editPersonID)
         self.m_button2.Bind(wx.EVT_BUTTON, self.getUserData)
-        self.m_button4.Bind(wx.EVT_BUTTON, self.close)
+        self.m_button4.Bind(wx.EVT_BUTTON, self.cancel)
         self.m_button7.Bind(wx.EVT_BUTTON, self.deletePerson)
         self.m_choice1.Bind(wx.EVT_CHOICE,  self.getPersonID)
 
@@ -214,9 +217,15 @@ class AuthorDialog ( wx.Dialog ):
         m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1.Clear()
         self.m_choice1.AppendItems(m_choice1Choices)
-        self.m_choice1.SetSelection( 0 )
+#        self.m_choice1.SetSelection( 0 )
 
         self.clear()
+        
+        self.m_button1.Hide()
+        self.m_button7.Hide()
+        self.m_button2.Show()
+        
+        wx.MessageBox(u'Poprawnie dodano Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
 
     def clear(self):
         """Aktualizacja kontrolki z nazwami uczelni"""
@@ -256,9 +265,15 @@ class AuthorDialog ( wx.Dialog ):
         m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1.Clear()
         self.m_choice1.AppendItems(m_choice1Choices)
-        self.m_choice1.SetSelection( 0 )
+#        self.m_choice1.SetSelection( 0 )
         
         self.clear()
+        
+        self.m_button1.Hide()
+        self.m_button7.Hide()
+        self.m_button2.Show()
+        
+        wx.MessageBox(u'Pomyślnie usunięto wybranego Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
 
     def editPersonID(self, event):
         """Edycja wybranego autora"""
@@ -279,15 +294,19 @@ class AuthorDialog ( wx.Dialog ):
             return
         else:
             cDatabase.editUserDialog(self.session, t, self.tmp)
-            wx.MessageBox(u'Dane zostały zaktualizowane!', u'Sukces!', wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox(u'Dane zostały zaktualizowane!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
         
         #Aktualizacja listy autorów
         m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1.Clear()
         self.m_choice1.AppendItems(m_choice1Choices)
-        self.m_choice1.SetSelection( 0 )
+#        self.m_choice1.SetSelection( 0 )
         
         self.clear()
+        self.m_button1.Hide()
+        self.m_button7.Hide()
+        self.m_button2.Show()
+        
         
     def getPersonID(self, event):
         """Funkcja pobiera wartosci z bazy i ustawia je w kontrolkach"""
@@ -318,6 +337,23 @@ class AuthorDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue(data[3])
         self.m_textCtrl4.SetValue(data[4])
         self.m_textCtrl41.SetValue(data[5])
+        
+        self.m_button1.Show()
+        self.m_button7.Show()
+        self.m_button2.Hide()
+    
+    def cancel(self, event):
+        #Aktualizacja kontrolki z imionami i nazwiskami autorów
+        m_choice1Choices = cDatabase.getUserName(self.session)
+        self.m_choice1.Clear()
+        self.m_choice1.AppendItems(m_choice1Choices)
+#        self.m_choice1.SetSelection( 0 )
+
+        self.clear()
+        
+        self.m_button1.Hide()
+        self.m_button7.Hide()
+        self.m_button2.Show()
     
     def close(self, event):
         """Zamknięcie okienka autorów"""

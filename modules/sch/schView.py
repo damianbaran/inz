@@ -2,10 +2,12 @@
 import wx
 import os
 import webbrowser
-#from src.frames import MainFrame
-from schControler import sControler
 import cDatabase
 import wx.lib.mixins.listctrl as listmix
+#from src.frames import MainFrame
+from schControler import sControler
+from publikacja import PubDialog
+
 #from ObjectListView import ObjectListView, ColumnDefn
 
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
@@ -327,11 +329,12 @@ class sView(wx.Panel, sControler):
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
         self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,280 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
-        self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_RIGHT, width=70)
-        self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=400)
-        self.dataList.InsertColumn(3, 'Autor', format=wx.LIST_FORMAT_LEFT, width=220)
-        self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
-        self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=140)
+        self.dataList.InsertColumn(1, u'Cytowań', format=wx.LIST_FORMAT_RIGHT, width=60)
+        self.dataList.InsertColumn(2, u'Tytuł', format=wx.LIST_FORMAT_LEFT, width=370)
+        self.dataList.InsertColumn(3, u'Autor', format=wx.LIST_FORMAT_LEFT, width=210)
+        self.dataList.InsertColumn(4, u'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
+        self.dataList.InsertColumn(5, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=120)
+#        self.dataList.InsertColumn(6, u'Wydawca', format=wx.LIST_FORMAT_LEFT, width=90)
         twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -383,7 +386,7 @@ class sView(wx.Panel, sControler):
         #  Metody sch.controler.py
         ########################################################################
         
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste', 6:'Otworz artykul'}
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste', 6:'Otworz artykul', 7:'Zapisz do bazy'}
         
     def GetChoice(self, event):
         try:
@@ -399,6 +402,56 @@ class sView(wx.Panel, sControler):
         self.dataList.DeleteAllItems()
         self.updateRecord(self.control.SetSearchItem())
     
+    def addOneRecord(self):
+        tmp = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                tmp.append(i)
+#        print len(tmp)
+        
+        if len(tmp) == 1:
+            data = self.control.SetItems()
+            id = tmp[0]
+            print data[id]
+            self.editPubDial(data[id])
+        else:
+            wx.MessageBox(u'Nie wybrałeś rekordu, badz\nwybrales ich za dużo!', u'Bład', wx.OK | wx.ICON_INFORMATION)
+        
+        self.deselectAll()
+    
+    def addMultiRecord(self):
+        tmp = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                tmp.append(i)
+        
+        if len(tmp) > 0:
+            data = self.control.SetItems()
+            for i in range(len(tmp)):
+                n = tmp[i]
+                t = data[n]
+                
+                r = (t[2], t[3], t[1], '', t[4], '', '', None, '', '')
+                print r
+                cDatabase.addPubMultiData(self.session, r)
+        
+        self.deselectAll()
+    
+    def editPubDial(self, data):
+        dlg = PubDialog()
+#        print data
+        dlg.m_textCtrl2.SetValue(data[2])
+        dlg.m_textCtrl4.SetValue(data[3])
+        dlg.m_textCtrl3.SetValue(str(data[1]))
+#        dlg.m_choice1.SetStringSelection(data[4])
+        dlg.m_textCtrl5.SetValue(str(data[4]))
+#        dlg.m_textCtrl6.SetValue(data[6])
+#        dlg.m_textCtrl7.SetValue(data[7])
+#        dlg.m_choice2.SetStringSelection(data[8])
+#        print data
+        dlg.ShowModal()
         
     def RightClickCb(self, event):        
         self.currentItem = event.m_itemIndex
@@ -425,6 +478,8 @@ class sView(wx.Panel, sControler):
             self.deselectAll()
         elif operation == 'Otworz artykul':
             self.getLink(self.currentItem)
+        elif operation == 'Zapisz do bazy':
+            print 't'
             
     def getLink(self, id):
         data = self.control.SetItems()

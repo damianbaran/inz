@@ -62,16 +62,16 @@ class GroupDialog ( wx.Dialog ):
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj/Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
-#        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Sprawdź", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        bSizer11.Add( self.m_button5, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
+        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer11.Add( self.m_button5, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
         self.m_button3 = wx.Button( self, wx.ID_ANY, u"Usuń", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button3, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
-        self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button4 = wx.Button( self, wx.ID_ANY, u"Anuluj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button4, 0, wx.ALL, 5 )
         
         
@@ -83,13 +83,16 @@ class GroupDialog ( wx.Dialog ):
         
         self.Centre( wx.BOTH )
         
+        self.m_button5.Hide()
+        self.m_button3.Hide()
+        
 ###################################################
 ## Bind
 ###################################################
         
         self.m_button1.Bind(wx.EVT_BUTTON, self.addDataGroup)
-#        self.m_button5.Bind(wx.EVT_BUTTON, self.checkDataGroup)
-        self.m_button4.Bind(wx.EVT_BUTTON, self.close)
+        self.m_button5.Bind(wx.EVT_BUTTON, self.addDataGroup)
+        self.m_button4.Bind(wx.EVT_BUTTON, self.cancel)
         self.m_button3.Bind(wx.EVT_BUTTON, self.deleteGroupValue)
         self.m_comboBox1.Bind(wx.EVT_COMBOBOX, self.checkDataGroup)
         
@@ -116,11 +119,16 @@ class GroupDialog ( wx.Dialog ):
         #Sprawdza czy wybrana grupe
         if gname != '':
             cDatabase.delGroup(self.session, gname)
+            wx.MessageBox(u'Pomyślnie usunięto grupę!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
         else:
             wx.MessageBox(u'Nie zaznaczono nazwy grupy!', u'Bład!', wx.OK | wx.ICON_INFORMATION)
         
         #Wyczyszczenie kontrolek
         self.clearData()
+        
+        self.m_button5.Hide()
+        self.m_button3.Hide()
+        self.m_button1.Show()
     
     def addDataGroup(self,  event):
         """Funkcja pobiera dane do utworzenia grupy widoku bazy danych"""
@@ -129,10 +137,8 @@ class GroupDialog ( wx.Dialog ):
         result = []
         gname = self.m_comboBox1.GetValue()
         
-        #Usuwanie wszystkich zaznaczen z aktualnie już istniejcymi powiazaniami, miedzy grupa a autorami
-        guser = cDatabase.getCheckedUser(self.session, gname)
-        for i in range(len(guser)):
-            self.m_checkList3.Check(guser[i]-1, False)
+        #Usuwanie wszystkich powiazanych autorów z grupa
+        guser = cDatabase.editUserGroup(self.session, gname)
         
         #Tworzenie listy nowych autorow dodanych do grupy
         guser = cDatabase.getUserName(self.session)
@@ -152,6 +158,10 @@ class GroupDialog ( wx.Dialog ):
         
         #Wyczyszczenie kontrolek
         self.clearData()
+        
+        self.m_button5.Hide()
+        self.m_button3.Hide()
+        self.m_button1.Show()
     
     def checkDataGroup(self, event):
         """Sprawdza ktorzy autorzy sa powiazani z wybrana grupa"""
@@ -166,6 +176,10 @@ class GroupDialog ( wx.Dialog ):
         guser = cDatabase.getCheckedUser(self.session, gname)
         for i in range(len(guser)):
             self.m_checkList3.Check(guser[i]-1)
+            
+        self.m_button5.Show()
+        self.m_button3.Show()
+        self.m_button1.Hide()
     
     def clearData(self):
         """Czyści wszystkie kontrolki po wykonaniu zadania przez użytkownika"""
@@ -180,7 +194,14 @@ class GroupDialog ( wx.Dialog ):
         self.m_comboBox1.SetValue('')
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
+    
+    def cancel(self, event):
+        self.clearData()
         
+        self.m_button5.Hide()
+        self.m_button3.Hide()
+        self.m_button1.Show()
+    
     def close(self, event):
         """Zamyka okienko z grupami"""
         self.Destroy()

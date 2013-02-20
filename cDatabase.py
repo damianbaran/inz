@@ -114,6 +114,7 @@ def getUserInGroup(session, gname):
     return result
     
 def getCheckedUser(session, gname):
+    """Sprawdza któryz autorzy należa do wybarnej grupy"""
     result = []
     for g, p, pg in session.query(Group, Person, GroPer).\
                 filter(Group.id == GroPer.group_id).\
@@ -121,7 +122,17 @@ def getCheckedUser(session, gname):
                 filter(Group.name == gname).group_by(Person.id):
         result.append(p.id)
     return result
-    
+
+def editUserGroup(session, gname):
+    """Sprawdza któryz autorzy należa do wybarnej grupy"""
+    result = []
+    for g, p, pg in session.query(Group, Person, GroPer).\
+                filter(Group.id == GroPer.group_id).\
+                filter(Person.id == GroPer.person_id).\
+                filter(Group.name == gname).group_by(Person.id):
+        session.delete(pg)
+    session.commit()
+
 ###############################################
 ## zapytania dla tabeli Journal
 ###############################################
@@ -131,7 +142,7 @@ def addJournalData(session, data):
     tmp =[]
     for t in session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id):
         tmp.append(t)
-    print tmp
+#    print tmp
     if tmp == []:
         jou = Journal(data[0], data[1], data[2])
         session.add(jou)
@@ -142,15 +153,31 @@ def addJournalData(session, data):
 def editJournalData(session, data):
     """Edytuje wybranego wydawcę"""
     jou = session.query(Journal).filter(Journal.full_name == data[0]).group_by(Journal.id).first()
-    print jou
+#    print jou
     if jou != None:
         jou.full_name = data[0]
         jou.short_name = data[1]
-        jou.issn = data[2]
+        jou.address = data[2]
         session.add(jou)
         session.commit()
     else:
         raise RuntimeError, wx.MessageBox(u'Brak takiego wydawcy.\n Rekord nie istnieje w bazie.', u'Wydawca nie istnieje!', wx.OK | wx.ICON_INFORMATION)
+
+def delJournalData(session, name):
+    jou = session.query(Journal).filter(Journal.full_name == name).one()
+    print jou.id
+    jouID = jou.id
+    session.delete(jou)
+    
+    for pub in session.query(Publication).\
+            filter(Publication.journal_id == jouID):
+        pub.journal_id == None
+        session.add(pub)
+    
+    session.commit()
+#        t = (pub.journal_id, pub.title)
+#        print t
+    
 
 def getJournalName(session):
     """Pobiera nazwy wydawców"""
@@ -172,7 +199,7 @@ def getJournalNameID(session):
 def getJournalData(session, name):
     for jou in session.query(Journal).\
             filter(Journal.full_name == name):
-        t = (jou.short_name, jou.issn)
+        t = (jou.short_name, jou.address)
     return t
     
 ###############################################
@@ -205,30 +232,48 @@ def addPubData(session, data):
     session.commit()
     
 #def addPubSearchData(session, data):
-    
+
+def addPubMultiData(session, data):
+    """Dodaje publikacje do bazy danych wpisana przez uzytkownika"""
+    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], '', '')
+    session.add(pub)
+    session.commit()
 
 def geteditPubData(session, id):
     """Pobiera dane publikacji o danym ID do pozniejszej edycji"""
     t = []
-    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-            filter(Journal.id == Publication.journal_id).\
+    print id
+    
+    pub = session.query(Publication).filter(Publication.id == id).first()
+    jouID = pub.journal_id
+    
+    for pub, per, perpub in session.query(Publication, Person, PerPub).\
             filter(Person.id == PerPub.person_id).\
             filter(Publication.id == PerPub.pub_id).\
-            filter(Publication.id == id).group_by(Person.id):
+            filter(Publication.id == id):
         t.append(per.id)
-    result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t)
-    return result
+    print t
+    
+    if jouID != None:
+        jou = session.query(Journal).filter(Journal.id == jouID).first()
+        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t)
+        return result
+    else:
+        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, '', t)
+        return result
     
 def editPubData(session, data, id):
     """Edytuje wartości w bazie danych dla danej publikacji"""
     print data, id
-    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-            filter(Journal.id == Publication.journal_id).\
-            filter(Person.id == PerPub.person_id).\
-            filter(Publication.id == PerPub.pub_id).\
-            filter(Publication.id == id).group_by(Person.id):
-        print pub.id
-
+#    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+#            filter(or_(Journal.id == Publication.journal_id, Publication.journal_id == None)).\
+#            filter(Person.id == PerPub.person_id).\
+#            filter(Publication.id == PerPub.pub_id).\
+#            filter(Publication.id == id).group_by(Person.id):
+#        print pub.id
+    
+    pub = session.query(Publication).filter(Publication.id == id).first()
+    
     pub.title = data[0]
     pub.author = data[1]
     pub.citation = data[2]
@@ -255,7 +300,16 @@ def getCheckItemAuthor(session, id):
             filter(Publication.id == id).group_by(Person.id):
         t.append(per.id)
     return t
-    
+
+def editItemAuthor(session, id):
+    """Zapytanie usuwa wszystkich powiazanych autorow z publikacja"""
+    t = []
+    for pub, per, perpub in session.query(Publication, Person, PerPub).\
+            filter(Person.id == PerPub.person_id).\
+            filter(Publication.id == PerPub.pub_id).\
+            filter(Publication.id == id).group_by(Person.id):
+        session.delete(perpub)
+    session.commit()
 
 ###############################################
 ## zapytania połaczone widokiem baz.bazView
@@ -270,6 +324,11 @@ def getRecords(session, key, search):
                         filter(Journal.id == Publication.journal_id).\
                         group_by(Publication.id):
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
+            tmp.append(c)
+        for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
+                        filter(Publication.journal_id == None).\
+                        group_by(Publication.id):
+            c = (pub.id, pub.citation, pub.title, pub.author, pub.year, '')
             tmp.append(c)
         return tmp
     elif key == 'AutorID':
@@ -338,17 +397,22 @@ def getRecords(session, key, search):
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
             tmp.append(c)
         return tmp
-    elif key == 'ISSN':
+    elif key == 'Adres':
         tmp = []
         for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
                         filter(Journal.id == Publication.journal_id).\
-                        filter(Journal.issn == search).group_by(Publication.id):
+                        filter(Journal.address == search).group_by(Publication.id):
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name)
             tmp.append(c)
         return tmp
     else:
         print 'tak'
     
+
+def deleteMultiRecord(session, data):
+    for i in range(len(data)):
+        id = data[i]
+        delPubData(session, id)
 
 ###################################################
 ## Polaczone z widokiem sch.view, zapytani głównie dla tabeli Person

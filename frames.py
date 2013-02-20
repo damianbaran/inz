@@ -38,9 +38,9 @@ class MainFrame(wx.Frame):
         self.menu1.AppendItem( self.item1 )
         self.Bind(wx.EVT_MENU, self.SearchPanel, self.item1)
     
-        self.item2 = wx.MenuItem( self.menu1, wx.ID_ANY, u"Menadżer Publikacji", wx.EmptyString, wx.ITEM_NORMAL )
-        self.menu1.AppendItem( self.item2 )
-        self.Bind(wx.EVT_MENU, self.ManagePanel, self.item2)
+#        self.item2 = wx.MenuItem( self.menu1, wx.ID_ANY, u"Menadżer Publikacji", wx.EmptyString, wx.ITEM_NORMAL )
+#        self.menu1.AppendItem( self.item2 )
+#        self.Bind(wx.EVT_MENU, self.ManagePanel, self.item2)
         
         self.item3 = wx.MenuItem( self.menu1, wx.ID_ANY, u"Baza danych", wx.EmptyString, wx.ITEM_NORMAL )
         self.menu1.AppendItem( self.item3 )
@@ -84,53 +84,87 @@ class MainFrame(wx.Frame):
         
         self.SetMenuBar( self.menubar )
         
-        self.m_toolBar1 = self.CreateToolBar( wx.TB_HORIZONTAL, wx.ID_ANY ) 
+        self.m_toolBar1 = self.CreateToolBar( wx.TB_HORIZONTAL|wx.TB_FLAT ) 
         self.m_toolBar1.AddSeparator()
         
-        stool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"search.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyszukiwarka", wx.EmptyString, None ) 
-        mtool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"stock_home.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Menadżer Publikacji", wx.EmptyString, None )         
-        btool = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"file-manager.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Baza danych", wx.EmptyString, None ) 
+        self.stool = self.m_toolBar1.AddLabelTool( 1, u"tool", wx.Bitmap( u"search.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_RADIO, u"Wyszukiwarka", wx.EmptyString, None ) 
+#        mtool = self.m_toolBar1.AddLabelTool( 2, u"tool", wx.Bitmap( u"stock_home.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_RADIO, u"Menadżer Publikacji", wx.EmptyString, None )         
+        btool = self.m_toolBar1.AddLabelTool( 3, u"tool", wx.Bitmap( u"file-manager.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_RADIO, u"Baza danych", wx.EmptyString, None ) 
         self.m_toolBar1.AddSeparator()
         
-        addpub = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"gnome-applications.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Usuń Publikację", wx.EmptyString, None ) 
-        addgru = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"gnome-joystick.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj/Usuń Grupę", wx.EmptyString, None ) 
-        addwyd = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"applications-graphics.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj Wydawcę", wx.EmptyString, None ) 
-        addaut = self.m_toolBar1.AddLabelTool( wx.ID_ANY, u"tool", wx.Bitmap( u"distributor-logo.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj/Usuń Autora", wx.EmptyString, None ) 
+        addpub = self.m_toolBar1.AddLabelTool( 4, u"tool", wx.Bitmap( u"gnome-applications.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Usuń Publikację", wx.EmptyString, None ) 
+        addgru = self.m_toolBar1.AddLabelTool( 5, u"tool", wx.Bitmap( u"gnome-joystick.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj/Usuń Grupę", wx.EmptyString, None ) 
+        addwyd = self.m_toolBar1.AddLabelTool( 6, u"tool", wx.Bitmap( u"applications-graphics.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj Wydawcę", wx.EmptyString, None ) 
+        addaut = self.m_toolBar1.AddLabelTool( 7, u"tool", wx.Bitmap( u"distributor-logo.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj/Usuń Autora", wx.EmptyString, None ) 
+        self.m_toolBar1.AddSeparator()
+        
+        addrec = self.m_toolBar1.AddLabelTool( 8, u"tool", wx.Bitmap( u"add.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj wybrany rekord do bazy", wx.EmptyString, None ) 
+        addrecm = self.m_toolBar1.AddLabelTool( 9, u"tool", wx.Bitmap( u"addm.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj wybrane rekordy do bazy", wx.EmptyString, None ) 
         
         self.m_toolBar1.Realize() 
         
         
         self.Centre( wx.BOTH )
+#        self.m_toolBar1.EnableTool(1, False)
+#        self.m_toolBar1.EnableTool(4, False)
+#        self.m_toolBar1.EnableTool(5, False)
+#        self.m_toolBar1.EnableTool(6, False)
+#        self.m_toolBar1.EnableTool(7, False)
+#        self.m_toolBar1.EnableTool(8, False)
+#        self.m_toolBar1.EnableTool(9, False)
         
-        self.Bind( wx.EVT_TOOL, self.SearchPanel, stool )
-        self.Bind( wx.EVT_TOOL, self.ManagePanel, mtool )
+        self.Bind( wx.EVT_TOOL, self.SearchPanel, self.stool )
+#        self.Bind( wx.EVT_TOOL, self.ManagePanel, mtool )
         self.Bind( wx.EVT_TOOL, self.BasePanel, btool )
         self.Bind( wx.EVT_TOOL, self.onAddPub, addpub )
         self.Bind( wx.EVT_TOOL, self.onAddGroup, addgru )
         self.Bind( wx.EVT_TOOL, self.onAddJournal, addwyd )
         self.Bind( wx.EVT_TOOL, self.onEditAuthor, addaut )
+        self.Bind( wx.EVT_TOOL, self.AddOneData, addrec )
+        self.Bind( wx.EVT_TOOL, self.AddMultiData, addrecm )
+        
+    def AddOneData(self, event):
+        self.panel_sch.addOneRecord()
+    
+    def AddMultiData(self, event):
+        self.panel_sch.addMultiRecord()
         
     def SearchPanel(self, event):
         if self.panel_men.IsShown() or self.panel_baz.IsShown():
             self.panel_men.Hide()
             self.panel_baz.Hide()
             self.panel_sch.Show()
+#            SetToolDisabledBitmap
+#            self.m_toolBar1.EnableTool(4, False)
+#            self.m_toolBar1.EnableTool(5, False)
+#            self.m_toolBar1.EnableTool(6, False)
+#            self.m_toolBar1.EnableTool(7, False)
+            self.m_toolBar1.EnableTool(8, True)
+            self.m_toolBar1.EnableTool(9, True)
 #            self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
         self.Layout()
         
-    def ManagePanel(self, event):
-        if self.panel_sch.IsShown() or self.panel_baz.IsShown():
-            self.panel_sch.Hide()
-            self.panel_baz.Hide()
-            self.panel_men.Show()
-#            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
-        self.Layout() 
+#    def ManagePanel(self, event):
+#        if self.panel_sch.IsShown() or self.panel_baz.IsShown():
+#            self.panel_sch.Hide()
+#            self.panel_baz.Hide()
+#            self.panel_men.Show()
+##            self.m_toolBar1.EnableTool(1, True)
+##            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
+#        self.Layout()
         
     def BasePanel(self, event):
         if self.panel_men.IsShown() or self.panel_sch.IsShown():
             self.panel_men.Hide()
             self.panel_sch.Hide()
             self.panel_baz.Show()
+#            self.m_toolBar1.EnableTool(4, True)
+#            self.m_toolBar1.EnableTool(5, True)
+#            self.m_toolBar1.EnableTool(6, True)
+#            self.m_toolBar1.EnableTool(7, True)
+#            self.m_toolBar1.EnableTool(1, True)
+            self.m_toolBar1.EnableTool(8, False)
+            self.m_toolBar1.EnableTool(9, False)
 #            self.statusbar.SetStatusText(u'Jesteś w panelu zarzadzania baza')
         self.Layout()
         

@@ -145,15 +145,15 @@ class sModel:
         if self.all_item == 0:
             self.urlScholar()
             
-        url = self.scholar_url % self.item
-        r = urllib2.Request(url=url,
-                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
-        op = urllib2.urlopen(r)
-        html = op.read()
+#        url = self.scholar_url % self.item
+#        r = urllib2.Request(url=url,
+#                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
+#        op = urllib2.urlopen(r)
+#        html = op.read()
         
 #        print url
-#        l = open("test.htm","r")
-#        html = l.read()
+        l = open("test.htm","r")
+        html = l.read()
 #        print html
 
         self.htmlsoup = BeautifulSoup(html)
@@ -311,7 +311,7 @@ class sModel:
             """Object record"""
             #one = Record('', self.links[j], self.title[i],
             #             self.author[i], self.year[i], self.publish[i])
-            one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], self.title_url[i])
+            one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], '', self.title_url[i], self.links[j+1])
             self.all_items.append(one)
         self.fulllist += self.all_items
         

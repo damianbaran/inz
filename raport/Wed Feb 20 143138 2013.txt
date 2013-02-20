@@ -1,0 +1,86 @@
+(lp0
+(S''
+p1
+I0
+VKomputerowa analiza obrazu
+p2
+VL Wojnar, M Majorek 
+p3
+V1994
+p4
+VFotobit-Design
+p5
+S'Brak'
+p6
+g6
+tp7
+a(g1
+I0
+VAnaliza fraktalna struktury geometrycznej powierzchni
+p8
+V\u2026, J MAGDZIARCZYK, L WOJNAR 
+p9
+V2011
+p10
+Vptzp.org.pl
+p11
+S'http://www.ptzp.org.pl/files/konferencje/kzz/artyk_pdf_2011/035.pdf'
+p12
+g6
+tp13
+a(g1
+I0
+VWP\u0141YW PARAMETRÓW ELEKTROOSADZANIA NA ZMIANY NANOSTRUKTURY WARSTW Al2O3/WS2 O PRZEZNACZENIU TRIBOLOGICZNYM THE  \u2026
+p14
+VJ KORZEKWA, W SKONECZNY, L WOJNAR 
+p15
+S' '
+p16
+Vsuw.biblos.pk.edu.pl
+p17
+S'http://suw.biblos.pk.edu.pl/resources/i5/i3/i4/i3/r5343/KorzekwaJ_WplywParametrow.pdf'
+p18
+g6
+tp19
+a(g1
+I0
+V0. ROLI WYDZIELEÑ W PROCESIE PÇKANIA NA PRZYKLADZIE ZELIWA SFERÓIDALNEGO 0 OSNOWIE FERRYTYCZNEJ
+p20
+VL WOJNAR, W DZIADUR 
+p21
+V1988
+p22
+VPolitechnika Krakowska im.  \u2026
+p23
+g6
+g6
+tp24
+a(g1
+I0
+VComputer-aided versus manual grain size assessment in a single phase material
+p25
+VZ Lata\u0142a, L Wojnar 
+p26
+V2001
+p27
+VElsevier
+p28
+S'http://www.sciencedirect.com/science/article/pii/S1044580301001280'
+p29
+g6
+tp30
+a(g1
+I0
+VAutomatic analysis of echocardiographic video recordings
+p31
+VZ Latala, L Wojnar, L Szydlowski 
+p32
+V2003
+p33
+VWorld Scientific
+p34
+S'http://www.worldscientific.com/doi/abs/10.1142/S0218001403002381'
+p35
+g6
+tp36
+a.

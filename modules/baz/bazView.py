@@ -18,7 +18,7 @@ class bView(wx.Panel, PubDialog):
         wx.Panel.__init__(self, parent=parent)
         
         self.session = cDatabase.connectDatabase()
-        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'ISSN', u'Rok', u'Tytul', u'Wydawca', u'Wszystko']
+        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'Adres', u'Rok', u'Tytul', u'Wydawca', u'Wszystko']
 
         ########################################################################
         #  Panel 1
@@ -67,7 +67,7 @@ class bView(wx.Panel, PubDialog):
         self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
         twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
         
-        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Przywróć liste", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Usuń wybrane", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
         
         twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
@@ -87,10 +87,11 @@ class bView(wx.Panel, PubDialog):
 ## Bindowanie
 #############################################################
         
-        self.m_searchCtrl1.Bind(wx.EVT_TEXT_ENTER, self.searchPub)
+        self.m_searchCtrl1.Bind(wx.EVT_TEXT_ENTER, self.searchPubClick)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
         self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
+        self.but6.Bind(wx.EVT_BUTTON, self.deleteChoices)
 #        PubDialog().m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
 
         #Pozycje dal popmenu
@@ -117,9 +118,11 @@ class bView(wx.Panel, PubDialog):
 #############################################################
 ## Metody
 #############################################################
-
+    
+    def searchPubClick(self, event):
+        self.searchPub()
         
-    def searchPub(self,  event):
+    def searchPub(self):
         """Funkcja wyszukuje wartości w bazie podane przez użytkownika"""
         self.dataList.DeleteAllItems() #Ksowanie listy w wx.ListCtrl
         t = self.m_searchCtrl1.GetValue() #Pobieranie wartości wpisanej przez użytkownika
@@ -144,7 +147,8 @@ class bView(wx.Panel, PubDialog):
         dlg.m_textCtrl5.SetValue(str(data[5]))
         dlg.m_textCtrl6.SetValue(data[6])
         dlg.m_textCtrl7.SetValue(data[7])
-        dlg.m_choice2.SetStringSelection(data[8])
+        if data[8] != None:
+            dlg.m_choice2.SetStringSelection(data[8])
         
         u = data[9]
 #        print u
@@ -157,6 +161,9 @@ class bView(wx.Panel, PubDialog):
 #        else:
         for i in range(len(u)):
             dlg.m_checkList3.Check(u[i]-1)
+        
+        dlg.m_button1.Hide()
+        dlg.m_button3.Show()
         dlg.ShowModal()
     
     def updateRecord(self, data):
@@ -198,6 +205,18 @@ class bView(wx.Panel, PubDialog):
             """usuwanie wybranego rekordu z bazy wraz z powiazaniami autorów"""
             t = self.dataList.GetItemText(self.currentItem)
             cDatabase.delPubData(self.session, t)
+    
+    def deleteChoices(self, event):
+        tmp = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                t = self.dataList.GetItemText(i)
+                tmp.append(t)
+#        print tmp
+        cDatabase.deleteMultiRecord(self.session, tmp)
+        
+        self.searchPub()
     
     def selectAll(self):
         num = self.dataList.GetItemCount()

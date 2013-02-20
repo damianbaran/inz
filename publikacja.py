@@ -129,7 +129,7 @@ class PubDialog ( wx.Dialog ):
         
         m_choice2Choices = cDatabase.getJournalName(self.session)
         self.m_choice2 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_choice2Choices, 0 )
-        self.m_choice2.SetSelection( 0 )
+#        self.m_choice2.SetSelection( 0 )
         bSizer9.Add( self.m_choice2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -153,7 +153,7 @@ class PubDialog ( wx.Dialog ):
         self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.ALL|wx.EXPAND, 5 )
         
-        self.m_button3 = wx.Button( self, wx.ID_ANY, u"Aktualizuj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button3 = wx.Button( self, wx.ID_ANY, u"Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button3, 0, wx.ALL, 5 )
         
         self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -167,6 +167,8 @@ class PubDialog ( wx.Dialog ):
         self.Layout()
         
         self.Centre( wx.BOTH )
+        
+        self.m_button3.Hide()
         
 ###################################################
 ## Bind
@@ -196,9 +198,10 @@ class PubDialog ( wx.Dialog ):
         t8 = self.m_choice2.GetStringSelection()
         
         #Odznacza już powiazanych autorów
-        ch = cDatabase.getCheckItemAuthor(self.session, t0)
-        for i in range(len(ch)):
-            self.m_checkList3.Check(ch[i]-1, False)
+#        ch = cDatabase.getCheckItemAuthor(self.session, t0)
+        ch = cDatabase.editItemAuthor(self.session, t0)
+#        for i in range(len(ch)):
+#            self.m_checkList3.Check(ch[i]-1, False)
         
         t9 = self.getCheckUser()
         
@@ -232,7 +235,10 @@ class PubDialog ( wx.Dialog ):
         
         #Pobiera wartosci ID dla zaznaczonych autorów
         tmp = cDatabase.getJournalNameID(self.session)
-        tx7 = tmp[tx7]
+        if tx7 != u'':
+            tx7 = tmp[tx7]
+        else:
+            tx7 = None
         
         t = (tx1, tx2, tx3, tx4, tx5, tx6, tx9, tx7, tx8)
         
@@ -254,6 +260,7 @@ class PubDialog ( wx.Dialog ):
         guser = cDatabase.getUserName(self.session)
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
+        
 
     def getCheckUser(self):
         """Pobiera id wszystkich powiazanych autorów do publikacji"""
