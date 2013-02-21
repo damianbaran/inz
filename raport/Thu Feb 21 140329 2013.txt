@@ -1,0 +1,162 @@
+(lp0
+(S''
+p1
+I7
+VThe ins and outs of open source
+p2
+VI Kalina, A Czyzycki 
+p3
+V2005
+p4
+VJOURNAL OF MANAGEMENT  \u2026
+p5
+g1
+S'/citations?user=ilJ75ZYAAAAJ&hl=en&oi=ao'
+p6
+S'scholar.google.com/scholar?cites=14095097636255753413&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(g1
+I7
+VQuantitative elemental analysis of individual particles with the use of micro\u2010beam X\u2010ray fluorescence method and Monte Carlo simulation
+p9
+VM Czyzycki, M Bielewski, M Lankosz 
+p10
+V2009
+p11
+VWiley Online Library
+p12
+g1
+S'Brak'
+p13
+S'scholar.google.com/scholar?cites=17641611954504655175&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(g1
+I7
+VNeuroprotective action of FK-506 (tacrolimus) after seizures induced with pilocarpine: quantitative and topographic elemental analysis of brain tissue
+p16
+VJ Chwiej, K Janeczko, M Marciszko, M Czyzycki\u2026 
+p17
+V2010
+p18
+VSpringer
+p19
+g1
+S'http://onlinelibrary.wiley.com/doi/10.1002/xrs.1203/abstract'
+p20
+S'scholar.google.com/scholar?cites=15219824302461492934&as_sdt=2005&sciodt=0,5&hl=en'
+p21
+tp22
+a(g1
+I6
+VMonte Carlo simulation code for confocal 3D micro\u2010beam X\u2010ray fluorescence analysis of stratified materials
+p23
+VM Czyzycki, D Wegrzynek, P Wrobel\u2026 
+p24
+V2011
+p25
+VWiley Online Library
+p26
+g1
+S'http://www.springerlink.com/index/N678U85487M14400.pdf'
+p27
+S'scholar.google.com/scholar?cites=6864892534320953492&as_sdt=2005&sciodt=0,5&hl=en'
+p28
+tp29
+a(g1
+I3
+VThe Tresse theorem and differential invariants for the nonlinear Schrödinger equation
+p30
+VT Czy\u017cycki 
+p31
+V2007
+p32
+Viopscience.iop.org
+p33
+g1
+S'http://onlinelibrary.wiley.com/doi/10.1002/xrs.1300/full'
+p34
+S'scholar.google.com/scholar?cites=15021802390502025892&as_sdt=2005&sciodt=0,5&hl=en'
+p35
+tp36
+a(g1
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p37
+VE Lisowski, G Filo, W Czy\u017cycki 
+p38
+V2009
+p39
+VBergen
+p40
+g1
+S'http://iopscience.iop.org/1751-8121/40/31/011'
+p41
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p42
+tp43
+a(g1
+I1
+VEquivalence groups of differential equations and their applications to mathematical physics problems
+p44
+VT Czy\u017cycki 
+p45
+V2008
+p46
+Vpdfserv.aip.org
+p47
+g1
+g13
+S'scholar.google.com/scholar?cites=7677770636796768326&as_sdt=2005&sciodt=0,5&hl=en'
+p48
+tp49
+a(g1
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p50
+VE Lisowski, W Czy\u017cycki\u2026 
+p51
+V2010
+p52
+Vbaztech.icm.edu.pl
+p53
+g1
+S'http://pdfserv.aip.org/APCPCS/vol_1079/iss_1/135_1.pdf'
+p54
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p55
+tp56
+a(g1
+I1
+VMethanol content in fruit musts and wines obtained from the depectinized pulp
+p57
+VZ Lukawska
+p58
+V1985
+p59
+Vagris.fao.org
+p60
+g1
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p61
+S'scholar.google.com/scholar?cites=14415897787817811156&as_sdt=2005&sciodt=0,5&hl=en'
+p62
+tp63
+a(g1
+I1
+VEquivalence and integrability of second order linear ODEs
+p64
+VI Tsyfra, T Czyzycki 
+p65
+V2010
+p66
+Varxiv.org
+p67
+g1
+S'http://agris.fao.org/agris-search/search/display.do?f=1986/PL/PL86001.xml;PL8600585'
+p68
+S'scholar.google.com/scholar?cites=11475567601751912948&as_sdt=2005&sciodt=0,5&hl=en'
+p69
+tp70
+a.

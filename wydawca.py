@@ -17,7 +17,7 @@ import cDatabase
 
 class JourDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodawanie i edycja wydawcy:", pos = wx.DefaultPosition, size = wx.Size( 350,165 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Wydawcami", pos = wx.DefaultPosition, size = wx.Size( 350,165 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
@@ -27,7 +27,7 @@ class JourDialog ( wx.Dialog ):
         
         bSizer2 = wx.BoxSizer( wx.VERTICAL )
         
-        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodaj Wydawcę", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodawanie Wydawcy", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE )
         self.m_staticText1.Wrap( -1 )
         bSizer2.Add( self.m_staticText1, 0, wx.EXPAND|wx.ALL, 5 )
         
@@ -120,6 +120,7 @@ class JourDialog ( wx.Dialog ):
         else:
             wx.MessageBox(u'Nie ma takiego wydawcy w bazie!', u'Błąd!', wx.OK | wx.ICON_INFORMATION) 
         
+        self.m_staticText1.SetLabel(u'Dodawanie Wydawcy')
         #Po usunięciu wyświetlnie w kontrolce nowej listy wydawców
         m_comboBox1Choices = cDatabase.getJournalName(self.session)
         self.m_comboBox1.Clear()
@@ -134,6 +135,7 @@ class JourDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue(data[0])
         self.m_textCtrl4.SetValue(data[1])
         
+        self.m_staticText1.SetLabel(u'Edytowanie Wydawcy')
         self.m_button3.Show()
         self.m_button2.Show()
         self.m_button1.Hide()
@@ -184,6 +186,7 @@ class JourDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
         
+        self.m_staticText1.SetLabel(u'Dodawanie Wydawcy')
         self.m_button3.Hide()
         self.m_button2.Hide()
         self.m_button1.Show()
@@ -197,6 +200,7 @@ class JourDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
         
+        self.m_staticText1.SetLabel(u'Dodawanie Wydawcy')
         self.m_button3.Hide()
         self.m_button2.Hide()
         self.m_button1.Show()

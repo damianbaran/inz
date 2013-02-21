@@ -1,0 +1,4200 @@
+(lp0
+(S''
+p1
+I4
+VSeparator sitowy do analizy rozk\u0142adu d\u0142ugo\u015bci sieczki
+p2
+VA LISOWSKI, \u0141 SAR, K \u015aWITEK, K KOSTYRA 
+p3
+V2008
+p4
+VTechnika Rolnicza Ogrodnicza Le\u015bna, 2008
+p5
+g1
+S'Brak'
+p6
+S'scholar.google.com/scholar?cites=9395522496109942896&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(g1
+I1
+VOcena rozk\u0142adu d\u0142ugo\u015bci cz\u0105stek ro\u015blin energetycznych rozdrobnionych w rozdrabniaczu bijakowym
+p9
+VA Lisowski, M D\u0105browska, A Stru\u017cyk\u2026 
+p10
+V2008
+p11
+Vibmer.waw.pl
+p12
+g1
+S'http://www.ibmer.waw.pl/pir/2008/pelne_4/lisowski_ocena_p.pdf'
+p13
+S'scholar.google.com/scholar?cites=14574519407405837966&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(g1
+I1
+VOcena warto\u015bci pokarmowej i jako\u015bci kiszonki z kukurydzy sporz\u0105dzanej w formie minisilosów
+p16
+VA \u0141ozicki, A Lisowski, K Kostyra\u2026 
+p17
+V2008
+p18
+Vibmer.waw.pl
+p19
+g1
+S'http://www.ibmer.waw.pl/pir/2008/pelne_3/lozicki_ocena_p.pdf'
+p20
+S'scholar.google.com/scholar?cites=4708721814010562945&as_sdt=2005&sciodt=0,5&hl=en'
+p21
+tp22
+a(g1
+I0
+VZastosowanie technik eksperymentalnej analizy modalnej w ocenie stanu dynamicznego
+p23
+VW Lisowski 
+p24
+S' '
+p25
+Vbaztech.icm.edu.pl
+p26
+g1
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAT3-0033-0001'
+p27
+g6
+tp28
+a(g1
+I1
+VZastosowanie modelu RRSB do predykcji wydzielenia mieszaniny przeznaczonej do produkcji peletów i brykietów
+p29
+VA Lisowski, J Klonowski, M Sypu\u0142a 
+p30
+V2009
+p31
+Vir.ptir.org
+p32
+g1
+S'http://ir.ptir.org/artykuly/pl/115/IR(115)_2546_pl.pdf'
+p33
+S'scholar.google.com/scholar?cites=985928036625374736&as_sdt=2005&sciodt=0,5&hl=en'
+p34
+tp35
+a(g1
+I0
+VMODELOWANIE METOD\u0104 CFD PRACY \u0141OPATEK W POMPIE \u0141OPATKOWEJ CFD MODELING OF VANE PUMP VANES OPERATION
+p36
+VE LISOWSKI, M PANEK 
+p37
+g25
+Vdarmaz.pollub.pl
+p38
+g1
+S'http://darmaz.pollub.pl/ein/fultext/22.pdf#page=36'
+p39
+g6
+tp40
+a(g1
+I0
+VSieve separator to analysis of chaff length distribution
+p41
+VA Lisowski, L Sar, K Swiatek, K Kostyra 
+p42
+V2008
+p43
+Vagris.fao.org
+p44
+g1
+S'http://agris.fao.org/agris-search/search/display.do?f=2009/PL/PL0905.xml;PL2009000404'
+p45
+g6
+tp46
+a(g1
+I0
+VPrawdopodobie\u0144stwo wykrycia ma\u0142ego obiektu p\u0142ywaj\u0105cego z biernym reflektorem radarowym
+p47
+VA Szklarski, J Lisowski 
+p48
+V2009
+p49
+Vzeszyty.am.gdynia.pl
+p50
+g1
+S'http://zeszyty.am.gdynia.pl/artykul/PrawdopodobiezZstwo%20wykrycia%20maz%EF%BF%BDego%20obiektu%20pz%EF%BF%BDywajc%EF%BF%BDcego%20z%20biernym%20reflektorem%20radarowym_32.pdf'
+p51
+g6
+tp52
+a(g1
+I0
+VModelowanie zaworu przelewowego przy zastosowaniu programów CAD i CFD
+p53
+VE Lisowski, M Domaga\u0142a 
+p54
+V2002
+p55
+Vbaztech.icm.edu.pl
+p56
+g1
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPP1-0054-0057'
+p57
+g6
+tp58
+a(g1
+I0
+VSEPARATOR SITOWY DO ANALIZY ROZK\u0141ADU D\u0141UGO\u0152CI SIECZKI
+p59
+VKMR i Le\u0153nych, S w Warszawie 
+p60
+g25
+Vpimr.poznan.pl
+p61
+g1
+S'http://www.pimr.poznan.pl/trol2_2008/L_2_2008.pdf'
+p62
+g6
+tp63
+a(g1
+I0
+VBADANIE ROZK\u0141ADU D\u0141UGO\u015aCI CZ\u0104STEK RO\u015aLIN ENERGETYCZNYCH PRZEZNACZONYCH NA BRYKIETY Wst\u0119p
+p64
+VKMR i Le\u015bnych, S w Warszawie 
+p65
+g25
+Vwip.sggw.pl
+p66
+g1
+S'http://wip.sggw.pl/wp-content/uploads/konf-stud-20090603.pdf#page=55'
+p67
+g6
+tp68
+a(g1
+I0
+VBADANIA SYMULACYJNE SI\u0141OWNIKA PNEUMATYCZNEGO WYKONANEGO Z TWORZYWA SZTUCZNEGO SIMULATION ANALYSIS OF A PNEUMATIC  \u2026
+p69
+VP KOT, E LISOWSKI 
+p70
+g25
+Vsuw.biblos.pk.edu.pl
+p71
+g1
+S'https://suw.biblos.pk.edu.pl/resources/i4/i6/i0/i2/r4602/KotP_BadaniaSymulacyjne.pdf'
+p72
+g6
+tp73
+a(g1
+I0
+VWarstwy kompozytowe Cu+ W wytwarzane elektrochemicznie
+p74
+VM Trzaska, W Lisowski 
+p75
+V2005
+p76
+Vkompozyty.ptmk.net
+p77
+g1
+S'http://kompozyty.ptmk.net/pliczki/pliki/semIX_33.pdf'
+p78
+g6
+tp79
+a(g1
+I0
+VOcena trakcyjna opon do uniwersalnego ci\u0105gnika rolniczego
+p80
+V\u2026, S Lis, H Juszka, M Tomasik, A Lisowski\u2026 
+p81
+g25
+Vir.ptir.org
+p82
+g1
+S'http://ir.ptir.org/index.php?mood=articles&issue=136&abstracts=show'
+p83
+g6
+tp84
+a(g1
+I0
+VLUBUSKI SOCIAL SURVEY-ASSUMPTIONS, GOALS AND PROBLEMS OF STUDIES INTO WESTERN BORDERLAND
+p85
+VLS Spo\u0142eczny, K Lisowski 
+p86
+V2007
+p87
+VLubuskie Tow. Nauk.
+p88
+g1
+g6
+g6
+tp89
+a(g1
+I0
+VANALIZA ZAPOTRZEBOWANIA NA MOC PRZEZ PRAS\u0118 WIELKOGABARYTOW\u0104
+p90
+VC Waszkiewicz, A Lisowski, KMR i Le\u015bnych\u2026 
+p91
+g25
+Vibmer.waw.pl
+p92
+g1
+S'http://www.ibmer.waw.pl/test/pir/2007/pelne_1/waszkiewicz_analiza_p.pdf'
+p93
+g6
+tp94
+a(g1
+I0
+VWYKORZYSTANIE PROGRAMU SOLIDWORKS W PROJEKTOWANIU I BADANIACH SYMULACYJNYCH MI\u0118DZYP\u0141ASZCZOWYCH PODPÓR ZBIORNIKÓW  \u2026
+p95
+VK \u0141AZARCZYK
+p96
+g25
+Vsuw.biblos.pk.edu.pl
+p97
+g1
+S'https://suw.biblos.pk.edu.pl/resources/i4/i6/i1/i5/r4615/LazarczykGlowikK_WykorzystanieProgramu.pdf'
+p98
+g6
+tp99
+a(g1
+I0
+VMETODA POMIARU PODATNO\u015aCI MAGNETYCZNEJ CIENKICH PRÓBEK NADPRZEWODZ\u0104CYCH
+p100
+VM LISOWSKI, M MOSI\u0104DZ 
+p101
+g25
+Vbc.pollub.pl
+p102
+g1
+S'http://bc.pollub.pl/Content/213#page=43'
+p103
+g6
+tp104
+a(g1
+I0
+VMorphometric characteristics of the energetic plants chaff
+p105
+VT NOWAKOWSKI, K \u015aLESI\u0143SKI 
+p106
+g25
+Vannals-wuls.sggw.pl
+p107
+g1
+S'http://annals-wuls.sggw.pl/files/files/agriculture/afe2012no60art05.pdf'
+p108
+g6
+tp109
+a(g1
+I0
+VWp\u0142yw funkcji nerek oraz wybranych czynników ryzyka sercowo-naczyniowego na warto\u015b\u0107 kompleksu intima-media t\u0119tnic obwodowych
+p110
+VA Lisowska, WJ Musia\u0142, P Lisowski\u2026 
+p111
+V2007
+p112
+Vfce.viamedica.pl
+p113
+g1
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=98&indeks_art=1191'
+p114
+g6
+tp115
+a(g1
+I0
+VPoczucie bezpieczeostwa mieszkaoców i turystów w przestrzeni \u0141odzi. Koncepcja badania
+p116
+VM Sztybel 
+p117
+g25
+Vturyzmdlaregionu.eu
+p118
+g1
+S'http://www.turyzmdlaregionu.eu/gfx/turyzm/userfiles/_public/artykuly_1/sztybel.pdf'
+p119
+g6
+tp120
+a(g1
+I3
+VAktualne tendencje w opisie i modelowaniu matematycznym procesów przeróbki materia³ów uziarnionych
+p121
+VT Tumidajski 
+p122
+V2010
+p123
+Vmin-pan.krakow.pl
+p124
+g1
+S'http://www.min-pan.krakow.pl/Wydawnictwa/GSM263/tumidajski.pdf'
+p125
+S'scholar.google.com/scholar?cites=4481664941445616711&as_sdt=2005&sciodt=0,5&hl=en'
+p126
+tp127
+a(g1
+I0
+VAKADEMIA PODLASKA WYDZIA\u0141 PRZYRODNICZY
+p128
+VP Lisowski 
+p129
+g25
+Vrozprawy.uph.edu.pl
+p130
+g1
+S'http://rozprawy.uph.edu.pl/gsdl/collect/rozprawy-11-06-08%20v.2/archives/HASH6717.dir/Lisowski%20Piotr.pdf'
+p131
+g6
+tp132
+a(g1
+I0
+VMATERIA\u0141 I METODYKA BADA\u0143
+p133
+VKMR i Le\u015bnych, S w Warszawie 
+p134
+g25
+Vwip.sggw.pl
+p135
+g1
+S'http://wip.sggw.pl/wp-content/uploads/konf-stud-20100526.pdf#page=78'
+p136
+g6
+tp137
+a(g1
+I0
+VCFD MODELLING AND RAPID PROTOTYPING OF LIQUID JET PUMP MODELOWANIE CFD ORAZ RAPID PROTOTYPING POMPY STRUMIENIOWEJ
+p138
+VH MOMENI, E LISOWSKI 
+p139
+g25
+Vsuw.biblos.pk.edu.pl
+p140
+g1
+S'http://suw.biblos.pk.edu.pl/resources/i4/i6/i1/i7/r4617/MomeniH_CfdModelling.pdf'
+p141
+g6
+tp142
+a(g1
+I0
+VMEDIA A PROCES WULGARYZACJI POLSZCZYZNY W \u015aWIADOMO\u015aCI J\u0118ZYKOWEJ STUDENTÓW PWSZ W LESZNIE
+p143
+VK MA\u0106KOWIAK 
+p144
+g25
+Vwydawnictwa.pwsz.edu.pl
+p145
+g1
+S'http://www.wydawnictwa.pwsz.edu.pl/file/SCL/nr_7/SCL7_007-022.pdf'
+p146
+g6
+tp147
+a(g1
+I0
+VZMIANY WARUNKÓW \u017bYCIA W AGLOMERACJI WARSZAWSKIEJ W LATACH 1995-2000
+p148
+VA Lisowski, U Warszawski 
+p149
+V2004
+p150
+VWydawnictwo Uniwersytetu  \u2026
+p151
+g1
+g6
+g6
+tp152
+a(g1
+I0
+VAnaliza struktur magnetoelektrycznych silników synchronicznych o rozruchu cz\u0119stotliwo\u015bciowym. Modelowanie
+p153
+VC J\u0118DRYCZKA, W \u0141YSKAWI\u0143SKI, J MIKO\u0141AJEWICZ\u2026 
+p154
+V2012
+p155
+Vold.imnipe.pwr.wroc.pl
+p156
+g1
+S'http://www.old.imnipe.pwr.wroc.pl/wydawnictwa/Prace_IMNIPE_nr49_2000/.../Wydawnictwa/PNIMNiPEnr66/Maszyny/008.pdf'
+p157
+g6
+tp158
+a(g1
+I2
+VSuppleness of energetic plants to chopping
+p159
+VA LISOWSKI, T NOWAKOWSKI\u2026 
+p160
+V2009
+p161
+Vannals-agriculture.sggw.pl
+p162
+g1
+S'http://www.annals-agriculture.sggw.pl/files/files/afe2009no53full.pdf#page=33'
+p163
+S'scholar.google.com/scholar?cites=4677190432872522801&as_sdt=2005&sciodt=0,5&hl=en'
+p164
+tp165
+a(g1
+I0
+VZESZYTY NAUKOWE NR 5 (77) AKADEMII MORSKIEJ W SZCZECINIE
+p166
+VB \u017bó\u0142towski 
+p167
+g25
+Vam.szczecin.pl
+p168
+g1
+S'http://am.szczecin.pl/userfiles/File/wydawnictwo/ZN_5_77_OMiUO_2005/Zoltowski.pdf'
+p169
+g6
+tp170
+a(g1
+I5
+VAnaliza wyst\u0119powania grzybów w pomieszczeniach bloku operacyjnego
+p171
+VH Rolka, E Krajewska
+p172
+V2006
+p173
+Vcorpress.cornetis.pl
+p174
+g1
+S'http://www.corpress.cornetis.pl/pliki/ML/2006/4/ML_2006_4_301.pdf'
+p175
+S'scholar.google.com/scholar?cites=15935920152716561126&as_sdt=2005&sciodt=0,5&hl=en'
+p176
+tp177
+a(g1
+I0
+VZESZYTY NAUKOWE UNIWERSYTETU SZCZECI\u0143SKIEGO NR 619 2010 STUDIA SOCIOLOGICA NR 20
+p178
+VJ\u017b LUBUSZAN, APBRI ICH 
+p179
+V2010
+p180
+Vusfiles.us.szc.pl
+p181
+g1
+S'http://usfiles.us.szc.pl/pliki/plik_1326813161.pdf#page=121'
+p182
+g6
+tp183
+a(g1
+I0
+VMiros\u0142aw Grochowski Uniwersytet Warszawski mgrochow@ uw. edu. pl
+p184
+VWPLW \u017bYCIA 
+p185
+V2004
+p186
+VWydawnictwo Uniwersytetu  \u2026
+p187
+g1
+g6
+g6
+tp188
+a(g1
+I0
+VW RAMACH SPECJALNO\u015aCI SPO\u0141ECZNO-EKONOMICZNEJ
+p189
+VP SPECJALIZACYJNE 
+p190
+g25
+VTRE\u015a\u0106
+p191
+g1
+g6
+g6
+tp192
+a(g1
+I0
+VBadania filtracji py\u0142ów i aerozoli cieczy w kontek\u015bcie analizy zagro\u017ce\u0144 zwi\u0105zanych z ich emisj\u0105 w procesach przemys\u0142owych
+p193
+VT JANKOWSKI 
+p194
+V2011
+p195
+Vinzynieria-aparatura-chemiczna.pl
+p196
+g1
+S'http://inzynieria-aparatura-chemiczna.pl/pdf/2011/2011-5/InzApChem_2011_5_44-45.pdf'
+p197
+g6
+tp198
+a(g1
+I1
+VComminution properties of biomass in forage harvester and beater mill and its particle size characterization
+p199
+VA Lisowski, J Klonowski, M Sypu\u0142a 
+p200
+V2010
+p201
+Vagronomy.emu.ee
+p202
+g1
+S'http://agronomy.emu.ee/vol08Spec2/p08s225.pdf'
+p203
+S'scholar.google.com/scholar?cites=8472375506938464353&as_sdt=2005&sciodt=0,5&hl=en'
+p204
+tp205
+a(g1
+I0
+VBulk density of chopped material of energetic plants
+p206
+VM SYPU\u0141A, A LISOWSKI\u2026 
+p207
+V2010
+p208
+Vannals-agriculture.sggw.pl
+p209
+g1
+S'http://www.annals-agriculture.sggw.pl/files/files/afe2010no56full.pdf#page=29'
+p210
+g6
+tp211
+a(g1
+I0
+VWARUNKI SYNOPTYCZNE ROZPRZESTRZENIANIA SI\u0118 ZANIECZYSZCZE\u0143 W REJONIE GÓR IZERSKICH SYNOPTIC CONDITIONS FOR POLLUTION  \u2026
+p212
+VMJ KOMUNIKATY 
+p213
+V1997
+p214
+VPanstwowe Wydawn. Naukowe
+p215
+g1
+g6
+g6
+tp216
+a(g1
+I0
+VPodstawy teoretyczne i badania eksperymentalne procesu walcowania klinowo-rolkowego
+p217
+VZ Pater 
+p218
+V2007
+p219
+V212.182.64.85
+p220
+g1
+S'http://212.182.64.85/Content/283/wkr.pdf'
+p221
+g6
+tp222
+a(g1
+I0
+VWsparcie aktywizacji zawodowej osób w wieku 45+ z funduszy europejskich na przyk\u0142adzie Programu Operacyjnego Kapita\u0142 Ludzki (PO KL)
+p223
+VR Lisowska 
+p224
+V2011
+p225
+Vceeol.com
+p226
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=4c00232caf72450ea1ec667d672130c8'
+p227
+g6
+tp228
+a(g1
+I0
+VOcena skuteczno\u015bci oraz bezpiecze\u0144stwa stosowania pregabaliny u chorych poddanych aloplastykom stawów kolanowych wykonanych w znieczuleniu  \u2026
+p229
+VR \u0106wiek, B Lisowska, P Ma\u0142dyk 
+p230
+g25
+Vanestezjologiairatownictwo.pl
+p231
+g1
+S'http://www.anestezjologiairatownictwo.pl/archiwum/201202_air_Ocena%20skutecznosci%20Cwiek.pdf'
+p232
+g6
+tp233
+a(g1
+I2
+VModel matematyczny dwutwornikowego silnika indukcyjnego klatkowego
+p234
+V\u2026, W KARWACKI, J LISOWSKI\u2026 
+p235
+V2000
+p236
+Vold.imnipe.pwr.wroc.pl
+p237
+g1
+S'http://old.imnipe.pwr.wroc.pl/Wydawnictwa/Prace_IMNIPE_nr50_2000/Modelowanie/pdf/Art_03.pdf'
+p238
+S'scholar.google.com/scholar?cites=5068146034437432952&as_sdt=2005&sciodt=0,5&hl=en'
+p239
+tp240
+a(g1
+I0
+VAlgorytmy genetyczne jako narz\u0119dzie optymalizacyjne stosowane w sieciach neuronowych
+p241
+VT Olszewski, P Boniecki, J Weres 
+p242
+g25
+Vir.ptir.org
+p243
+g1
+S'http://ir.ptir.org/index.php?sort=titles&mood=articles&issue=62&abstracts=show'
+p244
+g6
+tp245
+a(g1
+I0
+VROZPRAWY NAUKOWE
+p246
+VS Szczepan, K Ma\u0107ka\u0142a, P Kowalski 
+p247
+V2012
+p248
+Vawf.wroc.pl
+p249
+g1
+S'http://www.awf.wroc.pl/files_mce/INNE%20JEDNOSTKI/Rozprawy%20Naukowe/2012/rozprawy_naukowe_38.pdf#page=140'
+p250
+g6
+tp251
+a(g1
+I0
+VZnieczulenie podpaj\u0119czynówkowe\u2013ocena porównawcza dwóch preparatów bupiwakainy, czy to samo to znaczy identyczne, czy tylko podobne? Spinal  \u2026
+p252
+VB Lisowska, T Wi\u015bniewski, M Olszewska, B Ma\u0142dyk\u2026 
+p253
+g25
+Vanestezjologiairatownictwo.pl
+p254
+g1
+S'http://www.anestezjologiairatownictwo.pl/archiwum/2011_01_Znieczulenie%20podpajeczynowkowe%20Lisowska.pdf'
+p255
+g6
+tp256
+a(g1
+I0
+VCHKNOSTRAJYGRAFIA REOONALNE OGNIWA UTOSTRATYGRAFICZNE WCHODZ\u0104CE W SK\u0141AD rWCZEGÓLNrCH MAP wyHO\u017bHOt ZESPO\u0141Y  \u2026
+p257
+VRO NORYKU 
+p258
+V1988
+p259
+VInstytut Geologiczny.
+p260
+g1
+g6
+g6
+tp261
+a(g1
+I1
+VTolerancja mleka o obni\u017conej zawarto\u015bci laktozy MINILA w hipolaktazji typu doros\u0142ych
+p262
+VW Cichy, J Walkowiak, A Lisowska, K Wysoka
+p263
+V2007
+p264
+Vcornetis.pl
+p265
+g1
+S'http://www.cornetis.pl/pliki/PW/2007/1/PW_2007_1_23.pdf'
+p266
+S'scholar.google.com/scholar?cites=8768383452847269&as_sdt=2005&sciodt=0,5&hl=en'
+p267
+tp268
+a(g1
+I0
+VArginaza i arginina w diagnostyce chorych na raka jelita grubego i chorych z przerzutami raka jelita grubego do w\u0105troby
+p269
+V\u2026, M Chabasi\u0144ska, J Przys\u0142awski, A Lisowska\u2026 
+p270
+V2008
+p271
+Vtermedia.pl
+p272
+g1
+S'http://www.termedia.pl/Czasopismo/-3/pdf-10238-1?from=eonko&filename=arginaza.pdf'
+p273
+g6
+tp274
+a(g1
+I0
+VThe CAG repeat polymorphism in androgen receptor gene repeat and frequency of chosen parameters of metabolic syndrome in 45-65 aged men in Wroclaw  \u2026
+p275
+V\u2026, M S\u0142owi\u0144ska
+p276
+V2008
+p277
+Vendokrynologia.polska.viamedica.pl
+p278
+g1
+S'http://www.endokrynologia.polska.viamedica.pl/en/abstrakt.phtml?id=27&indeks_art=369'
+p279
+g6
+tp280
+a(g1
+I0
+VPolimorfizm CAG genu receptora androgenowego a wyst\u0119powanie wybranych parametrów zespo\u0142u metabolicznego u m\u0119\u017cczyzn w wieku 45\u201365 lat w populacji  \u2026
+p281
+V\u2026, M S\u0142owi\u0144ska
+p282
+V2008
+p283
+Vendokrynologia.polska.viamedica.pl
+p284
+g1
+S'http://www.endokrynologia.polska.viamedica.pl/darmowy_pdf.phtml?indeks=27&indeks_art=402&VSID=brrmglpvgvgjw'
+p285
+g6
+tp286
+a(g1
+I1
+VDiagnoza postaw m\u0142odzie\u017cy województwa podlaskiego wobec odmienno\u015bci kulturowej
+p287
+VA Jasi\u0144skiej
+p288
+V2009
+p289
+Vdialog2008.pl
+p290
+g1
+S'http://dialog2008.pl/UserFiles/File/Diagnoza.pdf'
+p291
+S'scholar.google.com/scholar?cites=16535386887580416042&as_sdt=2005&sciodt=0,5&hl=en'
+p292
+tp293
+a(g1
+I0
+VGender Indeks: monitorowanie równo\u015bci kobiet i m\u0119\u017cczyzn w miejscu pracy
+p294
+VE UNDP Polska 
+p295
+V2007
+p296
+Vbooks.google.com
+p297
+g1
+S'http://books.google.com/books?hl=en&lr=&id=KTtM-mO_SEQC&oi=fnd&pg=PA3&dq=lisowski+analiza+rozk%C5%82adu&ots=kQH2sYojFa&sig=WdmcfNVoqZn9VnPYmB50Pbi10Jw'
+p298
+g6
+tp299
+a(g1
+I0
+VMaria Nawojczyk*, Krzysztof Gibek*
+p300
+VK EKONOMICZNY, GILSP PRASY
+p301
+g25
+g301
+g1
+g6
+g6
+tp302
+a(g1
+I0
+VANALIZA KOMPETENCJI I ZASOBÓW ZESPO\u0141ÓW BADAWCZYCH W BRAN\u017bY BUDOWLANEJ
+p303
+VJ Markiewicz, U Szczeci\u0144ski 
+p304
+g25
+Vwzp.pl
+p305
+g1
+S'http://www.wzp.pl/uploads/pliki/Analiza_kompetencji_zasob%C3%B3w_zespo%C5%82%C3%B3w_badawczych.pdf'
+p306
+g6
+tp307
+a(g1
+I0
+VPRACA DOKTORSKA
+p308
+VI Lisowska
+p309
+g25
+Vdl.bm.cm-uj.krakow.pl
+p310
+g1
+S'http://dl.bm.cm-uj.krakow.pl:8080/Content/2293951/PRACA+DOKT..pdf'
+p311
+g6
+tp312
+a(g1
+I0
+VZESZYTY NAUKOWE NR 1 (73) AKADEMII MORSKIEJ W SZCZECINIE
+p313
+VT Burnos 
+p314
+g25
+Vam.szczecin.pl
+p315
+g1
+S'http://am.szczecin.pl/userfiles/File/wydawnictwo/ZN_1_73_Explo_Ship_2004/Burnos.pdf'
+p316
+g6
+tp317
+a(g1
+I0
+VIMPREZY TOWARZYSZ\u0104CE MI\u0118DZYNARODOWYM TARGOM MECHANIZACJI ROLNICTWA \u201ePOLAGRA PREMIERY\u201d 2008
+p318
+VPIMR w Poznaniu 
+p319
+g25
+Vpimr.poznan.pl
+p320
+g1
+S'http://www.pimr.poznan.pl/trol2_2008/KP_2_2008.pdf'
+p321
+g6
+tp322
+a(g1
+I0
+VOcena kompleksu b\u0142ona wewn\u0119trzna-b\u0142ona \u015brodkowa i pr\u0119dko\u015bci fali t\u0119tna w t\u0119tnicach obwodowych u pacjentów z koronarograficznie potwierdzon\u0105 chorob\u0105  \u2026
+p323
+VA Lisowska, WJ Musia\u0142, A Lewczuk\u2026 
+p324
+V2006
+p325
+Vfce.viamedica.pl
+p326
+g1
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=93&indeks_art=1147'
+p327
+g6
+tp328
+a(g1
+I0
+VZESZYTY NAUKOWE NR 2 (74) AKADEMII MORSKIEJ W SZCZECINIE
+p329
+VW Juszkiewicz 
+p330
+g25
+Vam.szczecin.pl
+p331
+g1
+S'http://www.am.szczecin.pl/userfiles/File/wydawnictwo/ZN_2_74_Explo_Ship_2004/016_Juszkiewicz.pdf'
+p332
+g6
+tp333
+a(g1
+I0
+V\u0422\u0415\u041f\u041b\u041e\u0412\u0410\u042f \u041c\u041e\u0414\u0415\u041b\u042c \u041e\u0411\u041c\u041e\u0422\u041e\u041a \u0422\u0420\u0410\u041d\u0421\u0424\u041e\u0420\u041c\u0410\u0422\u041e\u0420\u0410 \u0421\u041e \u0421\u041c\u0415\u041d\u041d\u042b\u041c \u041a\u041e\u0415\u0424\u0424\u0418\u0426\u0418\u0415\u041d\u0422\u041e\u041c \u041f\u0415\u0420\u0415\u0414\u0410\u0427\u0418 \u0422\u0415\u041f\u041b\u0410 \u0418 \u0420\u0415\u0413\u0423\u041b\u0418\u0420\u0423\u0415\u041c\u041e\u0419 \u041f\u041e\u0421\u0422\u041e\u042f\u041d\u041d\u041e\u0419  \u2026
+p334
+VE \u0421\u043a\u043e\u0432\u0440\u043e\u043d\u044c\u0441\u043a\u0438 
+p335
+V1964
+p336
+VInstytut Elektrotechniki.
+p337
+g1
+g6
+g6
+tp338
+a(g1
+I0
+VNanokrystaliczny katalizator Ce
+p339
+VM Molenda, R Dziembaj, L Chmielarz, MM Zaitz\u2026 
+p340
+V2006
+p341
+VXLI OKK, 2006
+p342
+g1
+g6
+g6
+tp343
+a(g1
+I0
+VWp\u0142yw zecera na ukszta\u0142towanie graficzno-j\u0119zykowe tekstu drukowanego.
+p344
+VM Osiewicz 
+p345
+V2012
+p346
+Vceeol.com
+p347
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=bd547a48cc0b45cbbd3c62f14f167f83'
+p348
+g6
+tp349
+a(g1
+I0
+VSYSTEMY ZARZ\u0104DZANIA \u015aRODOWISKOWEGO\u2013ROZWÓJ I FUNKCJONOWANIE W POLSCE ENVIRONMENTAL MANAGEMENT SYSTEMS\u2013 \u2026
+p350
+VE Lisowska
+p351
+V2007
+p352
+Vios.edu.pl
+p353
+g1
+S'http://www.ios.edu.pl/pol/nr30.pdf#page=6'
+p354
+g6
+tp355
+a(g1
+I0
+VPRZETWARZANIE INDUKCYJNE W BADANIACH MATERIA\u0141ÓW FERROMAGNETYCZNYCH
+p356
+VJ BAJOREK, J KOLASAF 
+p357
+V2005
+p358
+Vold.imnipe.pwr.wroc.pl
+p359
+g1
+S'http://old.imnipe.pwr.wroc.pl/wydawnictwa/PNIMNIPEnr58/60pdf/Jerzy%20BAJOREK%20Jozef%20KOLASA%20Jozef%20NOWAK.pdf'
+p360
+g6
+tp361
+a(g1
+I0
+VPALAEOTHICKNESS, LITHOFACIES AND PALAEOTECTONICS OF THE UPPER KELT «IN POLISH LOWLAND
+p362
+VI GAJEWSKA 
+p363
+V1988
+p364
+VInstytut Geologiczny.
+p365
+g1
+g6
+g6
+tp366
+a(g1
+I1
+VEfektywno\u015b\u0107 wykorzystania zmodernizowanej górki palcowej w maszynach do zbioru ziemniaków
+p367
+VW Tana\u015b 
+p368
+V2007
+p369
+Vir.ptir.org
+p370
+g1
+S'http://ir.ptir.org/artykuly/pl/96/IR(96)_1969_pl.pdf'
+p371
+S'scholar.google.com/scholar?cites=13948673120848850434&as_sdt=2005&sciodt=0,5&hl=en'
+p372
+tp373
+a(g1
+I0
+VRecenzja ksi\u0105\u017cki: Tomasz Gackowski, \u0141\u0105czy\u0144ski Marcin, red.,(2009) Metody badania wizerunku w mediach. Warszawa: CeDeWu
+p374
+VA Kacperczyk 
+p375
+V2012
+p376
+Vceeol.com
+p377
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=5bb928352c914a88847309a67d4a570e'
+p378
+g6
+tp379
+a(g1
+I0
+VAnna Kacperczyk
+p380
+VU \u0141ódzki 
+p381
+V2012
+p382
+Vceeol.com
+p383
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=5bb92835-2c91-4a88-8473-09a67d4a570e'
+p384
+g6
+tp385
+a(g1
+I0
+VDoskonalenie metod oznaczania zawarto\u015bci substancji nieorganicznych w powietrzu, na przyk\u0142adzie par rt\u0119ci
+p386
+VA Krasi\u0144ska 
+p387
+V2011
+p388
+Vinig.pl
+p389
+g1
+S'http://www.inig.pl/INST/nafta-gaz/nafta-gaz/Nafta-Gaz-2011-09-05.pdf'
+p390
+g6
+tp391
+a(g1
+I0
+VCOMPARATIVE RESEARCH OF QUALITY AND DURABILITY OF WELDED JOINTS OF THE HARDOX 500 AND S355 STEELS
+p392
+VD KAPCI\u0143SKA
+p393
+V2011
+p394
+Vpimr.poznan.pl
+p395
+g1
+S'http://www.pimr.poznan.pl/biul/2011_1_DK1.pdf'
+p396
+g6
+tp397
+a(g1
+I0
+VMODELOWANIE NUMERYCZNE WP\u0141YWU AWARII SIECI KANALIZACJI SANITARNEJ NA \u015aRODOWISKO GLEBOWE NUMERICAL MODELING OF  \u2026
+p398
+VI Krukowski, MK Widomski, M Iwanek 
+p399
+g25
+Vwis.pol.lublin.pl
+p400
+g1
+S'http://wis.pol.lublin.pl/kongres3/tom1/14.pdf'
+p401
+g6
+tp402
+a(g1
+I0
+VCz\u0119sto\u015b\u0107 wyst\u0119powania zespo\u0142u jelitowego przerostu bakteryjnego w mukowiscydozie\u2013doniesienie wst\u0119pne
+p403
+VA Lisowska, A Popiel, W Cichy, A Korytowska
+p404
+V2009
+p405
+Vcornetis.pl
+p406
+g1
+S'http://cornetis.pl/pliki/PW/2009/1/PW_2009_1_19.pdf'
+p407
+g6
+tp408
+a(g1
+I0
+VFUNKCJA ZEWN\u0104TRZWYDZIELNICZA I MORFOLOGIA TRZUSTKI U CHORYCH NA MUKOWISCYDOZ\u0118
+p409
+V\u2026, A LISOWSKA\u2026 
+p410
+V2010
+p411
+Vnowinylekarskie.ump.edu.pl
+p412
+g1
+S'http://nowinylekarskie.ump.edu.pl/uploads/issues/79/079_4.pdf#page=35'
+p413
+g6
+tp414
+a(g1
+I0
+VPRACE BADAWCZO-ROZWOJOWE NAD WYBRANYMI MASZYNAMI DO ZBIORU ZIELONEK NA SIANO I KISZONKI
+p415
+VC WASZKIEWICZ, A LISOWSKI, S GACH\u2026 
+p416
+V2004
+p417
+Vimuz.edu.pl
+p418
+g1
+S'http://www.imuz.edu.pl/wydaw/ofertawyd/woda/zeszyt_1_2004/artykuly/Waszkiewicz.pdf'
+p419
+g6
+tp420
+a(g1
+I0
+VLista wyk\u0142adów monograficznych
+p421
+VM Sobczyk 
+p422
+g25
+Vstud.chem.uni.wroc.pl
+p423
+g1
+S'http://stud.chem.uni.wroc.pl/wyklady-monograficzne.html'
+p424
+g6
+tp425
+a(g1
+I1
+Vw otoczeniu Elektrocieptowni \u201eRadom
+p426
+VR Swietlik, D Kowalczyk, JR Dojlido 
+p427
+V1998
+p428
+Vos.not.pl
+p429
+g1
+S'http://www.os.not.pl/docs/czasopismo/1998/Swietlik_2-1998.pdf'
+p430
+S'scholar.google.com/scholar?cites=9766103690562446334&as_sdt=2005&sciodt=0,5&hl=en'
+p431
+tp432
+a(g1
+I0
+VKierunek studiów: TECHNOLOGIE OCHRONY \u015aRODOWISKA Specjalno\u015b\u0107: SYSTEMY OCHRONY \u015aRODOWISKA Kierownik specjalno\u015bci: prof. dr hab. in\u017c. Jan \u2026
+p433
+VK TO\u015a, KC Analitycznej 
+p434
+g25
+Vchem.pg.gda.pl
+p435
+g1
+S'http://www.chem.pg.gda.pl/pl/images/stories/Studia_Dzienne/TOS/tos_OchronaProgram.pdf'
+p436
+g6
+tp437
+a(g1
+I3
+VMonitoring odczynu \u015bniegu w aglomeracji miejskiej Opola
+p438
+VWAM OPOLA 
+p439
+V2008
+p440
+Vtchie.uni.opole.pl
+p441
+g1
+S'http://tchie.uni.opole.pl/ecoproc08b/Sporek_2Monitoring_08b.pdf'
+p442
+S'scholar.google.com/scholar?cites=2748329110189573858&as_sdt=2005&sciodt=0,5&hl=en'
+p443
+tp444
+a(g1
+I1
+VProstytucja" nieletnich" w perspektywie Dolno\u015bl\u0105zaków: raport z bada\u0144
+p445
+VJ Kurz\u0119pa, A Lisowska, A Pierzchalska 
+p446
+V2008
+p447
+Vdops.wroc.pl
+p448
+g1
+S'http://www.dops.wroc.pl/publikacje/prostytucja.pdf'
+p449
+S'scholar.google.com/scholar?cites=7183494739489696378&as_sdt=2005&sciodt=0,5&hl=en'
+p450
+tp451
+a(g1
+I0
+VZAK\u0141AD OCHRONY PRZYRODY POLSKIEJ AKADEMII NAUK 1968 OCHRONA PRZYRODY R. 33
+p452
+VZRIWS REZERWATU\u2026 
+p453
+V1968
+p454
+VPAN, Zak\u0142ad Ochrony Przyrody.
+p455
+g1
+g6
+g6
+tp456
+a(g1
+I1
+VWp\u0142yw ustawienia korpusów w p\u0142ugu wahad\u0142owym na opór roboczy i jako\u015b\u0107 pracy
+p457
+VE Kami\u0144ski, P Grudnik 
+p458
+V2007
+p459
+Vir.ptir.org
+p460
+g1
+S'http://ir.ptir.org/artykuly/pl/91/IR(91)_1743_pl.pdf'
+p461
+S'scholar.google.com/scholar?cites=13640604561281414397&as_sdt=2005&sciodt=0,5&hl=en'
+p462
+tp463
+a(g1
+I0
+VWSPÓ\u0141CZESNA RODZINA DOLNO\u015aL\u0104SKA
+p464
+VA LISOWSKA, A PIERZCHALSKA, M KOSIOR 
+p465
+g25
+Vdops.wroc.pl
+p466
+g1
+S'http://www.dops.wroc.pl/publikacje/wspolczesna_rodzina_dolnoslaska.pdf'
+p467
+g6
+tp468
+a(g1
+I0
+VLarge enterprises in the spatial structure of major Polish cities
+p469
+VP \u015aleszy\u0144ski 
+p470
+V2008
+p471
+VInstytut Geografii i Przestrzennego  \u2026
+p472
+g1
+g6
+g6
+tp473
+a(g1
+I0
+VWspó\u0142czesny dorobek \u015bwiatowych i polskich bada\u0144 przestrzennych aspektów przest\u0119pczo\u015bci
+p474
+VE Bogacka 
+p475
+V2011
+p476
+Vceeol.com
+p477
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=bb397b50e6924b37bca94d056eb63ea4'
+p478
+g6
+tp479
+a(g1
+I2
+VZwi\u0119kszenie skuteczno\u015bci terapii hipotensyjnej u pacjentów z nadci\u015bnieniem t\u0119tniczym dzi\u0119ki edukacji przez SMS
+p480
+VB Wizner, Z Gaciong, K Narkiewicz\u2026 
+p481
+V2009
+p482
+Vczasopisma.viamedica.pl
+p483
+g1
+S'http://czasopisma.viamedica.pl/nt/article/viewFile/12356/10194'
+p484
+S'scholar.google.com/scholar?cites=6261283026984129145&as_sdt=2005&sciodt=0,5&hl=en'
+p485
+tp486
+a(g1
+I0
+VHierarchia subiektywnych potrzeb spo\u0142ecznych rodziców uczniów szkó\u0142 podstawowych
+p487
+VZ Zbróg 
+p488
+V2008
+p489
+VForum O\u015bwiatowe, 2008
+p490
+g1
+g6
+g6
+tp491
+a(g1
+I0
+VROZWÓJ OSADÓW WARSTW GIPSOWYCH DOLNYCH
+p492
+VI GAJEWSKA 
+p493
+V1988
+p494
+VInstytut Geologiczny.
+p495
+g1
+g6
+g6
+tp496
+a(g1
+I0
+VKLASYFIKACJA RODZAJU I STOPNIA USZKODZENIA Z\u0118BÓW KÓ\u0141 PRZEK\u0141ADNI OPARTA NA CI\u0104G\u0141EJ TRANSFORMACIE FALKOWEJ I SIECI  \u2026
+p497
+VW TRANSFORM 
+p498
+V2007
+p499
+Vdiagnostyka.net.pl
+p500
+g1
+S'http://diagnostyka.net.pl/archiwum/caly_tekst/diag42.pdf#page=75'
+p501
+g6
+tp502
+a(g1
+I0
+VPaleomi\u0105\u017cszo\u015b\u0107, litofacje i paleotektonika kajpru górnego na Ni\u017cu Polskim
+p503
+VI Gajewska 
+p504
+V1988
+p505
+VKwart. Geol, 1988
+p506
+g1
+g6
+g6
+tp507
+a(g1
+I0
+VDobowa zmienno\u0153æ dawki enzymów trzustkowych u chorych na mukowiscydozê
+p508
+VJ Walkowiak, I Sp\u0142awska, A Lisowska, A Korzeniewska\u2026 
+p509
+g25
+Vtermedia.pl
+p510
+g1
+S'http://www.termedia.pl/Czasopismo/-41/pdf-7972-1?from=eonko&filename=Dobowa%20zmienno%C5%9B%C4%87.pdf'
+p511
+g6
+tp512
+a(g1
+I0
+VThe influence of drip irrigation and woodchip mulch on growth and first yield of sour cherries
+p513
+VD Feldmane 
+p514
+V2010
+p515
+Vagronomy.emu.ee
+p516
+g1
+S'http://agronomy.emu.ee/vol08Spec2/p08s224.pdf'
+p517
+g6
+tp518
+a(g1
+I0
+VSUBURBANIZACJA W OBSZARZE METROPOLITALNYM WARSZAWY
+p519
+VA LISOWSKI 
+p520
+V2010
+p521
+Vgeogr.uni.wroc.pl
+p522
+g1
+S'http://www.geogr.uni.wroc.pl/Jubileusz/Andrzej_Lisowski.pdf'
+p523
+g6
+tp524
+a(g1
+I0
+VRezonansowe badania fotoemisyjne ferromagnetycznych warstw ZnCoO
+p525
+VE Guziewicz, MI \u0141ukasiewicz, \u0141 Wachnicki, K Kopalko\u2026 
+p526
+V2008
+p527
+Vscience24.com
+p528
+g1
+S'http://www.science24.com/paper/24597'
+p529
+g6
+tp530
+a(g1
+I0
+VINNOWACYJNO I PRZEDSIBIORCZO W KULTURZE ORGANIZACYJNEJ MA\u0141YCH I REDNICH PRZEDSIBIORSTW NA PRZYK\u0141ADZIE WOJEWÓDZTWA  \u2026
+p531
+VR Lisowska, K Szymaska 
+p532
+V2010
+p533
+Vbooks.google.com
+p534
+g1
+S'http://books.google.com/books?hl=en&lr=&id=9GSqKWRKHJMC&oi=fnd&pg=PA130&dq=lisowski+analiza+rozk%C5%82adu&ots=xEO2681teS&sig=P4c76WD2NVp9zEGtshxdFdkj04w'
+p535
+g6
+tp536
+a(g1
+I0
+VPROSTYTUCJA NIELETNICH W PERSPEKTYWIE DOLNO\u015aL\u0104SKIEJ M\u0141ODZIE\u017bY
+p537
+VJ Kurz\u0119pa, A Lisowska, A Pierzchalska 
+p538
+g25
+Vdops.wroc.pl
+p539
+g1
+S'http://www.dops.wroc.pl/publikacje/jak_rozmawiac_z_mlodzieza.pdf#page=53'
+p540
+g6
+tp541
+a(g1
+I0
+VJednoczesna rejestracja temperatury, wilgotno\u015bci i ci\u015bnienia gazów w wilgotnych formach piaskowych
+p542
+VT Szmigielski 
+p543
+V2006
+p544
+Vafe.polsl.pl
+p545
+g1
+S'http://www.afe.polsl.pl/index.php/en/2453/jednoczesna-rejestracja-temperatury-wilgotnosci-i-cisnienia-gazow-w-wilgotnych-formach-piaskowych.pdf'
+p546
+g6
+tp547
+a(g1
+I0
+VST\u0119\u017cENIA FLUORU I WAPNIA W KO\u015aCIACH GRZYWACZA Z OKOLIC SZCZECINA W LATACH 2002\u20132004* FLUORINE AND CALCIUM CONCENTRATIONS  \u2026
+p548
+VRPAMW SZCZECINIE 
+p549
+g25
+Vzbc.ksiaznica.szczecin.pl
+p550
+g1
+S'http://zbc.ksiaznica.szczecin.pl/Content/21093/Roczniki_52_Suplement_1_2006.pdf#page=91'
+p551
+g6
+tp552
+a(g1
+I0
+VPozna\u0144 wobec przyjezdnych\u2013analiza struktur miejskich w kontek\u015bcie teorii \u201ecity visitors\u201d
+p553
+VJ Kotus 
+p554
+g25
+Vigsegp.amu.edu.pl
+p555
+g1
+S'http://igsegp.amu.edu.pl/pliki/RR/BIUL6/RR_06_03.pdf'
+p556
+g6
+tp557
+a(g1
+I0
+VChoropleth maps as a method of representing geographical relationship
+p558
+VAM Leonowicz 
+p559
+V2006
+p560
+VPan Igipz
+p561
+g1
+g6
+g6
+tp562
+a(g1
+I0
+VAutomatyczna anotacja genomu jako narz\u0119dzie biologii systemów
+p563
+VM BIZUKOJ\u0106 
+p564
+V2003
+p565
+Vinzynieria-aparatura-chemiczna.pl
+p566
+g1
+S'http://inzynieria-aparatura-chemiczna.pl/pdf/2009/2009-3/InzApChem_2009_3_025-027.pdf'
+p567
+g6
+tp568
+a(g1
+I3
+VPolityka innowacyjna pa\u0144stwa a regionalny potencja\u0142 innowacyjny: przyk\u0142ad Dolnego \u015al\u0105ska
+p569
+VS Ciok, H Dobrowolska
+p570
+V2009
+p571
+Vgeogr.uni.wroc.pl
+p572
+g1
+S'http://www.geogr.uni.wroc.pl/wydawnictwa/rozprawy_07.pdf'
+p573
+S'scholar.google.com/scholar?cites=6445505426673529127&as_sdt=2005&sciodt=0,5&hl=en'
+p574
+tp575
+a(g1
+I0
+VOchrona socjalna rodziny rolniczej
+p576
+VB Tryfan 
+p577
+V1996
+p578
+VInstytut Rozwoju Wsi I Rolnictwa Pan
+p579
+g1
+g6
+g6
+tp580
+a(g1
+I0
+VSPECJALNO\u015a\u0106: GEOGRAFIA KULTURY I ROZWOJU REGIONALNEGO
+p581
+VG KULTURY 
+p582
+g25
+Vgeo.uni.lodz.pl
+p583
+g1
+S'http://www.geo.uni.lodz.pl/materialy-do-pobrania/geografia-kultury-i-rozwoju-regionalnego.pdf'
+p584
+g6
+tp585
+a(g1
+I0
+VWykorzystanie programu 3D CAD do projektowania si\u0142owników pneumatycznych
+p586
+VIUP ELEMENTY 
+p587
+g25
+Vkolarzowski.pl
+p588
+g1
+S'http://www.kolarzowski.pl/hip/upload/HiP-2007-5.pdf#page=5'
+p589
+g6
+tp590
+a(g1
+I2
+VZró\u017cnicowania spo\u0142eczno-przestrzenne Warszawy\u2013inercja czy metamorfoza struktury miasta?
+p591
+VM SM\u0118TKOWSKI 
+p592
+V2009
+p593
+Vrcin.org.pl
+p594
+g1
+S'http://rcin.org.pl/Content/159/PG_2009_t_81_z_4_i_l_o.pdf#page=21'
+p595
+S'scholar.google.com/scholar?cites=13794304170941834064&as_sdt=2005&sciodt=0,5&hl=en'
+p596
+tp597
+a(g1
+I0
+VZESZYTY NAUKOWE UNIWERSYTETU SZCZECI\u0143SKIEGO NR 466 EKONOMICZNE PROBLEMY TURYSTYKI NR 9 2007
+p598
+VOZT UZDROWISK, WPI CZECHACH 
+p599
+V2007
+p600
+Vwzieu.pl
+p601
+g1
+S'http://www.wzieu.pl/zn/466/ZN_466.pdf#page=161'
+p602
+g6
+tp603
+a(g1
+I0
+VEvaluating of parents' marital success and adolescents' styles of interpersonal functioning
+p604
+VK KALETA 
+p605
+V2012
+p606
+Vbooks.google.com
+p607
+g1
+S'http://books.google.com/books?hl=en&lr=&id=9YNYMZe86QEC&oi=fnd&pg=PA39&dq=lisowski+analiza+rozk%C5%82adu&ots=p1YzSfrz7-&sig=W74Gwg36X1Md0Yzmvp9j9sYxhbU'
+p608
+g6
+tp609
+a(g1
+I0
+VOcena powodzenia ma\u0142\u017ce\u0144stwa rodziców a style interpersonalnego funkcjonowania m\u0142odzie\u017cy
+p610
+VK Kaleta 
+p611
+V2012
+p612
+Vceeol.com
+p613
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=afdb830b0cfc4f9799ef65b555b950ec'
+p614
+g6
+tp615
+a(g1
+I0
+VKierunek Mechanika i Budowa Maszyn
+p616
+VN w j\u0119zyku angielskim English 
+p617
+g25
+Vtu.kielce.pl
+p618
+g1
+S'http://www.tu.kielce.pl/katalog/WMiBM/mibm/programy_studiow/studia_stacjonarne_I_stopnia/przedmioty_wspolne/program_S1_sem__6.pdf'
+p619
+g6
+tp620
+a(g1
+I0
+VCzynniki wp\u0142ywaj\u0105ce na formowanie ciemnej plamisto\u0153ci pouderzeniowej bulw ziemniaka
+p621
+VA Hara
+p622
+g25
+Vinstytucja.pan.pl
+p623
+g1
+S'https://instytucja.pan.pl/images/stories/pliki/wydzialy/wydzial_v/dwum_pnr/2010/PNR2-11.pdf#page=43'
+p624
+g6
+tp625
+a(g1
+I0
+VWybrane problemy unieszkodliwiania odpadów komunalnych z zawarto\u015bci\u0105 biomasy
+p626
+VM Kantorek, H Karcz, W Komorowski\u2026 
+p627
+V2011
+p628
+Vitep.edu.pl
+p629
+g1
+S'http://www.itep.edu.pl/wydawnictwo/pir/zeszyt_73_2011/M_Kantorek%20i%20in%20%20Wybrane%20problemy%20unieszkodliwiania%20odpadow.pdf'
+p630
+g6
+tp631
+a(g1
+I0
+VUTILIZATION OF MODERN ENGINEERING TOOLS FOR DESIGNING DIRECTIONAL CONTROL VALVE WYKORZYSTANIE NOWOCZESNYCH NARZ\u0118DZI  \u2026
+p632
+VP GROMALA 
+p633
+g25
+Vsuw.biblos.pk.edu.pl
+p634
+g1
+S'http://suw.biblos.pk.edu.pl/resources/i7/i6/i4/r764/GromalaP_UtilizationModern.pdf'
+p635
+g6
+tp636
+a(g1
+I0
+VKRZYSZTOF IWASZK. O
+p637
+VMNAON WIELKOPOLSKIEJ 
+p638
+V1991
+p639
+VWydawnictwo Uniwersytetu  \u2026
+p640
+g1
+g6
+g6
+tp641
+a(g1
+I3
+VRó\u017cnice liczby ludno\u015bci ujawnione w Narodowym Spisie Powszechnym 2002
+p642
+VP \u015aLESZY\u0143SKI 
+p643
+V2005
+p644
+Vglobus.igipz.pan.pl
+p645
+g1
+S'http://globus.igipz.pan.pl/wydaw/PRZEGLAD/2005/z2_2005/z2_2005.pdf#page=64'
+p646
+S'scholar.google.com/scholar?cites=15984803728460885131&as_sdt=2005&sciodt=0,5&hl=en'
+p647
+tp648
+a(g1
+I9
+VPomiary rezystywno\u015bci i przenikalno\u015bci elektrycznej dielektryków sta\u0142ych
+p649
+VM Lisowski 
+p650
+V2004
+p651
+Vdbc.wroc.pl
+p652
+g1
+S'http://www.dbc.wroc.pl/Content/1172/lisowski_pomiary_rezystywnosci.pdf'
+p653
+S'scholar.google.com/scholar?cites=3092802196554648069&as_sdt=2005&sciodt=0,5&hl=en'
+p654
+tp655
+a(g1
+I0
+Von the economical and social situation in the European Union member states
+p656
+VW Europejskie 
+p657
+g25
+Vinstytucja.pan.pl
+p658
+g1
+S'http://www.instytucja.pan.pl/images/stories/pliki/wydzialy/wydzial_ii/postepy_nauk_rolniczych/42011/PNR4-11.pdf#page=127'
+p659
+g6
+tp660
+a(g1
+I0
+VPoczucie zwi\u0105zku z Uni\u0105 Europejsk\u0105 w nowych krajach cz\u0142onkowskich Europy \u015arodkowo-Wschodniej
+p661
+VP Jabkowski, P Cichocki 
+p662
+V2009
+p663
+Vceeol.com
+p664
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=b2e803881d9e489d92453bff24b159a9'
+p665
+g6
+tp666
+a(g1
+I0
+VMotywy podejmowania szkole\u0144 przez bezrobotnych w województwie zachodniopomorskim
+p667
+VG Przekota, M Klonowska
+p668
+V2011
+p669
+Vdspace.uni.lodz.pl
+p670
+g1
+S'http://dspace.uni.lodz.pl:8080/xmlui/handle/123456789/647'
+p671
+g6
+tp672
+a(g1
+I0
+VTRANSPORT I INFRASTRUKTURA TRANSPORTOWA W GOSPODARCE
+p673
+VPFI DYNAMICZNE 
+p674
+V2010
+p675
+Vwzieu.pl
+p676
+g1
+S'http://www.wzieu.pl/zn/565/ZN_565.pdf#page=59'
+p677
+g6
+tp678
+a(g1
+I0
+VSense of coherence's impact on a level of depression patients diagnosed with colorectal cancer
+p679
+VK Kurowska, A Kubak 
+p680
+g25
+Vtermedia.pl
+p681
+g1
+S'http://www.termedia.pl/Sense-of-coherence-s-impact-on-a-level-of-depression-patients-diagnosed-with-colorectal-cancer,50,17597,1,1.html'
+p682
+g6
+tp683
+a(g1
+I0
+VBiodegradation of nonylphenols by some microorganisms
+p684
+VKMP i Biotechnologii, U \u0141ódzki 
+p685
+g25
+Vpm.microbiology.pl
+p686
+g1
+S'http://www.pm.microbiology.pl/web/pelne/vol5042011.pdf#page=53'
+p687
+g6
+tp688
+a(g1
+I0
+VBIODEGRADACJA NONYLOFENOLI PRZEZ WYBRANE DROBNOUSTROJE
+p689
+VM Krupi\u0144ski, J D\u0142ugo\u0144ski 
+p690
+g25
+Vpm.microbiology.pl
+p691
+g1
+S'http://www.pm.microbiology.pl/web/archiwum/vol5042011313.pdf'
+p692
+g6
+tp693
+a(g1
+I0
+VWspó\u0142czesna Onkologia
+p694
+VD Bazali\u0144ski, D Kaczmarska, D Bujalski 
+p695
+g25
+Vtermedia.pl
+p696
+g1
+S'http://www.termedia.pl/Czasopismo/Wspolczesna_Onkologia-3/Artykul-15603'
+p697
+g6
+tp698
+a(g1
+I0
+VCechy u\u017cytkowe papryki rocznej (Capsicum annuum L.) typu Kambi w aspekcie mo\u017cliwo\u015bci uprawy amatorskiej
+p699
+V\u2026, M Wyrzykowska, J Ziemi\u0144ska, M Lisowska 
+p700
+g25
+Vmazowieckie.ksow.pl
+p701
+g1
+S'http://mazowieckie.ksow.pl/fileadmin/user_upload/mazowieckie/pliki/Akademia_Podlaska-Materia%C5%82y_konferencyjne.pdf#page=44'
+p702
+g6
+tp703
+a(g1
+I0
+VOcena Systemów Zarz\u0105dzania Kosztami w Uj\u0119ciu Sektorowym
+p704
+VM Turek, I Jonek
+p705
+V2012
+p706
+Vdegruyter.com
+p707
+g1
+S'http://www.degruyter.com/view/j/oam.2012.2.issue-151/v10166-012-0020-z/v10166-012-0020-z.xml'
+p708
+g6
+tp709
+a(g1
+I4
+VEwolucja strefy brzegowej zbiornika pakoskiego (Pojezierze Gnie\u017anie\u0144skie)
+p710
+VH Grobelska 
+p711
+V2006
+p712
+VPolska Akademia Nauk Instytut  \u2026
+p713
+g1
+g6
+S'scholar.google.com/scholar?cites=3408964312191695331&as_sdt=2005&sciodt=0,5&hl=en'
+p714
+tp715
+a(g1
+I0
+VWprowadzenie do raportu o zagro\u017ceniach
+p716
+VZW KUNDZEWICZ, P MATCZAK, Z SADOWSKI 
+p717
+g25
+Vportalwiedzy.pan.pl
+p718
+g1
+S'http://www.portalwiedzy.pan.pl/images/stories/pliki/publikacje/nauka/2010/04/N410-2-Kundzewicz-wprowadzenie.pdf'
+p719
+g6
+tp720
+a(g1
+I0
+VLong L., Nucci A., 1997, The \u201eclean break" revisited: is USpopulation again deconcentrating? Environment and Planning A, 29, 8, 1355-1366. McKenzie  \u2026
+p721
+VK PAN 
+p722
+V2003
+p723
+VWydawnictwa Uniwersytetu  \u2026
+p724
+g1
+g6
+g6
+tp725
+a(g1
+I0
+VANALIZA OBCI\u0104\u017bE\u0143 TRENINGOWYCH W CZTEROLETNIM CYKLU TRENINGOWYM MISTRZA POLSKI JUNIORÓW W BIEGU NA 1500 M
+p726
+VRNAWFWE WROC\u0141AWIU 
+p727
+V2009
+p728
+Vawf.wroc.pl
+p729
+g1
+S'http://www.awf.wroc.pl/files_mce/INNE%20JEDNOSTKI/Rozprawy%20Naukowe/2009/rn_29_2009.pdf#page=280'
+p730
+g6
+tp731
+a(g1
+I0
+VWspieranie przez nauk\u0119 zwalczania po\u017carów i wybuchów w kopalniach w\u0119gla kamiennego
+p732
+VJ SU\u0141KOWSKI 
+p733
+V2010
+p734
+Vpolsl.pl
+p735
+g1
+S'http://www.polsl.pl/Wydzialy/RG/Wydawnictwa/Documents/kwartal/5_3_8.pdf'
+p736
+g6
+tp737
+a(g1
+I0
+V\u017bywieniowe wspomaganie zdolno\u015bci wysi\u0142kowych w grupie sportowców wyczynowych
+p738
+VB Fr\u0105czek, M Gacek, A Grzelak 
+p739
+V2012
+p740
+Vphie.pl
+p741
+g1
+S'http://www.phie.pl/pdf/phe-2012/phe-2012-4-817.pdf'
+p742
+g6
+tp743
+a(g1
+I0
+VWyprzedzanie na akwenach ograniczonych\u2013gotowo\u015b\u0107 do podj\u0119cia manewru Overtaking in restricted basins\u2013readiness to make the manoeuvre
+p744
+VP Lizakowski 
+p745
+g25
+Vam.szczecin.pl
+p746
+g1
+S'http://www.am.szczecin.pl/userfiles/File/wydawnictwo/ZN_13/Lizakowski.pdf'
+p747
+g6
+tp748
+a(g1
+I0
+VSkutki prawne separacji ma\u0142\u017conków
+p749
+VA Sylwestrzak 
+p750
+V2007
+p751
+Vbooks.google.com
+p752
+g1
+S'http://books.google.com/books?hl=en&lr=&id=Uw28Wa6OMA0C&oi=fnd&pg=PA11&dq=lisowski+analiza+rozk%C5%82adu&ots=_yw6BoJBqa&sig=SLcgy7bAeq8RQKfuxetVyuytGj8'
+p753
+g6
+tp754
+a(g1
+I0
+VMETAFORY FASZYZMU (O POLSKICH KONCEPTUALIZACJACH W\u0141OSKIEJ DOKTRYNY)
+p755
+VM Bednarczuk 
+p756
+V2011
+p757
+Vceeol.com
+p758
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=32a8d913720a45b2a96105a9e06c67c8'
+p759
+g6
+tp760
+a(g1
+I0
+VRegionalne po co iz kim? Relacje mi\u0119dzynarodowe polskich województw
+p761
+VK Szmigiel 
+p762
+V2009
+p763
+Vbooks.google.com
+p764
+g1
+S'http://books.google.com/books?hl=en&lr=&id=A0rWHCnK3b8C&oi=fnd&pg=PA7&dq=lisowski+analiza+rozk%C5%82adu&ots=m2IevN4S6V&sig=2-r2jO42kBg8idJzp419doZrK0Y'
+p765
+g6
+tp766
+a(g1
+I0
+VEOLA ACETYLOCHOLINY W ZATKUCIU TOKSYN\u0104 T\u0118\u017bCA
+p767
+VJ WARTENBERG 
+p768
+V1960
+p769
+VPolish Academy of Sciences, Ludwik \u2026
+p770
+g1
+g6
+g6
+tp771
+a(g1
+I0
+V\u015aREDNIOWIECZNY KLASZTOR CYSTERSKI W KRZESZOWIE NA PODSTAWIE OSTATNICH BADA\u0143 ARCHITEKTONICZNYCH THE MEDIEVAL CISTERCIAN \u2026
+p772
+VEWA \u0141U\u017bYNIECKA 
+p773
+g25
+Vsuw.biblos.pk.edu.pl
+p774
+g1
+S'http://suw.biblos.pk.edu.pl/resources/i1/i2/i6/i2/i3/r12623/LuzynieckaE_SredniowiecznyKlasztor.pdf'
+p775
+g6
+tp776
+a(g1
+I0
+VOcena efektywno\u015bci leków u\u017cywanych w analgezji podpaj\u0119czynówkowej u pacjentów poddanych planowym zabiegom operacyjnym Effectiveness of medicines \u2026
+p777
+VD Obrzut, W Macha\u0142a 
+p778
+g25
+Vanestezjologiairatownictwo.pl
+p779
+g1
+S'http://www.anestezjologiairatownictwo.pl/archiwum/2012_01_Ocena%20efektywnosci%20lekow%20Obrzut.pdf'
+p780
+g6
+tp781
+a(g1
+I0
+VZarz\u0105dzanie ró\u017cnorodno\u015bci\u0105 w Polsce
+p782
+VU Polska 
+p783
+g25
+Vbooks.google.com
+p784
+g1
+S'http://books.google.com/books?hl=en&lr=&id=AsPCMO0DhPMC&oi=fnd&pg=PA5&dq=lisowski+analiza+rozk%C5%82adu&ots=lvXrItUqse&sig=NThU0gRKK4lZeVu1LMwiCAVzdek'
+p785
+g6
+tp786
+a(g1
+I0
+VRola prasy lokalnej w procesie budowania to\u017csamo\u015bci \u201ema\u0142ych ojczyzn\u201d na przyk\u0142adzie Ziemi Lubuskiej 1945-1999
+p787
+VK Wasilewski 
+p788
+V2012
+p789
+V150.254.65.83
+p790
+g1
+S'https://150.254.65.83/jspui/handle/10593/2858'
+p791
+g6
+tp792
+a(g1
+I0
+VAktywni obywatele\u2013ju\u017c czy jeszcze nie? Do\u015bwiadczenia polsko-niemieckie
+p793
+VK Lisowski 
+p794
+g25
+Vwsb.gorzow.pl
+p795
+g1
+S'http://www.wsb.gorzow.pl/upload/File/KONFERENCJE_Arl/2010/AKTYWNI_OBYWATELE_monografia_2010_.pdf'
+p796
+g6
+tp797
+a(g1
+I0
+VPrzysz\u0142a ewolucja cz\u0142owieka
+p798
+VG Meisenberg, I Lisowska 
+p799
+V2006
+p800
+Vwhatwemaybe.org
+p801
+g1
+S'http://www.whatwemaybe.org/txt/txt0002/Glad.John.2007.FHE.polish.pdf'
+p802
+g6
+tp803
+a(g1
+I0
+VExample of formulation of autonomous algorithms used in procedure of modal parameter estimation
+p804
+VW LISOWSKI 
+p805
+V2005
+p806
+Vwarminski.pollub.plwww.ptmts.org.pl
+p807
+g1
+S'http://warminski.pollub.plwww.ptmts.org.pl/2005-2-lisowski.pdf'
+p808
+g6
+tp809
+a(g1
+I0
+VSTAN NAPR\u0118\u017bENIA I TARCIE WEWN\u0118TRZNE MATERIA\u0141U PRZESIEWANEGO JAKO DETERMINANTY SKUTECZNEGO PROCESU SEPARACJI SITOWEJ  \u2026
+p810
+VJ BANASIAK, J BIENIEK, J DETYNA 
+p811
+V2003
+p812
+V212.182.64.85
+p813
+g1
+S'http://212.182.64.85/Content/182/20+-+4(2003).pdf#page=69'
+p814
+g6
+tp815
+a(g1
+I0
+VXII. WOJSKO
+p816
+VX NAUKI 
+p817
+V1976
+p818
+VBiblioteka Narodowa.
+p819
+g1
+g6
+g6
+tp820
+a(g1
+I5
+VProcesy centralizacji i decentralizacji w aglomeracji warszawskiej w latach 1950-2002
+p821
+VA Lisowski 
+p822
+V2005
+p823
+Vwgsr.uw.edu.pl
+p824
+g1
+S'http://www.wgsr.uw.edu.pl/pub/uploads/pis05/Lisowski_1.pdf'
+p825
+S'scholar.google.com/scholar?cites=12663698255425579361&as_sdt=2005&sciodt=0,5&hl=en'
+p826
+tp827
+a(g1
+I11
+VRozwój\u2013region\u2013polityka
+p828
+VG Gorzelak 
+p829
+V2007
+p830
+Vtheps13.free.fr
+p831
+g1
+S'http://theps13.free.fr/Polska-GG.doc'
+p832
+S'scholar.google.com/scholar?cites=5192836673762071201&as_sdt=2005&sciodt=0,5&hl=en'
+p833
+tp834
+a(g1
+I0
+VBUDOWNICTWO w 1999 r./Mariusz Sochacki//ProW. Rozw. Bud.-2000, nr 2, s. 2-11 2202 BUDUJ\u0104C z normami/Kristoffer Apeland; t\u0142. Ma\u0142go-rzata  \u2026
+p835
+VBM BUDOWLANE\u2026 
+p836
+V2001
+p837
+VBiblioteka Narodowa, Instytut  \u2026
+p838
+g1
+g6
+g6
+tp839
+a(g1
+I0
+VZastosowanie dro\u017cd\u017cy Yarrowia lipolytica do bioremediacji gruntu zanieczyszczonego olejem kreozotowym
+p840
+VM Robak, T Boruczkowski, W Dro\u017cd\u017c, Z Lazar\u2026 
+p841
+g25
+Vos.not.pl
+p842
+g1
+S'http://www.os.not.pl/docs/czasopismo/2011/2-2011/Robak_2-2011.pdf'
+p843
+g6
+tp844
+a(g1
+I0
+VSta\u0142e kompleksowe charakteryzuj\u0105ce system tribologiczny
+p845
+VM MACI\u0104G 
+p846
+V2006
+p847
+Vtribologia.eu
+p848
+g1
+S'http://tribologia.eu/ptt/trib/Tribol_5-2006_s_067_130.pdf'
+p849
+g6
+tp850
+a(g1
+I2
+VL\u0119k i ból u osób poddanych profilaktycznej endoskopii jelita grubego
+p851
+VD Bazali\u0144ski, D Kaczmarska, D Bujalski 
+p852
+V2010
+p853
+Vtermedia.pl
+p854
+g1
+S'http://www.termedia.pl/Czasopismo/-3/pdf-15603-70?from=eonko&filename=Lek%20i%20bol%20u%20osob%20poddanych.pdf'
+p855
+S'scholar.google.com/scholar?cites=14655686634932513703&as_sdt=2005&sciodt=0,5&hl=en'
+p856
+tp857
+a(g1
+I0
+VSTUDIA 5-LETNIE MAGISTERSKIE DZIENNE
+p858
+VLKPW\u0106 Forma 
+p859
+g25
+V81.26.13.172
+p860
+g1
+S'http://81.26.13.172/wped/kom/ipp/resocjalizacja.pdf'
+p861
+g6
+tp862
+a(g1
+I0
+VOcena zmian w czynno\u015bci narz\u0105du s\u0142uchu u chorych na cukrzyc\u0119 typu
+p863
+VK Augustyn, M D\u0105browski, G Mielnik
+p864
+V2011
+p865
+Vmoj.alergie.pl
+p866
+g1
+S'http://www.moj.alergie.pl/library/orl_volume-10_issue-1_article-957.pdf'
+p867
+g6
+tp868
+a(g1
+I0
+VR. Brázdil (red.)\u2013Historické a sou\u010dasné povodn\u011b v \u010ceské repub
+p869
+VP GEOGRAFICZNY 
+p870
+g25
+Vrcin.org.pl
+p871
+g1
+S'http://rcin.org.pl/igipz/Content/84/2007-79-2_final.pdf#page=141'
+p872
+g6
+tp873
+a(g1
+I0
+VUrban Sprawl\u2013Warsaw Agglomeration Case Study, red. M. Gutry
+p874
+VP GEOGRAFICZNY 
+p875
+g25
+Vglobus.igipz.pan.pl
+p876
+g1
+S'http://globus.igipz.pan.pl/wydaw/PRZEGLAD/Przeglad_z_4_06/2006-78_4.pdf#page=135'
+p877
+g6
+tp878
+a(g1
+I0
+VTHE INCT PATENTS AND PATENT APPLICATIONS IN 2005
+p879
+VI Legocka, Z Zimek, A Wo\u017aniak, K Mirkowski\u2026 
+p880
+V2006
+p881
+Vichtj.waw.pl
+p882
+g1
+S'http://www.ichtj.waw.pl/ichtj/publ/annual/anrep05.pdf#page=170'
+p883
+g6
+tp884
+a(g1
+I0
+VRegionalne instrumenty wspierania rozwoju ma\u0142ych i \u015brednich przedsi\u0119biorstw
+p885
+VM Matejun 
+p886
+g25
+Vmatejun.com
+p887
+g1
+S'http://www.matejun.com/pubs-pl/2012_Marek_Matejun_Regionalne_instrumenty_wspierania_rozwoju_malych_i_srednich_przedsiebiorstw.pdf'
+p888
+g6
+tp889
+a(g1
+I0
+VThe following report was prepared by the Institute of Meteorology and Water Management on behalf of Guy Carpenter & Company, Inc. The report has been  \u2026
+p890
+VL Pilichowski, K Piekarski, K Kasprzak, R Sk\u0105pski\u2026 
+p891
+g25
+Vguycarpenter.com
+p892
+g1
+S'http://www.guycarpenter.com/portal/extranet/pdf/Polish%20Windstorms.pdf'
+p893
+g6
+tp894
+a(g1
+I0
+VSTATUS KOBIET PRACUJ\u0104CYCH W POLSCE I USA
+p895
+VW Wehemeyer 
+p896
+g25
+Vbazhum.icm.edu.pl
+p897
+g1
+S'http://bazhum.icm.edu.pl/bazhum/download/bwmeta1.element.dl-catalog-27e1bd93-a51a-4f5d-adab-725893878d5e/content/Kobieta_i_Biznes-1998-6-1_2-012-018.pdf'
+p898
+g6
+tp899
+a(g1
+I1
+VRACHUNEK KOSZTÓW DZIA\u0141A\u0143\u2013ODPOWIED\u0179 NA ZWI\u0118KSZONE POTRZEBY POLSKICH UCZELNI WY\u017bSZYCH W ZAKRESIE INFORMACJI KOSZTOWEJ
+p900
+VA Klaus 
+p901
+g25
+Vdbc.wroc.pl
+p902
+g1
+S'http://www.dbc.wroc.pl/Content/4323/calosc.pdf#page=87'
+p903
+S'scholar.google.com/scholar?cites=17285831240617224371&as_sdt=2005&sciodt=0,5&hl=en'
+p904
+tp905
+a(g1
+I18
+VPó\u017anotriasowe cmentarzysko kr\u0119gowców l\u0105dowych w Krasiejowie na \u015al\u0105sku Opolskim
+p906
+VJ Dzik, T Sulej, A Kaim, R Nied\u017awiedzki 
+p907
+V2000
+p908
+Vpaleo.pan.pl
+p909
+g1
+S'http://www.paleo.pan.pl/krasiejow/artykuly2.html'
+p910
+S'scholar.google.com/scholar?cites=10805294182668776038&as_sdt=2005&sciodt=0,5&hl=en'
+p911
+tp912
+a(g1
+I0
+VLista przedmiotów do wyboru
+p913
+VT Cukierda 
+p914
+g25
+Vstud.chem.uni.wroc.pl
+p915
+g1
+S'http://stud.chem.uni.wroc.pl/przedmioty-do-wyboru.html'
+p916
+g6
+tp917
+a(g1
+I0
+VWYBRANE ZAGADNIENIA JAKO\u015aCI ZASILANIA I U\u017bYTKOWANIA ENERGII ELEKTRYCZNEJ
+p918
+VLPQ Initiative 
+p919
+g25
+Vcopperalliance.pl
+p920
+g1
+S'http://copperalliance.pl/pub/download/lpqisn11.pdf'
+p921
+g6
+tp922
+a(g1
+I3
+VFlora naczyniowa wybranych cmentarzy Ostrowa Wielkopolskiego i okolicy
+p923
+VZ CELKA, J \u017bywica 
+p924
+V2004
+p925
+Vau.poznan.pl
+p926
+g1
+S'http://www.au.poznan.pl/steciana/files/7celzyw.pdf'
+p927
+S'scholar.google.com/scholar?cites=16396312240433915681&as_sdt=2005&sciodt=0,5&hl=en'
+p928
+tp929
+a(g1
+I0
+VKIERUNKI ZMIAN KULTURY ORGANIZACYJNEJ W RELACJACH URZDU ADMINISTRACJI PUBLICZNEJ Z OTOCZENIEM
+p930
+VK Szymaska 
+p931
+V2010
+p932
+Vbooks.google.com
+p933
+g1
+S'http://books.google.com/books?hl=en&lr=&id=R254xeHACB4C&oi=fnd&pg=PA42&dq=lisowski+analiza+rozk%C5%82adu&ots=MUeJWNuycB&sig=y-l0Ca9jaFtAaZVhjKm8yWtUJdo'
+p934
+g6
+tp935
+a(g1
+I0
+VZESZYTY NAUKOWE UNIWERSYTETU SZCZECI\u0143SKIEGO NR 484 STUDIA SOCIOLOGICA NR 17 2007
+p936
+VO SPO\u0141ECZNE\u2026 
+p937
+V2008
+p938
+Vusfiles.us.szc.pl
+p939
+g1
+S'http://usfiles.us.szc.pl/pliki/plik_1326813234.pdf#page=111'
+p940
+g6
+tp941
+a(g1
+I0
+VZ w\u0119drówek po \u201eop\u0142otkach europy\u201d spo\u0142eczno-kulturowe oblicze peryferii w twórczo\u015bci andrzeja stasiuka
+p942
+VM D\u0119bicki 
+p943
+V2012
+p944
+Vdegruyter.com
+p945
+g1
+S'http://www.degruyter.com/view/j/kultura.2012.56.issue-1/v10276-012-0004-6/v10276-012-0004-6.xml'
+p946
+g6
+tp947
+a(g1
+I0
+VStan trwa\u0142ych u\u017cytków zielonych i mo\u017cliwo\u015b\u0107 ich wykorzystania do produkcji biogazu
+p948
+VZ Wasilewski, J Barszczewski\u2026 
+p949
+V2011
+p950
+Vitep.edu.pl
+p951
+g1
+S'http://www.itep.edu.pl/wydawnictwo/pir/zeszyt_72_2011/Z_Wasilewski,%20J_Barszczewski%20%20Stan%20trwalych%20uzytkow%20zielonych.pdf'
+p952
+g6
+tp953
+a(g1
+I0
+VPORÓWNANIE METOD WYKRYWANIA USZKODZE\u0113 W ASPEKCIE MO\u0129LIWO\u011dCI ICH AUTOMATYZACJI
+p954
+VK MENDROK 
+p955
+V2007
+p956
+Vdiagnostyka.net.pl
+p957
+g1
+S'http://diagnostyka.net.pl/archiwum/caly_tekst/diag43.pdf#page=83'
+p958
+g6
+tp959
+a(g1
+I0
+VGENOTYPY HBV U PACJENTÓW Z PRZEWLEK\u0141YM ZAPALENIEM W\u0104TROBY TYPU BZ TERENU CENTRALNEJ POLSKI
+p960
+VJ \u015alusarczyk, J Bia\u0142kowska, B Bucholc, A Wiatrzyk\u2026 
+p961
+g25
+Vpzh.gov.pl
+p962
+g1
+S'http://www.pzh.gov.pl/przeglad_epimed/60-3/603_25.pdf'
+p963
+g6
+tp964
+a(g1
+I0
+VWp\u0142yw stosowania diety wegetaria\u0144skiej na st\u0119\u017cenie homocysteiny oraz ca\u0142kowit\u0105 aktywno\u015b\u0107 przeciwutleniaj\u0105c\u0105 w surowicy u dzieci
+p965
+VM CHE\u0141CHOWSKA, J AMBROSZKIEWICZ\u2026 
+p966
+g25
+Vpml.strefa.pl
+p967
+g1
+S'http://www.pml.strefa.pl/ePUBLI/171/08.pdf'
+p968
+g6
+tp969
+a(g1
+I0
+VFirma Równych Szans 2007
+p970
+VU Polska 
+p971
+g25
+Vbooks.google.com
+p972
+g1
+S'http://books.google.com/books?hl=en&lr=&id=BlP_fqSo_MoC&oi=fnd&pg=PA2&dq=lisowski+analiza+rozk%C5%82adu&ots=1DxkyMT6Zd&sig=poa8pf1oenLQjSXBCoSUGbIa3X8'
+p973
+g6
+tp974
+a(g1
+I0
+VPrzydatno\u015b\u0107 oznaczania kalprotektyny w stolcu w chorobie Le\u015bniowskiego i Crohna
+p975
+VP Eder, K Stawczyk
+p976
+V2008
+p977
+Vpamw.pl
+p978
+g1
+S'http://pamw.pl/sites/default/files/eder_pl.pdf'
+p979
+g6
+tp980
+a(g1
+I0
+VKomitet Organizacyjny i Naukowy
+p981
+VPTC P\u0142uc 
+p982
+g25
+Vpneumonologia.viamedica.pl
+p983
+g1
+S'http://www.pneumonologia.viamedica.pl/darmowy_pdf.phtml?indeks=65&indeks_art=768'
+p984
+g6
+tp985
+a(g1
+I0
+VThe need for psychological support for women waiting for gynaecological surgery
+p986
+VC \u0141epecka
+p987
+g25
+Vtermedia.pl
+p988
+g1
+S'http://www.termedia.pl/Journal/Przeglad_Menopauzalny-4/Artykul-15562'
+p989
+g6
+tp990
+a(g1
+I0
+VBARBARA SA\u0141ATA VARIAB1LITY OF DENTITION OF MICROTUS ARVALIS (PALLAS) IN POLAND, PARTICULARLY IN WESTERN POLAND
+p991
+VZZZ Systematycznej 
+p992
+V1974
+p993
+VBadania fizjograficzne nad Polska zachodnia, 1974
+p994
+g1
+g6
+g6
+tp995
+a(g1
+I0
+VPrzegl\u0105d Menopauzalny
+p996
+VC \u0141epecka
+p997
+g25
+Vtermedia.pl
+p998
+g1
+S'http://www.termedia.pl/Czasopismo/Przeglad_Menopauzalny-4/Artykul-15562'
+p999
+g6
+tp1000
+a(g1
+I0
+VWP\u0142YW ZAGOSPODAROWANIA TERENu NA KlIMAT lOKAlNY ZE SZCZEGólNYM uWZGl\u0118DNIENIEM OBSZARóW GóRSKICH
+p1001
+VM Nowosad 
+p1002
+g25
+Vbdpn.pl
+p1003
+g1
+S'http://www.bdpn.pl/dokumenty/roczniki/rb19/art19.pdf'
+p1004
+g6
+tp1005
+a(g1
+I0
+VLiberalizacja polskiego rynku us\u0142ug \u0142\u0105czno\u015bci w kontek\u015bcie dostosowa\u0144 do wymogów integracyjnych Unii Europejskiej
+p1006
+VJ Buko, KPG \u0141\u0105czno\u015bci, U Szczeci\u0144ski 
+p1007
+V2002
+p1008
+Vinstytut.info
+p1009
+g1
+S'http://www.instytut.info/images/stories/ksiazki_polecane/16_przemiany_i_perspektywy_przedsiebiorstw_2/przemiany_i_perspektywy_1.pdf#page=187'
+p1010
+g6
+tp1011
+a(g1
+I0
+VBakteryjny przerost flory jelita cienkiego u dzieci
+p1012
+VT Hutyra, B Iwa\u0144czak 
+p1013
+V2010
+p1014
+Vcornetis.pl
+p1015
+g1
+S'http://www.cornetis.pl/pliki/pw/2010/2/pw_2010_2_130.pdf'
+p1016
+g6
+tp1017
+a(g1
+I0
+VCYTOTOKSYCZNO\u015a\u0106 I GENOTOKSYCZNO\u015a\u0106 DIMERÓW ETOKSYQUINU*)
+p1018
+VA Augustyniak, A Niezgoda, J Skolimowski, R Kontek\u2026 
+p1019
+g25
+Vptfarm.pl
+p1020
+g1
+S'http://www.ptfarm.pl/pub/File/Bromatologia/2012/2/BR%202-2012%20s.%20228-234.pdf'
+p1021
+g6
+tp1022
+a(g1
+I0
+VKOBIETA AKTYWNA ZAWODOWO\u2013ZADANIA I ROLE W \u015aWIETLE BADA\u0143 CBOS. ZMIANA MY\u015aLENIA, CZY POG\u0141\u0118BIANIE STEREOTYPU?
+p1023
+VK ZDROJEWSKA 
+p1024
+V2012
+p1025
+Vaequalitas.ka.edu.pl
+p1026
+g1
+S'http://aequalitas.ka.edu.pl/2012_v1/A_2012_vol_1_22_Zdrojewska.pdf'
+p1027
+g6
+tp1028
+a(g1
+I0
+VSpecyfika przedsi\u0119biorczo\u015bci kobiet
+p1029
+VT Piecuch 
+p1030
+V2012
+p1031
+Vsgh.waw.pl
+p1032
+g1
+S'http://www.sgh.waw.pl/kolegia/kzif/aktualnosci_/atomnewsitem.2011-06-07.0461380806/116.pdf#page=128'
+p1033
+g6
+tp1034
+a(g1
+I0
+V11. SYLABUSY STUDIÓW NIESTACJONARNYCH 12. PRZEDMOTY PODSTAWOWE
+p1035
+VLT zaj\u0119\u0107 Godzin 
+p1036
+g25
+Vusfiles.us.szc.pl
+p1037
+g1
+S'http://usfiles.us.szc.pl/pliki/plik_1260180223.pdf#page=91'
+p1038
+g6
+tp1039
+a(g1
+I1
+VLecznictwo uzale\u017cnienia od alkoholu w Polsce w latach 1982\u20132005
+p1040
+VE Miturska, K D\u0105browska 
+p1041
+V2009
+p1042
+Vipin.edu.pl
+p1043
+g1
+S'http://www.ipin.edu.pl/ain/aktualne/2009/4/t22n4_3.pdf'
+p1044
+S'scholar.google.com/scholar?cites=14730114565483465619&as_sdt=2005&sciodt=0,5&hl=en'
+p1045
+tp1046
+a(g1
+I1
+VPolityka rz\u0105du wobec wspierania dzia\u0142alno\u015bci innowacyjnej i badawczo-rozwojowej
+p1047
+VS Ciok57 
+p1048
+g25
+Vdawg.pl
+p1049
+g1
+S'http://dawg.pl/files/file/ksiazka6.pdf'
+p1050
+S'scholar.google.com/scholar?cites=9904410456070456177&as_sdt=2005&sciodt=0,5&hl=en'
+p1051
+tp1052
+a(g1
+I0
+VALBUMINURIA A WSKA\u0179NIKI USZKODZENIA CEWEK PROKSYMALNYCH U DZIECI Z IDIOPATYCZNYM ZESPO\u0141EM NERCZYCOWYM
+p1053
+VK Kili\u015b
+p1054
+g25
+Vwww.cornetis.pl
+p1055
+g1
+S'http://www.www.cornetis.pl/pliki/PP/2012/2/PP_2012_2_66.pdf'
+p1056
+g6
+tp1057
+a(g1
+I0
+VKARTA PRZEDMIOTU
+p1058
+VN w j\u0119zyku angielskim English 
+p1059
+g25
+Vtu.kielce.pl
+p1060
+g1
+S'http://www.tu.kielce.pl/katalog/WMiBM/mibm/programy_studiow/studia_stacjonarne_I_stopnia/przedmioty_wspolne/program_S1_sem_5.pdf'
+p1061
+g6
+tp1062
+a(g1
+I0
+VZjawy, upiory, sobowtóry...\u201eRomantyczne\u201d transgresje w powie\u015bci" Podobojí" Danieli Hodrovej
+p1063
+VM Balcerzak 
+p1064
+V2011
+p1065
+Vceeol.com
+p1066
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=610d6bc4e6404e4a874c9f9e1424278a'
+p1067
+g6
+tp1068
+a(g1
+I0
+V60 LAT UDZIA\u0141U INSTYTUTU ELEKTROTECHNIKI W PRACACH DOTYCZ\u0104CYCH ZASILANIA SIECI TRAKCYJNYCH PR\u0104DU STA\u0141EGO
+p1069
+VS JANUSZEWSKI, E KORZYCKI, H \u015aWI\u0104TEK\u2026 
+p1070
+g25
+Viel.waw.pl
+p1071
+g1
+S'http://iel.waw.pl/strony/wydawnictwo/zal/233/09.pdf'
+p1072
+g6
+tp1073
+a(g1
+I0
+VBójka i pobicie. Aspekty wykrywcze i dowodowe
+p1074
+VK Olszak 
+p1075
+V2009
+p1076
+Vbooks.google.com
+p1077
+g1
+S'http://books.google.com/books?hl=en&lr=&id=bpaTkb_giogC&oi=fnd&pg=PA9&dq=lisowski+analiza+rozk%C5%82adu&ots=6aJ-S1sKGF&sig=Is1qoOZfDVh6_iq_Uze5Ol1LUt4'
+p1078
+g6
+tp1079
+a(g1
+I0
+VMened\u017cerka sukcesu 2011\u2013szanse i ograniczenia kariery zawodowej kobiet w Polsce
+p1080
+VA Bili\u0144ska, M Raw\u0142uszko 
+p1081
+g25
+Vbazhum.icm.edu.pl
+p1082
+g1
+S'http://bazhum.icm.edu.pl/bazhum/download/bwmeta1.element.dl-catalog-8d1ccadb-75cc-4908-8a4d-7eda9537825b/full-text/Kobieta_i_Biznes-r2011-t19-n1_4-s3-20.pdf'
+p1083
+g6
+tp1084
+a(g1
+I0
+VIntegracja poprzez prac\u0119\u2013mi\u0119dzynarodowy model aktywizacji osób zagro\u017conych wykluczeniem spo\u0142ecznym wykorzystuj\u0105cy partnerstwo sektorów  \u2026
+p1085
+VK Jaszczuk, SGH w Warszawie 
+p1086
+V2010
+p1087
+Vbooks.google.com
+p1088
+g1
+S'http://books.google.com/books?hl=en&lr=&id=PbfErKNlSBQC&oi=fnd&pg=PA116&dq=lisowski+analiza+rozk%C5%82adu&ots=HM-EHaAvUK&sig=i2Iz69N-MV74c8zoOzB9uqzhelk'
+p1089
+g6
+tp1090
+a(g1
+I0
+VKobiety i stereotypy oraz ró\u017cne style zarz\u0105dzania zasobami ludzkimi
+p1091
+VM Byczkowska 
+p1092
+g25
+Vpiz.san.edu.pl
+p1093
+g1
+S'http://piz.san.edu.pl/docs/e-XI-3.pdf#page=82'
+p1094
+g6
+tp1095
+a(g1
+I29
+VPolskie regiony w procesie integracji europejskiej
+p1096
+VG Gorzelak 
+p1097
+V2002
+p1098
+Vstudreg.uw.edu.pl
+p1099
+g1
+S'http://www.studreg.uw.edu.pl/pdf/2002_2_3_gorzelak.pdf'
+p1100
+S'scholar.google.com/scholar?cites=18415244040002668418&as_sdt=2005&sciodt=0,5&hl=en'
+p1101
+tp1102
+a(g1
+I0
+VWieloaspektowo\u0153\u0107 i specyfika kulturowa bada\u0144 przyrodniczych na cmentarzach
+p1103
+VK J\u0118DRZEJKO, E WALUSIAK 
+p1104
+g25
+Vwsew.edu.pl
+p1105
+g1
+S'https://wsew.edu.pl/uploaded/journal/pe_2_2010.pdf'
+p1106
+g6
+tp1107
+a(g1
+I0
+VZIEMIA I PRZESTRZE\u0143 W PROCESIE WYTWARZANIA.
+p1108
+VE SPOJRZENIA 
+p1109
+g25
+Vekonom.ug.edu.pl
+p1110
+g1
+S'http://ekonom.ug.edu.pl/jednostki/makro/doc/pub/Stymulowanie%20rozwoju%20s-g.pdf#page=53'
+p1111
+g6
+tp1112
+a(g1
+I0
+VL\u0119k u pacjentek z nowotworem gruczo\u0142u piersiowego w terminalnej fazie choroby
+p1113
+VJ Janiszewska, K de Walden
+p1114
+g25
+Vumb.edu.pl
+p1115
+g1
+S'http://www.umb.edu.pl/photo/pliki/Dziekanat-WNOZ/monografie/tom_2(1).pdf#page=363'
+p1116
+g6
+tp1117
+a(g1
+I0
+VZABEZPIECZENIE NADPRZEWODNIKOWEGO ELEKTROMAGNESU CH\u0141ODZONEGO KONTAKTOWO
+p1118
+VH Malinowski 
+p1119
+g25
+Vbc.pollub.pl
+p1120
+g1
+S'http://bc.pollub.pl/Content/193/ZN-03+-+2001.pdf#page=85'
+p1121
+g6
+tp1122
+a(g1
+I0
+VProgramy przedmiotów na studiach dziennych\u2013kierunek Mechanika i Budowa Maszyn 5
+p1123
+VINP STRONA 
+p1124
+g25
+Vmt.polsl.pl
+p1125
+g1
+S'http://www.mt.polsl.pl/stronamt/upload/files/sylabusy/mibm_sylabusy_smb_sj.pdf'
+p1126
+g6
+tp1127
+a(g1
+I0
+VJ\u0119drzej Giertych (1903-1992). Biografia polityczna
+p1128
+VA Piesiak
+p1129
+V2012
+p1130
+Vrepozytorium.amu.edu.pl
+p1131
+g1
+S'https://repozytorium.amu.edu.pl/jspui/handle/10593/1761'
+p1132
+g6
+tp1133
+a(g1
+I0
+VWybrane konteksty wychowania dzieci i m\u0142odzie\u017cy w obszarze polityki spo\u0142ecznej
+p1134
+VB Ska\u0142bania 
+p1135
+g25
+Vwskiz.edu
+p1136
+g1
+S'http://wskiz.edu/files/uczelnia/ebook_determinanty_rozwoju.pdf#page=188'
+p1137
+g6
+tp1138
+a(g1
+I0
+VSamorz\u0105d lokalny w sieciach gospodarczych
+p1139
+VK Szmigiel
+p1140
+V2010
+p1141
+Vbooks.google.com
+p1142
+g1
+S'http://books.google.com/books?hl=en&lr=&id=m6i8ewkYydYC&oi=fnd&pg=PA7&dq=lisowski+analiza+rozk%C5%82adu&ots=prQIqF9U7m&sig=eHXWL6H9KsVbyDWcO_NsUl_1gqs'
+p1143
+g6
+tp1144
+a(g1
+I0
+VNeuropsychology of later life
+p1145
+VK JODZIO 
+p1146
+V2012
+p1147
+Vbooks.google.com
+p1148
+g1
+S'http://books.google.com/books?hl=en&lr=&id=iC5WJHD_XB8C&oi=fnd&pg=PA85&dq=lisowski+analiza+rozk%C5%82adu&ots=luN_KCUVYe&sig=7WdZbwpv4OC7k3gAKm8_B2hCIxg'
+p1149
+g6
+tp1150
+a(g1
+I9
+VSade
+p1151
+VG Bataille 
+p1152
+V1977
+p1153
+Vbb.ph-f.org
+p1154
+g1
+S'http://bb.ph-f.org/przeklady/bataille_sade.pdf'
+p1155
+S'scholar.google.com/scholar?cites=10697421211246768128&as_sdt=2005&sciodt=0,5&hl=en'
+p1156
+tp1157
+a(g1
+I0
+V\u017bywno\u015b\u0107 genetycznie modyfikowana\u2013wielka niewiadoma
+p1158
+VG Cichosz, SK Wi\u0105ckowski 
+p1159
+g25
+Vuwm.edu.pl
+p1160
+g1
+S'http://www.uwm.edu.pl/kmizj/wp-content/uploads/2012/04/012.pdf'
+p1161
+g6
+tp1162
+a(g1
+I0
+VAR TYK U \u0141 Y
+p1163
+VJAN SZUPRYCZY\u0143SKI 
+p1164
+g25
+Vglobus.igipz.pan.pl
+p1165
+g1
+S'http://globus.igipz.pan.pl/wydaw/PRZEGLAD/2008/2008_tom_80_zeszyt_1.pdf#page=9'
+p1166
+g6
+tp1167
+a(g1
+I0
+VZainteresowania ró\u017cnych grup wiekowych\u2013m\u0142odzie\u017c a doro\u015bli
+p1168
+VP Na\u0142\u0119cz 
+p1169
+V2011
+p1170
+Vww.wwsz.kwidzyn.edu.pl
+p1171
+g1
+S'http://ww.wwsz.kwidzyn.edu.pl/seminaria/pliki/Publikacja2011.pdf#page=116'
+p1172
+g6
+tp1173
+a(g1
+I6
+VMiejsce miast w sieciach handlowych\u2013przyk\u0142ad Polski
+p1174
+VW Wilk 
+p1175
+V2005
+p1176
+Vwgsr.uw.edu.pl
+p1177
+g1
+S'http://www.wgsr.uw.edu.pl/pub/uploads/pis05/Wilk_1a.pdf'
+p1178
+S'scholar.google.com/scholar?cites=10957065590641236010&as_sdt=2005&sciodt=0,5&hl=en'
+p1179
+tp1180
+a(g1
+I0
+VCHOWANNA
+p1181
+VE MANDAL 
+p1182
+g25
+Vchowanna.us.edu.pl
+p1183
+g1
+S'http://www.chowanna.us.edu.pl/vol/ch28.pdf'
+p1184
+g6
+tp1185
+a(g1
+I0
+VS. Hanson, G. Giuliano (red.)\u2013The Geography of Urban Trans
+p1186
+VP GEOGRAFICZNY 
+p1187
+g25
+Vbibliotekacyfrowa.pan.pl
+p1188
+g1
+S'http://www.bibliotekacyfrowa.pan.pl/Content/115/PrzG_2-2006.pdf#page=116'
+p1189
+g6
+tp1190
+a(g1
+I1
+VOptymalizacja naddatków obróbkowych wielkogabarytowych odlewów \u017celiwnych
+p1191
+VK Mrozek, A Gessner 
+p1192
+V2011
+p1193
+V212.182.64.85
+p1194
+g1
+S'http://212.182.64.85/Content/640/pnt06.pdf#page=96'
+p1195
+S'scholar.google.com/scholar?cites=12196781832429148244&as_sdt=2005&sciodt=0,5&hl=en'
+p1196
+tp1197
+a(g1
+I0
+VPROGRAMY NAUCZANIA I ORGANIZACJA KSZTA\u0141CENIA ZAWODOWEGO
+p1198
+VA Zych 
+p1199
+g25
+Vdigitalpomerania.eu
+p1200
+g1
+S'http://www.digitalpomerania.eu/Content/1477/B_23959_cz1.pdf'
+p1201
+g6
+tp1202
+a(g1
+I0
+VKOMITETU OCHRONY PRZYRODY POLSKIEJ AKADEMII NAUK
+p1203
+VKO PRZYRODY 
+p1204
+g25
+Vemito.net
+p1205
+g1
+S'http://www.emito.net/l/http/www.botany.pl/kop-pan/biuletyn/KOP_biul_2_2011.pdf'
+p1206
+g6
+tp1207
+a(g1
+I0
+VAktualny i przysz\u0142y profil gospodarczy województwa pomorskiego
+p1208
+VI \u015awieczewska, A Gajdos, P D\u0119bowski\u2026 
+p1209
+g25
+Vdefs.pomorskie.eu
+p1210
+g1
+S'http://defs.pomorskie.eu/res/pokl/Dokumenty/Raporty/raport_8.1.2_01_06.pdf'
+p1211
+g6
+tp1212
+a(g1
+I0
+VB. Fingleton (red.)\u2013New Directions in Economic Geography, Edward
+p1213
+VB Doma\u0144ski, Z Chojnicki, BW Naukowe 
+p1214
+g25
+Vrcin.org.pl
+p1215
+g1
+S'http://www.rcin.org.pl/igipz/Content/83/2007-79-1_final.pdf#page=165'
+p1216
+g6
+tp1217
+a(g1
+I0
+VJerzy Bernasik, S\u0142awomir Mikrut
+p1218
+VZKBK ORIENTACJI, NK CYFROWEJ 
+p1219
+g25
+Vagh.edu.pl
+p1220
+g1
+S'http://home.agh.edu.pl/~zfiit/sympozjum2007/Dobczyce_2007_streszczenia.pdf#page=40'
+p1221
+g6
+tp1222
+a(g1
+I0
+VPolityka Rosyi wzgl\u0119dem szkolnictwa zaboru rosyjskiego: studyum polityczno-historyczne
+p1223
+VW Studnicki 
+p1224
+V1906
+p1225
+VGebethner i spó\u0142ka
+p1226
+g1
+g6
+g6
+tp1227
+a(g1
+I0
+VEUROPEJSKI FUNDUSZ SPO\u0141ECZNY W KONTEK\u015aCIE
+p1228
+VAZKNA OBSZARZE, W PODLASKIEGO 
+p1229
+g25
+Vrownosc.info
+p1230
+g1
+S'http://rownosc.info/customers/rownosc/web/attachments/42e7785226a68f9167b6c5333ec637ab51634b3f.pdf#page=123'
+p1231
+g6
+tp1232
+a(g1
+I0
+VZWI\u0104ZEK POLIMORFIZMU BsmI GENU RECEPTORA DLA WITAMINY D ORAZ ST\u0118\u017bENIA WITAMINY DW SUROWICY Z PRZEBIEGIEM REUMATOIDALNEGO \u2026
+p1233
+VA AESTETINENSIS, RD INIE 
+p1234
+g25
+Vzbc.ksiaznica.szczecin.pl
+p1235
+g1
+S'http://zbc.ksiaznica.szczecin.pl/Content/21107/Roczniki_56_1_2010.pdf#page=48'
+p1236
+g6
+tp1237
+a(g1
+I0
+VPROFESSOR ZBIGNIEW SMALKO FOR THE 21 ST CENTURY SCIENCE OF RELIABILITY, SAFETY AND TRANSPORT (BIRTHDAY FESTSCHRIFT)
+p1238
+VA Jankowski, J Jazwinski, T Salamonowicz 
+p1239
+V2006
+p1240
+Vilot.edu.pl
+p1241
+g1
+S'http://www.ilot.edu.pl/KONES/2006/02/1.pdf'
+p1242
+g6
+tp1243
+a(g1
+I0
+VWieloaspektowa charakterystyka sytuacji \u017cyciowej osób 50+ w perspektywie aktywno\u015bci zawodowej
+p1244
+VB Ro\u017cnowski 
+p1245
+g25
+Volbrzym.info
+p1246
+g1
+S'http://www.olbrzym.info/wieloaspektowa_charakterystyka_sytuacji_zyciowej_osob_powyzej_50_lat_w_perspektywie_aktywnosci_zawodowej.pdf'
+p1247
+g6
+tp1248
+a(g1
+I0
+VUdzia\u0142 cytokin w metabolizmie mi\u0119\u015bni szkieletowych
+p1249
+VA Zembro\u0144
+p1250
+g25
+Vsportwyczynowy.com
+p1251
+g1
+S'http://www.sportwyczynowy.com/sw/2008_10-12/095.pdf'
+p1252
+g6
+tp1253
+a(g1
+I2
+VWykorzystanie drobnoustrojowych surfaktantów do usuwania metali ci\u0119\u017ckich z gleby
+p1254
+VK Paraszkiewicz, J D\u0142ugo\u0144ski 
+p1255
+V2007
+p1256
+Vpfb.info.pl
+p1257
+g1
+S'http://www.pfb.info.pl/files/kwartalnik/2_2007/paraszkiewicz-dlugonski.pdf'
+p1258
+S'scholar.google.com/scholar?cites=14751610670161237751&as_sdt=2005&sciodt=0,5&hl=en'
+p1259
+tp1260
+a(g1
+I0
+VDrohiczy\u0144ski Przegl\u0105d Naukowy
+p1261
+VD Kalinowska 
+p1262
+g25
+Vdrohiczyntn.pl
+p1263
+g1
+S'http://drohiczyntn.pl/pismo/dpn_2_10.pdf#page=215'
+p1264
+g6
+tp1265
+a(g1
+I0
+VNa marginesie swobody." Notatki P\u0142ockie"(1956-2011)-historia i polityka
+p1266
+VA Kansy 
+p1267
+V2012
+p1268
+Vdepot.ceon.pl
+p1269
+g1
+S'https://depot.ceon.pl/handle/123456789/504'
+p1270
+g6
+tp1271
+a(g1
+I0
+VOTRZYMYWANIE SOLI MAGNEZU Z ODPADÓW POCHODZ\u0104CYCH Z PROCESU POZYSKIWANIA WYSOKOJAKO\u015aCIOWYCH KONCENTRATÓW CYNKU  \u2026
+p1272
+VA Jarosi\u0144ski, L Madejska 
+p1273
+g25
+V212.182.64.85
+p1274
+g1
+S'http://212.182.64.85/Content/369/tom1.pdf#page=98'
+p1275
+g6
+tp1276
+a(g1
+I0
+VROZWI\u0104ZANIA W ZAKRESIE U\u0141ATWIENIA GODZENIA \u017bYCIA ZAWODOWEGO Z RODZINNYM JAKO ELEMENT POLITYKI RODZINNEJ
+p1277
+VW WYZWANIA 
+p1278
+g25
+Vrownosc.info
+p1279
+g1
+S'http://rownosc.info/customers/rownosc/web/attachments/a8f492755ad0767ee07879c998edf7b8f2dacb34.pdf#page=14'
+p1280
+g6
+tp1281
+a(g1
+I0
+VATRAKCYJNO\u015a\u0106 INWESTYCYJNA GMIN WOJ. POMORSKIEGO DLA PRZEDSI\u0118WZI\u0118\u0106 GOSPODARCZYCH ZWI\u0104ZANYCH Z PRODUKCJ\u0104 ENERGII ZE  \u2026
+p1282
+VP Zar\u0119bski 
+p1283
+g25
+Vimp.gda.pl
+p1284
+g1
+S'http://www.imp.gda.pl/BF2012/bkee/wydarzenia10_pliki/Gdansk_10-05-10/ekoenergetyka.pdf#page=257'
+p1285
+g6
+tp1286
+a(g1
+I0
+VKomitet Redakcyjny G\u0142ównego Urz\u0119du Statystycznego
+p1287
+VMJ Wolan, S Kami\u0144ski, L Kursa, B Lasocki, G Marciniak\u2026 
+p1288
+g25
+Vsport.samiswoje.pl
+p1289
+g1
+S'http://sport.samiswoje.pl/zalaczniki/baza/GUS_Uczestnictwo_pol_w_sporcie_w_2008.pdf'
+p1290
+g6
+tp1291
+a(g1
+I0
+VUbezpieczenia gospodarcze i spoleczne
+p1292
+VW Sulkowska 
+p1293
+V2011
+p1294
+Vbooks.google.com
+p1295
+g1
+S'http://books.google.com/books?hl=en&lr=&id=-Fd3p260eSsC&oi=fnd&pg=PA9&dq=lisowski+analiza+rozk%C5%82adu&ots=dZTE2WULG0&sig=eGhjSUJ8ih8bnUFb6rjl298v4U8'
+p1296
+g6
+tp1297
+a(g1
+I0
+V6. Administracja-Ramowe programy nauczania
+p1298
+VPMI MAKROEKONOMII, DRR MAJKUT 
+p1299
+g25
+Vasesor.pl
+p1300
+g1
+S'http://www.asesor.pl/katalog-ects?file=pliki/asesor/PlikiOgolne/ECTS/Informator%20o%20DWSSP%20ASESOR%20-%20Katalog%20ECTS%202009.pdf#page=33'
+p1301
+g6
+tp1302
+a(g1
+I0
+VHeat transfer in road pavement structure and identification of its layers thermal parameters
+p1303
+VP ALIAWDIN, J PO\u0141CZY\u0143SKI 
+p1304
+V2010
+p1305
+Vceer.uz.zgora.pl
+p1306
+g1
+S'http://www.ceer.uz.zgora.pl/CR_filearchive/7760009fe60179cddd8f2dc831db5321.pdf'
+p1307
+g6
+tp1308
+a(g1
+I0
+VAutomatyzacja procesu skanowania na podstawie danych pozyskanych z pomiarów fotogrametrycznych
+p1309
+VM Kowalski, M Kowalski, R Paszkiewicz\u2026 
+p1310
+V2011
+p1311
+Vbc.pollub.pl
+p1312
+g1
+S'http://bc.pollub.pl/Content/692#page=109'
+p1313
+g6
+tp1314
+a(g1
+I0
+V3.9. Kilka uwag o zastosowaniu metody \u017aróde\u0142 reprezentatywnych do oceny wielko\u015bci oceny zasilania podziemnego rzeki Wprowadzenie
+p1315
+VE Tomaszewski 
+p1316
+g25
+Vhydro.geo.uni.lodz.pl
+p1317
+g1
+S'http://hydro.geo.uni.lodz.pl/uploads/file/pub_ET/2007%20Lodz%20-%20Tomaszewski.pdf'
+p1318
+g6
+tp1319
+a(g1
+I0
+VIle dostaniesz za...
+p1320
+VA Pa\u0142ka 
+p1321
+g25
+Vsodr.pl
+p1322
+g1
+S'http://sodr.pl/aktualnosci/2009/AR_01_2009_g.pdf#page=13'
+p1323
+g6
+tp1324
+a(g1
+I0
+VPROCESY SUBURBANIZACJI. UWARUNKOWANIA, FORMY I KONSEKWENCJE
+p1325
+VM Grochowski 
+p1326
+g25
+Vmrr.gov.pl
+p1327
+g1
+S'http://www.mrr.gov.pl/rozwoj_regionalny/poziom_krajowy/polska_polityka_przestrzenna/prace_nad_KPZK_2008_2033/Documents/Lisowski.pdf'
+p1328
+g6
+tp1329
+a(g1
+I0
+VThe professionally active nurses' opinions on palliative care
+p1330
+VI Mickiewicz, E Krajewska
+p1331
+g25
+Vtermedia.pl
+p1332
+g1
+S'http://www.termedia.pl/-The-professionally-active-nurses-opinions-on-palliative-care-,59,17456,1,1.html'
+p1333
+g6
+tp1334
+a(g1
+I0
+VMedycyna Paliatywna
+p1335
+VI Mickiewicz, E Krajewska
+p1336
+g25
+Vtermedia.pl
+p1337
+g1
+S'http://www.termedia.pl/Opinie-zawodowo-czynnych-pielegniarek-na-temat-opieki-paliatywnej,59,17456,1,0.html'
+p1338
+g6
+tp1339
+a(g1
+I0
+VMain theme of 24 th International Scientific Conference on \u201eFunctions of Industry and Services in the Development of Information Society\u201d
+p1340
+VZ Zio\u0142o, M Borowiec 
+p1341
+g25
+Vwsp.krakow.pl
+p1342
+g1
+S'http://www.wsp.krakow.pl/geo/Problematyka_XXIV_konferencji.pdf'
+p1343
+g6
+tp1344
+a(g1
+I0
+VGotycyzm\u2026 wed\u0142ug Wojciecha Hasa
+p1345
+VI Grod\u017a 
+p1346
+V2010
+p1347
+Vceeol.com
+p1348
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=786d68b666b847e19699c38890ddb6d8'
+p1349
+g6
+tp1350
+a(g1
+I0
+VKonstytucja ustrój polityczny system organów pa\u0144stwowych
+p1351
+VSBA Jamróz 
+p1352
+g25
+Vbooks.google.com
+p1353
+g1
+S'http://books.google.com/books?hl=en&lr=&id=KrMMLIWLExwC&oi=fnd&pg=PA9&dq=lisowski+analiza+rozk%C5%82adu&ots=RySMGxijlY&sig=mzH3ZWakL9oM6WW6PxBybFUiiUI'
+p1354
+g6
+tp1355
+a(g1
+I0
+VKRWIOLECZNICTWO I KRWIODAWSTWO W MEDYCYNIE POLSKIEJ XIX I XX WIEKU
+p1356
+VR Paliga 
+p1357
+g25
+Vwbc.poznan.pl
+p1358
+g1
+S'http://www.wbc.poznan.pl/Content/245832/index.pdf'
+p1359
+g6
+tp1360
+a(g1
+I0
+VPolityka równo\u015bci p\u0142ci: Polska 2007: raport
+p1361
+VB Bali\u0144ska 
+p1362
+V2007
+p1363
+Vbooks.google.com
+p1364
+g1
+S'http://books.google.com/books?hl=en&lr=&id=PjSAeCZLmqoC&oi=fnd&pg=PA9&dq=lisowski+analiza+rozk%C5%82adu&ots=5ZBLz2vJ3q&sig=6bSbPKhBcas8feX0TuvNkMxDa9U'
+p1365
+g6
+tp1366
+a(g1
+I0
+VJAKIE KRESY? JAKA LITERATURA KRESOWA?(Perspektywa wspó\u0142czesna)
+p1367
+VE Czaplejewicz 
+p1368
+V2007
+p1369
+Vceeol.com
+p1370
+g1
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=0355b2863df1444c9e51320ca5df17f9'
+p1371
+g6
+tp1372
+a(g1
+I0
+VWprowadzenie\u2013podstawowe za\u0142o\u017cenia metodologiczne
+p1373
+VMPOTD JAKO, M OPERATYWNO\u015aCI 
+p1374
+g25
+Vltn.uz.zgora.pl
+p1375
+g1
+S'http://www.ltn.uz.zgora.pl/PDF/Rocznik_Lubuski_36_2.pdf#page=145'
+p1376
+g6
+tp1377
+a(g1
+I0
+VStruktura relacji pomiêdzy cz³owiekiem a parkiem i ogrodem miejskim w procesie rekreacji
+p1378
+VA Lis 
+p1379
+V2004
+p1380
+Vdbc.wroc.pl
+p1381
+g1
+S'http://www.dbc.wroc.pl/Content/4233/Struktura_relacji.pdf'
+p1382
+g6
+tp1383
+a(g1
+I0
+VPERSPEKTYWY ROZWOJU EKOTURYSTYKI W POLSCE THE PERSPECTIVES OF ECOTOURISM DEVELOPMENT IN POLAND
+p1384
+VM Grzybowska
+p1385
+g25
+Votn.org.pl
+p1386
+g1
+S'http://otn.org.pl/pdf/zeszyty/Zeszyty24.pdf#page=175'
+p1387
+g6
+tp1388
+a(g1
+I0
+VWybory szóstej kadencji. S\u0142abo z nasz\u0105 aktywno\u015bci\u0105
+p1389
+VF Prezesa, K Prezesa, O Redakcji, L Kociewiacy\u2026 
+p1390
+g25
+Vpml.viamedica.pl
+p1391
+g1
+S'http://www.pml.viamedica.pl/darmowy_pdf.phtml?indeks=75&indeks_art=1222&VSID=xqzdrlyw'
+p1392
+g6
+tp1393
+a(g1
+I1
+VPóznotriasowe cmentarzysko krçgowców l^ dowych w Krasiejowie na Slqsku Opolskim
+p1394
+VJ Dzik, T Sulej, A Kaim, R Niedzwiedzki 
+p1395
+V2000
+p1396
+Vpaleo.pan.pl
+p1397
+g1
+S'http://www.paleo.pan.pl/people/Kaim/Publications/pg-2000.pdf'
+p1398
+S'scholar.google.com/scholar?cites=15738286199212430849&as_sdt=2005&sciodt=0,5&hl=en'
+p1399
+tp1400
+a(g1
+I0
+VWYJAZDY STUDENTÓW W RAMACH PROGRAMU ERASMUS JAKO INSTYTUCJONALNA FORMA PRZED\u0141U\u017bONEGO MORATORIUM. PRZYCZYNEK DO  \u2026
+p1401
+VZ Rachowska 
+p1402
+V2011
+p1403
+Vuz.zgora.pl
+p1404
+g1
+S'http://www.uz.zgora.pl/ltn/PDF/rocz37_2.pdf#page=179'
+p1405
+g6
+tp1406
+a(g1
+I0
+V5. BARIERY I OGRANICZENIA KARIER KOBIET-WYNIKI BADA\u0143 NAD ZJAWISKIEM \u201eSZKLANEGO SUFITU\u201d
+p1407
+VB Budrowska 
+p1408
+g25
+Vmetango.uni.lodz.pl
+p1409
+g1
+S'http://www.metango.uni.lodz.pl/attachments/article/53/P%C5%82e%C4%87%20a%20mo%C5%BCliwo%C5%9Bci%20ekonomiczne%20w%20Polsce%20Czy%20kobiety%20straci%C5%82y%20na%20transformacji.pdf#page=81'
+p1410
+g6
+tp1411
+a(g1
+I0
+VWyst\u0119powanie mobbingu w \u015brodowisku s\u0142u\u017cby zdrowia (Aspekty prawne, spo\u0142eczne i terapeutyczne)
+p1412
+VL Sadowska, S Ka\u0144czu\u0142a 
+p1413
+V2010
+p1414
+Vpmurz.rzeszow.pl
+p1415
+g1
+S'http://www.pmurz.rzeszow.pl/PDF/2010/3/15z32010.pdf'
+p1416
+g6
+tp1417
+a(g1
+I1
+VChoroba Alzheimera\u2013nowe mo\u017cliwo\u015bci terapeutyczne oraz stosowane modele eksperymentalne Alzheimer's disease: New prospects in therapy and applied  \u2026
+p1418
+VAM Kubis, M Janusz, ZB Bia\u0142ek, W Biotechnologii\u2026 
+p1419
+V2012
+p1420
+Vphmd.pl
+p1421
+g1
+S'http://www.phmd.pl/fulltxthtml.php?ICID=866522'
+p1422
+S'scholar.google.com/scholar?cites=15524162952176426090&as_sdt=2005&sciodt=0,5&hl=en'
+p1423
+tp1424
+a(g1
+I10
+VMechanizmy przerzutowania i molekularne markery progresji nowotworów z\u0142o\u015bliwych. I. Rak jelita grubego* Mechanisms of metastasis and molecular  \u2026
+p1425
+VMS Wide\u0142, M Wide\u0142 
+p1426
+V2012
+p1427
+Vphmd.pl
+p1428
+g1
+S'http://www.phmd.pl/fulltxthtml.php?ICID=455688'
+p1429
+S'scholar.google.com/scholar?cites=7146806703304902447&as_sdt=2005&sciodt=0,5&hl=en'
+p1430
+tp1431
+a(g1
+I0
+VObóz NKWD w Trzebusce i mord w Turzy
+p1432
+VP O\u017cóg 
+p1433
+g25
+Vtrzebuska.republika.pl
+p1434
+g1
+S'http://www.trzebuska.republika.pl/o_1944.pdf'
+p1435
+g6
+tp1436
+a(g1
+I0
+VPolityka pieni\u0119\u017cna a stopa bezrobocia. Wzajemne zale\u017cno\u015bci i powi\u0105zania
+p1437
+VA Szunke, UE w Katowicach 
+p1438
+g25
+Vbooks.google.com
+p1439
+g1
+S'http://books.google.com/books?hl=en&lr=&id=SDctgq_UWP8C&oi=fnd&pg=PA95&dq=lisowski+analiza+rozk%C5%82adu&ots=jg8o6aMXc3&sig=dupq2krShVV2Hdq6Ib60SIJKHys'
+p1440
+g6
+tp1441
+a(g1
+I0
+VAktualizace hesel ve Slovníku polských spisovatel\u016f (hesla RV)
+p1442
+VM Czapla 
+p1443
+g25
+Vis.muni.cz
+p1444
+g1
+S'http://is.muni.cz/th/178574/ff_b/licencjat_calosc_.pdf'
+p1445
+g6
+tp1446
+a(g1
+I0
+VWarunki \u015brodowiskowe oraz sk\u0142ad zespo\u0142ów mikrobialnych w polodowcowym lotyczno-lenitycznym systemie arktycznej doliny Brattegg (Zach. Spitsbergen)
+p1447
+VD Górniak, H Marsza\u0142ek, K Jankowska 
+p1448
+g25
+Vprac.us.edu.pl
+p1449
+g1
+S'http://prac.us.edu.pl/~sympozjumpolarne2012/STRESZCZENIA%2034%20Sympozjum%20Polarne.pdf#page=30'
+p1450
+g6
+tp1451
+a(g1
+I0
+VPORADNIK
+p1452
+VWB Publiczna 
+p1453
+g25
+Vwbc.poznan.pl
+p1454
+g1
+S'http://www.wbc.poznan.pl/Content/210670/biblmet32005.pdf'
+p1455
+g6
+tp1456
+a(g1
+I0
+VOlimpia Gogolin
+p1457
+VTOFKI GA\u0141CZY\u0143SKI 
+p1458
+g25
+Vsekcja-bgr.wikidot.com
+p1459
+g1
+S'http://sekcja-bgr.wikidot.com/local--files/nowa-biblioteka/NOWA%20BIBLIOTEKA%202_2011.pdf#page=40'
+p1460
+g6
+tp1461
+a(g1
+I0
+VCONGRESSIONAL PAPERS
+p1462
+VM ZJAZDOWE 
+p1463
+g25
+Vendokrynologia.polska.viamedica.pl
+p1464
+g1
+S'http://www.endokrynologia.polska.viamedica.pl/darmowy_pdf.phtml?indeks=58&indeks_art=788'
+p1465
+g6
+tp1466
+a(g1
+I0
+VWarszawa coraz nowocze\u015bniejsza
+p1467
+VPR Górniczych, L Kaczy\u0144ski 
+p1468
+g25
+Vnbi.com.pl
+p1469
+g1
+S'http://www.nbi.com.pl/assets/NBI-pdf/2005/2/pdf/wrzesien_nbi.pdf'
+p1470
+g6
+tp1471
+a(g1
+I0
+VSTRATEGIE PERSONALNE W ORGANIZACJACH MI\u0118DZYNARODOWYCH
+p1472
+VM Stor 
+p1473
+g25
+Vdbc.wroc.pl
+p1474
+g1
+S'http://www.dbc.wroc.pl/Content/3180/PN+11.pdf#page=140'
+p1475
+g6
+tp1476
+a(g1
+I0
+VTURYSTYKA PRZYJAZNA DLA \u015aRODOWISKA PRZYRODNICZEGO
+p1477
+VJ Krupa, KT i Rekreacji 
+p1478
+g25
+Vwsiz.rzeszow.pl
+p1479
+g1
+S'http://wsiz.rzeszow.pl/kadra/jkrupa/Dokumenty_Local_WSIiZ/Turystyka%20przyjazna%20dla%20%C5%9Brodowiska%20przyrodniczego.docx'
+p1480
+g6
+tp1481
+a(g1
+I0
+VPrzysz\u0142a ewolucja cz\u0142owieka
+p1482
+VJ Glad 
+p1483
+V2006
+p1484
+Vwhatwemaybe.org
+p1485
+g1
+S'http://www.whatwemaybe.org/txt/txt0002/Glad.John.2007.FHE.without-preface.polish.pdf'
+p1486
+g6
+tp1487
+a(g1
+I0
+VPROGRAM OCHRONY \u015aRODOWISKA MIASTA \u0141\u0118CZYCA
+p1488
+VJ SUMOROK 
+p1489
+g25
+Vleczyca.info.pl
+p1490
+g1
+S'http://leczyca.info.pl/artykuly/dsm/Pochrony.pdf'
+p1491
+g6
+tp1492
+a(g1
+I0
+VPRAWO WCZORAJ I DZI\u015a
+p1493
+VSNZOJ CZTERDZIESTOLECIA\u2026 
+p1494
+V2001
+p1495
+Vwuw.pl
+p1496
+g1
+S'http://www.wuw.pl/ksiegarnia/tresci/studiaiuridica/39/39_2.pdf'
+p1497
+g6
+tp1498
+a(g1
+I0
+VWp\u0142yw czynników socjo-ekonomicznych na liczb\u0119 urodze\u0144 w Wielkopolsce
+p1499
+VM WOJCIECHOWSKA 
+p1500
+g25
+Vwbc.poznan.pl
+p1501
+g1
+S'http://www.wbc.poznan.pl/Content/220086/index.pdf'
+p1502
+g6
+tp1503
+a(g1
+I0
+VHalf-Life of Carcinogenic Polycyclic Aromatic Hydrocarbons in Stored Sewage Sludge
+p1504
+VM W\u0142odarczyk
+p1505
+V2012
+p1506
+VVersita
+p1507
+g1
+S'http://versita.metapress.com/index/37P0333V65P0183U.pdf'
+p1508
+g6
+tp1509
+a(g1
+I0
+VWspó\u0142czesne narz\u0119dzia doskonalenia systemów zarz\u0105dzania organizacjami
+p1510
+VK Wozniak 
+p1511
+g25
+Vbooks.google.com
+p1512
+g1
+S'http://books.google.com/books?hl=en&lr=&id=zC-2bzrggAYC&oi=fnd&pg=PA7&dq=lisowski+analiza+rozk%C5%82adu&ots=iWftqEKI6t&sig=Mh0SgNj_gq69QrGdw8VAZtDp1fU'
+p1513
+g6
+tp1514
+a(g1
+I0
+VPROSTYTUCJA \u201eNIELETNICH\u201d RAPORT Z BADA\u0143
+p1515
+VIIIRP JAKO, Z SPO\u0141ECZNEGO 
+p1516
+g25
+Vdops.wroc.pl
+p1517
+g1
+S'http://dops.wroc.pl/dzialania/raport_prostytucja.doc'
+p1518
+g6
+tp1519
+a(g1
+I0
+VUwarunkowania realizacji programu badawczo-rozwojowego Ambient Assisted Living (AAL) w Polsce\u2013komfortowe funkcjonowanie osób starszych w  \u2026
+p1520
+VRRKZAM w Warszawie, K Broczek, AM w Warszawie\u2026 
+p1521
+g25
+Vnauka.gov.pl
+p1522
+g1
+S'http://www.nauka.gov.pl/fileadmin/user_upload/34/44/34440/20080128_AAL_ekspertyza.pdf'
+p1523
+g6
+tp1524
+a(g1
+I0
+VW trosce o prac\u0119
+p1525
+VA Baran 
+p1526
+V2004
+p1527
+Vbooks.google.com
+p1528
+g1
+S'http://books.google.com/books?hl=en&lr=&id=j3a83aUEa08C&oi=fnd&pg=PA2&dq=lisowski+analiza+rozk%C5%82adu&ots=iT22vP4Nlo&sig=W7Jgt8glXhj9eSpMGiypFNNbZsA'
+p1529
+g6
+tp1530
+a(g1
+I0
+VBEZPIECZE\u0143STWO WYROBÓW PRZEZNACZONYCH DO KONTAKTU Z \u017bYWNO\u015aCI\u0104 W SYSTEMIE RASFF
+p1531
+VK \u0106WIEK
+p1532
+g25
+Vpzh.gov.pl
+p1533
+g1
+S'http://www.pzh.gov.pl/page/fileadmin/user_upload/biblioteka/roczniki_PZH/pelne/58/2007%2058%204.pdf'
+p1534
+g6
+tp1535
+a(g1
+I0
+VOcena ultrasonograficzna morfologii t\u0119tnicy szyjnej wspólnej i geometrii lewej komory serca u pacjentów z przewlek\u0142\u0105 niewydolno\u015bci\u0105 nerek
+p1536
+VAM w Gda\u0144sku, D Rawicz
+p1537
+g25
+Vpbc.gda.pl
+p1538
+g1
+S'http://pbc.gda.pl/Content/5959/rawicz_zegrzda_062159.pdf'
+p1539
+g6
+tp1540
+a(g1
+I0
+VOblicza biedy we wspó\u0142czesnej Polsce
+p1541
+VM Popow, P Kowzan, M Zieli\u0144ska, M Prusinowska\u2026 
+p1542
+V2011
+p1543
+Vbooks.google.com
+p1544
+g1
+S'http://books.google.com/books?hl=en&lr=&id=nui8DR63AmgC&oi=fnd&pg=PA7&dq=lisowski+analiza+rozk%C5%82adu&ots=f2wVAkiztx&sig=hkoGKiTHUtTc-RDzjVAruKkejH4'
+p1545
+g6
+tp1546
+a(g1
+I0
+V\u201eKompromis na rynku pracy\u2013innowacyjny model aktywizacji zawodowej kobiet\u201d w ramach IW EQUAL
+p1547
+VK Bujak, M Le\u015bniak, ME Ry\u0142ko, MA Markowska\u2026 
+p1548
+g25
+Vequal.plineu.org
+p1549
+g1
+S'http://equal.plineu.org/pliki/Raport_z_badan.doc'
+p1550
+g6
+tp1551
+a(g1
+I0
+VKodeks pracy w pigu\u0142ce
+p1552
+VP Chimiak 
+p1553
+V2010
+p1554
+Vwsiie.olsztyn.pl
+p1555
+g1
+S'http://www.wsiie.olsztyn.pl/zal/rynek_pracy_otwarty_dla_wszystkich.pdf#page=155'
+p1556
+g6
+tp1557
+a(g1
+I0
+VJak\u0105 wiedz\u0119 techniczn\u0105 rekomenduj\u0105 stowarzyszenia elektryków?
+p1558
+VE Musia\u0142 
+p1559
+g25
+Vedwardmusial.info
+p1560
+g1
+S'http://www.edwardmusial.info/pliki/jaka_wiedze_techniczna_rekomenduja_stow_elektr.pdf'
+p1561
+g6
+tp1562
+a(g1
+I0
+VStra\u017cnicy i naje\u017ad\u017acy. Zjawiska we wspó\u0142czesnej poezji regionu cz\u0119stochowskiego
+p1563
+VA Frania 
+p1564
+V2005
+p1565
+Vbooks.google.com
+p1566
+g1
+S'http://books.google.com/books?hl=en&lr=&id=Zjhpkz96VKkC&oi=fnd&pg=PA5&dq=lisowski+analiza+rozk%C5%82adu&ots=sJa6T-w13k&sig=vTJdUZXin9_ghgROAYa0XeDc33g'
+p1567
+g6
+tp1568
+a(g1
+I1
+VThyrotropin-releasing hormone (TRH): the biosynthesis, distribution, receptors and metabolism
+p1569
+VJ Ciosek 
+p1570
+V2004
+p1571
+Vptendo.org.pl
+p1572
+g1
+S'http://www.ptendo.org.pl/arch/04_5_r.pdf'
+p1573
+S'scholar.google.com/scholar?cites=7504774440289827368&as_sdt=2005&sciodt=0,5&hl=en'
+p1574
+tp1575
+a(g1
+I0
+VKiyosaKi
+p1576
+VE Ludbrook, BT w Polsce, F Xango 
+p1577
+g25
+Vc.dobd.hu
+p1578
+g1
+S'http://c.dobd.hu/wo5933/565e2ae500014920490f9f28/14/network_magazyn_2008_14.pdf'
+p1579
+g6
+tp1580
+a(g1
+I3
+VWspomnienia z ostatnich lat Rzeczypospolitej Krakowskiej
+p1581
+VW Kopff, S Estreicher 
+p1582
+V1906
+p1583
+VNak\u0142. Tow. Mi\u0142o\u015bników Historyi i  \u2026
+p1584
+g1
+g6
+S'scholar.google.com/scholar?cites=6584431300176437095&as_sdt=2005&sciodt=0,5&hl=en'
+p1585
+tp1586
+a(g1
+I0
+VS&B KRÓLIKOWSKI
+p1587
+VR St M 
+p1588
+g25
+VA. Krasi\u0144ski
+p1589
+g1
+g6
+g6
+tp1590
+a(g1
+I1
+V\u017bycie i dzie\u0142a Bart\u0142omieja i Szymona: Zimorowiczów (Ozimków); natle stosunków ówczesnego Lwowa
+p1591
+VKJ Heck 
+p1592
+g25
+VNak\u0142. Akademii Umieje\u0326stno\u015bci
+p1593
+g1
+g6
+S'scholar.google.com/scholar?cites=2459327167835036594&as_sdt=2005&sciodt=0,5&hl=en'
+p1594
+tp1595
+a(g1
+I3
+VZadania Samorzadu Terytorialnego W Zakresie Ochrony Srodowiska
+p1596
+VA Barczak 
+p1597
+V2006
+p1598
+Vbooks.google.com
+p1599
+g1
+S'http://books.google.com/books?hl=en&lr=&id=dnMooTB2j9QC&oi=fnd&pg=PA7&dq=lisowski+analiza+rozk%C5%82adu&ots=DVvKGkvDyQ&sig=D32iE1z3pGlbMsqwZZZITkE8dJM'
+p1600
+S'scholar.google.com/scholar?cites=9191825533774656440&as_sdt=2005&sciodt=0,5&hl=en'
+p1601
+tp1602
+a(g1
+I0
+V\u0179ycie i dzie\u0142a Bart\u0142omieja i Szymona Zimorowiczów na tle stosunków owczesnego Lwowa
+p1603
+VKJ Heck 
+p1604
+g25
+VNak\u0142adem Akademii Umiej\u0119tno\u015bci
+p1605
+g1
+g6
+g6
+tp1606
+a.

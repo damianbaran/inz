@@ -327,7 +327,7 @@ class sView(wx.Panel, sControler):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,280 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,310 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
         self.dataList.InsertColumn(1, u'Cytowań', format=wx.LIST_FORMAT_RIGHT, width=60)
         self.dataList.InsertColumn(2, u'Tytuł', format=wx.LIST_FORMAT_LEFT, width=370)
@@ -339,19 +339,19 @@ class sView(wx.Panel, sControler):
         
         
         twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
-        
-        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
-        
-        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
-        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
-        
-        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Przywróć liste", wx.DefaultPosition, wx.DefaultSize, 0 )
-        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
-        
-        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
-        
-        
-        twoBox1.Add( twoBox12, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+#        
+#        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
+#        
+#        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
+#        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
+#        
+#        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Przywróć liste", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
+#        
+#        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
+#        
+#        
+#        twoBox1.Add( twoBox12, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
         
         
         globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
@@ -376,8 +376,8 @@ class sView(wx.Panel, sControler):
         self.but1.Bind(wx.EVT_BUTTON, self.GetData)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
-        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
-        self.but6.Bind(wx.EVT_BUTTON, self.backList)
+#        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
+#        self.but6.Bind(wx.EVT_BUTTON, self.backList)
         self.but2.Bind(wx.EVT_BUTTON, self.GetChoice)
 #        self.but4.Bind(wx.EVT_BUTTON, self.getUserData)
         self.but7.Bind(wx.EVT_BUTTON, self.settmp)
@@ -386,7 +386,7 @@ class sView(wx.Panel, sControler):
         #  Metody sch.controler.py
         ########################################################################
         
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko',5:'Czysc liste', 6:'Otworz artykul', 7:'Zapisz do bazy'}
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
         
     def GetChoice(self, event):
         try:
@@ -398,7 +398,7 @@ class sView(wx.Panel, sControler):
             self.updateRecord(self.control.SetFilter(self.control.SetItems(), self.getChoice(), cDatabase.getUserFilter(self.session)))
     
         
-    def backList(self, event):
+    def backList(self):
         self.dataList.DeleteAllItems()
         self.updateRecord(self.control.SetSearchItem())
     
@@ -480,6 +480,13 @@ class sView(wx.Panel, sControler):
             self.getLink(self.currentItem)
         elif operation == 'Zapisz do bazy':
             print 't'
+    
+    def openLink(self):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+#                x = self.dataList.GetItemText(i)
+                self.getLink(i)
             
     def getLink(self, id):
         data = self.control.SetItems()
@@ -488,7 +495,7 @@ class sView(wx.Panel, sControler):
             if i == id:
                 tmp = data[i]
                 self.handlerweb.open_new_tab(tmp[7])
-                if tmp[6] == 'Brak':
+                if tmp[7] == 'Brak':
                     wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
     def updateRecord(self, data):

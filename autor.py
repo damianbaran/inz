@@ -17,7 +17,7 @@ import cDatabase
 
 class AuthorDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Edycja autorów", pos = wx.DefaultPosition, size = wx.Size( 350,300 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Autorami", pos = wx.DefaultPosition, size = wx.Size( 350,270 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
@@ -27,7 +27,8 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer2 = wx.BoxSizer( wx.VERTICAL )
         
-        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Edytuj Autora", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+#        self.st1 =
+        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodawanie Autora", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE )
         self.m_staticText1.Wrap( -1 )
         bSizer2.Add( self.m_staticText1, 0, wx.EXPAND|wx.ALL, 5 )
         
@@ -269,6 +270,8 @@ class AuthorDialog ( wx.Dialog ):
         
         self.clear()
         
+        self.m_staticText1.SetLabel(u'Dodawanie Autora')
+#        self.st1 = u'Dodaj Autora'
         self.m_button1.Hide()
         self.m_button7.Hide()
         self.m_button2.Show()
@@ -303,6 +306,8 @@ class AuthorDialog ( wx.Dialog ):
 #        self.m_choice1.SetSelection( 0 )
         
         self.clear()
+        self.m_staticText1.SetLabel(u'Dodawanie Autora')
+#        self.st1 = u'Dodaj Autora'
         self.m_button1.Hide()
         self.m_button7.Hide()
         self.m_button2.Show()
@@ -310,6 +315,8 @@ class AuthorDialog ( wx.Dialog ):
         
     def getPersonID(self, event):
         """Funkcja pobiera wartosci z bazy i ustawia je w kontrolkach"""
+        self.m_staticText1.SetLabel(u'Edytowanie Autora')
+#        self.st1 = u'Edytuj Autora'
         t = self.m_choice1.GetStringSelection()
         a = cDatabase.getUserNameID(self.session)
         self.tmp = a[t]
@@ -343,6 +350,8 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button2.Hide()
     
     def cancel(self, event):
+        self.m_staticText1.SetLabel(u'Dodawanie Autora')
+#        self.st1 = u'Dodaj Autora'
         #Aktualizacja kontrolki z imionami i nazwiskami autorów
         m_choice1Choices = cDatabase.getUserName(self.session)
         self.m_choice1.Clear()

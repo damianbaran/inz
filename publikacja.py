@@ -17,7 +17,7 @@ import cDatabase
 
 class PubDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodawanie i edycja publikacji", pos = wx.DefaultPosition, size = wx.Size( 350,350 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 350,350 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         listType = [u'Artykuł', u'Książka', u'Publikacja', u'Inne']
@@ -28,7 +28,7 @@ class PubDialog ( wx.Dialog ):
         
         bSizer2 = wx.BoxSizer( wx.VERTICAL )
         
-        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodaj Publikacje", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodawanie Publikacji", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE )
         self.m_staticText1.Wrap( -1 )
         bSizer2.Add( self.m_staticText1, 0, wx.EXPAND|wx.ALL, 5 )
         
@@ -207,7 +207,11 @@ class PubDialog ( wx.Dialog ):
         
         #Pobiera wartosci ID dla zaznaczonych autorów
         tmp = cDatabase.getJournalNameID(self.session)
-        t8 = tmp[t8]
+        print t8
+        if t8 != u'':
+            t8 = tmp[t8]
+        else:
+            t8 = None
         
         t = (t1, t2, t3, t4, t5, t6, t7, t8, t9)
         
@@ -267,6 +271,7 @@ class PubDialog ( wx.Dialog ):
         result = []
         guser = cDatabase.getUserName(self.session) 
         t = cDatabase.getUserNameID(self.session)
+#        print t
         for i in range(len(guser)):
             if self.m_checkList3.IsChecked(i):
                 id = t[guser[i]]

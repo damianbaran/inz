@@ -179,6 +179,9 @@ class sModel:
         self.urlScholar()
         if self.all_item == 0:
             self.item['num'] = 0
+            
+#        l = open("test.htm","r")
+#        html = l.read()
 
         url = self.scholar_url % self.item
         r = urllib2.Request(url=url,
@@ -188,12 +191,10 @@ class sModel:
 
         self.htmlsoup = BeautifulSoup(html)
         self.numberPageSearch()
-#        print self.all_item
         self.generateLinks(self.all_item, self.item)
         return self.all_item
 
     def firstQueryGroup(self, data):
-#        all_query = 0
         self.item['query'] = ''
         self.item['exact'] = ''
         self.item['oneof'] = ''
@@ -208,7 +209,6 @@ class sModel:
             l = self.firstQuery()
 
     def generateLinks(self, n, rec):
-        #result = []
         d = 0
         for i in range(0,n,10):
             rec['num'] = i
@@ -216,7 +216,6 @@ class sModel:
             self.all_url.append(url)
             d += 1
         self.all_number_query += d
-        #print self.all_url
 
     def queryScholar(self, link):
         """
@@ -224,19 +223,16 @@ class sModel:
         przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
         kolejnych działań
         """
-#        data = []
-        #if self.all_item == 0:
-#        self.urlScholar()
-        #print self.all_number_query
-#        for i in range(len(self.all_url)):
         url = link
-#        print url
+        
+#        l = open("test.htm","r")
+#        html = l.read()
+        
         r = urllib2.Request(url=url,
                             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
         op = urllib2.urlopen(r)
         html = op.read()
-#        data.append(html)
-#        print i
+
         return html
         
 
@@ -244,7 +240,6 @@ class sModel:
         """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
-#        print self.item_count
         
     def numberPageSearch(self):
         """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""

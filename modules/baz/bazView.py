@@ -18,7 +18,7 @@ class bView(wx.Panel, PubDialog):
         wx.Panel.__init__(self, parent=parent)
         
         self.session = cDatabase.connectDatabase()
-        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'Adres', u'Rok', u'Tytul', u'Wydawca', u'Wszystko']
+        listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'Adres', u'Rok', u'Tytul', u'Wydawca']
 
         ########################################################################
         #  Panel 1
@@ -50,7 +50,7 @@ class bView(wx.Panel, PubDialog):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 995,460 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 995,490 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=50)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=70)
         self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=320)
@@ -62,18 +62,18 @@ class bView(wx.Panel, PubDialog):
         
         twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
         
-        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
+#        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
+#        
+#        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
+#        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
+#        
+#        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Usuń wybrane", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
+#        
+#        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
         
-        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
-        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
         
-        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Usuń wybrane", wx.DefaultPosition, wx.DefaultSize, 0 )
-        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
-        
-        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
-        
-        
-        twoBox1.Add( twoBox12, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+#        twoBox1.Add( twoBox12, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
         
         
         globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
@@ -90,12 +90,12 @@ class bView(wx.Panel, PubDialog):
         self.m_searchCtrl1.Bind(wx.EVT_TEXT_ENTER, self.searchPubClick)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
-        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
-        self.but6.Bind(wx.EVT_BUTTON, self.deleteChoices)
+#        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
+#        self.but6.Bind(wx.EVT_BUTTON, self.deleteChoices)
 #        PubDialog().m_button3.Bind(wx.EVT_BUTTON, self.getEditRecord)
 
         #Pozycje dal popmenu
-        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz', 3:'Edytuj rekord', 4:u'Usuń rekord',5:'Zaznacz wszystko',6:'Odznacz wszystko',7:'Czysc liste'}
+        self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
 
 #############################################################
 ## Przekazywanie rekordow do modelu menadzera
@@ -134,8 +134,14 @@ class bView(wx.Panel, PubDialog):
 #        dlg = PubDialog()
 #        t1 = dlg.m_textCtrl2.GetValue()
 #        print t1
-
-       
+    
+    def editRecordData(self):
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                t = self.dataList.GetItemText(i)
+                self.editRecord(t, cDatabase.geteditPubData(self.session, t))
+    
     def editRecord(self, id, data):
         """Ustawienia wartości z zapytania w kontrolkach do edycji wybranej publikacji"""
         dlg = PubDialog()
@@ -151,16 +157,20 @@ class bView(wx.Panel, PubDialog):
             dlg.m_choice2.SetStringSelection(data[8])
         
         u = data[9]
-#        print u
-
-        #Ustawianie wartości w checklist dla powiazanych autorów z publikacja
-#        if len(u) == 1:
-#            dlg.m_checkList3.Check(int(u[0])-1)
-#        elif len(u) == 0:
-#            print 'nie ma powiazanych danych'
-#        else:
+        
+        guser = cDatabase.getUserName(self.session) 
+        t = cDatabase.getUserNameID(self.session)
+        d = t.values()
+        d.sort()
+        p = {}
+        for i in range(len(d)):
+            x = {d[i]:i}
+            p.update(x)
+        print p
+        
         for i in range(len(u)):
-            dlg.m_checkList3.Check(u[i]-1)
+            y = p[u[i]]
+            dlg.m_checkList3.Check(y)
         
         dlg.m_button1.Hide()
         dlg.m_button3.Show()
@@ -206,7 +216,7 @@ class bView(wx.Panel, PubDialog):
             t = self.dataList.GetItemText(self.currentItem)
             cDatabase.delPubData(self.session, t)
     
-    def deleteChoices(self, event):
+    def deleteChoices(self):
         tmp = []
         num = self.dataList.GetItemCount()
         for i in range(num):

@@ -17,7 +17,7 @@ import cDatabase
 
 class GroupDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodawanie grup i uzytkowników", pos = wx.DefaultPosition, size = wx.Size( 330,300 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Grupami", pos = wx.DefaultPosition, size = wx.Size( 330,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
@@ -27,7 +27,7 @@ class GroupDialog ( wx.Dialog ):
         
         bSizer2 = wx.BoxSizer( wx.VERTICAL )
         
-        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodaj Grupę", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodawanie Grupy", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE )
         self.m_staticText1.Wrap( -1 )
         bSizer2.Add( self.m_staticText1, 0, wx.EXPAND|wx.ALL, 5 )        
         
@@ -126,6 +126,7 @@ class GroupDialog ( wx.Dialog ):
         #Wyczyszczenie kontrolek
         self.clearData()
         
+        self.m_staticText1.SetLabel(u'Dodawanie Grupy')
         self.m_button5.Hide()
         self.m_button3.Hide()
         self.m_button1.Show()
@@ -159,6 +160,7 @@ class GroupDialog ( wx.Dialog ):
         #Wyczyszczenie kontrolek
         self.clearData()
         
+        self.m_staticText1.SetLabel(u'Dodawanie Grupy')
         self.m_button5.Hide()
         self.m_button3.Hide()
         self.m_button1.Show()
@@ -174,9 +176,19 @@ class GroupDialog ( wx.Dialog ):
         #Zaznaczanie autorów dla wybranej grupy
         gname = self.m_comboBox1.GetValue()
         guser = cDatabase.getCheckedUser(self.session, gname)
+        t = cDatabase.getUserNameID(self.session)
+        d = t.values()
+        d.sort()
+        p = {}
+        for i in range(len(d)):
+            x = {d[i]:i}
+            p.update(x)
+        
         for i in range(len(guser)):
-            self.m_checkList3.Check(guser[i]-1)
-            
+            y = p[guser[i]]
+            self.m_checkList3.Check(y)
+        
+        self.m_staticText1.SetLabel(u'Edytowanie Grupy')
         self.m_button5.Show()
         self.m_button3.Show()
         self.m_button1.Hide()
@@ -198,6 +210,7 @@ class GroupDialog ( wx.Dialog ):
     def cancel(self, event):
         self.clearData()
         
+        self.m_staticText1.SetLabel(u'Dodawanie Grupy')
         self.m_button5.Hide()
         self.m_button3.Hide()
         self.m_button1.Show()

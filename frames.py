@@ -31,7 +31,6 @@ class MainFrame(wx.Frame):
         self.SetSizer( firstSizer )
         self.Layout()
         self.statusbar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
-#        self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
         Publisher().subscribe(self.change_statusbar, 'change_statusbar')
         self.menubar = wx.MenuBar( 0 )
         self.menu1 = wx.Menu()
@@ -95,36 +94,54 @@ class MainFrame(wx.Frame):
         self.m_toolBar1.AddSeparator()
         
         addpub = self.m_toolBar1.AddLabelTool( 4, u"tool", wx.Bitmap( u"gnome-applications.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Usuń Publikację", wx.EmptyString, None ) 
-        addgru = self.m_toolBar1.AddLabelTool( 5, u"tool", wx.Bitmap( u"gnome-joystick.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj/Usuń Grupę", wx.EmptyString, None ) 
+        addgru = self.m_toolBar1.AddLabelTool( 5, u"tool", wx.Bitmap( u"grupa.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj/Usuń Grupę", wx.EmptyString, None ) 
         addwyd = self.m_toolBar1.AddLabelTool( 6, u"tool", wx.Bitmap( u"applications-graphics.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj/Edytuj Wydawcę", wx.EmptyString, None ) 
-        addaut = self.m_toolBar1.AddLabelTool( 7, u"tool", wx.Bitmap( u"distributor-logo.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj/Usuń Autora", wx.EmptyString, None ) 
+        addaut = self.m_toolBar1.AddLabelTool( 7, u"tool", wx.Bitmap( u"autor.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj/Usuń Autora", wx.EmptyString, None ) 
         self.m_toolBar1.AddSeparator()
         
         addrec = self.m_toolBar1.AddLabelTool( 8, u"tool", wx.Bitmap( u"add.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj wybrany rekord do bazy", wx.EmptyString, None ) 
         addrecm = self.m_toolBar1.AddLabelTool( 9, u"tool", wx.Bitmap( u"addm.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj wybrane rekordy do bazy", wx.EmptyString, None ) 
+        viewpub = self.m_toolBar1.AddLabelTool( 10, u"tool", wx.Bitmap( u"browser.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl publikację", wx.EmptyString, None ) 
+        clear = self.m_toolBar1.AddLabelTool( 11, u"tool", wx.Bitmap( u"clear.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Czyść listę z publikacjami", wx.EmptyString, None ) 
+        backlist = self.m_toolBar1.AddLabelTool( 12, u"tool", wx.Bitmap( u"back.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Przywróć ostatnio pobrane rekordy", wx.EmptyString, None ) 
+        self.m_toolBar1.AddSeparator()
+        
+        editrec = self.m_toolBar1.AddLabelTool( 13, u"tool", wx.Bitmap( u"edit.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Edytuj wybrany rekord w bazie", wx.EmptyString, None ) 
+        delrec = self.m_toolBar1.AddLabelTool( 14, u"tool", wx.Bitmap( u"delete.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Usuń wybrane rekordy z bazy", wx.EmptyString, None ) 
+        viewpubbase = self.m_toolBar1.AddLabelTool( 15, u"tool", wx.Bitmap( u"browser.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl publikację", wx.EmptyString, None ) 
+        clearbase = self.m_toolBar1.AddLabelTool( 16, u"tool", wx.Bitmap( u"clear.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Czyść listę z publikacjami", wx.EmptyString, None ) 
         
         self.m_toolBar1.Realize() 
         
         
         self.Centre( wx.BOTH )
-#        self.m_toolBar1.EnableTool(1, False)
-#        self.m_toolBar1.EnableTool(4, False)
-#        self.m_toolBar1.EnableTool(5, False)
-#        self.m_toolBar1.EnableTool(6, False)
-#        self.m_toolBar1.EnableTool(7, False)
-#        self.m_toolBar1.EnableTool(8, False)
-#        self.m_toolBar1.EnableTool(9, False)
+        self.m_toolBar1.EnableTool(13, False)
+        self.m_toolBar1.EnableTool(14, False)
+        self.m_toolBar1.EnableTool(15, False)
+        self.m_toolBar1.EnableTool(16, False)
         
+        ## Panele
         self.Bind( wx.EVT_TOOL, self.SearchPanel, self.stool )
-#        self.Bind( wx.EVT_TOOL, self.ManagePanel, mtool )
         self.Bind( wx.EVT_TOOL, self.BasePanel, btool )
+        
+        ##Edycja wartosci w bazie
         self.Bind( wx.EVT_TOOL, self.onAddPub, addpub )
         self.Bind( wx.EVT_TOOL, self.onAddGroup, addgru )
         self.Bind( wx.EVT_TOOL, self.onAddJournal, addwyd )
         self.Bind( wx.EVT_TOOL, self.onEditAuthor, addaut )
-        self.Bind( wx.EVT_TOOL, self.AddOneData, addrec )
-        self.Bind( wx.EVT_TOOL, self.AddMultiData, addrecm )
         
+        ##Narzedzia dla wyszukiwania
+        self.Bind( wx.EVT_TOOL, self.AddOneData, addrec ) #dodawanie jednego rekordu
+        self.Bind( wx.EVT_TOOL, self.AddMultiData, addrecm ) #dodawanie wielu rekordów
+        self.Bind( wx.EVT_TOOL, self.ClearDataSearch, clear ) #czyszczenie lsity
+        self.Bind( wx.EVT_TOOL, self.BackList, backlist ) #przywracanie ostatnio pobranej listy
+        self.Bind( wx.EVT_TOOL, self.OpenBrowserLink, viewpub ) #wyswietla publikacje w przegladarce
+        
+        ##Narzedzia dla bazy dancyh
+        self.Bind( wx.EVT_TOOL, self.DeleteMultiDataBase, delrec ) #usuwanie zaznaczonych rekordow
+        self.Bind( wx.EVT_TOOL, self.ClearDataBase, clearbase ) #czyszczenie listy
+        self.Bind( wx.EVT_TOOL, self.EditDataBase, editrec ) #edytowanie wybranych rekordów
+    
     def change_statusbar(self, msg):
         self.statusbar.SetStatusText(msg.data)
     
@@ -133,73 +150,79 @@ class MainFrame(wx.Frame):
     
     def AddMultiData(self, event):
         self.panel_sch.addMultiRecord()
-        
+    
+    def DeleteMultiDataBase(self, event):
+        self.panel_baz.deleteChoices()
+    
+    def ClearDataBase(self, event):
+        self.panel_baz.dataList.DeleteAllItems()
+    
+    def ClearDataSearch(self, event):
+        self.panel_sch.dataList.DeleteAllItems()
+    
+    def EditDataBase(self, event):
+        self.panel_baz.editRecordData()
+    
+    def BackList(self, event):
+        self.panel_sch.backList()
+    
+    def OpenBrowserLink(self, event):
+        self.panel_sch.openLink()
+    
     def SearchPanel(self, event):
         if self.panel_men.IsShown() or self.panel_baz.IsShown():
             self.panel_men.Hide()
             self.panel_baz.Hide()
             self.panel_sch.Show()
-#            SetToolDisabledBitmap
-#            self.m_toolBar1.EnableTool(4, False)
-#            self.m_toolBar1.EnableTool(5, False)
-#            self.m_toolBar1.EnableTool(6, False)
-#            self.m_toolBar1.EnableTool(7, False)
             self.m_toolBar1.EnableTool(8, True)
             self.m_toolBar1.EnableTool(9, True)
-#            self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
+            self.m_toolBar1.EnableTool(10, True)
+            self.m_toolBar1.EnableTool(11, True)
+            self.m_toolBar1.EnableTool(12, True)
+            self.m_toolBar1.EnableTool(13, False)
+            self.m_toolBar1.EnableTool(14, False)
+            self.m_toolBar1.EnableTool(15, False)
+            self.m_toolBar1.EnableTool(16, False)
         self.Layout()
-        
-#    def ManagePanel(self, event):
-#        if self.panel_sch.IsShown() or self.panel_baz.IsShown():
-#            self.panel_sch.Hide()
-#            self.panel_baz.Hide()
-#            self.panel_men.Show()
-##            self.m_toolBar1.EnableTool(1, True)
-##            self.statusbar.SetStatusText(u'Jesteś w menadżerze publikacji')
-#        self.Layout()
-        
+    
     def BasePanel(self, event):
         if self.panel_men.IsShown() or self.panel_sch.IsShown():
             self.panel_men.Hide()
             self.panel_sch.Hide()
             self.panel_baz.Show()
-#            self.m_toolBar1.EnableTool(4, True)
-#            self.m_toolBar1.EnableTool(5, True)
-#            self.m_toolBar1.EnableTool(6, True)
-#            self.m_toolBar1.EnableTool(7, True)
-#            self.m_toolBar1.EnableTool(1, True)
             self.m_toolBar1.EnableTool(8, False)
             self.m_toolBar1.EnableTool(9, False)
-#            self.statusbar.SetStatusText(u'Jesteś w panelu zarzadzania baza')
+            self.m_toolBar1.EnableTool(10, False)
+            self.m_toolBar1.EnableTool(11, False)
+            self.m_toolBar1.EnableTool(12, False)
+            self.m_toolBar1.EnableTool(13, True)
+            self.m_toolBar1.EnableTool(14, True)
+            self.m_toolBar1.EnableTool(15, True)
+            self.m_toolBar1.EnableTool(16, True)
         self.Layout()
-        
+    
     def onAddPub(self, event):
         dlg = PubDialog()
         dlg.ShowModal()
         dlg.Destroy()
-        
+    
     def onAddGroup(self, event):
         dlg = GroupDialog()
         dlg.ShowModal()
         dlg.Destroy()
         self.panel_sch.updateGroupName()
-        
+    
     def onAddJournal(self, event):
         dlg = JourDialog()
         dlg.ShowModal()
         dlg.Destroy()
-        
+    
     def onEditAuthor(self, event):
         dlg = AuthorDialog()
         dlg.ShowModal()
         dlg.Destroy()
         self.panel_sch.updateAutorName()
     
-#    def UpdateStatus(self):
-#        t = self.panel_sch.upStat()
-#        t = str(t)
-#        self.statusbar.SetStatusText(t)
-        
 if __name__ == "__main__":
     app = wx.App(False)
     controller = MainFrame()

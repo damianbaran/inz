@@ -485,6 +485,7 @@ def getUserNameID(session):
         id = per.id
         tmp = {d:id}
         result.update(tmp)
+#        print tmp
     return result
 
 def getUserFilter(session):

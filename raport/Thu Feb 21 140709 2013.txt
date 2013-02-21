@@ -1,0 +1,157 @@
+(lp0
+(S''
+p1
+I3
+VThe Tresse theorem and differential invariants for the nonlinear Schrödinger equation
+p2
+VT Czy\u017cycki 
+p3
+V2007
+p4
+Viopscience.iop.org
+p5
+g1
+S'http://iopscience.iop.org/1751-8121/40/31/011'
+p6
+S'scholar.google.com/scholar?cites=15021802390502025892&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(g1
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p9
+VE Lisowski, G Filo, W Czy\u017cycki 
+p10
+V2009
+p11
+VBergen
+p12
+g1
+S'Brak'
+p13
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(g1
+I1
+VEquivalence groups of differential equations and their applications to mathematical physics problems
+p16
+VT Czy\u017cycki 
+p17
+V2008
+p18
+Vpdfserv.aip.org
+p19
+g1
+S'http://pdfserv.aip.org/APCPCS/vol_1079/iss_1/135_1.pdf'
+p20
+S'scholar.google.com/scholar?cites=7677770636796768326&as_sdt=2005&sciodt=0,5&hl=en'
+p21
+tp22
+a(g1
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p23
+VE Lisowski, W Czy\u017cycki\u2026 
+p24
+V2010
+p25
+Vbaztech.icm.edu.pl
+p26
+g1
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p27
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p28
+tp29
+a(g1
+I1
+VEquivalence problem and integrability of the Riccati equations
+p30
+VT Czy\u017cycki, J Hrivnák 
+p31
+V2010
+p32
+VSpringer
+p33
+g1
+S'http://www.springerlink.com/index/087x0t8044902461.pdf'
+p34
+S'scholar.google.com/scholar?cites=12190597190258295186&as_sdt=2005&sciodt=0,5&hl=en'
+p35
+tp36
+a(g1
+I3
+VWybrane zagadnienia z prognozowania
+p37
+VR Klóska, M Hundert, R Czy\u017cycki 
+p38
+V2007
+p39
+VEconomicus
+p40
+g1
+g13
+S'scholar.google.com/scholar?cites=7372378761906413232&as_sdt=2005&sciodt=0,5&hl=en'
+p41
+tp42
+a(g1
+I0
+VTransport and storage of LNG in container tanks
+p43
+VE Lisowski, W Czy\u017cycki 
+p44
+V2011
+p45
+Vilot.edu.pl
+p46
+g1
+S'http://ilot.edu.pl/kones/2011/3_2011/2011_lisowski_czyzycki_transport_and_storage.pdf'
+p47
+g13
+tp48
+a(g1
+I0
+VUsing of polyamide in construction of supporting blocks of cryogenic tanks on example of LNG container
+p49
+VE Lisowski, W Czy\u017cycki, K \u0141azarczyk 
+p50
+S' '
+p51
+Vafe.polsl.pl
+p52
+g1
+S'http://www.afe.polsl.pl/index.php/pl/2516/using-of-polyamide-in-construction-of-supporting-blocks-of-cryogenic-tanks-on-example-of-lng-container.pdf'
+p53
+g13
+tp54
+a(g1
+I0
+VErratum to: Equivalence problem and integrability of the Riccati equations
+p55
+VT Czy\u017cycki, J Hrivnák 
+p56
+V2010
+p57
+VSpringer
+p58
+g1
+S'http://www.springerlink.com/index/W8305H6780558348.pdf'
+p59
+g13
+tp60
+a(g1
+I0
+VInvestigation of iron and zinc oxidation state in different grades of human brain gliomas using XAFS spectro-scopy
+p61
+VK Wolska, A Wandzilak, M Czy\u017cycki, P Wróbel\u2026 
+p62
+g51
+Vscience24.com
+p63
+g1
+S'http://www.science24.com/paper/24552'
+p64
+g13
+tp65
+a.
