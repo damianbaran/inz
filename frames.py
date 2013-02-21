@@ -8,6 +8,7 @@ from publikacja import PubDialog
 from grupa import GroupDialog
 from wydawca import JourDialog
 from autor import AuthorDialog
+from wx.lib.pubsub import Publisher
 
 class MainFrame(wx.Frame):
     def __init__(self):
@@ -30,7 +31,8 @@ class MainFrame(wx.Frame):
         self.SetSizer( firstSizer )
         self.Layout()
         self.statusbar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
-        self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
+#        self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
+        Publisher().subscribe(self.change_statusbar, 'change_statusbar')
         self.menubar = wx.MenuBar( 0 )
         self.menu1 = wx.Menu()
         
@@ -123,6 +125,9 @@ class MainFrame(wx.Frame):
         self.Bind( wx.EVT_TOOL, self.AddOneData, addrec )
         self.Bind( wx.EVT_TOOL, self.AddMultiData, addrecm )
         
+    def change_statusbar(self, msg):
+        self.statusbar.SetStatusText(msg.data)
+    
     def AddOneData(self, event):
         self.panel_sch.addOneRecord()
     

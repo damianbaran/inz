@@ -153,7 +153,7 @@ class PubDialog ( wx.Dialog ):
         self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.ALL|wx.EXPAND, 5 )
         
-        self.m_button3 = wx.Button( self, wx.ID_ANY, u"Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button3 = wx.Button( self, wx.ID_ANY, u"Zatwierdź", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button3, 0, wx.ALL, 5 )
         
         self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )

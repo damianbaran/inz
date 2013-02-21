@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 class sModel:
     def __init__(self):
         """Konstruktor""" 
-        self.item = {'query': "", 'exact': "", 'oneof': "", 'without': "",
+        self.item = {'num': 0, 'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
         self.fulllist = []
@@ -24,6 +24,8 @@ class sModel:
         self.allgroupitems = []
         self.listauthor = []
         self.schlist = []
+        self.all_url = [] #w zmienionym modelu odpowiada z przechowywanie wszystkich linkow do wyszukania
+        self.all_number_query = 0 #zlicza ilosc rzadan do serwera googla
         ## A class variable.
         self.c = float(0) ##  zmiennna do def procent
 #        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
@@ -94,29 +96,29 @@ class sModel:
 ## koniec funkcja dla wyszukiwania grupowego
 #######################################
     
-    def selectingString(self, data):
-        """Funkcja przekazuje wybrane rekordy przez uzytkownika do medelu menadzera publikacji"""
-        self.mendata = []
-        for i in range(len(data)):
-            self.mendata.append(self.fulllist[data[i]])
-        return self.mendata
+#    def selectingString(self, data):
+#        """Funkcja przekazuje wybrane rekordy przez uzytkownika do medelu menadzera publikacji"""
+#        self.mendata = []
+#        for i in range(len(data)):
+#            self.mendata.append(self.fulllist[data[i]])
+#        return self.mendata
 
-    def downloadData(self):
-        self.queryScholar()
-        self.allPages()
-        self.all_item = 0
-        self.saveResult(self.fulllist)
-        self.searchList(self.fulllist)
+#    def downloadData(self):
+#        self.queryScholar()
+#        self.allPages()
+#        self.all_item = 0
+#        self.saveResult(self.fulllist)
+#        self.searchList(self.fulllist)
 
-    def allPages(self):
-        """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
-        if self.all_item > 10:
-            for i in range(10,self.all_item,10):
-                item_add = {'num': 0}
-                self.item.update(item_add)
-                self.item['num'] = i
-                self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
-                self.queryScholar()
+#    def allPages(self):
+#        """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
+#        if self.all_item > 10:
+#            for i in range(10,self.all_item,10):
+#                item_add = {'num': 0}
+#                self.item.update(item_add)
+#                self.item['num'] = i
+#                self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
+#                self.queryScholar()
                 
 
     def urlScholar(self):
@@ -134,44 +136,108 @@ class sModel:
         self.s7 = 'as_publication=%(pub)s&'
         self.s8 = 'as_ylo=%(ylow)s&'
         self.s9 = 'as_yhi=%(yhigh)s&'
-        self.scholar_url = 'http://scholar.google.com/scholar?'+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
+        self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
 
-    def queryScholar(self):
-        """
-        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
-        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
-        kolejnych działań
-        """
+#    def queryScholar(self):
+#        """
+#        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
+#        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
+#        kolejnych działań
+#        """
+#        if self.all_item == 0:
+#            self.urlScholar()
+#            
+#        url = self.scholar_url % self.item
+#        r = urllib2.Request(url=url,
+#                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
+#        op = urllib2.urlopen(r)
+#        html = op.read()
+#        
+##        print url
+##        l = open("test.htm","r")
+##        html = l.read()
+##        print html
+#
+#        self.htmlsoup = BeautifulSoup(html)
+#        if self.all_item == 0:
+#            self.numberPageSearch()
+#        self.doThis()
+#        self.onePage()
+##        self.procent()     
+        
+#    def procent(self):
+#        done = float(0)
+#        step = 10
+#        
+#        done = (float(step)/float(self.all_item))*100
+#        self.c += done
+#        if self.c < 100:
+#            print self.c
+##            return self.c
+    
+    def firstQuery(self):
+        self.urlScholar()
         if self.all_item == 0:
-            self.urlScholar()
-            
+            self.item['num'] = 0
+
         url = self.scholar_url % self.item
         r = urllib2.Request(url=url,
                             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
         op = urllib2.urlopen(r)
         html = op.read()
-        
-#        print url
-#        l = open("test.htm","r")
-#        html = l.read()
-#        print html
 
         self.htmlsoup = BeautifulSoup(html)
-        if self.all_item == 0:
-            self.numberPageSearch()
-        self.doThis()
-        self.onePage()
-#        self.procent()     
-        
-    def procent(self):
-        done = float(0)
-        step = 10
-        
-        done = (float(step)/float(self.all_item))*100
-        self.c += done
-        if self.c < 100:
-            print self.c
-#            return self.c
+        self.numberPageSearch()
+#        print self.all_item
+        self.generateLinks(self.all_item, self.item)
+        return self.all_item
+
+    def firstQueryGroup(self, data):
+#        all_query = 0
+        self.item['query'] = ''
+        self.item['exact'] = ''
+        self.item['oneof'] = ''
+        self.item['without'] = ''
+        self.item['author'] = ''
+        self.item['pub'] = ''
+        self.item['ylow'] = ''
+        self.item['yhigh'] = ''
+        for i in range(len(data)):
+            self.item['author'] = data[i]
+            self.item['num'] = 0
+            l = self.firstQuery()
+
+    def generateLinks(self, n, rec):
+        #result = []
+        d = 0
+        for i in range(0,n,10):
+            rec['num'] = i
+            url = self.scholar_url % rec
+            self.all_url.append(url)
+            d += 1
+        self.all_number_query += d
+        #print self.all_url
+
+    def queryScholar(self, link):
+        """
+        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
+        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
+        kolejnych działań
+        """
+#        data = []
+        #if self.all_item == 0:
+#        self.urlScholar()
+        #print self.all_number_query
+#        for i in range(len(self.all_url)):
+        url = link
+#        print url
+        r = urllib2.Request(url=url,
+                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
+        op = urllib2.urlopen(r)
+        html = op.read()
+#        data.append(html)
+#        print i
+        return html
         
 
     def numberRecordsOnPage(self):

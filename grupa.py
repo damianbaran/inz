@@ -65,7 +65,7 @@ class GroupDialog ( wx.Dialog ):
         self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button1, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
-        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Edytuj", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_button5 = wx.Button( self, wx.ID_ANY, u"Zatwierdź", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer11.Add( self.m_button5, 0, wx.LEFT|wx.BOTTOM|wx.TOP, 5 )
         
         self.m_button3 = wx.Button( self, wx.ID_ANY, u"Usuń", wx.DefaultPosition, wx.DefaultSize, 0 )

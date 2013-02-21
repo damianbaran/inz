@@ -487,7 +487,7 @@ class sView(wx.Panel, sControler):
         for i in range(t):
             if i == id:
                 tmp = data[i]
-                self.handlerweb.open_new_tab(tmp[6])
+                self.handlerweb.open_new_tab(tmp[7])
                 if tmp[6] == 'Brak':
                     wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
