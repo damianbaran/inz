@@ -17,13 +17,16 @@ class sModel:
         self.item = {'num': 0, 'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
+#        self.fulllist = []
         self.fulllist = []
         self.selectlist = []
         self.all_item = 0
+        self.all_item_group = 0
         self.mendata = []
         self.allgroupitems = []
         self.listauthor = []
         self.schlist = []
+        self.all_items_id = 0 #dodawanie unikatowego id do kazdego rekordu
         self.all_url = [] #w zmienionym modelu odpowiada z przechowywanie wszystkich linkow do wyszukania
         self.all_number_query = 0 #zlicza ilosc rzadan do serwera googla
         ## A class variable.
@@ -44,11 +47,6 @@ class sModel:
         self.item['pub'] = value[5]
         self.item['ylow'] = value[6]
         self.item['yhigh'] = value[7]
-        
-#        print self.item
-#        return 
-        
-#        print self.item
 
     def replString(self, data):
         """
@@ -72,25 +70,25 @@ class sModel:
         self.listauthor = data
         print self.listauthor
         
-    def downloadDataGroup(self):
-        """Funkcja pobiera wszystkie dane wyszukiwania"""
-        self.item['query'] = ''
-        self.item['exact'] = ''
-        self.item['oneof'] = ''
-        self.item['without'] = ''
-        self.item['author'] = ''
-        self.item['pub'] = ''
-        self.item['ylow'] = ''
-        self.item['yhigh'] = ''
-        tmp = len(self.listauthor)
-        for i in range(len(self.listauthor)):
-            self.item['author'] = self.listauthor[i]
-            print self.item['author']
-            self.queryScholar()
-            self.allPages()
-            self.all_item = 0
-        self.saveResult(self.fulllist)
-        self.searchList(self.fulllist)
+#    def downloadDataGroup(self):
+#        """Funkcja pobiera wszystkie dane wyszukiwania"""
+#        self.item['query'] = ''
+#        self.item['exact'] = ''
+#        self.item['oneof'] = ''
+#        self.item['without'] = ''
+#        self.item['author'] = ''
+#        self.item['pub'] = ''
+#        self.item['ylow'] = ''
+#        self.item['yhigh'] = ''
+#        tmp = len(self.listauthor)
+#        for i in range(len(self.listauthor)):
+#            self.item['author'] = self.listauthor[i]
+#            print self.item['author']
+#            self.queryScholar()
+#            self.allPages()
+#            self.all_item = 0
+#        self.saveResult(self.fulllist)
+#        self.searchList(self.fulllist)
 
 #######################################
 ## koniec funkcja dla wyszukiwania grupowego
@@ -201,8 +199,8 @@ class sModel:
         self.item['without'] = ''
         self.item['author'] = ''
         self.item['pub'] = ''
-        self.item['ylow'] = ''
-        self.item['yhigh'] = ''
+#        self.item['ylow'] = ''
+#        self.item['yhigh'] = ''
         for i in range(len(data)):
             self.item['author'] = data[i]
             self.item['num'] = 0
@@ -250,13 +248,14 @@ class sModel:
             num_page[1] = re.sub(r',', '', num_page[1])
             if num_page[0].isdigit() == True:
                 self.all_item = int(num_page[0])
-                print self.all_item
+#                print self.all_item
             elif num_page[1].isdigit() == True:
                 self.all_item = int(num_page[1])
-                print self.all_item
+#                print self.all_item
+            self.all_item_group += self.all_item
         except IndexError:
-            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad',
-                          wx.OK | wx.ICON_INFORMATION)
+            pass
+#            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad',wx.OK | wx.ICON_INFORMATION)
 
     def findData(self):
         """Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych"""
@@ -346,6 +345,7 @@ class sModel:
     def onePage(self):
         """Funkcja zapisuje końcowe dane z jednej strony do listy"""
         self.all_items = []
+#        self.all_items = {}
         for i in range(self.item_count):
             records = {'title':'','titleurl':'','author':'','year':'',
                        'publish':'','cittxt':'','citurl':'','reltxt':'',
@@ -372,8 +372,14 @@ class sModel:
             """Object record"""
             #one = Record('', self.links[j], self.title[i],
             #             self.author[i], self.year[i], self.publish[i])
-            one = ('', self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], '', self.title_url[i], self.links[j+1])
+#            print self.all_items_id
+            one = (self.all_items_id, self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], '', self.title_url[i], self.links[j+1])
+#            s = {self.all_items_id:one}
+            self.all_items_id += 1
+#            self.all_items.update(s)
             self.all_items.append(one)
+#        self.fulllist.update(self.all_items)
+#        print self.fulllist
         self.fulllist += self.all_items
         
     def filtruj(self, record, filtr, dbDane):
@@ -386,30 +392,19 @@ class sModel:
         dict = dbDane
         c = dict[filtr].split(', ')
         t = len(c)
-#        print t
-#        if t != 0 and t != 1:
         for i in range(len(record)):
             a = record[i]
             c = dict[filtr].split(', ')
-#                print c
             for j in range(len(c)):
                 if re.findall(c[j],a[3]):
                     d.append(a)
-#        elif t == 1:
-#            for i in range(len(record)):
-#                a = record[i]
-##                print c
-#                if re.findall(c[0], a[3]):
-#                    d.append(a)
-#        else:
-#            print 'brak filtru'
         self.fulllist = d
         return d
     
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""
-        t = len(self.fulllist)
-        print 'ilosc wszystkich rekordow: ' + str(t)
+#        t = len(self.fulllist)
+#        print 'ilosc wszystkich rekordow: ' + str(t)
         return self.fulllist
     
     def searchList(self, data):

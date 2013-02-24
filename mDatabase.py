@@ -142,9 +142,10 @@ class Publication(DeclarativeBase):
     journal_id = Column(Integer, ForeignKey('journal.id'))
     urlpub = Column(String)
     urlcit = Column(String)
+    root = Column(String)
     journal = relation('Journal',  backref='publication')
     
-    def __init__(self, title, author, citation, type, year, doi, ident, journal_id, urlpub, urlcit):
+    def __init__(self, title, author, citation, type, year, doi, ident, journal_id, urlpub, urlcit, root):
         self.title = title
         self.author = author
         self.citation = citation
@@ -155,9 +156,10 @@ class Publication(DeclarativeBase):
         self.journal_id = journal_id
         self.urlpub = urlpub
         self.urlcit = urlcit
+        self.root = root
         
     def __repr__(self):
-        return "('%s','%s','%i','%s','%s','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id, self.urlpub, self.urlcit)
+        return "('%s','%s','%i','%s','%s','%s','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id, self.urlpub, self.urlcit, self.root)
     
 ###########################################
 class Journal(DeclarativeBase):
@@ -175,7 +177,25 @@ class Journal(DeclarativeBase):
         
     def __repr__(self):
         return "('%s','%s','%s')" % (self.full_name,  self.short_name,  self.address)
+
+############################################
+class Cite(DeclarativeBase):
+    __tablename__ = 'cite'
+    
+    id = Column(Integer, primary_key=True)
+    urlcit = Column(String)
+    id_pub_m = Column(Integer)
+    pub_ids = Column(Integer, ForeignKey('publication.id'))
+    public = relation("Publication",  backref='cite')
+    
+    def __init__(self, urlcit, id_pub_m, pub_ids):
+        self.urlcit = urlcit
+        self.id_pub_m = id_pub_m
+        self.pub_ids =pub_ids
         
+    def __repr__(self):
+        return "('%s','%s','%s')" % (self.urlcit,  self.id_pub_m, self.pub_ids)
+
 ###########################################
 class PerPub(DeclarativeBase):
     __tablename__ = 'perpub'
@@ -191,3 +211,4 @@ class PerPub(DeclarativeBase):
     
     def __repr__(self):
         return "('%s','%s')" % (self.person_id, self.pub_id)
+

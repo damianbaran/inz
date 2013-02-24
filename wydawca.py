@@ -128,9 +128,9 @@ class JourDialog ( wx.Dialog ):
         self.m_comboBox1.SetSelection( 0 )
 
     def viewJournalValue(self, event):
-        tx1 = self.m_comboBox1.GetValue()
+        self.tx1 = self.m_comboBox1.GetValue()
         
-        data = cDatabase.getJournalData(self.session, tx1)
+        data = cDatabase.getJournalData(self.session, self.tx1)
         
         self.m_textCtrl3.SetValue(data[0])
         self.m_textCtrl4.SetValue(data[1])
@@ -170,10 +170,14 @@ class JourDialog ( wx.Dialog ):
         tx3 = self.m_textCtrl4.GetValue()
         t = (tx1, tx2, tx3)
         
+        jourID = cDatabase.getJournalNameID(self.session)
+        id = jourID[self.tx1]
+#        print id
+        
         #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' or tx3 != '':
             try:
-                cDatabase.editJournalData(self.session, t)
+                cDatabase.editJournalData(self.session, t, id)
                 wx.MessageBox(u'Dane zaktualizowano pomyślnie!', u'Sukces!', wx.OK | wx.ICON_INFORMATION) 
             except Exception, e: #Wywołanie wyjtku, który został stworzony w zapytaniu do bazy
                 e
@@ -204,6 +208,8 @@ class JourDialog ( wx.Dialog ):
         self.m_button3.Hide()
         self.m_button2.Hide()
         self.m_button1.Show()
+        
+        self.Destroy()
     
     def close(self, event):
         """Zamyka okienko wydawcy"""

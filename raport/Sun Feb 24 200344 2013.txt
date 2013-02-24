@@ -1,0 +1,616 @@
+(lp0
+(I0
+I110
+VImage analysis: applications in materials engineering
+p1
+VL Wojnar 
+p2
+V1998
+p3
+VCRC
+p4
+S''
+p5
+S'Brak'
+p6
+S'scholar.google.com/scholar?cites=6988238284237947265&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(I1
+I19
+VFunctional effects of eggs, naturally enriched with conjugated linoleic acid, on the blood lipid profile, development of atherosclerosis and composition of  \u2026
+p9
+V\u2026, M Gajda, T Cichocki, L Wojnar\u2026 
+p10
+V2008
+p11
+VCambridge Univ Press
+p12
+g5
+S'http://journals.cambridge.org/production/action/cjoGetFulltext?fulltextid=1590784'
+p13
+S'scholar.google.com/scholar?cites=15265428549202404302&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(I2
+I36
+VPraktyka analizy obrazu
+p16
+VL Wojnar, KJ Kurzyd\u0142owski, J Szala 
+p17
+V2002
+p18
+VPolskie Towarzystwo Stereologiczne
+p19
+g5
+g6
+S'scholar.google.com/scholar?cites=4101459978312507762&as_sdt=2005&sciodt=0,5&hl=en'
+p20
+tp21
+a(I3
+I36
+VKomputerowa analiza obrazu
+p22
+VL Wojnar, M Majorek 
+p23
+V1994
+p24
+VFotobit-Design
+p25
+g5
+g6
+S'scholar.google.com/scholar?cites=9271382559487784210&as_sdt=2005&sciodt=0,5&hl=en'
+p26
+tp27
+a(I4
+I9
+VPorosity structure and mechanical properties of vitalium-type alloy for implants
+p28
+VL Wojnar, JR D\u0105browski, Z Oksiuta 
+p29
+V2001
+p30
+VElsevier
+p31
+g5
+S'http://www.sciencedirect.com/science/article/pii/S1044580301001279'
+p32
+S'scholar.google.com/scholar?cites=11863789249471857455&as_sdt=2005&sciodt=0,5&hl=en'
+p33
+tp34
+a(I5
+I7
+VComputer-aided versus manual grain size assessment in a single phase material
+p35
+VZ Lata\u0142a, L Wojnar 
+p36
+V2001
+p37
+VElsevier
+p38
+g5
+S'http://www.sciencedirect.com/science/article/pii/S1044580301001280'
+p39
+S'scholar.google.com/scholar?cites=9011404162920793443&as_sdt=2005&sciodt=0,5&hl=en'
+p40
+tp41
+a(I6
+I6
+VDoes yeast shmooing mean a commitment to apoptosis?
+p42
+VR Zadrag, L Wojnar, G Bartosz, T Bili\u0144ski 
+p43
+V2006
+p44
+VElsevier
+p45
+g5
+S'http://www.sciencedirect.com/science/article/pii/S1065699505002787'
+p46
+S'scholar.google.com/scholar?cites=6750287137213630678&as_sdt=2005&sciodt=0,5&hl=en'
+p47
+tp48
+a(I7
+I8
+VDetection of mitochondrial dysfunction by EPR technique in mouse model of dilated cardiomyopathy
+p49
+V\u2026, S Heinze
+p50
+V2008
+p51
+VElsevier
+p52
+g5
+S'http://www.sciencedirect.com/science/article/pii/S0891584908002141'
+p53
+S'scholar.google.com/scholar?cites=16099181199784410498&as_sdt=2005&sciodt=0,5&hl=en'
+p54
+tp55
+a(I8
+I6
+VAdvanced quantitative analysis of fracture surfaces
+p56
+VL Wojnar, M Kumosa 
+p57
+V1990
+p58
+VElsevier
+p59
+g5
+S'http://www.sciencedirect.com/science/article/pii/092150939090095K'
+p60
+S'scholar.google.com/scholar?cites=5766070509492219199&as_sdt=2005&sciodt=0,5&hl=en'
+p61
+tp62
+a(I9
+I8
+VNO and PGI 2 in coronary endothelial dysfunction in transgenic mice with dilated cardiomyopathy
+p63
+V\u2026, A Gebska, T Guzik, R Olszanecki, L Wojnar\u2026 
+p64
+V2008
+p65
+VSpringer
+p66
+g5
+S'http://www.springerlink.com/index/l7275t7l02l8kjp4.pdf'
+p67
+S'scholar.google.com/scholar?cites=3715753255685547236&as_sdt=2005&sciodt=0,5&hl=en'
+p68
+tp69
+a(I10
+I4
+VQuantitative Image Analysis[for metallography].
+p70
+VL Wojnar, KJ Kurzydlowski, J Szala 
+p71
+V2004
+p72
+Vcsa.com
+p73
+g5
+S'http://www.csa.com/partners/viewrecord.php?requester=gs&collection=TRD&recid=A063527480AH'
+p74
+S'scholar.google.com/scholar?cites=3817917216920025243&as_sdt=2005&sciodt=0,5&hl=en'
+p75
+tp76
+a(I11
+I4
+VQuantitative analysis of oriented ductile fracture surfaces
+p77
+VL Wojnar, W Dziadur 
+p78
+V1987
+p79
+V1987
+p80
+g5
+g6
+S'scholar.google.com/scholar?cites=3892404213259082079&as_sdt=2005&sciodt=0,5&hl=en'
+p81
+tp82
+a(I12
+I4
+VMicrostructure-property relationship in B< sub> 4</sub> C-\u03b2SiC materials
+p83
+VG Górny, M Ra\u0327czka, L Wojnar, R Pampuch 
+p84
+V1997
+p85
+VElsevier
+p86
+g5
+S'http://www.sciencedirect.com/science/article/pii/S0167273897003780'
+p87
+S'scholar.google.com/scholar?cites=18244530303412536424&as_sdt=2005&sciodt=0,5&hl=en'
+p88
+tp89
+a(I13
+I4
+VEffect of histomorphometric parameters on compression strength of vertebral bodies
+p90
+VA Gadek, L Wojnar, E Czervi\u0144ski 
+p91
+V2011
+p92
+Vias-iss.org
+p93
+g5
+S'http://www.ias-iss.org/ojs/IAS/article/view/656'
+p94
+S'scholar.google.com/scholar?cites=17523367130286738958&as_sdt=2005&sciodt=0,5&hl=en'
+p95
+tp96
+a(I14
+I3
+VAn automatic recognition of the frontal sinus in x-ray images of skull
+p97
+VZ Tabor, D Karpisz, L Wojnar\u2026 
+p98
+V2009
+p99
+Vieeexplore.ieee.org
+p100
+g5
+S'http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4599235'
+p101
+S'scholar.google.com/scholar?cites=12246024197540960480&as_sdt=2005&sciodt=0,5&hl=en'
+p102
+tp103
+a(I15
+I3
+VStereology from one of all the possible angles
+p104
+VL Wojnar 
+p105
+V2011
+p106
+Vias-iss.org
+p107
+g5
+S'http://www.ias-iss.org/ojs/IAS/article/view/717'
+p108
+S'scholar.google.com/scholar?cites=11680642584233537676&as_sdt=2005&sciodt=0,5&hl=en'
+p109
+tp110
+a(I16
+I3
+VQuantitative analysis of overlapped fracture surfaces
+p111
+VL Wojnar, M Kumosa 
+p112
+V1990
+p113
+VElsevier
+p114
+g5
+S'http://www.sciencedirect.com/science/article/pii/001379449090115W'
+p115
+S'scholar.google.com/scholar?cites=12274768292854854791&as_sdt=2005&sciodt=0,5&hl=en'
+p116
+tp117
+a(I17
+I3
+VOn some misunderstanding of fracture roughness parameters
+p118
+VL Wojnar 
+p119
+V1991
+p120
+Vcsa.com
+p121
+g5
+S'http://www.csa.com/partners/viewrecord.php?requester=gs&collection=TRD&recid=9111210364MD'
+p122
+S'scholar.google.com/scholar?cites=16845504166894589912&as_sdt=2005&sciodt=0,5&hl=en'
+p123
+tp124
+a(I18
+I5
+VFraktografia ilosciowa: Podstawy i komputerowe wspomaganie badan
+p125
+VL Wojnar 
+p126
+V1990
+p127
+VKrakow
+p128
+g5
+g6
+S'scholar.google.com/scholar?cites=758790511079289629&as_sdt=2005&sciodt=0,5&hl=en'
+p129
+tp130
+a(I19
+I1
+VA new method for quantification of regenerated bone tissue on x-ray images of elongated bones
+p131
+VA G\u0105dek, L Wojnar, M T\u0119siorowski\u2026 
+p132
+V2003
+p133
+Vgeneral.monash.edu.au
+p134
+g5
+S'http://www.general.monash.edu.au/ss/pdf/vol22no3/wojnar_07.pdf'
+p135
+S'scholar.google.com/scholar?cites=15085854400947004475&as_sdt=2005&sciodt=0,5&hl=en'
+p136
+tp137
+a(I20
+I1
+VA new, other than acoustic, quantification method for endocardium detection in echocardiographic images
+p138
+VL Wojnar, L Szydlowski\u2026 
+p139
+V2011
+p140
+Vias-iss.org
+p141
+g5
+S'http://www.ias-iss.org/ojs/IAS/article/view/655'
+p142
+S'scholar.google.com/scholar?cites=14579367668690667159&as_sdt=2005&sciodt=0,5&hl=en'
+p143
+tp144
+a(I21
+I2
+VPredictors of Ventricular Tachvcardia Inducibility in Programmed Electrical Stimulation and the Effectiveness of Serial Drug Testing: Polish Multicenter Study
+p145
+VA WNUK\u2010WOJNAR, L GIEC\u2026 
+p146
+V1990
+p147
+VWiley Online Library
+p148
+g5
+S'http://onlinelibrary.wiley.com/doi/10.1111/j.1540-8159.1990.tb06955.x/abstract'
+p149
+S'scholar.google.com/scholar?cites=3635807015729577337&as_sdt=2005&sciodt=0,5&hl=en'
+p150
+tp151
+a(I22
+I0
+VApplication of computer-aided analysis of an image for assessment of reinforced polymers structures
+p152
+VA Gadek, S Kuciel, L Wojnar, W Dziadur 
+p153
+V2006
+p154
+Vcsa.com
+p155
+g5
+S'http://www.csa.com/partners/viewrecord.php?requester=gs&collection=TRD&recid=20070471115771MD'
+p156
+g6
+tp157
+a(I23
+I0
+VGRAIN BOUNDARY DETECTION-CLASSICAL AND TRICKY ALGORITHMS
+p158
+VL Wojnar 
+p159
+V2001
+p160
+VScience Pub Inc
+p161
+g5
+g6
+g6
+tp162
+a(I24
+I0
+VSTERMAT 2000-Stereology and image analysis in materials science
+p163
+VB Ralph, L Wojnar, KJ Kurzydlowski\u2026 
+p164
+V2001
+p165
+V144.206.159.178
+p166
+g5
+S'http://144.206.159.178/FT/714/42665/772301.pdf'
+p167
+g6
+tp168
+a(I25
+I0
+VAutomatic analysis of echocardiographic video recordings
+p169
+VZ Latala, L Wojnar, L Szydlowski 
+p170
+V2003
+p171
+VWorld Scientific
+p172
+g5
+S'http://www.worldscientific.com/doi/abs/10.1142/S0218001403002381'
+p173
+g6
+tp174
+a(I26
+I0
+V8th STERMAT on Stereology and Image Analysis in Materials Science
+p175
+VB Ralph, J Cwajna, KJ Kurzyd\u0142owski, L Wojnar 
+p176
+V2009
+p177
+VElsevier
+p178
+g5
+g6
+g6
+tp179
+a(I27
+I0
+V3-D image analysis in materials science
+p180
+VL Wojnar 
+p181
+S' '
+p182
+Vscience24.com
+p183
+g5
+S'http://www.science24.com/emrs2004fall/php/abstractView.phtml?1821'
+p184
+g6
+tp185
+a(I28
+I0
+VMeasurement of knee joint space depth using image analysis methods
+p186
+VL Wojnar, E Czerwinski, JE Badurski 
+p187
+V1996
+p188
+VACTA STEREOLOGICA, 1996
+p189
+g5
+g6
+g6
+tp190
+a(I29
+I0
+V3-D Image Analysis of Cellular Structures
+p191
+VL Wojnar, A Universitet 
+p192
+V2003
+p193
+Vfotobit.net
+p194
+g5
+S'http://fotobit.net/report.pdf'
+p195
+g6
+tp196
+a(I30
+I0
+VVentricular arrhythmias in coronary heart disease: Relation to coronary arteriographic and hemodynamic findings
+p197
+VAM Wnuk
+p198
+V1987
+p199
+VElsevier
+p200
+g5
+g6
+g6
+tp201
+a(I31
+I0
+VPredictive Value of Various Types of Ventricular Response to Programmed Ventricular Stimulation: Relation to Holter Monitoring
+p202
+VA WNUK\u2010WOJNAR, L GIEC\u2026 
+p203
+V1988
+p204
+VWiley Online Library
+p205
+g5
+S'http://onlinelibrary.wiley.com/doi/10.1111/j.1540-8159.1988.tb06334.x/abstract'
+p206
+g6
+tp207
+a(I32
+I1
+VAnaliza fraktalna struktury geometrycznej powierzchni
+p208
+V\u2026, J MAGDZIARCZYK, L WOJNAR 
+p209
+V2011
+p210
+Vptzp.org.pl
+p211
+g5
+S'http://www.ptzp.org.pl/files/konferencje/kzz/artyk_pdf_2011/035.pdf'
+p212
+S'scholar.google.com/scholar?cites=15831067776642581455&as_sdt=2005&sciodt=0,5&hl=en'
+p213
+tp214
+a(I33
+I1
+V9th ECSIA and 7th STERMAT: Stereology and Image Analysis in Materials Science
+p215
+VB Ralph, L Wojnar, KJ Kurzyd\u0142owski\u2026 
+p216
+V2006
+p217
+Velibrary.ru
+p218
+g5
+S'http://elibrary.ru/item.asp?id=12487612'
+p219
+S'scholar.google.com/scholar?cites=17410379408379477697&as_sdt=2005&sciodt=0,5&hl=en'
+p220
+tp221
+a(I34
+I0
+VZastosowanie komputerowej analizy obrazu do oceny struktur polimerów wzmacnianych
+p222
+VA GADEK, S KUCIEL, L WOJNAR, W DZIADUR 
+p223
+V2006
+p224
+Vcat.inist.fr
+p225
+g5
+S'http://cat.inist.fr/?aModele=afficheN&cpsidt=17533859'
+p226
+g6
+tp227
+a(I35
+I0
+VWP\u0141YW PARAMETRÓW ELEKTROOSADZANIA NA ZMIANY NANOSTRUKTURY WARSTW Al2O3/WS2 O PRZEZNACZENIU TRIBOLOGICZNYM THE  \u2026
+p228
+VJ KORZEKWA, W SKONECZNY, L WOJNAR 
+p229
+g182
+Vsuw.biblos.pk.edu.pl
+p230
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i5/i3/i4/i3/r5343/KorzekwaJ_WplywParametrow.pdf'
+p231
+g6
+tp232
+a(I36
+I0
+V0. ROLI WYDZIELEÑ W PROCESIE PÇKANIA NA PRZYKLADZIE ZELIWA SFERÓIDALNEGO 0 OSNOWIE FERRYTYCZNEJ
+p233
+VL WOJNAR, W DZIADUR 
+p234
+V1988
+p235
+VPolitechnika Krakowska im.  \u2026
+p236
+g5
+g6
+g6
+tp237
+a(I37
+I0
+VBiopsja rdzeniowa gruczo\u0142u krokowego wykonywana z powodu podwy\u017cszonego st\u0119\u017cenia swoistego antygenu sterczowego (PSA)\u2013ocena wykrywalno\u015bci raka prostaty \u2026
+p238
+V\u2026, W Cie\u015blikowski Jr, L Michalak, \u0141 Wojnar\u2026 
+p239
+V2008
+p240
+Vurologiapolska.pl
+p241
+g5
+S'http://www.urologiapolska.pl/artykul.php?3169&print=1'
+p242
+g6
+tp243
+a(I38
+I0
+VBieniasz Józef
+p244
+VW Waldemar, J Leszek, PDSOE KONTROLI\u2026 
+p245
+g182
+Vmin-pan.krakow.pl
+p246
+g5
+S'http://www.min-pan.krakow.pl/tpg/article.php?article=20050407'
+p247
+g6
+tp248
+a(I39
+I0
+VProstate biopsy performed due to elevated prostate specific antigen (PSA) level\u2013assessment of the prostate cancer detectability Article published in Urologia Polska  \u2026
+p249
+V\u2026, W Cie\u015blikowski Jr, L Michalak, \u0141 Wojnar\u2026 
+p250
+V2008
+p251
+Vwww.urologiapolska.pl
+p252
+g5
+S'http://www.www.urologiapolska.pl/artykul.php?3169&lang=en&print=1'
+p253
+g6
+tp254
+a.

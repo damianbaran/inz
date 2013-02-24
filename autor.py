@@ -44,7 +44,7 @@ class AuthorDialog ( wx.Dialog ):
         bSizer9.Add( self.m_staticText2, 1, wx.ALL, 5 )
         
         self.m_choice1Choices = cDatabase.getUserName(self.session)
-        self.m_choice1 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), self.m_choice1Choices, 0 )
+        self.m_choice1 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 220,-1 ), self.m_choice1Choices, 0 )
 #        self.m_choice1.SetSelection( 0 )
         bSizer9.Add( self.m_choice1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
@@ -64,12 +64,12 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer13 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_staticText6 = wx.StaticText( self, wx.ID_ANY, u"Uczelnia:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText6 = wx.StaticText( self, wx.ID_ANY, u"Afiliacja:", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText6.Wrap( -1 )
         bSizer13.Add( self.m_staticText6, 1, wx.ALL, 5 )
         
         m_comboBox1Choices = cDatabase.getCollegeName(self.session)
-        self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox1Choices, 0 )
+        self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), m_comboBox1Choices, 0 )
         bSizer13.Add( self.m_comboBox1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -77,12 +77,12 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer16 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"Wydział:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"Wydział/Dział:", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText7.Wrap( -1 )
         bSizer16.Add( self.m_staticText7, 1, wx.ALL, 5 )
         
         m_comboBox2Choices = cDatabase.getFacultyName(self.session)
-        self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox2Choices, 0 )
+        self.m_comboBox2 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), m_comboBox2Choices, 0 )
         bSizer16.Add( self.m_comboBox2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -90,12 +90,12 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer17 = wx.BoxSizer( wx.HORIZONTAL )
         
-        self.m_staticText8 = wx.StaticText( self, wx.ID_ANY, u"Instytut:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText8 = wx.StaticText( self, wx.ID_ANY, u"Instytut/Stanowisko:", wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText8.Wrap( -1 )
         bSizer17.Add( self.m_staticText8, 1, wx.ALL, 5 )
         
         m_comboBox3Choices = cDatabase.getInstituteName(self.session)
-        self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), m_comboBox3Choices, 0 )
+        self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), m_comboBox3Choices, 0 )
         bSizer17.Add( self.m_comboBox3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -107,7 +107,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText3.Wrap( -1 )
         bSizer4.Add( self.m_staticText3, 1, wx.ALL, 5 )
         
-        self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
+        self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), 0 )
         bSizer4.Add( self.m_textCtrl3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -119,7 +119,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText4.Wrap( -1 )
         bSizer5.Add( self.m_staticText4, 1, wx.ALL, 5 )
         
-        self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
+        self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), 0 )
         bSizer5.Add( self.m_textCtrl4, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -131,7 +131,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_staticText5.Wrap( -1 )
         bSizer12.Add( self.m_staticText5, 1, wx.ALL, 5 )
         
-        self.m_textCtrl41 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
+        self.m_textCtrl41 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 220,-1 ), 0 )
         bSizer12.Add( self.m_textCtrl41, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
@@ -363,6 +363,8 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button1.Hide()
         self.m_button7.Hide()
         self.m_button2.Show()
+        
+        self.Destroy()
     
     def close(self, event):
         """Zamknięcie okienka autorów"""

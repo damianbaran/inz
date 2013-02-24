@@ -214,6 +214,8 @@ class GroupDialog ( wx.Dialog ):
         self.m_button5.Hide()
         self.m_button3.Hide()
         self.m_button1.Show()
+        
+        self.Destroy()
     
     def close(self, event):
         """Zamyka okienko z grupami"""

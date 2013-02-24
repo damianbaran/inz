@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 import wx
 import os
+import pickle
 import webbrowser
 import cDatabase
 import wx.lib.mixins.listctrl as listmix
-#from src.frames import MainFrame
 from schControler import sControler
 from publikacja import PubDialog
 
-#from ObjectListView import ObjectListView, ColumnDefn
 
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
+        
 
 class sView(wx.Panel, sControler):
     def __init__(self, parent):
@@ -28,9 +28,6 @@ class sView(wx.Panel, sControler):
             cDatabase.createDatabase()
             
         self.session = cDatabase.connectDatabase()
-        
-        #cDatabase.getAllRecord(self.session)
-        #cDatabase.getUserFilter(self.session)
         
 
         self.panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
@@ -169,7 +166,14 @@ class sView(wx.Panel, sControler):
         
         oneSB2.Add( self.oneBox122, 0, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
         
-        oneBox123 = wx.BoxSizer( wx.VERTICAL )
+        oneBox123 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.m_staticText20 = wx.StaticText( self.panel, wx.ID_ANY, u"Ogranicz do roku:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText20.Wrap( -1 )
+        oneBox123.Add( self.m_staticText20, 0, wx.ALL, 5 )
+        
+        self.m_textCtrl12 = wx.TextCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        oneBox123.Add( self.m_textCtrl12, 1, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         self.but7 = wx.Button( self.panel, wx.ID_ANY, u"Pobierz", wx.DefaultPosition, wx.DefaultSize, 0 )
         oneBox123.Add( self.but7, 0, wx.ALIGN_RIGHT|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -327,35 +331,22 @@ class sView(wx.Panel, sControler):
         twoBox11 = wx.BoxSizer( wx.VERTICAL )
         
 #        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,310 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
-        self.dataList.InsertColumn(0, '', format=wx.LIST_FORMAT_CENTER, width=25)
+        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,310 ), style=wx.LC_REPORT|wx.BORDER_SUNKEN)
+        self.dataList.InsertColumn(0, u'ID', format=wx.LIST_FORMAT_CENTER, width=23)
         self.dataList.InsertColumn(1, u'Cytowań', format=wx.LIST_FORMAT_RIGHT, width=60)
         self.dataList.InsertColumn(2, u'Tytuł', format=wx.LIST_FORMAT_LEFT, width=370)
         self.dataList.InsertColumn(3, u'Autor', format=wx.LIST_FORMAT_LEFT, width=210)
         self.dataList.InsertColumn(4, u'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
         self.dataList.InsertColumn(5, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=120)
 #        self.dataList.InsertColumn(6, u'Wydawca', format=wx.LIST_FORMAT_LEFT, width=90)
+#        listmix.ColumnSorterMixin.__init__(self, 3)
+#        listmix.ColumnSorterMixin.__init__(self, 6)
         twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
         
         
-        twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
-#        
-#        twoBox12 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.but5 = wx.Button( self.panel, wx.ID_ANY, u"Dodaj wybrane", wx.Point( -1,-1 ), wx.Size( -1,-1 ), 0 )
-#        twoBox12.Add( self.but5, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
-#        
-#        self.but6 = wx.Button( self.panel, wx.ID_ANY, u"Przywróć liste", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.but6.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND ) )
-#        
-#        twoBox12.Add( self.but6, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND|wx.RIGHT, 5 )
-#        
-#        
-#        twoBox1.Add( twoBox12, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
-        
+        twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )        
         
         globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
-        
         
         self.panel.SetSizer( globalBox )
         self.panel.Layout()
@@ -376,10 +367,7 @@ class sView(wx.Panel, sControler):
         self.but1.Bind(wx.EVT_BUTTON, self.GetData)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
         self.dataList.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.selectOne)
-#        self.but5.Bind(wx.EVT_BUTTON, self.GetItem)
-#        self.but6.Bind(wx.EVT_BUTTON, self.backList)
         self.but2.Bind(wx.EVT_BUTTON, self.GetChoice)
-#        self.but4.Bind(wx.EVT_BUTTON, self.getUserData)
         self.but7.Bind(wx.EVT_BUTTON, self.settmp)
         
         ########################################################################
@@ -387,6 +375,7 @@ class sView(wx.Panel, sControler):
         ########################################################################
         
         self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
+        self.raport = []
         
     def GetChoice(self, event):
         try:
@@ -397,7 +386,16 @@ class sView(wx.Panel, sControler):
             self.dataList.DeleteAllItems()
             self.updateRecord(self.control.SetFilter(self.control.SetItems(), self.getChoice(), cDatabase.getUserFilter(self.session)))
     
-        
+    def getRaport(self):
+        dlg = wx.FileDialog(self, "Wybierz Plik", 'raport', "", "*.*", wx.OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.filename = dlg.GetFilename()
+            self.dirname = dlg.GetDirectory()
+            f = pickle.load(open(os.path.join(self.dirname, self.filename), 'r'))
+            print f
+            self.control.getRaportData(f)
+            self.backList()
+    
     def backList(self):
         self.dataList.DeleteAllItems()
         self.updateRecord(self.control.SetSearchItem())
@@ -408,15 +406,13 @@ class sView(wx.Panel, sControler):
         for i in range(num):
             if self.dataList.IsChecked(i):
                 tmp.append(i)
-#        print len(tmp)
         
-        if len(tmp) == 1:
-            data = self.control.SetItems()
-            id = tmp[0]
-            print data[id]
+        data = self.control.SetItems()
+        for i in range(len(tmp)):
+            id = tmp[i]
+            print len(data)
+            print id
             self.editPubDial(data[id])
-        else:
-            wx.MessageBox(u'Nie wybrałeś rekordu, badz\nwybrales ich za dużo!', u'Bład', wx.OK | wx.ICON_INFORMATION)
         
         self.deselectAll()
     
@@ -433,24 +429,21 @@ class sView(wx.Panel, sControler):
                 n = tmp[i]
                 t = data[n]
                 
-                r = (t[2], t[3], t[1], '', t[4], '', '', None, '', '')
-                print r
+                r = (t[2], t[3], t[1], '', t[4], '', '', None, t[7], t[8], t[5])
+
                 cDatabase.addPubMultiData(self.session, r)
         
         self.deselectAll()
     
     def editPubDial(self, data):
         dlg = PubDialog()
-#        print data
-        dlg.m_textCtrl2.SetValue(data[2])
-        dlg.m_textCtrl4.SetValue(data[3])
-        dlg.m_textCtrl3.SetValue(str(data[1]))
-#        dlg.m_choice1.SetStringSelection(data[4])
-        dlg.m_textCtrl5.SetValue(str(data[4]))
-#        dlg.m_textCtrl6.SetValue(data[6])
-#        dlg.m_textCtrl7.SetValue(data[7])
-#        dlg.m_choice2.SetStringSelection(data[8])
-#        print data
+        dlg.m_textCtrl2.SetValue(data[2])           #title
+        dlg.m_textCtrl4.SetValue(data[3])           #author
+        dlg.m_textCtrl3.SetValue(str(data[1]))     #citation
+        dlg.m_textCtrl5.SetValue(str(data[4]))     #year
+        dlg.m_textCtrl71.SetValue(data[5])          #zrodlo
+        dlg.m_staticText11.SetLabel(data[7])        #urlpub
+        dlg.m_staticText12.SetLabel(data[8])        #urlcit
         dlg.ShowModal()
         
     def RightClickCb(self, event):        
@@ -461,7 +454,7 @@ class sView(wx.Panel, sControler):
             wx.EVT_MENU(menu, id, self.MenuSelectionCb)        
         ### 5. Launcher displays menu with call to PopupMenu, invoked on the source component, passing event's GetPoint. ###
         self.dataList.PopupMenu(menu, event.GetPoint())
-        menu.Destroy() # destroy to avoid mem leak
+        menu.Destroy()
             
     def MenuSelectionCb(self, event):
         operation = self.menu_title_by_id[event.GetId()]
@@ -470,22 +463,15 @@ class sView(wx.Panel, sControler):
             self.selectOne(self)
         elif operation == 'Odznacz':
             self.deselectOne()
-        elif operation == 'Czysc liste':
-            self.dataList.DeleteAllItems()
         elif operation == 'Zaznacz wszystko':
             self.selectAll()
         elif operation == 'Odznacz wszystko':
             self.deselectAll()
-        elif operation == 'Otworz artykul':
-            self.getLink(self.currentItem)
-        elif operation == 'Zapisz do bazy':
-            print 't'
     
     def openLink(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsChecked(i):
-#                x = self.dataList.GetItemText(i)
                 self.getLink(i)
             
     def getLink(self, id):
@@ -501,9 +487,33 @@ class sView(wx.Panel, sControler):
     def updateRecord(self, data):
         """
         """
+#        print data
+#        d = data.values()
+#        print len(data)
         for i in range(len(data)):
             self.dataList.Append(data[i])
-            
+#        items = data.items()
+#        index = 0
+#        for key, data in items:
+#            self.dataList.InsertStringItem(index, str(data[0]))
+#            self.dataList.SetStringItem(index, 1, str(data[1]))
+#            self.dataList.SetStringItem(index, 2, data[2])
+#            self.dataList.SetStringItem(index, 3, data[3])
+#            self.dataList.SetStringItem(index, 4, data[4])
+#            self.dataList.SetStringItem(index, 5, data[5])
+#            self.dataList.SetItemData(index, key)
+#            index += 1
+        
+#        self.itemDataMap = data
+#        listmix.ColumnSorterMixin.__init__(self, 6)
+    
+#    def GetListCtrl(self):
+#        return self.dataList
+#    
+#    def OnColClick(self, event):
+#        print "column clicked"
+#        event.Skip()
+    
     def getChoice(self):
         h = self.ch4.GetCurrentSelection()
         if h == -1:
@@ -550,7 +560,6 @@ class sView(wx.Panel, sControler):
         txt6 = self.ctrl6.GetValue()
         txt7 = self.ctrl7.GetValue()
         txt8 = self.ctrl8.GetValue()
-#        print (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
         return (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
         
     def GetGroupName(self):
@@ -566,71 +575,9 @@ class sView(wx.Panel, sControler):
         self.control.AddWord(self.printWord())
         self.updateRecord(self.control.SetItems())
     
-#    def upStat(self):
-#        t = self.control.getProc()
-#        return t
-#        
-        ########################################################################
-        ## Metody cDatabase.py
-        ########################################################################
-        
-#    def getUserData(self, event):
-#        AllDict = {}
-#        UserDict = {}
-#        ColDict = {}
-#        FacDict = {}
-#        InsDict = {}
-#        
-#        dbCollege = self.cb1.GetValue()
-#        dbFaculty = self.cb2.GetValue()
-#        dbInstitut = self.cb3.GetValue()
-#        dbName = self.ctrl17.GetValue()
-#        dbSurname = self.ctrl18.GetValue()
-#        dbFilter = self.ctrl19.GetValue()
-#        
-#        if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
-#            wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
-#            return
-#        
-#        ColDict['name'] = dbCollege
-#        FacDict['name'] = dbFaculty
-#        InsDict['name'] = dbInstitut
-#        UserDict['name'] = dbName
-#        UserDict['surname'] = dbSurname
-#        UserDict['filtr'] = dbFilter
-#        
-#        AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
-#        
-#        print AllDict
-#        cDatabase.addUser(self.session,AllDict)
-#        
-#        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
-#        self.ch4Choices = self.SetUserName()
-#        self.ch4.Clear()
-#        self.ch4.AppendItems(self.ch4Choices)
-#        self.ch4.SetSelection( 0 )
-#        
-#        """Aktualizacja kontrolki z nazwami uczelni"""
-#        cb1Choices = self.SetCollegeName()
-#        self.cb1.Clear()
-#        self.cb1.AppendItems(cb1Choices)
-##        self.cb1.SetSelection( 0 )
-#        
-#        """Aktualizacja kontrolki z nazwami wydziałów"""
-#        cb2Choices = self.SetFacultyName()
-#        self.cb2.Clear()
-#        self.cb2.AppendItems(cb2Choices)
-##        self.cb2.SetSelection( 0 )
-#        
-#        """Aktualizacja kontrolki z nazwami instytutów"""
-#        cb3Choices = self.SetInstituteName()
-#        self.cb3.Clear()
-#        self.cb3.AppendItems(cb3Choices)
-##        self.cb3.SetSelection( 0 )
-#        
-#        self.ctrl17.SetValue('')
-#        self.ctrl18.SetValue('')
-#        self.ctrl19.SetValue('')
+########################################################################
+## Metody cDatabase.py
+########################################################################
     
     def updateGroupName(self):
         ch1Choices = cDatabase.getGroupName(self.session)
@@ -643,27 +590,20 @@ class sView(wx.Panel, sControler):
         self.ch4.Clear()
         self.ch4.AppendItems(self.ch4Choices)
         self.ch4.SetSelection( 0 )
-    
-#    def SetCollegeName(self):
-#        t = cDatabase.getCollegeName(self.session)
-#        return t
-#    
-#    def SetFacultyName(self):
-#        t = cDatabase.getFacultyName(self.session)
-#        return t
-#    
-#    def SetInstituteName(self):
-#        t = cDatabase.getInstituteName(self.session)
-#        return t
         
     ###########################################
     ## Funkcje z Bindowane z kontrlolera bazy danych
     ###########################################
-        
+    
+    def getYearGroup(self):
+        t1 = self.m_textCtrl12.GetValue()
+        return t1
+    
     def settmp(self,  event):
         self.dataList.DeleteAllItems()
         gname = self.GetGroupName()
         t = cDatabase.sendGroupSurname(self.session,  gname)
+        self.control.GetYearGroup(self.getYearGroup())
         self.control.AddWordGroup(t)
         self.updateRecord(self.control.SetItems())
 
