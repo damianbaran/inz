@@ -132,6 +132,28 @@ def editUserGroup(session, gname):
                 filter(Group.name == gname).group_by(Person.id):
         session.delete(pg)
     session.commit()
+
+###############################################
+## zapytania dla generatorów
+###############################################
+
+def getHtmlData(session, id):
+    tmp = []
+    for pub, jou in session.query(Publication, Journal).\
+            filter(Publication.id == id).\
+            filter(Journal.id == Publication.journal_id).\
+            group_by(Publication.id):
+        c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name, pub.root)
+        tmp.append(c)
+    for pub, jou in session.query(Publication, Journal).\
+            filter(Publication.id == id).\
+            filter(Publication.journal_id == None).\
+            group_by(Publication.id):
+        c = (pub.id, pub.citation, pub.title, pub.author, pub.year, '', pub.root)
+        tmp.append(c)
+    print tmp
+    return tmp
+    
     
 ###############################################
 ## zapytania dla tabeli Cite
@@ -144,7 +166,7 @@ def deleteCite(session, id, idp):
 
 def saveCite(session, data):
     """Zapisuje łaczone publikacje do bazy"""
-    cit = Cite(data[0], data[1], data[2])
+    cit = Cite(data[0], data[1], data[2], data[3])
     session.add(cit)
     session.commit()
 
@@ -156,10 +178,12 @@ def getMergePub(session):
         id_pub.append(c.pub_ids)
     
     for i in range(len(id_pub)):
-        pub = session.query(Publication).filter(Publication.id == id_pub[i]).one()
-        tmp = pub.title +' - '+ pub.author +' - '+ str(pub.citation) +' - '+ str(pub.year) +' - '+ pub.root
-        d = {id_pub[i]:tmp}
-        result.update(d)
+        pub = session.query(Publication).filter(Publication.id == id_pub[i]).first()
+#        print pub
+        if pub != None:
+            tmp = pub.title +' - '+ pub.author +' - '+ str(pub.citation) +' - '+ str(pub.year) +' - '+ pub.root
+            d = {id_pub[i]:tmp}
+            result.update(d)
 #    print result
     return result
 
@@ -193,16 +217,17 @@ def pubCitMerge(session, id):
     for c in session.query(Cite).filter(Cite.pub_ids == id).group_by(Cite.id_pub_m):
         idm.append(c.id_pub_m)
     for i in range(len(idm)):
-        pub = session.query(Publication).filter(Publication.id == idm[i]).one()
-        jouID = pub.journal_id
+        pub = session.query(Publication).filter(Publication.id == idm[i]).first()
+        if pub != None:
+            jouID = pub.journal_id
         
-        if jouID != None:
-            jou = session.query(Journal).filter(pub.journal_id == Journal.id).first()
-            tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name, pub.root, pub.urlcit, pub.urlpub)
-            result.append(tmp)
-        else:
-            tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, '', pub.root, pub.urlcit, pub.urlpub)
-            result.append(tmp)
+            if jouID != None:
+                jou = session.query(Journal).filter(pub.journal_id == Journal.id).first()
+                tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name, pub.root, pub.urlcit, pub.urlpub)
+                result.append(tmp)
+            else:
+                tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, '', pub.root, pub.urlcit, pub.urlpub)
+                result.append(tmp)
 #    print result
     return result
 
@@ -421,12 +446,12 @@ def getLinkCit(session, id):
 def getRecords(session, key, search):
     if search == '*' and key != '':
         tmp = []
-        for pub, jou, per in session.query(Publication, Journal, Person).\
+        for pub, jou in session.query(Publication, Journal).\
                         filter(Journal.id == Publication.journal_id).\
                         group_by(Publication.id):
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name, pub.root)
             tmp.append(c)
-        for pub, jou, per in session.query(Publication, Journal, Person).\
+        for pub, jou in session.query(Publication, Journal).\
                         filter(Publication.journal_id == None).\
                         group_by(Publication.id):
             c = (pub.id, pub.citation, pub.title, pub.author, pub.year, '', pub.root)
@@ -509,11 +534,16 @@ def getRecords(session, key, search):
     else:
         print 'tak'
     
-
 def deleteMultiRecord(session, data):
     for i in range(len(data)):
         id = data[i]
         delPubData(session, id)
+    for i in range(len(data)):
+        id = data[i]
+        for c in session.query(Cite).filter(Cite.pub_ids == id):
+            print (c.id_pub_m, c.id)
+            session.delete(c)
+    session.commit()
 
 ###################################################
 ## Polaczone z widokiem sch.view, zapytani głównie dla tabeli Person
@@ -716,12 +746,12 @@ def delUserDialog(session, id):
     
     session.commit()
 
-engine = create_engine("sqlite:///schdatabase.db", echo=True)
-Session = sessionmaker(bind=engine)
-session = Session()
-
-for c in session.query(Cite).group_by(Cite.id):
-    print c
+#engine = create_engine("sqlite:///schdatabase.db", echo=True)
+#Session = sessionmaker(bind=engine)
+#session = Session()
+##
+#for c in session.query(Cite).group_by(Cite.id):
+#    print c
 
 #getJournalName(session)
 

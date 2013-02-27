@@ -184,17 +184,19 @@ class Cite(DeclarativeBase):
     
     id = Column(Integer, primary_key=True)
     urlcit = Column(String)
+    allcit = Column(String)
     id_pub_m = Column(Integer)
     pub_ids = Column(Integer, ForeignKey('publication.id'))
     public = relation("Publication",  backref='cite')
     
-    def __init__(self, urlcit, id_pub_m, pub_ids):
+    def __init__(self, urlcit, allcit, id_pub_m, pub_ids):
         self.urlcit = urlcit
+        self.allcit = allcit
         self.id_pub_m = id_pub_m
         self.pub_ids =pub_ids
         
     def __repr__(self):
-        return "('%s','%s','%s')" % (self.urlcit,  self.id_pub_m, self.pub_ids)
+        return "('%s','%s','%s','%s')" % (self.urlcit, self.allcit, self.id_pub_m, self.pub_ids)
 
 ###########################################
 class PerPub(DeclarativeBase):

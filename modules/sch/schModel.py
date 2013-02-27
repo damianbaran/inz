@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import pickle
+import random
 #import urllib
 import urllib2
 from bs4 import BeautifulSoup
@@ -413,19 +414,32 @@ class sModel:
     
     def saveResult(self, data):
         home = os.getcwd()
-#        print home
         os.chdir('raport')
-        t = time.asctime( time.localtime(time.time()) )
-        t = re.sub(u':','', t)
+        r = random.random()
+        r = str(r)
+        q = e = o = w = a = p = yl = yh = ''
+        if self.item['query'] != '':
+            q = self.item['query'] + ','
+        if self.item['exact'] != '':
+            e = self.item['exact'] + ','
+        if self.item['oneof'] != '':
+            o = self.item['oneof'] + ','
+        if self.item['without'] != '':
+            w = self.item['without'] + ','
+        if self.item['author'] != '':
+            a = self.item['author'] + ','
+        if self.item['pub'] != '':
+            p = self.item['pub'] + ','
+        if self.item['ylow'] != '':
+            yl = self.item['ylow'] + ','
+        if self.item['yhigh'] != '':
+            yh = self.item['yhigh'] + ','
+        t = '%s%s%s%s%s%s%s%s%s' % (q, e, o, w, a, p, yl, yh, r)
+
         fo = open(t+'.txt', 'w')
         pickle.dump(data, fo)
         fo.close()
         os.chdir(home)
-#        print os.getcwd()
-        
-#        f = open('Sun Feb 17 00,48,53 2013.txt', 'r')
-#        x = pickle.load(f)
-#        print x
     
     def parseUrlTitle(self):
         """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""

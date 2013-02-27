@@ -2,14 +2,14 @@
 import wx
 from schModel import sModel
 from wx.lib.pubsub import Publisher
-from modules.men.menModel import mModel
+#from modules.men.menModel import mModel
 from bs4 import BeautifulSoup
 
-class sControler(sModel, mModel):
+class sControler(sModel):
     """Controler dla modules.sch czyli wyszukiwania"""
     def __init__(self):
         self.smodel = sModel()
-        self.mmodel = mModel()
+#        self.mmodel = mModel()
 #        self.statusbar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
 #        self.statusbar.SetStatusText(u'Jesteś w panelu wyszukiwania publikacji')
 #        self.frame = MainFrame()

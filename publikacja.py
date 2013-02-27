@@ -8,6 +8,7 @@
 ###########################################################################
 
 import wx
+import os
 import wx.xrc
 import cDatabase
 
@@ -15,165 +16,20 @@ import cDatabase
 ## Class PubDialog
 ###########################################################################
 
-#class PubDialog ( wx.Dialog ):
-#    def __init__( self ):
-#        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 350,350 ), style = wx.DEFAULT_DIALOG_STYLE )
-#        
-#        self.session = cDatabase.connectDatabase()
-#        listType = [u'Artykuł', u'Książka', u'Publikacja', u'Inne']
-#        
-#        self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
-#        
-#        bSizer1 = wx.BoxSizer( wx.VERTICAL )
-#        
-#        bSizer2 = wx.BoxSizer( wx.VERTICAL )
-#        
-#        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, u"Dodawanie Publikacji", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE )
-#        self.m_staticText1.Wrap( -1 )
-#        bSizer2.Add( self.m_staticText1, 0, wx.EXPAND|wx.ALL, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer2, 0, wx.EXPAND, 5 )
-#    
-#        bSizer3 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Tytuł:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText2.Wrap( -1 )
-#        bSizer3.Add( self.m_staticText2, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer3.Add( self.m_textCtrl2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer3, 0, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-#        
-#        bSizer5 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"Autorzy:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText4.Wrap( -1 )
-#        bSizer5.Add( self.m_staticText4, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer5.Add( self.m_textCtrl4, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer5, 0, wx.EXPAND, 5 )
-#        
-#        bSizer4 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"Cytowania:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText3.Wrap( -1 )
-#        bSizer4.Add( self.m_staticText3, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer4.Add( self.m_textCtrl3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer4, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
-#        
-#        bSizer6 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"Typ:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText5.Wrap( -1 )
-#        bSizer6.Add( self.m_staticText5, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        m_choice1Choices = listType
-#        self.m_choice1 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_choice1Choices, 0 )
-#        self.m_choice1.SetSelection( 0 )
-#        bSizer6.Add( self.m_choice1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer6, 0, wx.EXPAND, 5 )
-#        
-#        bSizer7 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText6 = wx.StaticText( self, wx.ID_ANY, u"Rok:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText6.Wrap( -1 )
-#        bSizer7.Add( self.m_staticText6, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl5 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer7.Add( self.m_textCtrl5, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer7, 0, wx.EXPAND, 5 )
-#        
-#        bSizer8 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"DOI:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText7.Wrap( -1 )
-#        bSizer8.Add( self.m_staticText7, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl6 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer8.Add( self.m_textCtrl6, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer8, 0, wx.EXPAND, 5 )
-#        
-#        bSizer12 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, u"Inny klucz:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText9.Wrap( -1 )
-#        bSizer12.Add( self.m_staticText9, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        self.m_textCtrl7 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 230,-1 ), 0 )
-#        bSizer12.Add( self.m_textCtrl7, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer12, 0, wx.EXPAND, 5 )
-#        
-#        bSizer9 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText8 = wx.StaticText( self, wx.ID_ANY, u"Wydawca:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText8.Wrap( -1 )
-#        bSizer9.Add( self.m_staticText8, 1, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        m_choice2Choices = cDatabase.getJournalName(self.session)
-#        self.m_choice2 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_choice2Choices, 0 )
-##        self.m_choice2.SetSelection( 0 )
-#        bSizer9.Add( self.m_choice2, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer9, 0, wx.EXPAND, 5 )
-#        
-#        bSizer10 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, u"Powiąż z autorami:", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        self.m_staticText9.Wrap( -1 )
-#        bSizer10.Add( self.m_staticText9, 1, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        m_checkList3Choices = cDatabase.getUserName(self.session)
-#        self.m_checkList3 = wx.CheckListBox( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 230,-1 ), m_checkList3Choices, 0 )
-#        bSizer10.Add( self.m_checkList3, 0, wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        bSizer1.Add( bSizer10, 1, wx.EXPAND, 5 )
-#        
-#        bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-#        self.m_button1 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        bSizer11.Add( self.m_button1, 0, wx.ALL|wx.EXPAND, 5 )
-#        
-#        self.m_button3 = wx.Button( self, wx.ID_ANY, u"Zatwierdź", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        bSizer11.Add( self.m_button3, 0, wx.ALL, 5 )
-#        
-#        self.m_button4 = wx.Button( self, wx.ID_ANY, u"Zamknij", wx.DefaultPosition, wx.DefaultSize, 0 )
-#        bSizer11.Add( self.m_button4, 0, wx.ALL, 5 )
-#            
-#        
-#        bSizer1.Add( bSizer11, 0, wx.ALIGN_RIGHT, 5 )
-#        
-#        
-#        self.SetSizer( bSizer1 )
-#        self.Layout()
-#        
-#        self.Centre( wx.BOTH )
-
 class PubDialog ( wx.Dialog ):
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 450,325 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         listType = [u'Artykuł', u'Książka', u'Publikacja', u'Inne']
+        
+        home = os.getcwd()
+        os.chdir('icon')
+        
+        ico = wx.Icon('pub.ico', wx.BITMAP_TYPE_ICO)
+        self.SetIcon(ico)
+        
+        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
@@ -462,21 +318,22 @@ class PubDialog ( wx.Dialog ):
         else:
             wx.MessageBox(u'Pola "Tytuł, Autor, Cytowania, Rok" sa wymagane!', u'Bład', wx.OK | wx.ICON_INFORMATION)
         
+        self.Destroy()
         #Czyszczenie kontrolek po dodaniu publikacji
-        self.m_choice1.SetSelection( 0 )        
-        self.m_choice2.SetSelection( 0 )
-        self.m_textCtrl2.SetValue('')
-        self.m_textCtrl3.SetValue('')
-        self.m_textCtrl4.SetValue('')
-        self.m_textCtrl5.SetValue('')
-        self.m_textCtrl6.SetValue('')
-        self.m_textCtrl7.SetValue('')
-        self.m_textCtrl71.SetValue('')
-        self.m_staticText11.SetLabel('')
-        self.m_staticText12.SetLabel('')
-        guser = cDatabase.getUserName(self.session)
-        for i in range(len(guser)):
-            self.m_checkList3.Check(i,  False)
+#        self.m_choice1.SetSelection( 0 )        
+#        self.m_choice2.SetSelection( 0 )
+#        self.m_textCtrl2.SetValue('')
+#        self.m_textCtrl3.SetValue('')
+#        self.m_textCtrl4.SetValue('')
+#        self.m_textCtrl5.SetValue('')
+#        self.m_textCtrl6.SetValue('')
+#        self.m_textCtrl7.SetValue('')
+#        self.m_textCtrl71.SetValue('')
+#        self.m_staticText11.SetLabel('')
+#        self.m_staticText12.SetLabel('')
+#        guser = cDatabase.getUserName(self.session)
+#        for i in range(len(guser)):
+#            self.m_checkList3.Check(i,  False)
         
 
     def getCheckUser(self):

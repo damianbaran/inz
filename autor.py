@@ -8,6 +8,7 @@
 ###########################################################################
 
 import wx
+import os
 import wx.xrc
 import cDatabase
 
@@ -20,6 +21,14 @@ class AuthorDialog ( wx.Dialog ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Autorami", pos = wx.DefaultPosition, size = wx.Size( 350,270 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
+        
+        home = os.getcwd()
+        os.chdir('icon')
+        
+        ico = wx.Icon('autor.ico', wx.BITMAP_TYPE_ICO)
+        self.SetIcon(ico)
+        
+        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
@@ -194,19 +203,18 @@ class AuthorDialog ( wx.Dialog ):
         
         if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
             wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
-            return
+        else:
+            ColDict['name'] = dbCollege
+            FacDict['name'] = dbFaculty
+            InsDict['name'] = dbInstitut
+            UserDict['name'] = dbName
+            UserDict['surname'] = dbSurname
+            UserDict['filtr'] = dbFilter
+            AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
+            cDatabase.addUser(self.session,AllDict)
+            wx.MessageBox(u'Poprawnie dodano Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
         
-        ColDict['name'] = dbCollege
-        FacDict['name'] = dbFaculty
-        InsDict['name'] = dbInstitut
-        UserDict['name'] = dbName
-        UserDict['surname'] = dbSurname
-        UserDict['filtr'] = dbFilter
-        
-        AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
-        
-        print AllDict
-        cDatabase.addUser(self.session,AllDict)
+        self.Destroy()
         
 #        """Update kontrolki z imionami i nazwiskami autorów do filtracji"""
 #        self.ch4Choices = self.SetUserName()
@@ -215,18 +223,16 @@ class AuthorDialog ( wx.Dialog ):
 #        self.ch4.SetSelection( 0 )
         
         #Aktualizacja kontrolki z imionami i nazwiskami autorów
-        m_choice1Choices = cDatabase.getUserName(self.session)
-        self.m_choice1.Clear()
-        self.m_choice1.AppendItems(m_choice1Choices)
-#        self.m_choice1.SetSelection( 0 )
-
-        self.clear()
-        
-        self.m_button1.Hide()
-        self.m_button7.Hide()
-        self.m_button2.Show()
-        
-        wx.MessageBox(u'Poprawnie dodano Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
+#        m_choice1Choices = cDatabase.getUserName(self.session)
+#        self.m_choice1.Clear()
+#        self.m_choice1.AppendItems(m_choice1Choices)
+##        self.m_choice1.SetSelection( 0 )
+#
+#        self.clear()
+#        
+#        self.m_button1.Hide()
+#        self.m_button7.Hide()
+#        self.m_button2.Show()
 
     def clear(self):
         """Aktualizacja kontrolki z nazwami uczelni"""

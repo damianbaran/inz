@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import wx
+import os
 import wx.lib.mixins.listctrl as listmix
 import webbrowser
 import cDatabase
+import lxml.html
+from lxml.html import builder as E
 from wx.lib.pubsub import Publisher
 from publikacja import PubDialog
 from grupa import GroupDialog
@@ -27,34 +30,80 @@ class bView(wx.Panel, PubDialog):
         ########################################################################
         #  Panel 1
         ########################################################################
-        self.panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
-        globalBox = wx.BoxSizer( wx.VERTICAL )
+#        self.panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+#        globalBox = wx.BoxSizer( wx.VERTICAL )
+#        
+#        twoBox1 = wx.BoxSizer( wx.VERTICAL )
+#        
+#        bSizer24 = wx.BoxSizer( wx.HORIZONTAL )
+#        
+##        self.m_staticText12 = wx.StaticText( self.panel, wx.ID_ANY, u"Wyszukaj", wx.DefaultPosition, wx.DefaultSize, 0 )
+##        self.m_staticText12.Wrap( -1 )
+##        bSizer24.Add( self.m_staticText12, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
+#        
+#        m_choice31Choices = listSearch
+#        self.m_choice31 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, m_choice31Choices, 0 )
+#        self.m_choice31.SetSelection( 0 )
+#        bSizer24.Add( self.m_choice31, 0, wx.ALL, 5 )
+#        
+#        self.m_searchCtrl1 = wx.SearchCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
+#        self.m_searchCtrl1.ShowSearchButton( True )
+#        self.m_searchCtrl1.ShowCancelButton( False )
+#        bSizer24.Add( self.m_searchCtrl1, 0, wx.EXPAND, 5 )
+#        
+#        
+#        twoBox1.Add( bSizer24, 0, wx.EXPAND, 5 )
+#        
+#        twoBox11 = wx.BoxSizer( wx.VERTICAL )
+#        
+##        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
+#        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+#        self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=23)
+#        self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=60)
+#        self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=370)
+#        self.dataList.InsertColumn(3, 'Autor', format=wx.LIST_FORMAT_LEFT, width=210)
+#        self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
+#        self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=120)
+#        self.dataList.InsertColumn(6, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=120)
+#        twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
+#        
+#        
+#        twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
+#        
+#        
+#        globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
+#        
+#        
+#        self.panel.SetSizer( globalBox )
+#        self.panel.Layout()
+#        globalBox.Fit( self.panel )
+    
+        self.m_panel1 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+        bSizer21 = wx.BoxSizer( wx.VERTICAL )
         
-        twoBox1 = wx.BoxSizer( wx.VERTICAL )
-        
-        bSizer24 = wx.BoxSizer( wx.HORIZONTAL )
-        
-        self.m_staticText12 = wx.StaticText( self.panel, wx.ID_ANY, u"Wyszukaj", wx.DefaultPosition, wx.DefaultSize, 0 )
-        self.m_staticText12.Wrap( -1 )
-        bSizer24.Add( self.m_staticText12, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
+        bSizer3 = wx.BoxSizer( wx.HORIZONTAL )
         
         m_choice31Choices = listSearch
-        self.m_choice31 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, m_choice31Choices, 0 )
+        self.m_choice31 = wx.Choice( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, m_choice31Choices, 0 )
         self.m_choice31.SetSelection( 0 )
-        bSizer24.Add( self.m_choice31, 0, wx.ALL, 5 )
+        bSizer3.Add( self.m_choice31, 0, wx.ALL, 5 )        
+
+#        m_choice1Choices = listSearch
+#        self.m_choice1 = wx.Choice( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), m_choice1Choices, 0 )
+#        self.m_choice1.SetSelection( 0 )
+#        bSizer3.Add( self.m_choice1, 0, wx.ALL, 5 )
         
-        self.m_searchCtrl1 = wx.SearchCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
+        self.m_searchCtrl1 = wx.SearchCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
         self.m_searchCtrl1.ShowSearchButton( True )
         self.m_searchCtrl1.ShowCancelButton( False )
-        bSizer24.Add( self.m_searchCtrl1, 0, wx.ALL, 5 )
+        bSizer3.Add( self.m_searchCtrl1, 0, wx.ALL, 5 )
         
+        bSizer21.Add( bSizer3, 0, wx.EXPAND, 5 )
         
-        twoBox1.Add( bSizer24, 0, wx.EXPAND|wx.LEFT|wx.RIGHT|wx.BOTTOM, 5 )
+        bSizer4 = wx.BoxSizer( wx.VERTICAL )
         
-        twoBox11 = wx.BoxSizer( wx.VERTICAL )
-        
-#        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( 994,490 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
+#        self.m_listCtrl1 = wx.ListCtrl( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LC_ICON )
+        self.dataList = TestListCtrl( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1007,390 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=23)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=60)
         self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=370)
@@ -62,20 +111,15 @@ class bView(wx.Panel, PubDialog):
         self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
         self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=120)
         self.dataList.InsertColumn(6, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=120)
-        twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
+        bSizer4.Add( self.dataList, 1, wx.ALL|wx.EXPAND, 5 )
         
+        bSizer21.Add( bSizer4, 1, wx.EXPAND, 5 )
         
-        twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
+        self.m_panel1.SetSizer( bSizer21 )
+        self.m_panel1.Layout()
+        bSizer21.Fit( self.m_panel1 )
         
-        
-        globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
-        
-        
-        self.panel.SetSizer( globalBox )
-        self.panel.Layout()
-        globalBox.Fit( self.panel )
-        
-#############################################################
+############################################################
 ## Bindowanie
 #############################################################
         
@@ -86,7 +130,63 @@ class bView(wx.Panel, PubDialog):
         #Pozycje dal popmenu
         self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
         self.id_cit = []
+    
+#############################################################
+## Generowanie html i bibtex
+#############################################################
+
+    def generateHtml(self):
+        home = os.getcwd()
+        os.chdir('bibliography')
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                t = self.dataList.GetItemText(i)
+                t = int(t)
+                c = cDatabase.getHtmlData(self.session, t)
+                self.htm(c[0])
+        os.chdir(home)
+        wx.MessageBox(u'Poprawnie wygenerowano bibliografię do pliku .html\nZnajdziesz go w folderze "Bibliography"', 'Wygenerowano HTML', wx.OK | wx.ICON_INFORMATION)
+    
+    def htm(self, data):
+        aut = 'Czyzycki, W.; Filo, G.; Domagala, M.;'
+        html = E.DIV(E.CLASS("iso-690"), 
+            E.SPAN(''+data[3]+'.', E.I(' '+data[2]+'.'), ' '+data[5]+'.', ' '+str(data[4])+'.')
+        ) 
+
+        fo = open('biblografia.html', 'a')
+        fo.write(lxml.html.tostring(html)+'\n')
+        fo.close()
+    
+    def generateBibtex(self):
+        home = os.getcwd()
+        os.chdir('bibliography')
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                t = self.dataList.GetItemText(i)
+                t = int(t)
+                c = cDatabase.getHtmlData(self.session, t)
+                self.bib(c[0])
+        os.chdir(home)
+        wx.MessageBox(u'Poprawnie wygenerowano bibliografię do pliku .bib\nZnajdziesz go w folderze "Bibliography"', 'Wygenerowano Bibtex', wx.OK | wx.ICON_INFORMATION)
+    
+    def bib(self, data):
+        author = data[3].encode('utf-8')
+        title = data[2].encode('utf-8')
+        publisher = data[5].encode('utf-8')
+        year = str(data[4])
+        identy = title[:3] +':'+ publisher[:3]+':'+year
+        book = '@misc{%s,\n' \
+        '  Author = {%s},\n' \
+        '  Title = {%s},\n' \
+        '  Publisher = {%s},\n' \
+        '  Year = {%s}\n}' % (identy, author, title, publisher, year)
         
+        fo = open('bibliografia.bib', 'a')
+        fo.write(book+'\n')
+        fo.close()
+    
 #############################################################
 ## Metody
 #############################################################

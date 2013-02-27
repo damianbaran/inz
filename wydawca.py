@@ -8,6 +8,7 @@
 ###########################################################################
 
 import wx
+import os
 import wx.xrc
 import cDatabase
 
@@ -20,6 +21,14 @@ class JourDialog ( wx.Dialog ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Wydawcami", pos = wx.DefaultPosition, size = wx.Size( 350,165 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
+        
+        home = os.getcwd()
+        os.chdir('icon')
+        
+        ico = wx.Icon('jou.ico', wx.BITMAP_TYPE_ICO)
+        self.SetIcon(ico)
+        
+        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
     
