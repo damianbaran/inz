@@ -37,7 +37,7 @@
             <property name="minimum_size">-1,-1</property>
             <property name="name">MyFrame1</property>
             <property name="pos"></property>
-            <property name="size">640,350</property>
+            <property name="size">702,350</property>
             <property name="style">wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title"></property>
@@ -560,7 +560,7 @@
                     </object>
                 </object>
             </object>
-            <object class="wxToolBar" expanded="0">
+            <object class="wxToolBar" expanded="1">
                 <property name="bg"></property>
                 <property name="bitmapsize"></property>
                 <property name="context_help"></property>
@@ -888,6 +888,34 @@
                     <property name="kind">wxITEM_NORMAL</property>
                     <property name="label">tool</property>
                     <property name="name">m_tool20</property>
+                    <property name="statusbar"></property>
+                    <property name="tooltip"></property>
+                    <event name="OnMenuSelection"></event>
+                    <event name="OnToolClicked"></event>
+                    <event name="OnToolEnter"></event>
+                    <event name="OnToolRClicked"></event>
+                    <event name="OnUpdateUI"></event>
+                </object>
+                <object class="tool" expanded="1">
+                    <property name="bitmap">../src/icon/backup.png; Load From File</property>
+                    <property name="id">wxID_ANY</property>
+                    <property name="kind">wxITEM_NORMAL</property>
+                    <property name="label">tool</property>
+                    <property name="name">m_tool21</property>
+                    <property name="statusbar"></property>
+                    <property name="tooltip"></property>
+                    <event name="OnMenuSelection"></event>
+                    <event name="OnToolClicked"></event>
+                    <event name="OnToolEnter"></event>
+                    <event name="OnToolRClicked"></event>
+                    <event name="OnUpdateUI"></event>
+                </object>
+                <object class="tool" expanded="1">
+                    <property name="bitmap">../src/icon/replace.png; Load From File</property>
+                    <property name="id">wxID_ANY</property>
+                    <property name="kind">wxITEM_NORMAL</property>
+                    <property name="label">tool</property>
+                    <property name="name">m_tool22</property>
                     <property name="statusbar"></property>
                     <property name="tooltip"></property>
                     <event name="OnMenuSelection"></event>

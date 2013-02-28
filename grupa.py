@@ -18,17 +18,12 @@ import cDatabase
 
 class GroupDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Grupami", pos = wx.DefaultPosition, size = wx.Size( 330,300 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Grupami", pos = wx.DefaultPosition, size = wx.Size( 330,330 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
-        
-        home = os.getcwd()
-        os.chdir('icon')
-        
-        ico = wx.Icon('grupa.ico', wx.BITMAP_TYPE_ICO)
+
+        ico = wx.Icon('icon/grupa.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-        
-        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
@@ -68,6 +63,19 @@ class GroupDialog ( wx.Dialog ):
         
         
         bSizer1.Add( bSizer10, 1, wx.EXPAND, 5 )
+        
+        bSizer55 = wx.BoxSizer( wx.HORIZONTAL )
+        
+#        self.m_staticText55 = wx.StaticText( self, wx.ID_ANY, u"Notatki:", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.m_staticText55.Wrap( -1 )
+#        bSizer55.Add( self.m_staticText55, 1, wx.ALL, 5 )
+        
+        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,50 ), wx.TE_MULTILINE )
+        self.m_textCtrl2.SetToolTipString( u"Notatki do autora" )
+        bSizer55.Add( self.m_textCtrl2, 1, wx.ALL|wx.EXPAND, 5  )
+        
+        
+        bSizer1.Add( bSizer55, 0, wx.EXPAND, 5 )
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
@@ -146,6 +154,7 @@ class GroupDialog ( wx.Dialog ):
         #Pobieranie i deklaracji wartosci
         result = []
         gname = self.m_comboBox1.GetValue()
+        gnote = self.m_textCtrl2.GetValue()
         
         #Usuwanie wszystkich powiazanych autorów z grupa
         guser = cDatabase.editUserGroup(self.session, gname)
@@ -157,7 +166,7 @@ class GroupDialog ( wx.Dialog ):
             if self.m_checkList3.IsChecked(i):
                 tmp = guser[i].split(' ')
                 id = t[guser[i]]
-                l = (id,  gname)
+                l = (id,  gname, gnote)
                 result.append(l)
         
         #Sprawdzanie czy wszystkie wymagane pola maja wartości
@@ -197,6 +206,9 @@ class GroupDialog ( wx.Dialog ):
             y = p[guser[i]]
             self.m_checkList3.Check(y)
         
+        n = cDatabase.getGroup(self.session, gname)
+        self.m_textCtrl2.SetValue(n)
+        
         self.m_staticText1.SetLabel(u'Edytowanie Grupy')
         self.m_button5.Show()
         self.m_button3.Show()
@@ -213,6 +225,7 @@ class GroupDialog ( wx.Dialog ):
         
         #Czyszczenie zaznaczonych autorow
         self.m_comboBox1.SetValue('')
+        self.m_textCtrl2.SetValue('')
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
     

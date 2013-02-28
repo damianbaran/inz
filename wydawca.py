@@ -18,17 +18,12 @@ import cDatabase
 
 class JourDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Wydawcami", pos = wx.DefaultPosition, size = wx.Size( 350,165 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Wydawcami", pos = wx.DefaultPosition, size = wx.Size( 350,230 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
-        
-        home = os.getcwd()
-        os.chdir('icon')
-        
-        ico = wx.Icon('jou.ico', wx.BITMAP_TYPE_ICO)
+
+        ico = wx.Icon('icon/jou.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-        
-        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
     
@@ -79,6 +74,19 @@ class JourDialog ( wx.Dialog ):
         
         
         bSizer1.Add( bSizer5, 0, wx.EXPAND, 5 )
+        
+        bSizer55 = wx.BoxSizer( wx.HORIZONTAL )
+        
+#        self.m_staticText55 = wx.StaticText( self, wx.ID_ANY, u"Notatki:", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.m_staticText55.Wrap( -1 )
+#        bSizer55.Add( self.m_staticText55, 1, wx.ALL, 5 )
+        
+        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,50 ), wx.TE_MULTILINE )
+        self.m_textCtrl2.SetToolTipString( u"Notatki do autora" )
+        bSizer55.Add( self.m_textCtrl2, 1, wx.ALL|wx.EXPAND, 5  )
+        
+        
+        bSizer1.Add( bSizer55, 0, wx.EXPAND, 5 )
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
@@ -135,6 +143,8 @@ class JourDialog ( wx.Dialog ):
         self.m_comboBox1.Clear()
         self.m_comboBox1.AppendItems(m_comboBox1Choices)
         self.m_comboBox1.SetSelection( 0 )
+        
+        self.cancel()
 
     def viewJournalValue(self, event):
         self.tx1 = self.m_comboBox1.GetValue()
@@ -143,6 +153,7 @@ class JourDialog ( wx.Dialog ):
         
         self.m_textCtrl3.SetValue(data[0])
         self.m_textCtrl4.SetValue(data[1])
+        self.m_textCtrl2.SetValue(data[2])
         
         self.m_staticText1.SetLabel(u'Edytowanie Wydawcy')
         self.m_button3.Show()
@@ -155,7 +166,8 @@ class JourDialog ( wx.Dialog ):
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
         tx3 = self.m_textCtrl4.GetValue()
-        t = (tx1, tx2, tx3)
+        tx4 = self.m_textCtrl2.GetValue()
+        t = (tx1, tx2, tx3, tx4)
         
         #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' or tx3 != '':
@@ -170,6 +182,7 @@ class JourDialog ( wx.Dialog ):
 #        self.m_comboBox1.SetSelection( 0 )
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
+        self.m_textCtrl2.SetValue('')
         
     def editJournalValue(self, event):
         """Edytowanie wybranego wydawcy w bazie danych"""
@@ -177,7 +190,8 @@ class JourDialog ( wx.Dialog ):
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
         tx3 = self.m_textCtrl4.GetValue()
-        t = (tx1, tx2, tx3)
+        tx4 = self.m_textCtrl2.GetValue()
+        t = (tx1, tx2, tx3, tx4)
         
         jourID = cDatabase.getJournalNameID(self.session)
         id = jourID[self.tx1]
@@ -198,6 +212,7 @@ class JourDialog ( wx.Dialog ):
 #        self.m_comboBox1.SetSelection( 0 )
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
+        self.m_textCtrl2.SetValue('')
         
         self.m_staticText1.SetLabel(u'Dodawanie Wydawcy')
         self.m_button3.Hide()
@@ -212,6 +227,7 @@ class JourDialog ( wx.Dialog ):
 #        self.m_comboBox1.SetSelection( 0 )
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
+        self.m_textCtrl2.SetValue('')
         
         self.m_staticText1.SetLabel(u'Dodawanie Wydawcy')
         self.m_button3.Hide()

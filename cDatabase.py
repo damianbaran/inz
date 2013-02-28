@@ -13,7 +13,7 @@ import sqlalchemy.exc
 import sqlalchemy.orm.exc
 
 from modules.sch.schModel import sModel
-from modules.men.menModel import mModel
+#from modules.men.menModel import mModel
 
 
 from mDatabase import Person, College, Faculty, Institute, Group, ColPer, GroPer, Publication, Journal, PerPub, Cite, metadata
@@ -22,21 +22,21 @@ from mDatabase import Person, College, Faculty, Institute, Group, ColPer, GroPer
 ## Polaczone z modelami
 ###################################################
 
-mmodel = mModel()
+#mmodel = mModel()
 
-def getChoiceRecord(session, data):
-    tmp = []
-    for i in range(len(data)):
-        print data[i]
-        for p, j in session.query(Publication, Journal).\
-                filter(Publication.id == data[i]).\
-                filter(Publication.journal_id == Journal.id):
-            t = ('', p.citation, p.title, p.author, p.year, j.full_name)
-            tmp.append(t)
-#    return tmp
-    
-    mmodel.getBaseData(tmp)
-#    return t
+#def getChoiceRecord(session, data):
+#    tmp = []
+#    for i in range(len(data)):
+#        print data[i]
+#        for p, j in session.query(Publication, Journal).\
+#                filter(Publication.id == data[i]).\
+#                filter(Publication.journal_id == Journal.id):
+#            t = ('', p.citation, p.title, p.author, p.year, j.full_name)
+#            tmp.append(t)
+##    return tmp
+#    
+#    mmodel.getBaseData(tmp)
+##    return t
     
 
 
@@ -218,16 +218,8 @@ def pubCitMerge(session, id):
         idm.append(c.id_pub_m)
     for i in range(len(idm)):
         pub = session.query(Publication).filter(Publication.id == idm[i]).first()
-        if pub != None:
-            jouID = pub.journal_id
-        
-            if jouID != None:
-                jou = session.query(Journal).filter(pub.journal_id == Journal.id).first()
-                tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, jou.full_name, pub.root, pub.urlcit, pub.urlpub)
-                result.append(tmp)
-            else:
-                tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, '', pub.root, pub.urlcit, pub.urlpub)
-                result.append(tmp)
+        tmp = (pub.id, pub.citation, pub.title, pub.author, pub.year, pub.root, pub.doi, pub.urlcit, pub.urlpub)
+        result.append(tmp)
 #    print result
     return result
 
@@ -242,7 +234,7 @@ def addJournalData(session, data):
         tmp.append(t)
 #    print tmp
     if tmp == []:
-        jou = Journal(data[0], data[1], data[2])
+        jou = Journal(data[0], data[1], data[2], data[3])
         session.add(jou)
         session.commit()
     else:
@@ -255,6 +247,7 @@ def editJournalData(session, data, id):
     jou.full_name = data[0]
     jou.short_name = data[1]
     jou.address = data[2]
+    jou.note = data[3]
     session.add(jou)
     session.commit()
 
@@ -294,12 +287,17 @@ def getJournalNameID(session):
 def getJournalData(session, name):
     for jou in session.query(Journal).\
             filter(Journal.full_name == name):
-        t = (jou.short_name, jou.address)
+        t = (jou.short_name, jou.address, jou.note)
     return t
     
 ###############################################
 ## zapytania dla tabeli Publication
 ###############################################
+
+def getMergePubData(session, id):
+    pub = session.query(Publication).filter(Publication.id == id).one()
+    result = (pub.id, pub.citation, pub.title, pub.author, pub.year, pub.root, pub.doi, pub.urlcit, pub.urlpub)
+    return result
 
 def getPubData(session, id):
     pub = session.query(Publication).filter(Publication.id == id).one()
@@ -326,7 +324,7 @@ def delPubData(session, id):
     
 def addPubData(session, data):
     """Dodaje publikacje do bazy danych wpisana przez uzytkownika"""
-    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[9], data[10], data[11])
+    pub = Publication(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[9], data[10], data[11], data[12], data[13], data[14])
     session.add(pub)
     session.commit()
     
@@ -375,22 +373,15 @@ def geteditPubData(session, id):
     
     if jouID != None:
         jou = session.query(Journal).filter(Journal.id == jouID).first()
-        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t, pub.urlpub, pub.urlcit, pub.root)
+        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, jou.full_name, t, pub.urlpub, pub.urlcit, pub.root, pub.lmcp, pub.jcr, pub.note)
         return result
     else:
-        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, '', t, pub.urlpub, pub.urlcit, pub.root)
+        result = (str(pub.id), pub.title, pub.author, pub.citation, pub.type, pub.year, pub.doi, pub.ident, '', t, pub.urlpub, pub.urlcit, pub.root, pub.lmcp, pub.jcr, pub.note)
         return result
     
 def editPubData(session, data, id):
     """Edytuje wartości w bazie danych dla danej publikacji"""
     print data, id
-#    for pub, jou, per, perpub in session.query(Publication, Journal, Person, PerPub).\
-#            filter(or_(Journal.id == Publication.journal_id, Publication.journal_id == None)).\
-#            filter(Person.id == PerPub.person_id).\
-#            filter(Publication.id == PerPub.pub_id).\
-#            filter(Publication.id == id).group_by(Person.id):
-#        print pub.id
-    
     pub = session.query(Publication).filter(Publication.id == id).first()
     
     pub.title = data[0]
@@ -402,6 +393,9 @@ def editPubData(session, data, id):
     pub.ident = data[6]
     pub.journal_id = data[7]
     pub.root = data[9]
+    pub.lmcp = data[10]
+    pub.jcr = data[11]
+    pub.note = data[12]
     session.add(pub)
     
     tmpid = data[8]
@@ -552,7 +546,8 @@ def deleteMultiRecord(session, data):
 def addUser(session, data):
     """Dodaje nowego użytkownika do bazy danych. 
     Uzupełnia tabele asocjacyjna pomiedzy użytkownikiem a uczelnia"""
-    user = Person(data['person']['name'],data['person']['surname'], data['person']['filtr'])
+    print data
+    user = Person(data['person']['name'],data['person']['surname'], data['person']['filtr'], data['person']['note'])
     session.add(user)
     session.commit()
     tmpPersonID = user.id
@@ -637,10 +632,12 @@ def getUserFilter(session):
 def addGroup(session,  data):
     """Pobiera tworzona grupe, sprawdza czy taka istnieje i robi update uzytkownikow o klucz FK
     Dodaje też dane do tablicy asocjacyjnej pomiędzy Groupa i Autorem"""
+    print data
     tmp = data[0]
+    print tmp
     qGro = session.query(Group).filter(Group.name == tmp[1]).first()
     if qGro == None:
-        gro = Group(tmp[1])
+        gro = Group(tmp[1], tmp[2])
         session.add(gro)
     session.commit()
     
@@ -671,6 +668,11 @@ def delGroup(session, data):
     
     session.delete(gro)
     session.commit()
+
+def getGroup(session, data):
+    qGro = session.query(Group).filter(Group.name == data).first()
+    result = qGro.note
+    return result
     
 ###################################################
 ## Polaczone z modelem sch.model
@@ -693,7 +695,7 @@ def getUserDialog(session, id):
             filter(ColPer.college_id == College.id).\
             filter(College.id == Faculty.college_id).\
             filter(Faculty.id == Institute.faculty_id):
-        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr, per.note
     return t
     
 def editUserDialog(session, data, id):
@@ -704,7 +706,7 @@ def editUserDialog(session, data, id):
             filter(ColPer.college_id == College.id).\
             filter(College.id == Faculty.college_id).\
             filter(Faculty.id == Institute.faculty_id):
-        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr
+        t = col.name, fac.name, ins.name, per.name, per.surname, per.filtr, per.note
     
     col.name = data[0]
     fac.name = data[1]
@@ -712,6 +714,7 @@ def editUserDialog(session, data, id):
     per.name = data[3]
     per.surname = data[4]
     per.filtr = data[5]
+    per.note = data[6]
     session.add(col)
     session.add(fac)
     session.add(ins)
@@ -752,6 +755,8 @@ def delUserDialog(session, id):
 ##
 #for c in session.query(Cite).group_by(Cite.id):
 #    print c
+#    session.delete(c)
+#session.commit()
 
 #getJournalName(session)
 

@@ -11,6 +11,7 @@ import wx
 import os
 import wx.xrc
 import cDatabase
+import linecache
 
 ###########################################################################
 ## Class PubDialog
@@ -18,18 +19,14 @@ import cDatabase
 
 class PubDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 450,325 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 450,430 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
-        listType = [u'Artykuł', u'Książka', u'Publikacja', u'Inne']
+        self.listType = []
+        self.getType()
         
-        home = os.getcwd()
-        os.chdir('icon')
-        
-        ico = wx.Icon('pub.ico', wx.BITMAP_TYPE_ICO)
+        ico = wx.Icon('icon/pub.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-        
-        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
@@ -100,7 +97,7 @@ class PubDialog ( wx.Dialog ):
 #        self.m_choice1.SetSelection( 0 )
 #        bSizer6.Add( self.m_choice1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
-        m_choice1Choices = listType
+        m_choice1Choices = self.listType
         self.m_choice1 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 145,-1 ), m_choice1Choices, 0 )
         self.m_choice1.SetSelection( 0 )
         bSizer6.Add( self.m_choice1, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
@@ -170,10 +167,35 @@ class PubDialog ( wx.Dialog ):
         bSizer17.Add( self.m_staticText10, 1, wx.ALL, 5 )
         
         self.m_textCtrl71 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 145,-1 ), 0 )
-        bSizer17.Add( self.m_textCtrl71, 0, wx.ALL, 5 )
+        bSizer17.Add( self.m_textCtrl71, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
         bSizer15.Add( bSizer17, 1, wx.EXPAND, 5 )
+        
+        bSizer18 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.m_staticText99 = wx.StaticText( self, wx.ID_ANY, u"LMCP:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText99.Wrap( -1 )
+        bSizer18.Add( self.m_staticText99, 1, wx.ALL, 5 )
+        
+        self.m_textCtrl99 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 145,-1 ), 0 )
+        bSizer18.Add( self.m_textCtrl99, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
+        
+        
+        bSizer15.Add( bSizer18, 1, wx.EXPAND, 5 )
+        
+        bSizer19 = wx.BoxSizer( wx.HORIZONTAL )
+        
+        self.m_staticText98 = wx.StaticText( self, wx.ID_ANY, u"JCR:", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText98.Wrap( -1 )
+        bSizer19.Add( self.m_staticText98, 1, wx.ALL, 5 )
+        
+        m_choice3Choices = ['True', 'False']
+        self.m_choice3 = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 145,-1 ), m_choice3Choices, 0 )
+        bSizer19.Add( self.m_choice3, 0, wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
+        
+        
+        bSizer15.Add( bSizer19, 1, wx.EXPAND, 5 )
         
         bSizer26.Add( bSizer15, 1, wx.EXPAND, 5 )
         
@@ -186,13 +208,32 @@ class PubDialog ( wx.Dialog ):
 #        bSizer10.Add( self.m_checkList3, 0, wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         m_checkList3Choices = cDatabase.getUserName(self.session)
-        self.m_checkList3 = wx.CheckListBox( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 200,235 ), m_checkList3Choices, 0 )
+        self.m_checkList3 = wx.CheckListBox( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 200,281 ), m_checkList3Choices, 0 )
         self.m_checkList3.SetToolTipString( u"Powiąż autorów z publikacją" )
         
         bSizer10.Add( self.m_checkList3, 0, wx.EXPAND|wx.BOTTOM|wx.RIGHT|wx.LEFT, 5 )
         
         
         bSizer23.Add( bSizer10, 0, wx.EXPAND, 5 )
+        
+        
+        bSizer26.Add( bSizer23, 1, wx.EXPAND, 5 )
+        
+        
+        bSizer1.Add( bSizer26, 0, wx.EXPAND, 5 )
+        
+        bSizer55 = wx.BoxSizer( wx.HORIZONTAL )
+        
+#        self.m_staticText55 = wx.StaticText( self, wx.ID_ANY, u"Notatki:", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.m_staticText55.Wrap( -1 )
+#        bSizer55.Add( self.m_staticText55, 1, wx.ALL, 5 )
+        
+        self.m_textCtrl55 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,50 ), wx.TE_MULTILINE )
+        self.m_textCtrl55.SetToolTipString( u"Notatki do publikacji" )
+        bSizer55.Add( self.m_textCtrl55, 1, wx.ALL|wx.EXPAND, 5  )
+        
+        
+        bSizer1.Add( bSizer55, 0, wx.EXPAND, 5 )
         
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
@@ -214,13 +255,7 @@ class PubDialog ( wx.Dialog ):
         bSizer11.Add( self.m_staticText12, 1, wx.ALL, 5 )
         
         
-        bSizer23.Add( bSizer11, 0, wx.ALIGN_RIGHT, 5 )
-        
-        
-        bSizer26.Add( bSizer23, 1, wx.EXPAND, 5 )
-        
-        
-        bSizer1.Add( bSizer26, 0, wx.EXPAND, 5 )
+        bSizer1.Add( bSizer11, 0, wx.ALIGN_RIGHT, 5 )
         
         
         self.SetSizer( bSizer1 )
@@ -243,6 +278,19 @@ class PubDialog ( wx.Dialog ):
 ###################################################
 ## Metody
 ###################################################
+        self.getType()
+    
+    def getType(self):
+        count = len(open('type.txt', 'rU').readlines())
+        for i in range(count):
+            self.listType.append(linecache.getline('type.txt',i+1))
+        print self.listType
+#            self.lbStrony.insert(END, linecache.getline(self.nazwabaza,i))
+#            self.lstNazw.append(linecache.getline(self.nazwabaza,i))
+#            self.lstStron.append(linecache.getline(self.nazwabaza,i+1))
+#        fo = open('type.txt', 'w')
+##        pickle.dump(data, fo)
+#        fo.close()
     
     def editPubValue(self, event):
         """Edytowanie wybranej publikacji"""
@@ -259,6 +307,9 @@ class PubDialog ( wx.Dialog ):
         t7 = self.m_textCtrl7.GetValue()
         t8 = self.m_choice2.GetStringSelection()
         t10 = self.m_textCtrl71.GetValue()
+        t11 = self.m_textCtrl99.GetValue() #Lista ministerialna
+        t12 = self.m_choice3.GetStringSelection() #czy jest w JCR
+        t13 = self.m_textCtrl55.GetValue() #notatka
         
         #Odznacza już powiazanych autorów
 #        ch = cDatabase.getCheckItemAuthor(self.session, t0)
@@ -276,7 +327,7 @@ class PubDialog ( wx.Dialog ):
         else:
             t8 = None
         
-        t = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10)
+        t = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13)
         
         #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if t1 != '' and t2 != '' and t3 != '' and t5 != '':
@@ -302,6 +353,9 @@ class PubDialog ( wx.Dialog ):
         tx10 = self.m_textCtrl71.GetValue()            #zrodlo
         tx11 = self.m_staticText11.GetLabel()           #urlpub
         tx12 = self.m_staticText12.GetLabel()           #urlcit
+        tx13 = self.m_textCtrl99.GetValue() #Lista ministerialna
+        tx14 = self.m_choice3.GetStringSelection() #jcr
+        tx15 = self.m_textCtrl55.GetValue() #note
         
         #Pobiera wartosci ID dla zaznaczonych autorów
         tmp = cDatabase.getJournalNameID(self.session)
@@ -310,7 +364,7 @@ class PubDialog ( wx.Dialog ):
         else:
             tx7 = None
         
-        t = (tx1, tx2, tx3, tx4, tx5, tx6, tx9, tx7, tx8, tx11, tx12, tx10)
+        t = (tx1, tx2, tx3, tx4, tx5, tx6, tx9, tx7, tx8, tx11, tx12, tx10, tx13, tx14, tx15)
         
         #Sprawdzenie czy obowiazkowe wartości nie sa puste
         if tx1 != '' and tx2 != '' and tx3 != '' and tx5 != '':

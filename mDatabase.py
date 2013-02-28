@@ -20,20 +20,22 @@ class Person(DeclarativeBase):
     name = Column(String)
     surname = Column(String)
     filtr = Column(String)
+    note = Column(String)
     
     ## The constructor.
     #  @param self name.
     #  @param self surname.
     #  @param self filtr.
-    def __init__(self, name, surname, filtr):
+    def __init__(self, name, surname, filtr, note):
         self.name = name
         self.surname = surname
         self.filtr = filtr
+        self.note = note
     
     ## Documentation for a method.
     #   @param self The object pointer.
     def __repr__(self):
-        return "('%s','%s','%s')" % (self.name, self.surname, self.filtr)
+        return "('%s','%s','%s','%s')" % (self.name, self.surname, self.filtr, self.note)
 
 ###########################################
 class College(DeclarativeBase):
@@ -86,12 +88,14 @@ class Group(DeclarativeBase):
     
     id = Column(Integer, primary_key=True)
     name = Column(String,  unique=True)
+    note = Column(String)
     
-    def __init__(self, name):
+    def __init__(self, name, note):
         self.name = name
+        self.note = note
         
     def __repr__(self):
-        return "('%s')" % (self.name)
+        return "('%s','%s')" % (self.name, self.note)
     
 ###########################################
 class ColPer(DeclarativeBase):
@@ -143,9 +147,12 @@ class Publication(DeclarativeBase):
     urlpub = Column(String)
     urlcit = Column(String)
     root = Column(String)
+    lmcp = Column(String)
+    jcr = Column(String)
+    note = Column(String)
     journal = relation('Journal',  backref='publication')
     
-    def __init__(self, title, author, citation, type, year, doi, ident, journal_id, urlpub, urlcit, root):
+    def __init__(self, title, author, citation, type, year, doi, ident, journal_id, urlpub, urlcit, root, lmcp, jcr, note):
         self.title = title
         self.author = author
         self.citation = citation
@@ -157,9 +164,12 @@ class Publication(DeclarativeBase):
         self.urlpub = urlpub
         self.urlcit = urlcit
         self.root = root
+        self.lmcp = lmcp
+        self.jcr = jcr
+        self.note = note
         
     def __repr__(self):
-        return "('%s','%s','%i','%s','%s','%s','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id, self.urlpub, self.urlcit, self.root)
+        return "('%s','%s','%i','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (self.title, self.author, self.citation, self.type, self.year, self.doi, self.ident, self.journal_id, self.urlpub, self.urlcit, self.root, self.lmcp, self.jcr, self.note)
     
 ###########################################
 class Journal(DeclarativeBase):
@@ -169,14 +179,16 @@ class Journal(DeclarativeBase):
     full_name = Column(String)
     short_name = Column(String)
     address = Column(String)
+    note = Column(String)
     
-    def __init__(self, full_name,  short_name,  address):
+    def __init__(self, full_name, short_name, address, note):
         self.full_name = full_name
         self.short_name = short_name
         self.address = address
+        self.note = note
         
     def __repr__(self):
-        return "('%s','%s','%s')" % (self.full_name,  self.short_name,  self.address)
+        return "('%s','%s','%s','%s')" % (self.full_name,  self.short_name,  self.address, self.note)
 
 ############################################
 class Cite(DeclarativeBase):

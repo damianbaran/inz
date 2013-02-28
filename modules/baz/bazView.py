@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import wx
 import os
+import re
 import wx.lib.mixins.listctrl as listmix
 import webbrowser
 import cDatabase
 import lxml.html
+import time
+import shutil
 from lxml.html import builder as E
 from wx.lib.pubsub import Publisher
 from publikacja import PubDialog
@@ -131,6 +134,20 @@ class bView(wx.Panel, PubDialog):
         self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
         self.id_cit = []
     
+    def getBackUpBase(self):
+        dlg = wx.FileDialog(self, "Wybierz Plik", 'archive', "", "*.*", wx.OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.filename = dlg.GetFilename()
+            self.dirname = dlg.GetDirectory()
+            shutil.copy2(os.path.join(self.dirname, self.filename), 'schdatabase.db')
+            wx.MessageBox(u'Wczytano wybrana baze danych!', 'Kopia zapasowa', wx.OK | wx.ICON_INFORMATION)
+    
+    def backUpBase(self):
+        t = time.asctime( time.localtime(time.time()) )
+        t = re.sub(u':','', t)
+        shutil.copy2('schdatabase.db', 'archive/'+t+'.db')
+        wx.MessageBox(u'Zrobione kopie zapasowa bazy danych\nDostępna w folderze "archive" pod nazwa '+t+'.db', 'Kopia zapasowa', wx.OK | wx.ICON_INFORMATION)
+    
 #############################################################
 ## Generowanie html i bibtex
 #############################################################
@@ -209,7 +226,7 @@ class bView(wx.Panel, PubDialog):
             if self.dataList.IsChecked(i):
                 t = self.dataList.GetItemText(i)
                 t = int(t)
-                c = cDatabase.getPubData(self.session, t)
+                c = cDatabase.getMergePubData(self.session, t)
                 self.id_cit.append(c)
         dlg = CiteDialog()
         Publisher().sendMessage(('change_data'), self.id_cit)
@@ -241,6 +258,9 @@ class bView(wx.Panel, PubDialog):
         if data[8] != None:
             dlg.m_choice2.SetStringSelection(data[8])
         dlg.m_textCtrl71.SetValue(data[12])
+        dlg.m_textCtrl99.SetValue(data[13]) #Lista ministerialna
+        dlg.m_choice3.SetStringSelection(data[14]) #jcr
+        dlg.m_textCtrl55.SetValue(data[15])
         u = data[9]
         
         guser = cDatabase.getUserName(self.session) 

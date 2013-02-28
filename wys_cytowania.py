@@ -28,26 +28,29 @@ class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAuto
 
 class CiteDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Cytowania", pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Menadźer łączenia publikacji", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.handlerweb = webbrowser.get()
         self.session = cDatabase.connectDatabase()
+        
+        ico = wx.Icon('icon/citpub.ico', wx.BITMAP_TYPE_ICO)
+        self.SetIcon(ico)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
         bSizer1 = wx.BoxSizer( wx.VERTICAL )
         
         self.m_toolBar2 = wx.ToolBar( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TB_HORIZONTAL|wx.TB_FLAT  ) 
-        addall = self.m_toolBar2.AddLabelTool( 1, u"tool", wx.Bitmap( u"../src/icon/globe.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl wszystkie cytowania", wx.EmptyString, None ) 
-        addone = self.m_toolBar2.AddLabelTool( 2, u"tool", wx.Bitmap( u"../src/icon/browser.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl wybrana publikację", wx.EmptyString, None ) 
-        clear = self.m_toolBar2.AddLabelTool( 3, u"tool", wx.Bitmap( u"../src/icon/clear.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Czyść listę", wx.EmptyString, None ) 
-        backlist = self.m_toolBar2.AddLabelTool( 6, u"tool", wx.Bitmap( u"../src/icon/back.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Przywróć wybrane publikacje", wx.EmptyString, None ) 
+        addall = self.m_toolBar2.AddLabelTool( 1, u"tool", wx.Bitmap( u"icon/globe.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl wszystkie cytowania", wx.EmptyString, None ) 
+        addone = self.m_toolBar2.AddLabelTool( 2, u"tool", wx.Bitmap( u"icon/browser.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Wyświetl wybrana publikację", wx.EmptyString, None ) 
+        clear = self.m_toolBar2.AddLabelTool( 3, u"tool", wx.Bitmap( u"icon/clear.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Czyść listę", wx.EmptyString, None ) 
+        backlist = self.m_toolBar2.AddLabelTool( 6, u"tool", wx.Bitmap( u"icon/back.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Przywróć wybrane publikacje", wx.EmptyString, None ) 
         self.m_toolBar2.AddSeparator()
         
-        merge = self.m_toolBar2.AddLabelTool( 4, u"tool", wx.Bitmap( u"../src/icon/merge.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Połacz wybrane publikacje", wx.EmptyString, None ) 
-        addpub = self.m_toolBar2.AddLabelTool( 7, u"tool", wx.Bitmap( u"../src/icon/globe.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj publikację", wx.EmptyString, None ) 
-        delpub = self.m_toolBar2.AddLabelTool( 5, u"tool", wx.Bitmap( u"../src/icon/delete.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Usuń wybrane publikacje z bazy danych", wx.EmptyString, None ) 
-#        delpublist = self.m_toolBar2.AddLabelTool( 8, u"tool", wx.Bitmap( u"../src/icon/dellist.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Usuń wybrane publikacje z listy", wx.EmptyString, None ) 
+        merge = self.m_toolBar2.AddLabelTool( 4, u"tool", wx.Bitmap( u"icon/merge.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Połacz wybrane publikacje", wx.EmptyString, None ) 
+        addpub = self.m_toolBar2.AddLabelTool( 7, u"tool", wx.Bitmap( u"icon/globe.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Dodaj publikację", wx.EmptyString, None ) 
+        delpub = self.m_toolBar2.AddLabelTool( 5, u"tool", wx.Bitmap( u"icon/delete.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Usuń wybrane publikacje z bazy danych", wx.EmptyString, None ) 
+        delpublist = self.m_toolBar2.AddLabelTool( 8, u"tool", wx.Bitmap( u"icon/dellist.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u"Usuń wybrane publikacje z listy", wx.EmptyString, None ) 
         
         self.m_toolBar2.Realize() 
         
@@ -77,7 +80,8 @@ class CiteDialog ( wx.Dialog ):
         self.dataList.InsertColumn(2, u'Tytuł', format=wx.LIST_FORMAT_LEFT, width=130)
         self.dataList.InsertColumn(3, u'Autor', format=wx.LIST_FORMAT_LEFT, width=100)
         self.dataList.InsertColumn(4, u'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
-        self.dataList.InsertColumn(5, u'Wydawca', format=wx.LIST_FORMAT_LEFT, width=100)
+        self.dataList.InsertColumn(5, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=100)
+        self.dataList.InsertColumn(6, u'DOI', format=wx.LIST_FORMAT_LEFT, width=100)
         bSizer13.Add( self.dataList, 1, wx.ALL|wx.EXPAND, 5 )
         
         bSizer1.Add( bSizer13, 1, wx.EXPAND, 5 )
@@ -98,7 +102,7 @@ class CiteDialog ( wx.Dialog ):
         self.Bind( wx.EVT_TOOL, self.deletePub, delpub )
         self.Bind( wx.EVT_TOOL, self.backListPub, backlist )
         self.Bind( wx.EVT_TOOL, self.addPub, addpub )
-#        self.Bind( wx.EVT_TOOL, self.delPub, delpublist )
+        self.Bind( wx.EVT_TOOL, self.delPub, delpublist )
         self.Bind( wx.EVT_CLOSE, self.close )
         self.m_comboBox1.Bind(wx.EVT_COMBOBOX,  self.editPubCit)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
@@ -144,18 +148,18 @@ class CiteDialog ( wx.Dialog ):
         dlg.ShowModal()
         self.updateRecord()
     
-#    def delPub(self, event):
-#        tmp = []
-#        num = self.dataList.GetItemCount()
-#        for i in range(num):
-#            if self.dataList.IsChecked(i):
-#                print i
-#                print len(self.data)
-#                t = self.data[i]
-#                tmp.append(t)
-#        for i in range(len(tmp)):
-#            t = tmp[i]
-#            self.data.remove(t)
+    def delPub(self, event):
+        tmp = []
+        num = self.dataList.GetItemCount()
+        for i in range(num):
+            if self.dataList.IsChecked(i):
+                print i
+                print len(self.data)
+                t = self.data[i]
+                tmp.append(t)
+        for i in range(len(tmp)):
+            t = tmp[i]
+            self.data.remove(t)
     
     def deletePub(self, event):
         tmp = []
@@ -217,7 +221,7 @@ class CiteDialog ( wx.Dialog ):
             id_top = result[0]
             print len(result)
             for i in range(len(result)):    #pobieranie wszystkich powiazanych publikacji z bazy
-                t = cDatabase.getPubData(self.session, result[i])
+                t = cDatabase.getMergePubData(self.session, result[i])
                 numcit += t[1]
                 x = (t[7], t[1], result[i], id_top)
                 allpub.append(x)

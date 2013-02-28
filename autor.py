@@ -18,17 +18,12 @@ import cDatabase
 
 class AuthorDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Autorami", pos = wx.DefaultPosition, size = wx.Size( 350,270 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Autorami", pos = wx.DefaultPosition, size = wx.Size( 350,330 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
-        home = os.getcwd()
-        os.chdir('icon')
-        
-        ico = wx.Icon('autor.ico', wx.BITMAP_TYPE_ICO)
+        ico = wx.Icon('icon/autor.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
-        
-        os.chdir(home)
         
         self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
         
@@ -146,6 +141,19 @@ class AuthorDialog ( wx.Dialog ):
         
         bSizer1.Add( bSizer12, 0, wx.EXPAND, 5 )
         
+        bSizer55 = wx.BoxSizer( wx.HORIZONTAL )
+        
+#        self.m_staticText55 = wx.StaticText( self, wx.ID_ANY, u"Notatki:", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.m_staticText55.Wrap( -1 )
+#        bSizer55.Add( self.m_staticText55, 1, wx.ALL, 5 )
+        
+        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( -1,50 ), wx.TE_MULTILINE )
+        self.m_textCtrl2.SetToolTipString( u"Notatki do autora" )
+        bSizer55.Add( self.m_textCtrl2, 1, wx.ALL|wx.EXPAND, 5  )
+        
+        
+        bSizer1.Add( bSizer55, 0, wx.EXPAND, 5 )
+        
         bSizer11 = wx.BoxSizer( wx.HORIZONTAL )
         
         self.m_button2 = wx.Button( self, wx.ID_ANY, u"Dodaj", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -200,6 +208,7 @@ class AuthorDialog ( wx.Dialog ):
         dbName = self.m_textCtrl3.GetValue()
         dbSurname = self.m_textCtrl4.GetValue()
         dbFilter = self.m_textCtrl41.GetValue()
+        dbNote = self.m_textCtrl2.GetValue()
         
         if dbCollege == '' or dbFaculty == '' or dbInstitut == '' or dbName == '' or dbSurname == '' or dbFilter == '':
             wx.MessageBox(u'Wszystkie pola są wymagane', u'Błąd', wx.OK | wx.ICON_INFORMATION)
@@ -210,6 +219,7 @@ class AuthorDialog ( wx.Dialog ):
             UserDict['name'] = dbName
             UserDict['surname'] = dbSurname
             UserDict['filtr'] = dbFilter
+            UserDict['note'] = dbNote
             AllDict = {'college':ColDict,'faculty':FacDict,'institute':InsDict,'person':UserDict}
             cDatabase.addUser(self.session,AllDict)
             wx.MessageBox(u'Poprawnie dodano Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
@@ -256,6 +266,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue('')
         self.m_textCtrl4.SetValue('')
         self.m_textCtrl41.SetValue('')
+        self.m_textCtrl2.SetValue('')
 
     def deletePerson(self, event):
         """Usuwa wybranego autora"""
@@ -294,8 +305,9 @@ class AuthorDialog ( wx.Dialog ):
         tx4 = self.m_textCtrl3.GetValue()
         tx5 = self.m_textCtrl4.GetValue()
         tx6 = self.m_textCtrl41.GetValue()
+        tx7 = self.m_textCtrl2.GetValue()
         
-        t = (tx1, tx2, tx3, tx4, tx5, tx6)
+        t = (tx1, tx2, tx3, tx4, tx5, tx6, tx7)
         
         #Sprawdzanie czy wymagane wartości nie sa puste
         if tx1 == '' or tx2 == '' or tx3 == '' or tx4 == '' or tx5 == '' or tx6 == '':
@@ -350,6 +362,7 @@ class AuthorDialog ( wx.Dialog ):
         self.m_textCtrl3.SetValue(data[3])
         self.m_textCtrl4.SetValue(data[4])
         self.m_textCtrl41.SetValue(data[5])
+        self.m_textCtrl2.SetValue(str(data[6]))
         
         self.m_button1.Show()
         self.m_button7.Show()

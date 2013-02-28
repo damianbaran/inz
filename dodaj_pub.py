@@ -26,7 +26,7 @@ class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAuto
 
 class CitePubDialog ( wx.Dialog ):
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodaj Publikację", pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodaj Publikację", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
         self.session = cDatabase.connectDatabase()
         
@@ -43,7 +43,8 @@ class CitePubDialog ( wx.Dialog ):
         self.dataList.InsertColumn(2, u'Tytuł', format=wx.LIST_FORMAT_LEFT, width=130)
         self.dataList.InsertColumn(3, u'Autor', format=wx.LIST_FORMAT_LEFT, width=100)
         self.dataList.InsertColumn(4, u'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
-        self.dataList.InsertColumn(5, u'Wydawca', format=wx.LIST_FORMAT_LEFT, width=100)
+        self.dataList.InsertColumn(5, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=100)
+        self.dataList.InsertColumn(6, u'DOI', format=wx.LIST_FORMAT_LEFT, width=100)
         bSizer13.Add( self.dataList, 1, wx.ALL|wx.EXPAND, 5 )
         
         bSizer4 = wx.BoxSizer( wx.VERTICAL )
@@ -88,7 +89,7 @@ class CitePubDialog ( wx.Dialog ):
             if self.dataList.IsChecked(i):
                 t = self.dataList.GetItemText(i)
                 t = int(t)
-                x = cDatabase.getPubData(self.session, t)
+                x = cDatabase.getMergePubData(self.session, t)
                 result.append(x)
         Publisher().sendMessage(('update_data'), result)
         wx.MessageBox(u'Poprawnie dodano wybrane publikacje', u'Sukces', wx.OK | wx.ICON_INFORMATION)
