@@ -1,0 +1,109 @@
+(lp0
+(I139
+I0
+VStrategia sterowania zasilaniem uk\u0142adu przy zastosowaniu regulatora cyfrowego na przyk\u0142adzie pompy \u0142opatkowej
+p1
+VW Czy\u017cycki, E Lisowski 
+p2
+V2004
+p3
+Vbaztech.icm.edu.pl
+p4
+S''
+p5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB3-0018-0033'
+p6
+S'Brak'
+p7
+tp8
+a(I140
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p9
+VE Lisowski, W Czy\u017cycki\u2026 
+p10
+V2010
+p11
+Vbaztech.icm.edu.pl
+p12
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p13
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(I141
+I0
+VTransport and storage of LNG in container tanks
+p16
+VE Lisowski, W Czy\u017cycki 
+p17
+V2011
+p18
+Vilot.edu.pl
+p19
+g5
+S'http://ilot.edu.pl/kones/2011/3_2011/2011_lisowski_czyzycki_transport_and_storage.pdf'
+p20
+g7
+tp21
+a(I142
+I0
+VUsing of polyamide in construction of supporting blocks of cryogenic tanks on example of LNG container
+p22
+VE Lisowski, W Czy\u017cycki, K \u0141azarczyk 
+p23
+S' '
+p24
+Vafe.polsl.pl
+p25
+g5
+S'http://www.afe.polsl.pl/index.php/pl/2516/using-of-polyamide-in-construction-of-supporting-blocks-of-cryogenic-tanks-on-example-of-lng-container.pdf'
+p26
+g7
+tp27
+a(I143
+I1
+VTransport ciek\u0142ego LNG w zbiornikach kontenerowych
+p28
+VE Lisowski, W Czy\u017cycki 
+p29
+V2009
+p30
+Vbaztech.icm.edu.pl
+p31
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSW1-0084-0043'
+p32
+S'scholar.google.com/scholar?cites=16501406923719738295&as_sdt=2005&sciodt=0,5&hl=en'
+p33
+tp34
+a(I144
+I0
+VModelowanie przep\u0142ywu ciep\u0142a przez izolacj\u0119 zbiorników kriogenicznych w module SolidWorks simulation
+p35
+VW Czy\u017cycki 
+p36
+g24
+Vbaztech.icm.edu.pl
+p37
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3834'
+p38
+g7
+tp39
+a(I145
+I0
+VMODELOWANIE PRZEP\u0141YWU CIEP\u0141A PRZEZ IZOLACJ\u0118 ZBIORNIKÓW KRIOGENICZNYCH W MODULE SOLIDWORKS SIMULATION HEAT FLOW  \u2026
+p40
+VW CZY\u017bYCKI 
+p41
+g24
+Vsuw.biblos.pk.edu.pl
+p42
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i4/i5/i7/i4/r4574/CzyzyckiW_ModelowaniePrzeplywu.pdf'
+p43
+g7
+tp44
+a.

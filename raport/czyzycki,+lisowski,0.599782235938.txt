@@ -1,0 +1,170 @@
+(lp0
+(I0
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p1
+VE Lisowski, G Filo, W Czy\u017cycki 
+p2
+V2009
+p3
+VBergen
+p4
+S''
+p5
+S'Brak'
+p6
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(I1
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p9
+VE Lisowski, W Czy\u017cycki\u2026 
+p10
+V2010
+p11
+Vbaztech.icm.edu.pl
+p12
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p13
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(I2
+I0
+VTransport and storage of LNG in container tanks
+p16
+VE Lisowski, W Czy\u017cycki 
+p17
+V2011
+p18
+Vilot.edu.pl
+p19
+g5
+S'http://ilot.edu.pl/kones/2011/3_2011/2011_lisowski_czyzycki_transport_and_storage.pdf'
+p20
+g6
+tp21
+a(I3
+I0
+VElectromagnetic Calorimeter for HADES
+p22
+VW Czyzycki, E Epple, L Fabbietti, M Golubeva\u2026 
+p23
+V2011
+p24
+Varxiv.org
+p25
+g5
+S'http://arxiv.org/abs/1109.5550'
+p26
+g6
+tp27
+a(I4
+I0
+VTechnical Design Report for the: PANDA Micro Vertex Detector
+p28
+V\u2026, G Filo, D Kwiatkowski, E Lisowski, F Lisowski\u2026 
+p29
+V2012
+p30
+Varxiv.org
+p31
+g5
+S'http://arxiv.org/multi?%2Ffind=Find&field_1=au&query_1=catania&search_year=past+year'
+p32
+g6
+tp33
+a(I5
+I0
+VUsing of polyamide in construction of supporting blocks of cryogenic tanks on example of LNG container
+p34
+VE Lisowski, W Czy\u017cycki, K \u0141azarczyk 
+p35
+S' '
+p36
+Vafe.polsl.pl
+p37
+g5
+S'http://www.afe.polsl.pl/index.php/pl/2516/using-of-polyamide-in-construction-of-supporting-blocks-of-cryogenic-tanks-on-example-of-lng-container.pdf'
+p38
+g6
+tp39
+a(I6
+I1
+VTransport ciek\u0142ego LNG w zbiornikach kontenerowych
+p40
+VE Lisowski, W Czy\u017cycki 
+p41
+V2009
+p42
+Vbaztech.icm.edu.pl
+p43
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSW1-0084-0043'
+p44
+S'scholar.google.com/scholar?cites=16501406923719738295&as_sdt=2005&sciodt=0,5&hl=en'
+p45
+tp46
+a(I7
+I0
+VTechnical Design Report for the: PANDA Micro Vertex Detector
+p47
+V\u2026, G Filo, D Kwiatkowski, E Lisowski, F Lisowski\u2026 
+p48
+V2012
+p49
+Vhal.in2p3.fr
+p50
+g5
+S'http://hal.in2p3.fr/in2p3-00724371/'
+p51
+g6
+tp52
+a(I8
+I0
+VStrategia sterowania zasilaniem uk\u0142adu przy zastosowaniu regulatora cyfrowego na przyk\u0142adzie pompy \u0142opatkowej
+p53
+VW Czy\u017cycki, E Lisowski 
+p54
+V2004
+p55
+Vbaztech.icm.edu.pl
+p56
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB3-0018-0033'
+p57
+g6
+tp58
+a(I9
+I0
+VSterowanie wydajno\u015bci\u0105 pompy \u0142opatkowej
+p59
+VE Lisowski, W Czy\u017cycki 
+p60
+g36
+Vbaztech.icm.edu.pl
+p61
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPP1-0055-0063'
+p62
+g6
+tp63
+a(I10
+I0
+VBudowa programu obs\u0142ugi relacyjnej bazy danych pier\u015bcieni uszczelniaj\u0105cych elementów hydraulicznych
+p64
+VE Lisowski, W Czy\u017cycki, W Zagól 
+p65
+V2001
+p66
+Vbaztech.icm.edu.pl
+p67
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPOA-0019-0039'
+p68
+g6
+tp69
+a.

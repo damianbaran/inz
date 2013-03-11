@@ -1,0 +1,1237 @@
+(lp0
+(I1
+I3
+VEksploatacyjna analiza modalna i jej zastosowania
+p1
+VT Uhl, W Lisowski 
+p2
+V1999
+p3
+VWydaw. Katedry Dynamiki Maszyn i  \u2026
+p4
+S''
+p5
+S'Brak'
+p6
+S'scholar.google.com/scholar?cites=6501523079803582777&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(I2
+I1
+VEksploatacyjna analiza modalna
+p9
+VT Uhl, W Lisowski 
+p10
+V1999
+p11
+VKraków: Katedra Robotyki i Dynamiki Maszyn AGH, 1999
+p12
+g5
+g6
+S'scholar.google.com/scholar?cites=11208969491624813353&as_sdt=2005&sciodt=0,5&hl=en'
+p13
+tp14
+a(I3
+I1
+VAnaliza parametrow konstrukcyjnych kombajnów do zbioru ziemniaków
+p15
+VA Lisowski 
+p16
+V1999
+p17
+Vbaztech.icm.edu.pl
+p18
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR1-0002-0080'
+p19
+S'scholar.google.com/scholar?cites=3996088668498532891&as_sdt=2005&sciodt=0,5&hl=en'
+p20
+tp21
+a(I4
+I1
+VOcena rozk\u0142adu d\u0142ugo\u015bci cz\u0105stek ro\u015blin energetycznych rozdrobnionych w rozdrabniaczu bijakowym
+p22
+VA Lisowski, M D\u0105browska, A Stru\u017cyk\u2026 
+p23
+V2008
+p24
+Vibmer.waw.pl
+p25
+g5
+S'http://www.ibmer.waw.pl/pir/2008/pelne_4/lisowski_ocena_p.pdf'
+p26
+S'scholar.google.com/scholar?cites=14574519407405837966&as_sdt=2005&sciodt=0,5&hl=en'
+p27
+tp28
+a(I5
+I1
+VModel matematyczny mocy efektywnej toporowego zespo\u0142u tn\u0105cego wyposa\u017conego w elementy wspomagaj\u0105ce rozdrabnianie ro\u015blin
+p29
+VA Lisowski, P Wardecki, K Kostyra\u2026 
+p30
+V2008
+p31
+Vir.ptir.org
+p32
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2043_pl.pdf'
+p33
+S'scholar.google.com/scholar?cites=12490123939752858613&as_sdt=2005&sciodt=0,5&hl=en'
+p34
+tp35
+a(I6
+I1
+VPrzekrój poprzeczny redliny podkopywanej przez lemiesz p\u0142ytkowy
+p36
+VA Lisowski 
+p37
+V1999
+p38
+Vbaztech.icm.edu.pl
+p39
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR1-0002-0060'
+p40
+S'scholar.google.com/scholar?cites=10505031638906037455&as_sdt=2005&sciodt=0,5&hl=en'
+p41
+tp42
+a(I7
+I1
+VWp\u0142yw czynników technicznych i eksploatacyjnych na prac\u0119 agregatu do zbioru ziemniaków
+p43
+VA Lisowski 
+p44
+V2000
+p45
+VWydawn. SGGW
+p46
+g5
+g6
+S'scholar.google.com/scholar?cites=13363006958180595099&as_sdt=2005&sciodt=0,5&hl=en'
+p47
+tp48
+a(I8
+I1
+VWp\u0142yw konstrukcji \u0142opatek rzutnika toporowego zespo\u0142u tn\u0105cego na jako\u015b\u0107 i energoch\u0142onno\u015b\u0107 rozdrabniania ro\u015blin kukurydzy
+p49
+VA Lisowski, J Klonowski, K Kostyra\u2026 
+p50
+V2008
+p51
+Vir.ptir.org
+p52
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2041_pl.pdf'
+p53
+S'scholar.google.com/scholar?cites=569071087198885254&as_sdt=2005&sciodt=0,5&hl=en'
+p54
+tp55
+a(I9
+I0
+VAnaliza wp\u0142ywu rezystancji izolacji na dok\u0142adno\u015b\u0107 wysokoomowych transferów Hamona
+p56
+VM Lisowski, K Krawczyk 
+p57
+V2009
+p58
+Vbaztech.icm.edu.pl
+p59
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPOD-0015-0021'
+p60
+g6
+tp61
+a(I10
+I0
+VAnaliza liniowego szyku antenowego na wielowarstwowym pod\u0142o\u017cu dielektrycznym
+p62
+V\u2026, W Ko\u0142osowski, M Wnuk, E S\u0119dek, J Lisowski 
+p63
+S' '
+p64
+Vbaztech.icm.edu.pl
+p65
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BWA2-0005-0035'
+p66
+g6
+tp67
+a(I11
+I0
+VSystem zarz\u0105dzania jako\u015bci\u0105 w przemy\u015ble w uj\u0119ciu norm ISO. Analiza czynnikowa
+p68
+VJ Lisowski 
+p69
+V1998
+p70
+Vbaztech.icm.edu.pl
+p71
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB1-0001-0130'
+p72
+g6
+tp73
+a(I12
+I0
+VANALIZA FIZYKOCHEMICZNA PROBEK AEROZOLU OLEJOWEGO Z PRZEMYSLOWYCH I LABORATORYJNYCH INSTALACJI SPREZONEGO  \u2026
+p74
+VHJ Luckner, A Chodorowska, W Lisowski\u2026 
+p75
+V1999
+p76
+Vcat.inist.fr
+p77
+g5
+S'http://cat.inist.fr/?aModele=afficheN&cpsidt=10106974'
+p78
+g6
+tp79
+a(I13
+I0
+VANALIZA ZAPOTRZEBOWANIA NA MOC PRZEZ PRAS\u0118 WIELKOGABARYTOW\u0104
+p80
+VC Waszkiewicz, A Lisowski, KMR i Le\u015bnych\u2026 
+p81
+g64
+Vibmer.waw.pl
+p82
+g5
+S'http://www.ibmer.waw.pl/test/pir/2007/pelne_1/waszkiewicz_analiza_p.pdf'
+p83
+g6
+tp84
+a(I14
+I0
+VAnaliza procesu wydzielania ciep\u0142a w silniku HCCI zasilanym biogazem
+p85
+VK Motyl, A Lisowski 
+p86
+V2008
+p87
+Vbaztech.icm.edu.pl
+p88
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR9-0003-0006'
+p89
+g6
+tp90
+a(I15
+I0
+VAnaliza wytrzyma\u0142o\u015bci zakrywek koronowych w systemie ABAQUS
+p91
+VE Lisowski 
+p92
+g64
+Vbaztech.icm.edu.pl
+p93
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3691-4230'
+p94
+g6
+tp95
+a(I16
+I0
+VWZORZEC MORALNEGO CH\u0141OPA. ANALIZA OBYCZAJOWO\u0152CI XIX-WIECZNEGO CH\u0141OPA W OPARCIU O LITERATUR\u0118 DLA LUDU
+p96
+VR Lisowski
+p97
+g64
+g97
+g5
+g6
+g6
+tp98
+a(I17
+I0
+VANALIZA FMEA METOD\u0104 MACIERZOW\u0104 DLA TURBOSPR\u0118\u017bARKI SAMOCHODU OSOBOWEGO WSPOMAGANA PROGRAMEM KOMPUTEROWYM
+p99
+VJ FABI\u015a, E LISOWSKI 
+p100
+V2006
+p101
+Vafe.polsl.pl
+p102
+g5
+S'http://www.afe.polsl.pl/index.php/pl/2587/analiza-fmea-metoda-macierzowa-dla-turbosprezarki-samochodu-osobowego-wspomagana-programem-komputerowym.pdf'
+p103
+g6
+tp104
+a(I18
+I0
+VApplication of modal analysis to diagnostics of complex mechanical systems.
+p105
+VW Lisowski, T Uhl 
+p106
+V2001
+p107
+Vbaztech.icm.edu.pl
+p108
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BOS3-0008-0042'
+p109
+g6
+tp110
+a(I19
+I0
+VANALIZA WYTRZYMA\u0141O\u015aCI ZAKRYWEK KORONOWYCH W SYSTEMIE ABAQUS STRESS ANALYSIS OF CROWN CLOSURES USING ABAQUS  \u2026
+p111
+VE LISOWSKI 
+p112
+g64
+Vsuw.biblos.pk.edu.pl
+p113
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i4/i6/i1/i1/r4611/LisowskiE_AnalizaWytrzymalosci.pdf'
+p114
+g6
+tp115
+a(I20
+I0
+VApplication of transfer path analysis to airplane diagnostics.
+p116
+VK Mendrok, W Lisowski, T Uhl 
+p117
+V2003
+p118
+Vbaztech.icm.edu.pl
+p119
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BOS3-0009-0046'
+p120
+g6
+tp121
+a(I21
+I0
+VZastosowanie technik eksperymentalnej analizy modalnej w ocenie stanu dynamicznego
+p122
+VW Lisowski 
+p123
+g64
+Vbaztech.icm.edu.pl
+p124
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAT3-0033-0001'
+p125
+g6
+tp126
+a(I22
+I0
+VAnaliza wyj\u015bciowa do kompleksowego zarz\u0105dzania jako\u015bci\u0105 w szkolnictwie wy\u017cszym
+p127
+VJ Lisowski 
+p128
+V1999
+p129
+Vbaztech.icm.edu.pl
+p130
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB2-0002-0078'
+p131
+g6
+tp132
+a(I23
+I0
+VAnaliza porównawcza metod regulacji osi toru
+p133
+VM Jamka, S Lisowski 
+p134
+V2005
+p135
+Vbaztech.icm.edu.pl
+p136
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BUJ3-0003-0035'
+p137
+g6
+tp138
+a(I24
+I0
+VMODELOWANIE METOD\u0104 CFD PRACY \u0141OPATEK W POMPIE \u0141OPATKOWEJ CFD MODELING OF VANE PUMP VANES OPERATION
+p139
+VE LISOWSKI, M PANEK 
+p140
+g64
+Vdarmaz.pollub.pl
+p141
+g5
+S'http://darmaz.pollub.pl/ein/fultext/22.pdf#page=36'
+p142
+g6
+tp143
+a(I25
+I0
+VResults of selected problems related to interpretation of operational madal analysis
+p144
+VW Lisowski 
+p145
+g64
+Vbaztech.icm.edu.pl
+p146
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BWA2-0005-0201'
+p147
+g6
+tp148
+a(I26
+I0
+VWp\u0142yw restrukturyzacji polskiego górnictwa w\u0119gla kamiennego w latach 1990-2004 na kondycj\u0119 sektora i na podstawowe mierniki technicznej modernizacji kopal\u0144
+p149
+VA Lisowski, F Stosiek, S Kondratek 
+p150
+g64
+Vbaztech.icm.edu.pl
+p151
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-1398-5552'
+p152
+g6
+tp153
+a(I27
+I1
+VWp\u0142yw parametrów technicznych i eksploatacyjnych kombajnu na wybrane wska\u017aniki energetyczne podczas zbioru korzeni marchwi
+p154
+VC Waszkiewicz, A Lisowski, A Stru\u017cyk, J Klonowski 
+p155
+g64
+Vir.ptir.org
+p156
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2063_pl.pdf'
+p157
+S'scholar.google.com/scholar?cites=6944189149369010946&as_sdt=2005&sciodt=0,5&hl=en'
+p158
+tp159
+a(I28
+I0
+VROCZNIKI NAUK SPO\u0141ECZNYCH Tom XI, zeszyt 2\u2014IM
+p160
+VW LISOWSKI, SR KOBIET\u2026 
+p161
+V1983
+p162
+VTowarzystwo Naukowe Katolickiego  \u2026
+p163
+g5
+g6
+g6
+tp164
+a(I29
+I0
+VPRACE BADAWCZO-ROZWOJOWE NAD WYBRANYMI MASZYNAMI DO ZBIORU ZIELONEK NA SIANO I KISZONKI
+p165
+VC WASZKIEWICZ, A LISOWSKI, S GACH\u2026 
+p166
+V2004
+p167
+Vimuz.edu.pl
+p168
+g5
+S'http://www.imuz.edu.pl/wydaw/ofertawyd/woda/zeszyt_1_2004/artykuly/Waszkiewicz.pdf'
+p169
+g6
+tp170
+a(I30
+I0
+VINVESTIGATIONS ON THE EFFECT OF CONSTRUCTIONAL PARAMETERS OF THE PLOUGH BODY ON MAGNITUDE OF THE OBTAIAGGREGATE  \u2026
+p171
+VAL Buli\u0144ski, A Lisowski\u2026 
+p172
+V1986
+p173
+VPa\u0144stwowe Wydawnictwo Naukowe.
+p174
+g5
+g6
+g6
+tp175
+a(I31
+I0
+VOcena trakcyjna opon do uniwersalnego ci\u0105gnika rolniczego
+p176
+V\u2026, S Lis, H Juszka, M Tomasik, A Lisowski\u2026 
+p177
+g64
+Vir.ptir.org
+p178
+g5
+S'http://ir.ptir.org/index.php?mood=articles&issue=136&abstracts=show'
+p179
+g6
+tp180
+a(I32
+I0
+VPolskie Korpusy Kadetów 1765-1956: z dziejów wychowania
+p181
+VW Lisowski 
+p182
+V1983
+p183
+VWydawn. Ministerstwa Obrony  \u2026
+p184
+g5
+g6
+g6
+tp185
+a(I33
+I1
+VZastosowanie modelu RRSB do predykcji wydzielenia mieszaniny przeznaczonej do produkcji peletów i brykietów
+p186
+VA Lisowski, J Klonowski, M Sypu\u0142a 
+p187
+V2009
+p188
+Vir.ptir.org
+p189
+g5
+S'http://ir.ptir.org/artykuly/pl/115/IR(115)_2546_pl.pdf'
+p190
+S'scholar.google.com/scholar?cites=985928036625374736&as_sdt=2005&sciodt=0,5&hl=en'
+p191
+tp192
+a(I34
+I0
+VZastosowanie algorytmu ERA do przeprowadzenia autonomicznej analizy modalnej
+p193
+VP Kurowski, W Lisowski, T Uhl 
+p194
+V2003
+p195
+Vbaztech.icm.edu.pl
+p196
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSL7-0007-0061'
+p197
+g6
+tp198
+a(I35
+I0
+VCFD MODELLING AND RAPID PROTOTYPING OF LIQUID JET PUMP MODELOWANIE CFD ORAZ RAPID PROTOTYPING POMPY STRUMIENIOWEJ
+p199
+VH MOMENI, E LISOWSKI 
+p200
+g64
+Vsuw.biblos.pk.edu.pl
+p201
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i4/i6/i1/i7/r4617/MomeniH_CfdModelling.pdf'
+p202
+g6
+tp203
+a(I36
+I0
+VZastosowanie wspó\u0142czesnych technologii geodezyjnych w okre\u015blaniu geometrii toru w aspekcie dopuszczalnych pr\u0119dko\u015bci poci\u0105gów
+p204
+VM Jamka, S Lisowski, M Strach 
+p205
+g64
+Vbaztech.icm.edu.pl
+p206
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAT5-0076-0050'
+p207
+g6
+tp208
+a(I37
+I0
+VThe Libyan Great Man-Made river project-general presentation
+p209
+VJ Lisowski 
+p210
+V2001
+p211
+Vbaztech.icm.edu.pl
+p212
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB2-0003-0058'
+p213
+g6
+tp214
+a(I38
+I0
+VAlgorytmy komputerowego wspomagania nawigatora w sytuacjach kolizyjnych
+p215
+VJ Lisowski 
+p216
+V2011
+p217
+Vbaztech.icm.edu.pl
+p218
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPG8-0051-0012'
+p219
+g6
+tp220
+a(I39
+I0
+VBadanie modeli modalnych fundamentów du\u017cych maszyn energetycznych
+p221
+VT Uhl, P Kurowski, W Lisowski\u2026 
+p222
+V2005
+p223
+Vbaztech.icm.edu.pl
+p224
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?PWA3-0019-0034'
+p225
+g6
+tp226
+a(I40
+I0
+VPrawdopodobie\u0144stwo wykrycia ma\u0142ego obiektu p\u0142ywaj\u0105cego z biernym reflektorem radarowym
+p227
+VA Szklarski, J Lisowski 
+p228
+V2009
+p229
+Vzeszyty.am.gdynia.pl
+p230
+g5
+S'http://zeszyty.am.gdynia.pl/artykul/PrawdopodobiezZstwo%20wykrycia%20maz%EF%BF%BDego%20obiektu%20pz%EF%BF%BDywajc%EF%BF%BDcego%20z%20biernym%20reflektorem%20radarowym_32.pdf'
+p231
+g6
+tp232
+a(I41
+I0
+VMODELOWANIE MES STRUKTUR O KARBACH SZEREGOWYCH FEM MODELING OF STRUCTURES WITH SERIAL NOTCHES
+p233
+VF LISOWSKI 
+p234
+g64
+Vsuw.biblos.pk.edu.pl
+p235
+g5
+S'https://suw.biblos.pk.edu.pl/resources/i4/i6/i1/i4/r4614/LisowskiF_ModelowanieMes.pdf'
+p236
+g6
+tp237
+a(I42
+I0
+VCFD modeling and rapid prototyping of liquid jet pump
+p238
+VH Momeni, E Lisowski 
+p239
+g64
+Vbaztech.icm.edu.pl
+p240
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3691-4249'
+p241
+g6
+tp242
+a(I43
+I0
+VDodatkowe rozdrabnianie ziaren i rozrywanie cz\u0105stek kukurydzy sposobem na poprawienie jako\u015bci poci\u0119tej zielonki
+p243
+VA Lisowski, P Wardecki, K Kostyra, K \u015awi\u0105tek\u2026 
+p244
+g64
+Vir.ptir.org
+p245
+g5
+S'http://ir.ptir.org/artykuly/pl/107/IR(107)_2315_pl.pdf'
+p246
+g6
+tp247
+a(I44
+I0
+VRynkowa transformacja polskiego górnictwa w\u0119gla kamiennego 1989-2009
+p248
+VA Lisowski 
+p249
+V2010
+p250
+Vbaztech.icm.edu.pl
+p251
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-2743-0777'
+p252
+g6
+tp253
+a(I45
+I0
+VWybrane problemy dynamiki strukturalnej w diagnostyce
+p254
+VT Uhl, W Lisowski 
+p255
+V2001
+p256
+Vbaztech.icm.edu.pl
+p257
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0017-0001'
+p258
+g6
+tp259
+a(I46
+I0
+VProblems of development of wireless sensors for experimental modal analysis
+p260
+VT Bojko, W Lisowski, J Bednarz 
+p261
+g64
+Vbaztech.icm.edu.pl
+p262
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BAR0-0044-0009'
+p263
+g6
+tp264
+a(I47
+I0
+VWarstwy kompozytowe Cu+ W wytwarzane elektrochemicznie
+p265
+VM Trzaska, W Lisowski 
+p266
+V2005
+p267
+Vkompozyty.ptmk.net
+p268
+g5
+S'http://kompozyty.ptmk.net/pliczki/pliki/semIX_33.pdf'
+p269
+g6
+tp270
+a(I48
+I0
+VCharakterystyki pracy silnika HCCI zasilanego biogazem
+p271
+VK Motyl, A Lisowski 
+p272
+g64
+Vir.ptir.org
+p273
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2051_pl.pdf'
+p274
+g6
+tp275
+a(I49
+I0
+VRedukcja cz\u0119stotliwo\u015bci ci\u0119cia i zastosowanie dodatkowego rozdrabniania-kierunkiem do zmniejszenia obci\u0105\u017ce\u0144 energetycznych zespo\u0142u rozdrabniaj\u0105cego
+p276
+VA Lisowski, K Kostyra 
+p277
+g64
+Vir.ptir.org
+p278
+g5
+S'http://ir.ptir.org/artykuly/pl/107/IR(107)_2316_pl.pdf'
+p279
+g6
+tp280
+a(I50
+I0
+VOcena mo\u017cliwo\u015bci zastosowania algorytmu autonomicznej estymacji do monitorowania parametrów modalnych samolotu.
+p281
+VW Lisowski 
+p282
+V2003
+p283
+Vbaztech.icm.edu.pl
+p284
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BOS3-0009-0042'
+p285
+g6
+tp286
+a(I51
+I0
+VBADANIE OPORÓW TARCIA WYST\u0118PUJ\u0104CYCH W SI\u0141OWNIKU PNEUMATYCZNYM WYKONANYM Z MATERIA\u0141ÓW POLIMEROWYCH
+p287
+VP Kot, E Lisowski, K Kloch 
+p288
+g64
+Vpnt.pollub.pl
+p289
+g5
+S'http://www.pnt.pollub.pl/pdf/nr8/01.pdf'
+p290
+g6
+tp291
+a(I52
+I0
+VWp\u0142yw funkcji nerek oraz wybranych czynników ryzyka sercowo-naczyniowego na warto\u015b\u0107 kompleksu intima-media t\u0119tnic obwodowych
+p292
+VA Lisowska, WJ Musia\u0142, P Lisowski\u2026 
+p293
+V2007
+p294
+Vfce.viamedica.pl
+p295
+g5
+S'http://www.fce.viamedica.pl/abstrakt.phtml?id=98&indeks_art=1191'
+p296
+g6
+tp297
+a(I53
+I0
+VRola bieg\u0142ego rewidenta w ocenie gospodarki finansowej ubezpieczyciela\u2013unormowania prawne
+p298
+VJ Lisowski 
+p299
+V2011
+p300
+Vceeol.com
+p301
+g5
+S'http://www.ceeol.com/aspx/getdocument.aspx?logid=5&id=7336bacb1c4c42a0bf343730ffe14191'
+p302
+g6
+tp303
+a(I54
+I2
+VModel matematyczny dwutwornikowego silnika indukcyjnego klatkowego
+p304
+V\u2026, W KARWACKI, J LISOWSKI\u2026 
+p305
+V2000
+p306
+Vold.imnipe.pwr.wroc.pl
+p307
+g5
+S'http://old.imnipe.pwr.wroc.pl/Wydawnictwa/Prace_IMNIPE_nr50_2000/Modelowanie/pdf/Art_03.pdf'
+p308
+S'scholar.google.com/scholar?cites=5068146034437432952&as_sdt=2005&sciodt=0,5&hl=en'
+p309
+tp310
+a(I55
+I1
+VWp\u0142yw wielko\u015bci szczeliny roboczej toporowego zespo\u0142u tn\u0105cego na jako\u015b\u0107 i energoch\u0142onno\u015b\u0107 rozdrabniania ro\u015blin kukurydzy
+p311
+VA Lisowski, J Klonowski, K Kostyra\u2026 
+p312
+V2008
+p313
+Vir.ptir.org
+p314
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2042_pl.pdf'
+p315
+S'scholar.google.com/scholar?cites=140550315349176318&as_sdt=2005&sciodt=0,5&hl=en'
+p316
+tp317
+a(I56
+I1
+VOcena warto\u015bci pokarmowej i jako\u015bci kiszonki z kukurydzy sporz\u0105dzanej w formie minisilosów
+p318
+VA \u0141ozicki, A Lisowski, K Kostyra\u2026 
+p319
+V2008
+p320
+Vibmer.waw.pl
+p321
+g5
+S'http://www.ibmer.waw.pl/pir/2008/pelne_3/lozicki_ocena_p.pdf'
+p322
+S'scholar.google.com/scholar?cites=4708721814010562945&as_sdt=2005&sciodt=0,5&hl=en'
+p323
+tp324
+a(I57
+I3
+VGrafia druków polskich z 1521 i 1522 roku: problemy wariantywno\u015bci i normalizacji
+p325
+VT Lisowski 
+p326
+V2001
+p327
+VWydawn. Naukowe UAM
+p328
+g5
+g6
+S'scholar.google.com/scholar?cites=9542070651432871523&as_sdt=2005&sciodt=0,5&hl=en'
+p329
+tp330
+a(I58
+I0
+VAnalysis of construction parameters of the potato harvesters
+p331
+VA Lisowski 
+p332
+V1999
+p333
+Vagris.fao.org
+p334
+g5
+S'http://agris.fao.org/agris-search/search/display.do?f=2000/PL/PL00005.xml;PL2000000111'
+p335
+g6
+tp336
+a(I59
+I0
+VREGIONAL DIFFERENTIATION OF HOUSING CONSTRUCTION IN POLAND AND THE SOCIO-ECONOMIC TRANSFORMATION
+p337
+VA Lisowski 
+p338
+V1998
+p339
+VWydawn. Uniw. Warszawskiego
+p340
+g5
+g6
+g6
+tp341
+a(I60
+I0
+VOPINIONS OF LUBUSKIE VOIVODESHIP INHABITANTS ON THEIR MATERIAL SITUATION AND THE TRANSFORMATIONS IN POLAND AFTER 1989
+p342
+VK Lisowski 
+p343
+V2007
+p344
+VLubuskie Tow. Nauk.
+p345
+g5
+g6
+g6
+tp346
+a(I61
+I0
+VBezrobotni i ubodzy w \u015brednim mie\u015bcie: studium 40 przypadków z bada\u0144 Instytutu Gospodarstwa Spo\u0142ecznego
+p347
+VA Lisowski 
+p348
+V1995
+p349
+VSzko\u0142a G\u0142ówna Handlowa
+p350
+g5
+g6
+g6
+tp351
+a(I62
+I0
+VBez dogmatu Henryka Sienkiewicza jako powie\u015b\u0107 psychologiczna: studium analityczno-interpretacyjne
+p352
+VZ Lisowski 
+p353
+V1997
+p354
+VWydawn. Szumacher
+p355
+g5
+g6
+g6
+tp356
+a(I63
+I0
+VWyst\u0119powanie grzybiczych zapale\u0144 wymienia w zale\u017cno\u015bci od rodzaju gospodarstwa, sposobu doju i systemu utrzymania krów
+p357
+VH KRUKOWSKI, A LISOWSKI
+p358
+g64
+g358
+g5
+g6
+g6
+tp359
+a(I64
+I2
+VWp\u0142yw temperatury pocz\u0105tkowej i sk\u0142adu mieszaniny palnej na prac\u0119 silnika HCCI zasilanego biogazem
+p360
+VK Motyl, A Lisowski 
+p361
+V2008
+p362
+Vir.ptir.org
+p363
+g5
+S'http://ir.ptir.org/artykuly/pl/99/IR(99)_2052_pl.pdf'
+p364
+S'scholar.google.com/scholar?cites=5076740452978439312&as_sdt=2005&sciodt=0,5&hl=en'
+p365
+tp366
+a(I65
+I0
+VWspó\u0142czesne problemy rozwoju lokalnego w Polsce: praca zbiorowa
+p367
+VA Lisowski 
+p368
+V1997
+p369
+VSzko\u0142a G\u0142ówna Handlowa
+p370
+g5
+g6
+g6
+tp371
+a(I66
+I1
+VWP\u0141YW NAWO\u017bENIA OSADAMI NA PLON MISKANTA (MISCANTHUS GIGANTEUS)
+p372
+VJ LISOWSKI, H PORWISIAK 
+p373
+g64
+Vup.poznan.pl
+p374
+g5
+S'http://www.up.poznan.pl/pta/pdf/2010/FA%2027(4)%202010%20Lisowski.pdf'
+p375
+S'scholar.google.com/scholar?cites=10798400282197754215&as_sdt=2005&sciodt=0,5&hl=en'
+p376
+tp377
+a(I67
+I0
+VRola poszczególnych elementów struktury organizacyjnej przedsi\u0119biorstwa budowlanego w filozofii kompleksowego zarz\u0105dzania jako\u015bci\u0105 (TQM)
+p378
+VJ LISOWSKI, N SZKLENNIK 
+p379
+V2010
+p380
+Vbiswbis.pb.edu.pl
+p381
+g5
+S'http://www.biswbis.pb.edu.pl/2010_04/009.pdf'
+p382
+g6
+tp383
+a(I68
+I0
+VLUBUSKI SOCIAL SURVEY-ASSUMPTIONS, GOALS AND PROBLEMS OF STUDIES INTO WESTERN BORDERLAND
+p384
+VLS Spo\u0142eczny, K Lisowski 
+p385
+V2007
+p386
+VLubuskie Tow. Nauk.
+p387
+g5
+g6
+g6
+tp388
+a(I69
+I0
+VOkre\u015blenie zapotrzebowania na moc efektywn\u0105 toporowego zespo\u0142u rozdrabniaj\u0105cego wyposa\u017conego w dodatkowe elementy robocze
+p389
+VA Lisowski 
+p390
+g64
+Vir.ptir.org
+p391
+g5
+S'http://ir.ptir.org/artykuly/pl/103/IR(103)_2180_pl.pdf'
+p392
+g6
+tp393
+a(I70
+I0
+VPodatno\u015b\u0107 grzybów z rodzaju Candidawyizolowanych zmastitisu krów na dzia\u0142anie \u015brodków dezynfekcyjnych oznaczona metod\u0105 rozcie\u0144czeniow\u0105 p\u0142ytkow\u0105
+p394
+VA Lisowski, H Krukowski 
+p395
+V2009
+p396
+Vwww.cornetis.pl
+p397
+g5
+S'http://www.www.cornetis.pl/pliki/ML/2009/4/ML_2009_4_228.pdf'
+p398
+g6
+tp399
+a(I71
+I2
+VSuppleness of energetic plants to chopping
+p400
+VA LISOWSKI, T NOWAKOWSKI\u2026 
+p401
+V2009
+p402
+Vannals-agriculture.sggw.pl
+p403
+g5
+S'http://www.annals-agriculture.sggw.pl/files/files/afe2009no53full.pdf#page=33'
+p404
+S'scholar.google.com/scholar?cites=4677190432872522801&as_sdt=2005&sciodt=0,5&hl=en'
+p405
+tp406
+a(I72
+I0
+VMETODA POMIARU PODATNO\u015aCI MAGNETYCZNEJ CIENKICH PRÓBEK NADPRZEWODZ\u0104CYCH
+p407
+VM LISOWSKI, M MOSI\u0104DZ 
+p408
+g64
+Vbc.pollub.pl
+p409
+g5
+S'http://bc.pollub.pl/Content/213#page=43'
+p410
+g6
+tp411
+a(I73
+I0
+VMODELLING OF THE CRANE JIB LOWERING SYSTEM WITH THE FUZZY LOGIC CONTROLLER
+p412
+VE Lisowski, G Filo 
+p413
+g64
+Viaarc.org
+p414
+g5
+S'http://www.iaarc.org/publications/fulltext/isarc2001-ACM_13.pdf'
+p415
+g6
+tp416
+a(I74
+I0
+VAN ANALYSIS OF FUEL CONSUMPTION BY A LORRY WITH THE COMPRESSION IGNITION DYNAMIC CHARGED ENGINE
+p417
+VM Lisowski 
+p418
+g64
+Vpan-ol.lublin.pl
+p419
+g5
+S'http://www.pan-ol.lublin.pl/wydawnictwa/TMot8a/Lisowski.pdf'
+p420
+g6
+tp421
+a(I75
+I0
+VZARZ\u0104DZANIE RYZYKIEM I FINANSAMI ZAK\u0141ADÓW UBEZPIECZE\u0143 (artyku\u0142 sprawozdawczy)
+p422
+VJ Lisowski 
+p423
+V2011
+p424
+Ve-wydawnictwo.eu
+p425
+g5
+S'http://www.e-wydawnictwo.eu/Document/DocumentPreview/2178.full.pdf#page=99'
+p426
+g6
+tp427
+a(I76
+I0
+VNUMERICAL SIMULATION OF THE EFFECT OF \u0428\u0422\u0410\u041a\u0415 \u0420\u0413\u0420\u0415 LENGTH ON THE AR MASS REMAINING IN COMPRESSION-IGNITION ENGINE CYLINDER  \u2026
+p428
+VM Lisowski 
+p429
+g64
+Vpan-ol.lublin.pl
+p430
+g5
+S'http://www.pan-ol.lublin.pl/wydawnictwa/TMot10/Lisowski.pdf'
+p431
+g6
+tp432
+a(I77
+I0
+VAKADEMIA PODLASKA WYDZIA\u0141 PRZYRODNICZY
+p433
+VP Lisowski 
+p434
+g64
+Vrozprawy.uph.edu.pl
+p435
+g5
+S'http://rozprawy.uph.edu.pl/gsdl/collect/rozprawy-11-06-08%20v.2/archives/HASH6717.dir/Lisowski%20Piotr.pdf'
+p436
+g6
+tp437
+a(I78
+I0
+VWp\u0142yw kryzysu finansowego na rynek ubezpiecze\u0144 kredytu kupieckiego
+p438
+VJ LISOWSKI 
+p439
+g64
+Vpiu.com.pl
+p440
+g5
+S'http://piu.com.pl/public/upload/ibrowser/WU/WU1/WU1_09_lisowski_42-66.pdf'
+p441
+g6
+tp442
+a(I79
+I0
+VSUBURBANIZACJA W OBSZARZE METROPOLITALNYM WARSZAWY
+p443
+VA LISOWSKI 
+p444
+V2010
+p445
+Vgeogr.uni.wroc.pl
+p446
+g5
+S'http://www.geogr.uni.wroc.pl/Jubileusz/Andrzej_Lisowski.pdf'
+p447
+g6
+tp448
+a(I80
+I8
+VRadom\u2013w blasku czy cieniu Warszawy
+p449
+VP Lisowski 
+p450
+V2000
+p451
+Vtest.studreg.uw.edu.pl
+p452
+g5
+S'http://test.studreg.uw.edu.pl/pdf/2000_4_lisowski.pdf'
+p453
+S'scholar.google.com/scholar?cites=18310749325368784690&as_sdt=2005&sciodt=0,5&hl=en'
+p454
+tp455
+a(I81
+I5
+VProcesy centralizacji i decentralizacji w aglomeracji warszawskiej w latach 1950-2002
+p456
+VA Lisowski 
+p457
+V2005
+p458
+Vwgsr.uw.edu.pl
+p459
+g5
+S'http://www.wgsr.uw.edu.pl/pub/uploads/pis05/Lisowski_1.pdf'
+p460
+S'scholar.google.com/scholar?cites=12663698255425579361&as_sdt=2005&sciodt=0,5&hl=en'
+p461
+tp462
+a(I82
+I0
+VAktywni obywatele\u2013ju\u017c czy jeszcze nie? Do\u015bwiadczenia polsko-niemieckie
+p463
+VK Lisowski 
+p464
+g64
+Vwsb.gorzow.pl
+p465
+g5
+S'http://www.wsb.gorzow.pl/upload/File/KONFERENCJE_Arl/2010/AKTYWNI_OBYWATELE_monografia_2010_.pdf'
+p466
+g6
+tp467
+a(I83
+I0
+VFinancial charges of enterprises in the mining sector
+p468
+VJ KULCZYCKA, R LISOWSKI 
+p469
+V2007
+p470
+Vmeeri.pl
+p471
+g5
+S'http://meeri.pl/Wydawnictwa/GSM234/kulczycka-lisowski.pdf'
+p472
+g6
+tp473
+a(I84
+I0
+VGeography and Social Sciences in Transdisciplinary Science
+p474
+VA Lisowski 
+p475
+V2011
+p476
+VVersita
+p477
+g5
+S'http://versita.metapress.com/index/67V2L12108928473.pdf'
+p478
+g6
+tp479
+a.

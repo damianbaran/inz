@@ -3,24 +3,23 @@
 import wx
 import os
 from modules.sch.schView import sView
-#from modules.men.menView import mView
 from modules.baz.bazView import bView
-from publikacja import PubDialog
-from grupa import GroupDialog
-from wydawca import JourDialog
-from autor import AuthorDialog
-from about import About
+from popup.publikacja import PubDialog
+from popup.grupa import GroupDialog
+from popup.wydawca import JourDialog
+from popup.autor import AuthorDialog
+from popup.about import About
 from wx.lib.pubsub import Publisher
 
 class MainFrame(wx.Frame):
     def __init__(self):
-#        wx.Frame.__init__ ( self, None, id = wx.ID_ANY, title = u"ScholBar", pos = wx.DefaultPosition, size = wx.Size( 1024,545 ), style = wx.DEFAULT_FRAME_STYLE|wx.FRAME_NO_TASKBAR|wx.RESIZE_BORDER|wx.TAB_TRAVERSAL )
-        wx.Frame.__init__(self, None, id = wx.ID_ANY, title = u"PubRansack", pos = wx.DefaultPosition, size = wx.Size( 1024,535 ), style = wx.DEFAULT_FRAME_STYLE ^ (wx.RESIZE_BORDER))
+        wx.Frame.__init__(self, None, id = wx.ID_ANY, 
+            title = u"PubRansack", 
+            pos = wx.DefaultPosition, size = wx.Size( 1024,535 ), 
+            style = wx.DEFAULT_FRAME_STYLE ^ (wx.RESIZE_BORDER|wx.MAXIMIZE_BOX))
         
         self.panel_sch = sView(self)
-#        self.panel_men = mView(self)
         self.panel_baz = bView(self)
-#        self.panel_men.Hide()
         self.panel_baz.Hide()
         
         self.SetSizeHintsSz( wx.Size( -1,-1 ), wx.DefaultSize )
@@ -28,12 +27,12 @@ class MainFrame(wx.Frame):
         firstSizer = wx.BoxSizer( wx.VERTICAL )
         
         firstSizer.Add(self.panel_sch, 1, wx.EXPAND)
-#        firstSizer.Add(self.panel_men, 1, wx.EXPAND)
         firstSizer.Add(self.panel_baz, 1, wx.EXPAND)
         
         self.SetSizer( firstSizer )
         self.Layout()
         
+        #StatusBar
         self.statusbar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
         Publisher().subscribe(self.change_statusbar, 'change_statusbar')
         
@@ -174,8 +173,8 @@ class MainFrame(wx.Frame):
         addpub = self.m_toolBar1.AddLabelTool( 5, u"tool", wx.Bitmap( u"icon/pub.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Zarządzanie Publikacjami', wx.EmptyString ) 
         addwyd = self.m_toolBar1.AddLabelTool( 6, u"tool", wx.Bitmap( u"icon/journal.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Zarządzanie Wydawcami', wx.EmptyString ) 
         self.m_toolBar1.AddSeparator()
-        backup = self.m_toolBar1.AddLabelTool( 21, u"tool", wx.Bitmap( u"icon/backup.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Utworzenie kopii zapasowej bazy danych', wx.EmptyString ) 
-        replace = self.m_toolBar1.AddLabelTool( 22, u"tool", wx.Bitmap( u"icon/replace.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Wczytanie kopii zapasowej bazy danych', wx.EmptyString ) 
+        backup = self.m_toolBar1.AddLabelTool( 45, u"tool", wx.Bitmap( u"icon/backup.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Utworzenie kopii zapasowej bazy danych', wx.EmptyString ) 
+        replace = self.m_toolBar1.AddLabelTool( 46, u"tool", wx.Bitmap( u"icon/replace.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Wczytanie kopii zapasowej bazy danych', wx.EmptyString ) 
         self.m_toolBar1.AddSeparator()
         raport = self.m_toolBar1.AddLabelTool( 7, u"tool", wx.Bitmap( u"icon/fileopen.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Wczytaj pobrane publikacje', wx.EmptyString ) 
         backlist = self.m_toolBar1.AddLabelTool( 8, u"tool", wx.Bitmap( u"icon/back.png", wx.BITMAP_TYPE_ANY ), wx.NullBitmap, wx.ITEM_NORMAL, u'Przywróć ostatnie publikacje', wx.EmptyString ) 

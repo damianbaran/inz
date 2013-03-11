@@ -10,10 +10,10 @@ import time
 import shutil
 from lxml.html import builder as E
 from wx.lib.pubsub import Publisher
-from publikacja import PubDialog
-from grupa import GroupDialog
-from wydawca import JourDialog
-from wys_cytowania import CiteDialog
+from popup.publikacja import PubDialog
+from popup.grupa import GroupDialog
+from popup.wydawca import JourDialog
+from popup.wys_cytowania import CiteDialog
 
 
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
@@ -29,57 +29,6 @@ class bView(wx.Panel, PubDialog):
         self.session = cDatabase.connectDatabase()
         listSearch = [u'Autor', u'AutorID', u'DOI', u'Grupa', u'Adres', u'Rok', u'Tytul', u'Wydawca']
         self.handlerweb = webbrowser.get()
-
-        ########################################################################
-        #  Panel 1
-        ########################################################################
-#        self.panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
-#        globalBox = wx.BoxSizer( wx.VERTICAL )
-#        
-#        twoBox1 = wx.BoxSizer( wx.VERTICAL )
-#        
-#        bSizer24 = wx.BoxSizer( wx.HORIZONTAL )
-#        
-##        self.m_staticText12 = wx.StaticText( self.panel, wx.ID_ANY, u"Wyszukaj", wx.DefaultPosition, wx.DefaultSize, 0 )
-##        self.m_staticText12.Wrap( -1 )
-##        bSizer24.Add( self.m_staticText12, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-#        
-#        m_choice31Choices = listSearch
-#        self.m_choice31 = wx.Choice( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, m_choice31Choices, 0 )
-#        self.m_choice31.SetSelection( 0 )
-#        bSizer24.Add( self.m_choice31, 0, wx.ALL, 5 )
-#        
-#        self.m_searchCtrl1 = wx.SearchCtrl( self.panel, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
-#        self.m_searchCtrl1.ShowSearchButton( True )
-#        self.m_searchCtrl1.ShowCancelButton( False )
-#        bSizer24.Add( self.m_searchCtrl1, 0, wx.EXPAND, 5 )
-#        
-#        
-#        twoBox1.Add( bSizer24, 0, wx.EXPAND, 5 )
-#        
-#        twoBox11 = wx.BoxSizer( wx.VERTICAL )
-#        
-##        self.dataList = wx.ListCtrl( self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.LC_ICON )
-#        self.dataList = TestListCtrl(self.panel, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
-#        self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=23)
-#        self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=60)
-#        self.dataList.InsertColumn(2, 'Tytul', format=wx.LIST_FORMAT_LEFT, width=370)
-#        self.dataList.InsertColumn(3, 'Autor', format=wx.LIST_FORMAT_LEFT, width=210)
-#        self.dataList.InsertColumn(4, 'Rok', format=wx.LIST_FORMAT_RIGHT, width=50)
-#        self.dataList.InsertColumn(5, 'Wydawca', format=wx.LIST_FORMAT_LEFT, width=120)
-#        self.dataList.InsertColumn(6, u'Źródło', format=wx.LIST_FORMAT_LEFT, width=120)
-#        twoBox11.Add( self.dataList, 1, wx.EXPAND|wx.RIGHT|wx.LEFT, 5 )
-#        
-#        
-#        twoBox1.Add( twoBox11, 1, wx.EXPAND, 5 )
-#        
-#        
-#        globalBox.Add( twoBox1, 1, wx.ALL|wx.EXPAND, 5 )
-#        
-#        
-#        self.panel.SetSizer( globalBox )
-#        self.panel.Layout()
-#        globalBox.Fit( self.panel )
     
         self.m_panel1 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
         bSizer21 = wx.BoxSizer( wx.VERTICAL )
@@ -90,11 +39,6 @@ class bView(wx.Panel, PubDialog):
         self.m_choice31 = wx.Choice( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, m_choice31Choices, 0 )
         self.m_choice31.SetSelection( 0 )
         bSizer3.Add( self.m_choice31, 0, wx.ALL, 5 )        
-
-#        m_choice1Choices = listSearch
-#        self.m_choice1 = wx.Choice( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), m_choice1Choices, 0 )
-#        self.m_choice1.SetSelection( 0 )
-#        bSizer3.Add( self.m_choice1, 0, wx.ALL, 5 )
         
         self.m_searchCtrl1 = wx.SearchCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PROCESS_ENTER )
         self.m_searchCtrl1.ShowSearchButton( True )
@@ -105,7 +49,6 @@ class bView(wx.Panel, PubDialog):
         
         bSizer4 = wx.BoxSizer( wx.VERTICAL )
         
-#        self.m_listCtrl1 = wx.ListCtrl( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LC_ICON )
         self.dataList = TestListCtrl( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.Size( 1007,390 ), style=wx.LC_REPORT | wx.BORDER_SUNKEN)
         self.dataList.InsertColumn(0, 'ID', format=wx.LIST_FORMAT_CENTER, width=23)
         self.dataList.InsertColumn(1, 'Cytowan', format=wx.LIST_FORMAT_LEFT, width=60)
@@ -232,8 +175,6 @@ class bView(wx.Panel, PubDialog):
         Publisher().sendMessage(('change_data'), self.id_cit)
         dlg.updateRecord()
         dlg.ShowModal()
-        
-#        print self.id_cit
     
     def editRecordData(self):
         num = self.dataList.GetItemCount()
@@ -283,9 +224,29 @@ class bView(wx.Panel, PubDialog):
     
     def updateRecord(self, data):
         """Funkcja uaktualnia wartości listctrl o podane wartosci"""
+        a = cDatabase.getPerPubID(self.session)
+        c = cDatabase.getCiteID(self.session)
+        
         try:
+#            for i in range(len(data)):
+#                tmp = data[i]
+#                for j in range(len(c)):
+#                    t = c[j]
+#                    if tmp[0] == t[0]:
+#                        tmp[1] = t[1]
+            
             for i in range(len(data)):
                 self.dataList.Append(data[i])
+            
+            num = self.dataList.GetItemCount()
+            for i in range(num):
+                for j in range(len(a)):
+                    if int(self.dataList.GetItemText(i)) == a[j]:
+                        self.dataList.SetItemBackgroundColour(i, "green")
+                for j in range(len(c)):
+                    t = c[j]
+                    if int(self.dataList.GetItemText(i)) == t[0]:
+                        self.dataList.SetItemBackgroundColour(i, "yellow")
         except TypeError:
             wx.MessageBox(u'Brak wyszukanych danych', 'Brak danych', wx.OK | wx.ICON_INFORMATION)
     

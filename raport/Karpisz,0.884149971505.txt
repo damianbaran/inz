@@ -1,0 +1,520 @@
+(lp0
+(I21
+I3
+VThe Tresse theorem and differential invariants for the nonlinear Schrödinger equation
+p1
+VT Czy\u017cycki 
+p2
+V2007
+p3
+Viopscience.iop.org
+p4
+S''
+p5
+S'http://iopscience.iop.org/1751-8121/40/31/011'
+p6
+S'scholar.google.com/scholar?cites=15021802390502025892&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(I22
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p9
+VE Lisowski, G Filo, W Czy\u017cycki 
+p10
+V2009
+p11
+VBergen
+p12
+g5
+S'Brak'
+p13
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p14
+tp15
+a(I23
+I1
+VEquivalence groups of differential equations and their applications to mathematical physics problems
+p16
+VT Czy\u017cycki 
+p17
+V2008
+p18
+Vpdfserv.aip.org
+p19
+g5
+S'http://pdfserv.aip.org/APCPCS/vol_1079/iss_1/135_1.pdf'
+p20
+S'scholar.google.com/scholar?cites=7677770636796768326&as_sdt=2005&sciodt=0,5&hl=en'
+p21
+tp22
+a(I24
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p23
+VE Lisowski, W Czy\u017cycki\u2026 
+p24
+V2010
+p25
+Vbaztech.icm.edu.pl
+p26
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p27
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p28
+tp29
+a(I25
+I1
+VEquivalence problem and integrability of the Riccati equations
+p30
+VT Czy\u017cycki, J Hrivnák 
+p31
+V2010
+p32
+VSpringer
+p33
+g5
+S'http://www.springerlink.com/index/087x0t8044902461.pdf'
+p34
+S'scholar.google.com/scholar?cites=12190597190258295186&as_sdt=2005&sciodt=0,5&hl=en'
+p35
+tp36
+a(I26
+I3
+VWybrane zagadnienia z prognozowania
+p37
+VR Klóska, M Hundert, R Czy\u017cycki 
+p38
+V2007
+p39
+VEconomicus
+p40
+g5
+g13
+S'scholar.google.com/scholar?cites=7372378761906413232&as_sdt=2005&sciodt=0,5&hl=en'
+p41
+tp42
+a(I27
+I0
+VTransport and storage of LNG in container tanks
+p43
+VE Lisowski, W Czy\u017cycki 
+p44
+V2011
+p45
+Vilot.edu.pl
+p46
+g5
+S'http://ilot.edu.pl/kones/2011/3_2011/2011_lisowski_czyzycki_transport_and_storage.pdf'
+p47
+g13
+tp48
+a(I28
+I0
+VUsing of polyamide in construction of supporting blocks of cryogenic tanks on example of LNG container
+p49
+VE Lisowski, W Czy\u017cycki, K \u0141azarczyk 
+p50
+S' '
+p51
+Vafe.polsl.pl
+p52
+g5
+S'http://www.afe.polsl.pl/index.php/pl/2516/using-of-polyamide-in-construction-of-supporting-blocks-of-cryogenic-tanks-on-example-of-lng-container.pdf'
+p53
+g13
+tp54
+a(I29
+I0
+VErratum to: Equivalence problem and integrability of the Riccati equations
+p55
+VT Czy\u017cycki, J Hrivnák 
+p56
+V2010
+p57
+VSpringer
+p58
+g5
+S'http://www.springerlink.com/index/W8305H6780558348.pdf'
+p59
+g13
+tp60
+a(I30
+I0
+VInvestigation of iron and zinc oxidation state in different grades of human brain gliomas using XAFS spectro-scopy
+p61
+VK Wolska, A Wandzilak, M Czy\u017cycki, P Wróbel\u2026 
+p62
+g51
+Vscience24.com
+p63
+g5
+S'http://www.science24.com/paper/24552'
+p64
+g13
+tp65
+a(I31
+I0
+VGroup Transformations with Discrete Parameter and Invariant Schrödinger Equation
+p66
+VI Tsyfra, T Czy\u017cycki 
+p67
+V2009
+p68
+Vpdfserv.aip.org
+p69
+g5
+S'http://pdfserv.aip.org/APCPCS/vol_1191/iss_1/182_1.pdf'
+p70
+g13
+tp71
+a(I32
+I1
+VTransport ciek\u0142ego LNG w zbiornikach kontenerowych
+p72
+VE Lisowski, W Czy\u017cycki 
+p73
+V2009
+p74
+Vbaztech.icm.edu.pl
+p75
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSW1-0084-0043'
+p76
+S'scholar.google.com/scholar?cites=16501406923719738295&as_sdt=2005&sciodt=0,5&hl=en'
+p77
+tp78
+a(I33
+I0
+VBadania symulacyjne uk\u0142adu hydraulicznego z regulatorem rozmytym o strukturze PI
+p79
+VW Czy\u017cycki 
+p80
+g51
+Vbaztech.icm.edu.pl
+p81
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3802'
+p82
+g13
+tp83
+a(I34
+I0
+VStrategia sterowania zasilaniem uk\u0142adu przy zastosowaniu regulatora cyfrowego na przyk\u0142adzie pompy \u0142opatkowej
+p84
+VW Czy\u017cycki, E Lisowski 
+p85
+V2004
+p86
+Vbaztech.icm.edu.pl
+p87
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB3-0018-0033'
+p88
+g13
+tp89
+a(I35
+I0
+VSterowanie wydajno\u015bci\u0105 pompy \u0142opatkowej
+p90
+VE Lisowski, W Czy\u017cycki 
+p91
+g51
+Vbaztech.icm.edu.pl
+p92
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPP1-0055-0063'
+p93
+g13
+tp94
+a(I36
+I0
+VMODELOWANIE PRZEP\u0141YWU CIEP\u0141A PRZEZ IZOLACJ\u0118 ZBIORNIKÓW KRIOGENICZNYCH W MODULE SOLIDWORKS SIMULATION HEAT FLOW  \u2026
+p95
+VW CZY\u017bYCKI 
+p96
+g51
+Vsuw.biblos.pk.edu.pl
+p97
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i4/i5/i7/i4/r4574/CzyzyckiW_ModelowaniePrzeplywu.pdf'
+p98
+g13
+tp99
+a(I37
+I0
+VKierunki oddzia\u0142ywania grzybni Botrytis cinerea na fermentacj\u0119 i dojrzewanie win owocowych.
+p100
+VA Czy\u017cycki, P\u0141WC Spo\u017cywczej 
+p101
+V1964
+p102
+V\u0141ód\u017a: nak\u0142. autora
+p103
+g5
+g13
+g13
+tp104
+a(I38
+I0
+VBADANIA SYMULACYJNE UK\u0141ADU HYDRAULICZNEGO Z REGULATOREM ROZMYTYM O STRUKTURZE PI SIMULATIONS OF HYDRAULIC SYSTEM WITH \u2026
+p105
+VW CZY\u017bYCKI 
+p106
+g51
+Vsuw.biblos.pk.edu.pl
+p107
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i4/i5/i7/i3/r4573/CzyzyckiW_BadaniaSymulacyjne.pdf'
+p108
+g13
+tp109
+a(I39
+I0
+VBudowa programu obs\u0142ugi relacyjnej bazy danych pier\u015bcieni uszczelniaj\u0105cych elementów hydraulicznych
+p110
+VE Lisowski, W Czy\u017cycki, W Zagól 
+p111
+V2001
+p112
+Vbaztech.icm.edu.pl
+p113
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPOA-0019-0039'
+p114
+g13
+tp115
+a(I40
+I0
+VModelowanie przep\u0142ywu ciep\u0142a przez izolacj\u0119 zbiorników kriogenicznych w module SolidWorks simulation
+p116
+VW Czy\u017cycki 
+p117
+g51
+Vbaztech.icm.edu.pl
+p118
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3834'
+p119
+g13
+tp120
+a(I41
+I0
+VLisowski E
+p121
+VW Czy\u017cycki 
+p122
+V2002
+p123
+VAutomatyzacja zada\u0144 grafiki za pomoc\u0105 Delphi, 2002
+p124
+g5
+g13
+g13
+tp125
+a(I42
+I3
+VAn automatic recognition of the frontal sinus in x-ray images of skull
+p126
+VZ Tabor, D Karpisz, L Wojnar\u2026 
+p127
+V2009
+p128
+Vieeexplore.ieee.org
+p129
+g5
+S'http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4599235'
+p130
+S'scholar.google.com/scholar?cites=12246024197540960480&as_sdt=2005&sciodt=0,5&hl=en'
+p131
+tp132
+a(I43
+I2
+VPodstawy informatyki
+p133
+VD Karpisz, L Wojnar 
+p134
+V2005
+p135
+VPodr\u0119cznik Politechnik Krakowskiej, Kraków, 2005
+p136
+g5
+g13
+S'scholar.google.com/scholar?cites=473893745696895657&as_sdt=2005&sciodt=0,5&hl=en'
+p137
+tp138
+a(I44
+I1
+VIdentyfikacja osób na podstawie radiogramów zatok czo\u0142owych z wykorzystaniem komputerowej analizy obrazu
+p139
+VD Karpisz, P Kowalski, Z Tabor, L Wojnar 
+p140
+V2007
+p141
+VPTL, Przegl\u0105d Lekarski
+p142
+g5
+g13
+S'scholar.google.com/scholar?cites=10418216919854024367&as_sdt=2005&sciodt=0,5&hl=en'
+p143
+tp144
+a(I45
+I0
+VDedykowany system monitoringu instancji bazy danych dla systemu Oracle
+p145
+VD Karpisz 
+p146
+V2009
+p147
+Vbaztech.icm.edu.pl
+p148
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSL8-0027-0012'
+p149
+g13
+tp150
+a(I46
+I0
+VNie tylko relacyjny model danych
+p151
+VD Karpisz 
+p152
+g51
+Vbaztech.icm.edu.pl
+p153
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3837'
+p154
+g13
+tp155
+a(I47
+I0
+VPROBLEMATYKA GROMADZENIA WIEDZY O PRECYZYJNEJ OBRÓBCE MATERIA\u0141ÓW O SPECJALNYCH W\u0141A\u015aCIWO\u015aCIACH
+p156
+VJ GAWLIK, A KIE\u0141BUS, D KARPISZ 
+p157
+g51
+Vptzp.org.pl
+p158
+g5
+S'http://www.ptzp.org.pl/files/konferencje/kzz/artyk_pdf_2013/p104.pdf'
+p159
+g13
+tp160
+a(I48
+I0
+VThe Intellectual Capital of a Knowledge-Based Organisation in the Context of the XXI-century Challenges
+p161
+VA Labedzka, J Karpisz, W Sidor 
+p162
+g51
+Vorder
+p163
+g5
+g13
+g13
+tp164
+a(I49
+I0
+VImplementacja metod do monitoringu nieu\u017cywanych obiektów dla serwera Oracle
+p165
+VD Karpisz 
+p166
+V2009
+p167
+Vbaztech.icm.edu.pl
+p168
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSL8-0027-0011'
+p169
+g13
+tp170
+a(I50
+I0
+VMocowanie i pozycjonowanie czaszek do zdj\u0119\u0107 radiologicznych
+p171
+VD Karpisz, P Kowalski 
+p172
+g51
+Vbaztech.icm.edu.pl
+p173
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3832'
+p174
+g13
+tp175
+a(I51
+I0
+VMOCOWANIE I POZYCJONOWANIE CZASZEK DO ZDJ\u0118\u0106 RADIOLOGICZNYCH MOUNTING AND POSITIONING SKULLS TO THE X-RAY IMAGES
+p176
+VD KARPISZ, P KOWALSKI 
+p177
+g51
+Vsuw.biblos.pk.edu.pl
+p178
+g5
+S'https://suw.biblos.pk.edu.pl/resources/i4/i5/i9/i6/r4596/KarpiszD_MocowaniePozycjonowanie.pdf'
+p179
+g13
+tp180
+a(I52
+I0
+VRemoval possibilities of colloidal chromium (III) oxide from water using polyacrylic acid
+p181
+VM Wi\u015bniewska, K Szewczuk
+p182
+V2012
+p183
+VSpringer
+p184
+g5
+S'http://link.springer.com/article/10.1007/s11356-012-1273-6'
+p185
+g13
+tp186
+a(I53
+I0
+VESKD-72 ELECTRONIC DISPATCHING CONTROL SYSTEM
+p187
+VM Karpisz, S Zoltek 
+p188
+V1979
+p189
+Vtrid.trb.org
+p190
+g5
+S'http://trid.trb.org/view.aspx?id=145686'
+p191
+g13
+tp192
+a(I54
+I0
+VImplementacja asercji w relacyjnych bazach danych na przyk\u0142adzie systemu ORACLE
+p193
+VD Karpisz 
+p194
+g51
+Vbaztech.icm.edu.pl
+p195
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3822'
+p196
+g13
+tp197
+a(I55
+I0
+VKorekcja si\u0142y wyporu w pomiarach masy Cz. I-nowa funkcja wag serii 2Y
+p198
+VS Janas, S Karpisz 
+p199
+V2012
+p200
+Vbaztech.icm.edu.pl
+p201
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?PWA9-0054-0025'
+p202
+g13
+tp203
+a.

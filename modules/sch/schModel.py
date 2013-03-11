@@ -6,19 +6,18 @@ import sys
 import time
 import pickle
 import random
-#import urllib
 import urllib2
 from bs4 import BeautifulSoup
-#from src.lib.process import MainProcess
-#from threading import *
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera wszystkie zmienne i metody do pobierania danych z wyszukiwarki Google Scholar
 class sModel:
+    ##Konstruktor
     def __init__(self):
-        """Konstruktor""" 
         self.item = {'num': 0, 'query': "", 'exact': "", 'oneof': "", 'without': "",
                      'author': "", 'pub': "", 'ylow': "", 'yhigh': ""}
         self.scholar_glo_url = 'scholar.google.com'
-#        self.fulllist = []
         self.fulllist = []
         self.selectlist = []
         self.all_item = 0
@@ -30,15 +29,15 @@ class sModel:
         self.all_items_id = 0 #dodawanie unikatowego id do kazdego rekordu
         self.all_url = [] #w zmienionym modelu odpowiada z przechowywanie wszystkich linkow do wyszukania
         self.all_number_query = 0 #zlicza ilosc rzadan do serwera googla
-        ## A class variable.
-        self.c = float(0) ##  zmiennna do def procent
-#        self.slownik = {'Dariusz Karpisz':'Karpisz','Wojciech Czyżycki':'Czyzycki'}
+#        self.c = float(0) 
         
+    ## Dokumentacja addWord
+    # @param self Wskaźnik obiektu
+    # @param value Lista danych z wartościami do generowania url
+    #
+    # @return void
+    # Funkcja pobiera dane wprowadzone przez uzytkownika wyszukania danych
     def addWord(self, value):
-        """
-        Funkcja pobiera dane wprowadzone przez uzytkownika
-        wyszukania danych
-        """        
         value = self.replString(value)
         self.item['query'] = value[0]
         self.item['exact'] = value[1]
@@ -48,13 +47,14 @@ class sModel:
         self.item['pub'] = value[5]
         self.item['ylow'] = value[6]
         self.item['yhigh'] = value[7]
-
+    
+    ##Dokumentacja replString
+    # @param self Wskaźnik obiektu
+    # @param data Lista danych do sprawdzenia
+    #
+    # @return tuple Lista zmodyfikowanych wartości wprowadzonych przez użytkownika
+    # Funkcja sprawdza czy string podany przez uzytkownika nie zawiera spacji, jesli tak to zamienia na '+'
     def replString(self, data):
-        """
-        Funkcja sprawdza czy string podany przez uzytkownika
-        nie zawiera spacji, jesli tak to zamienia na '+'
-        """
-#        print data
         tmp = []
         for i in range(len(data)):
             s = re.sub(u' ','+', data[i])
@@ -62,69 +62,22 @@ class sModel:
             tmp.append(s)
         tuple(tmp)
         return tmp
-
-#######################################
-## wyszukiwanie dla grupy uzytkownikow
-#######################################
     
+    ## Dokumentacja searchGroup
+    # @param self Wskaźnik obiektu
+    # @param data Lista danych z autorami
+    #
+    # @return void
+    # Funkcja pobiera dane do wyszukiwania grupowego
     def searchGroup(self, data):
         self.listauthor = data
-        print self.listauthor
-        
-#    def downloadDataGroup(self):
-#        """Funkcja pobiera wszystkie dane wyszukiwania"""
-#        self.item['query'] = ''
-#        self.item['exact'] = ''
-#        self.item['oneof'] = ''
-#        self.item['without'] = ''
-#        self.item['author'] = ''
-#        self.item['pub'] = ''
-#        self.item['ylow'] = ''
-#        self.item['yhigh'] = ''
-#        tmp = len(self.listauthor)
-#        for i in range(len(self.listauthor)):
-#            self.item['author'] = self.listauthor[i]
-#            print self.item['author']
-#            self.queryScholar()
-#            self.allPages()
-#            self.all_item = 0
-#        self.saveResult(self.fulllist)
-#        self.searchList(self.fulllist)
-
-#######################################
-## koniec funkcja dla wyszukiwania grupowego
-#######################################
     
-#    def selectingString(self, data):
-#        """Funkcja przekazuje wybrane rekordy przez uzytkownika do medelu menadzera publikacji"""
-#        self.mendata = []
-#        for i in range(len(data)):
-#            self.mendata.append(self.fulllist[data[i]])
-#        return self.mendata
-
-#    def downloadData(self):
-#        self.queryScholar()
-#        self.allPages()
-#        self.all_item = 0
-#        self.saveResult(self.fulllist)
-#        self.searchList(self.fulllist)
-
-#    def allPages(self):
-#        """Funkcja przechodzi po wszystkich stronach wyszukiwania"""
-#        if self.all_item > 10:
-#            for i in range(10,self.all_item,10):
-#                item_add = {'num': 0}
-#                self.item.update(item_add)
-#                self.item['num'] = i
-#                self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
-#                self.queryScholar()
-                
-
+    ## Dokumentacja urlScholar
+    # @param self Wskaźnik obiektu
+    #
+    #return void
+    # Funkcja zawiera url wyszukiwania do ktorego można wprowadzic dane uzytkownika
     def urlScholar(self):
-        """
-        Funkcja zawiera url wyszukiwania do ktorego można wprowadzic
-        dane uzytkownika
-        """
         self.s0 = 'start=%(num)s&'
         self.s1 = 'as_q=%(query)s&'
         self.s2 = 'as_epq=%(exact)s&'
@@ -136,55 +89,19 @@ class sModel:
         self.s8 = 'as_ylo=%(ylow)s&'
         self.s9 = 'as_yhi=%(yhigh)s&'
         self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
-
-#    def queryScholar(self):
-#        """
-#        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
-#        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
-#        kolejnych działań
-#        """
-#        if self.all_item == 0:
-#            self.urlScholar()
-#            
-#        url = self.scholar_url % self.item
-#        r = urllib2.Request(url=url,
-#                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
-#        op = urllib2.urlopen(r)
-#        html = op.read()
-#        
-##        print url
-##        l = open("test.htm","r")
-##        html = l.read()
-##        print html
-#
-#        self.htmlsoup = BeautifulSoup(html)
-#        if self.all_item == 0:
-#            self.numberPageSearch()
-#        self.doThis()
-#        self.onePage()
-##        self.procent()     
-        
-#    def procent(self):
-#        done = float(0)
-#        step = 10
-#        
-#        done = (float(step)/float(self.all_item))*100
-#        self.c += done
-#        if self.c < 100:
-#            print self.c
-##            return self.c
     
+    ## .Dokumentacja firstQuery
     def firstQuery(self):
         self.urlScholar()
         if self.all_item == 0:
             self.item['num'] = 0
-            
-#        l = open("test.htm","r")
-#        html = l.read()
 
         url = self.scholar_url % self.item
         r = urllib2.Request(url=url,
-                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
+            headers={'User-Agent': 
+                'Mozilla/5.0 (Windows NT 6.1) \
+                AppleWebKit/535.7 (KHTML, like Gecko) \
+                Chrome/16.0.912.77 Safari/535.7'})
         op = urllib2.urlopen(r)
         html = op.read()
 
@@ -193,6 +110,7 @@ class sModel:
         self.generateLinks(self.all_item, self.item)
         return self.all_item
 
+    ## .Dokumentacja firstQueryGroup
     def firstQueryGroup(self, data):
         self.item['query'] = ''
         self.item['exact'] = ''
@@ -200,13 +118,12 @@ class sModel:
         self.item['without'] = ''
         self.item['author'] = ''
         self.item['pub'] = ''
-#        self.item['ylow'] = ''
-#        self.item['yhigh'] = ''
         for i in range(len(data)):
             self.item['author'] = data[i]
             self.item['num'] = 0
             l = self.firstQuery()
 
+    ## .Dokumentacja generateLinks
     def generateLinks(self, n, rec):
         d = 0
         for i in range(0,n,10):
@@ -216,6 +133,7 @@ class sModel:
             d += 1
         self.all_number_query += d
 
+    ## .Dokumentacja queryScholar
     def queryScholar(self, link):
         """
         Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
@@ -223,23 +141,22 @@ class sModel:
         kolejnych działań
         """
         url = link
-        
-#        l = open("test.htm","r")
-#        html = l.read()
-        
         r = urllib2.Request(url=url,
-                            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7'})
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) \
+            AppleWebKit/535.7 (KHTML, like Gecko) \
+            Chrome/16.0.912.77 Safari/535.7'})
         op = urllib2.urlopen(r)
         html = op.read()
 
         return html
-        
-
+    
+    ## .Dokumentacja numberRecordsOnPage
     def numberRecordsOnPage(self):
         """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
-        
+    
+    ## .Dokumentacja numberPageSearch
     def numberPageSearch(self):
         """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""
         num_page = self.htmlsoup.find('div', {'id': "gs_ab_md"}).get_text()
@@ -249,15 +166,13 @@ class sModel:
             num_page[1] = re.sub(r',', '', num_page[1])
             if num_page[0].isdigit() == True:
                 self.all_item = int(num_page[0])
-#                print self.all_item
             elif num_page[1].isdigit() == True:
                 self.all_item = int(num_page[1])
-#                print self.all_item
             self.all_item_group += self.all_item
         except IndexError:
             pass
-#            wx.MessageBox('Brak danych dla tego wyszukiwania', 'Blad',wx.OK | wx.ICON_INFORMATION)
 
+    ## .Dokumentacja findData
     def findData(self):
         """Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych"""
         self.title_2 = []
@@ -271,7 +186,6 @@ class sModel:
                     tag.h3.span.clear()
                 t = tag.h3.get_text()
                 if t.find('User profiles for author') == -1:
-#                    print tag.h3.get_text()
                     self.title_2.append(tag.h3.get_text())
                 if tag.h3.a:
                     self.title_url_2.append(tag.h3.a['href'])
@@ -332,7 +246,8 @@ class sModel:
                 rel_url = 'Brak'
                 ver_txt = 'Brak'
                 ver_url = 'Brak'
-
+    
+    ## .Dokumentacja doThis
     def doThis(self):
         """Funkcja wywołuje kolejne funkcje"""
         self.numberRecordsOnPage()
@@ -343,10 +258,10 @@ class sModel:
         self.parseYear()
         self.parsePublisher()
 
+    ## .Dokumentacja onePage
     def onePage(self):
         """Funkcja zapisuje końcowe dane z jednej strony do listy"""
         self.all_items = []
-#        self.all_items = {}
         for i in range(self.item_count):
             records = {'title':'','titleurl':'','author':'','year':'',
                        'publish':'','cittxt':'','citurl':'','reltxt':'',
@@ -356,9 +271,6 @@ class sModel:
             records['author'] = self.author[i]
             records['year'] = self.year[i]
             records['publish'] = self.publish[i]
-            #print self.title[i]
-            #print self.title_url[i]
-            #print self.author[i] + " rok: " + self.year[i]
             for j in range(i*6,(i*6+6),6):
                 records['cittxt'] = self.links[j]
                 records['citurl'] = self.links[j+1]
@@ -366,23 +278,12 @@ class sModel:
                 records['relurl'] = self.links[j+3]
                 records['vertxt'] = self.links[j+4]
                 records['verurl'] = self.links[j+5]
-                #print 'Cited by ' + self.links[j] + ' url: ' + self.links[j+1]
-                #print self.links[j+2] + ' url: ' + self.links[j+3]
-                #print 'All ' + self.links[j+4] + ' version, url: ' + self.links[j+5]
-            #print 'Publish' + self.publish[i] +'\n\n'
-            """Object record"""
-            #one = Record('', self.links[j], self.title[i],
-            #             self.author[i], self.year[i], self.publish[i])
-#            print self.all_items_id
             one = (self.all_items_id, self.links[j], self.title[i], self.author[i], self.year[i], self.publish[i], '', self.title_url[i], self.links[j+1])
-#            s = {self.all_items_id:one}
             self.all_items_id += 1
-#            self.all_items.update(s)
             self.all_items.append(one)
-#        self.fulllist.update(self.all_items)
-#        print self.fulllist
         self.fulllist += self.all_items
-        
+    
+    ## .Dokumentacja filtruj
     def filtruj(self, record, filtr, dbDane):
         """
         record = [('','',''),('','',''),('','','')]
@@ -402,16 +303,17 @@ class sModel:
         self.fulllist = d
         return d
     
+    ## .Dokumentacja allRecords
     def allRecords(self):
         """Funckja sumuje wszystkie pobrane listy"""
-#        t = len(self.fulllist)
-#        print 'ilosc wszystkich rekordow: ' + str(t)
         return self.fulllist
     
+    ## .Dokumentacja searchList
     def searchList(self, data):
         self.schlist = data
         return self.schlist
     
+    ## .Dokumentacja saveResult
     def saveResult(self, data):
         home = os.getcwd()
         os.chdir('raport')
@@ -441,12 +343,14 @@ class sModel:
         fo.close()
         os.chdir(home)
     
+    ## .Dokumentacja parseUrlTitle
     def parseUrlTitle(self):
         """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""
         self.title_url = []
         for i in range(0,len(self.title_url_2),2):
             self.title_url.append(self.title_url_2[i])
-        
+    
+    ## .Dokumentacja parseTitle
     def parseTitle(self):
         """Funkcja odfiltrowuje niepotrzebne dane dla tytulu rekordu"""
         self.title = []
@@ -454,6 +358,7 @@ class sModel:
             self.title_2[i] = self.title_2[i].strip()
             self.title.append(self.title_2[i])
     
+    ## .Dokumentacja parseYear
     def parseYear(self):
         """Funkcja odfiltrowuje rok z pobranego ciągu znaków"""
         self.year = []
@@ -463,18 +368,19 @@ class sModel:
                 d.append(' ')
             d = d.pop()
             self.year.append(d)                
-
+    
+    ## .Dokumentacja parseAuthor
     def parseAuthor(self):
         """Funkcja odfiltrowuje autorów z pobranego ciągu znaków"""
         self.author = []
         for i in range(len(self.text)):
             a = self.text[i].split('-',1)
             self.author.append(a[0])
-
+    
+    ## .Dokumentacja parsePublisher
     def parsePublisher(self):
         """Funkcja odfiltrowuje wydawce z pobranego ciągu znaków"""
         self.publish = []
         for i in range(len(self.text)):
             p = self.text[i].split('- ',-1)
             self.publish.append(p[len(p)-1])
-            

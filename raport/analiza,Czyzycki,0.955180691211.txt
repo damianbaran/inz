@@ -1,0 +1,17 @@
+(lp0
+(I0
+I0
+VPakiet MAPLE
+p1
+VM Czyzycki
+p2
+S' '
+p3
+g2
+S''
+p4
+S'Brak'
+p5
+g5
+tp6
+a.

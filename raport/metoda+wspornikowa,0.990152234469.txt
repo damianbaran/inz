@@ -1,0 +1,671 @@
+(lp0
+(I0
+I0
+VWzmocnienie spr\u0119\u017conego mostu ramowego budowanego metod\u0105 wspornikow\u0105
+p1
+VA Madaj, W Wo\u0142owicki, M W\u0119grzynowska 
+p2
+S' '
+p3
+Vbaztech.icm.edu.pl
+p4
+S''
+p5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0028-0122'
+p6
+S'Brak'
+p7
+tp8
+a(I1
+I0
+VSome realiability aspects on temporary support of concrete firder built by cantilever method
+p9
+VW Pu\u0142a, M Hildebrand 
+p10
+V2000
+p11
+Vbaztech.icm.edu.pl
+p12
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB3-0003-0091'
+p13
+g7
+tp14
+a(I2
+I0
+VTechnologia wykonania mostu autostradowego przez Wis\u0142\u0119 ko\u0142o Torunia w roku 1998 i 2010
+p15
+VT Serwacki 
+p16
+g3
+Vbaztech.icm.edu.pl
+p17
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0074-0103'
+p18
+g7
+tp19
+a(I3
+I0
+VBudowa mostu autostradowego MA-91 przez Wis\u0142\u0119 ko\u0142o Grudzi\u0105dza
+p20
+VS Cebo, M Matuszkiewicz, P Wanecki 
+p21
+g3
+Vbaztech.icm.edu.pl
+p22
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0074-0104'
+p23
+g7
+tp24
+a(I4
+I0
+VObci\u0105\u017cenia tymczasowych podpór mostów budowanych metod\u0105 wspornikow\u0105
+p25
+VM Hildebrand 
+p26
+V1998
+p27
+Vbaztech.icm.edu.pl
+p28
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0001-0066'
+p29
+g7
+tp30
+a(I5
+I0
+VBudowa mostów w Polsce 1995-2005
+p31
+VA NIEMIERKO 
+p32
+V2006
+p33
+Vwarszawa-zmrp.pl
+p34
+g5
+S'http://www.warszawa-zmrp.pl/artykuly/most10l.pdf'
+p35
+g7
+tp36
+a(I6
+I0
+VDrogownictwo. Mosty
+p37
+VG Jadwiga, U Zygmunt\u2026 
+p38
+V1975
+p39
+VBiblioteka Narodowa, Instytut  \u2026
+p40
+g5
+g7
+g7
+tp41
+a(I7
+I0
+V\u015aciany szczelinowe
+p42
+VP Nowacki 
+p43
+g3
+Vbaztech.icm.edu.pl
+p44
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0077-0024'
+p45
+g7
+tp46
+a(I8
+I0
+VMosty w przeddzie\u0144 XXI wieku
+p47
+VA Jarominiak 
+p48
+V1998
+p49
+Vbaztech.icm.edu.pl
+p50
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-0055-1625'
+p51
+g7
+tp52
+a(I9
+I0
+VPOLSKA AKADEMIA NAUK\u2014ODDZIA\u0141 W KRAKOWIE
+p53
+VZ STOJEK, T UHL, W JADCZYK\u2026 
+p54
+V1986
+p55
+VZak\u0142ad Narodowy im. Ossoli\u0144skich
+p56
+g5
+g7
+g7
+tp57
+a(I10
+I0
+V\u201eMETODA RÓ\u015bNIC SKO\u0143CZONYCH WY\u015bSZEGO RZ\u0118DU I JEJ ZASTOSOWANIA W JEDNOWYMIAROWYCH PROBLEMACH
+p58
+VS Milewski 
+p59
+g3
+Vl5.pk.edu.pl
+p60
+g5
+S'http://l5.pk.edu.pl/~slawek/WWW/SMilewski_MS.pdf'
+p61
+g7
+tp62
+a(I11
+I0
+VZESZYTY NAUKOWE POLITECHNIKI GDA\u0143SKIEJ
+p63
+VBNADCP POLISTYRENU\u2026 
+p64
+V1967
+p65
+VWydan. Politechniki Gda\u0144skiej.
+p66
+g5
+g7
+g7
+tp67
+a(I12
+I0
+VMONITOROWANIE STANU KONSTRUKCJI Z WYKORZYSTANIEM CZUJNIKÓW PIEZOELEKTRYCZNYCH DO POMIARÓW I METODY DYSTORSJI  \u2026
+p68
+VP KO\u0141AKOWSKI, A \u015aWIERCZ, J HOLNICKI
+p69
+g3
+Vsmart.ippt.gov.pl
+p70
+g5
+S'http://smart.ippt.gov.pl/dok/referaty/2007%20Monitorowanie%20stanu%20konstrukcji%20z%20wykorzystaniem%20czujnikow%20piezoelektrycznych%20do%20pomiarow%20i%20Metody%20Dystorsji%20Wirtualnych%20do%20analizy.pdf'
+p71
+g7
+tp72
+a(I13
+I0
+VIDENTYFIKACJA ZMIAN SZTYWNO\u015aCI WE WSPORNIKU NA PODSTAWIE ZMIAN PARAMETRÓW MODELU MODALNEGO
+p73
+VA BOROWIEC, L ZIEMIA\u0143SKI 
+p74
+g3
+Vprz.edu.pl
+p75
+g5
+S'http://prz.edu.pl/pl/zn/files/2007/ZN-243.pdf#page=20'
+p76
+g7
+tp77
+a(I14
+I0
+VRozprawy in\u017cynierskie
+p78
+VZMO Ci\u0105g\u0142ych, IPP Techniki 
+p79
+V1963
+p80
+V1963
+p81
+g5
+g7
+g7
+tp82
+a(I15
+I0
+VObliczanie obci\u0105\u017ce\u0144 konstrukcji budowlanych 311 [04]. Z1. 02
+p83
+VA Kusina 
+p84
+g3
+Vrsms.zspolice.pl
+p85
+g5
+S'http://rsms.zspolice.pl/nasza_szkola/akty_prawne/informatory_zawodowe/technik_budownictwa/technik_budownictwa_311[04]_Z1.02_u.pdf'
+p86
+g7
+tp87
+a(I16
+I0
+VUk\u0142ad do pomiaru b\u0142\u0119dów geometrii powierzchni obrobionej podczas skrawania
+p88
+VP PAWE\u0141KO, D Jasrz\u0119bski\u2026 
+p89
+V2010
+p90
+Vatmia.put.poznan.pl
+p91
+g5
+S'http://www.atmia.put.poznan.pl/Woluminy/Fil/ATMiA_300412.pdf'
+p92
+g7
+tp93
+a(I17
+I0
+VJak budowano \u201ePl. Wilsona\u201d
+p94
+V\u0141 Ledzi\u0144ski, J Pudysz, R Gaca 
+p95
+V2007
+p96
+V85.128.183.76
+p97
+g5
+S'http://85.128.183.76/dev/assets/NBI-pdf/2007/2_11_2007/pdf/18_jak_budowano_pl_wilsona.pdf'
+p98
+g7
+tp99
+a(I18
+I1
+VPomiar drga\u0144 elementów korpusowych frezarki wspornikowej FYN 50 z wykorzystaniem lasera skanuj\u0105cego 3D
+p100
+VM Pajor, T Okulik, M Hoffmann, A Parus 
+p101
+g3
+Vkms.polsl.pl
+p102
+g5
+S'http://www.kms.polsl.pl/mi/pelne_2/pajor_okulik_hoffmann_parus.pdf'
+p103
+S'scholar.google.com/scholar?cites=3497984407264239011&as_sdt=2005&sciodt=0,5&hl=en'
+p104
+tp105
+a(I19
+I0
+VMosty przy A1\u2013w Grudzi\u0105dzu i Czerniewicach
+p106
+VA Siedlecka 
+p107
+V2010
+p108
+Vnbi.com.pl
+p109
+g5
+S'http://www.nbi.com.pl/assets/NBI-pdf/2010/5_32_2010/pdf/10_mosty_na_a1.pdf'
+p110
+g7
+tp111
+a(I20
+I0
+VWYKORZYSTANIE PROGRAMU T-FLEX W ROZWI\u0104ZYWANIU ZAGADNIE\u0143 WYTRZYMA\u0141O\u015aCI MATERIA\u0141ÓW NA PRZYK\u0141ADZIE BELKI ZGINANEJ
+p112
+VP Golewski, GL Golewski 
+p113
+g3
+Vpnt.pollub.pl
+p114
+g5
+S'http://www.pnt.pollub.pl/pdf/nr13/05.pdf'
+p115
+g7
+tp116
+a(I21
+I0
+VGeotechniczne uwarunkowania realizacji inwestycji we Wroc\u0142awiu
+p117
+VK Gorska 
+p118
+g3
+Vgeologos.com.pl
+p119
+g5
+S'http://geologos.com.pl/geologos11/Geologos_11_Gorska.pdf'
+p120
+g7
+tp121
+a(I22
+I3
+VMetody obliczeniowe: wybrane zagadnienia
+p122
+VC Cicho\u0144 
+p123
+V2005
+p124
+Vtu.kielce.pl
+p125
+g5
+S'http://www.tu.kielce.pl/~sk/pmk/pmk-obliczeniowe.pdf'
+p126
+S'scholar.google.com/scholar?cites=16914228762280904061&as_sdt=2005&sciodt=0,5&hl=en'
+p127
+tp128
+a(I23
+I0
+VANALIZA W\u0141ASNO\u015aCI ZAST\u0118PCZYCH NANOKOMPOZYTÓW
+p129
+VMESI BRZEGOWYCH, P BEDNARZ 
+p130
+g3
+Vdydaktyka.polsl.pl
+p131
+g5
+S'http://dydaktyka.polsl.pl/KWMIMKM/KN/MK2010-proceedings.pdf'
+p132
+g7
+tp133
+a(I24
+I0
+VProgramy wspomagaj\u0105ce projektowanie w analizie kinematycznej i wytrzyma\u0142o\u015bciowej wysi\u0119gnika
+p134
+VP KRYSIAK 
+p135
+V2010
+p136
+Vmechanik.media.pl
+p137
+g5
+S'http://www.mechanik.media.pl/_pdf/3574_krysiak.pdf'
+p138
+g7
+tp139
+a(I25
+I0
+VAnaliza dok\u220f adnoÊci oblicze\u0192 elementów resorów w aspekcie wp\u220f ywu wymiarów iw\u220f aÊciwoÊci materia\u220f owych
+p140
+VK DROZD 
+p141
+g3
+V217.96.20.91
+p142
+g5
+S'http://217.96.20.91/pdf/200209s11.pdf'
+p143
+g7
+tp144
+a(I26
+I0
+VPOLSKA AKADEMIA NAUK\u2014ODDZIA\u0141 W KRAKOWIE
+p145
+VJ ROSI\u0143SKI, T UHL\u2026 
+p146
+V1986
+p147
+VZak\u0142ad Narodowy im. Ossoli\u0144skich
+p148
+g5
+g7
+g7
+tp149
+a(I27
+I0
+VTradycyjny i nowoczesny sposób posadawiania ci\u012fzkich spr\u012fzarek ttokowych na fundamentach betonowych
+p150
+VK GRUDZINSKI 
+p151
+g3
+Vtechmarin.com.pl
+p152
+g5
+S'http://www.techmarin.com.pl/pliki/pdf/PM-2009.pdf'
+p153
+g7
+tp154
+a(I28
+I0
+VWytwarzanie elementów maszyn 311 [50]. O2. 04
+p155
+VWJ Klimasara 
+p156
+g3
+Vzsz2.hostpark.pl
+p157
+g5
+S'http://zsz2.hostpark.pl/materialy/tm/technik.mechatronik_311[50]_o2.04_u.pdf'
+p158
+g7
+tp159
+a(I29
+I1
+VAnaliza niezawodno\u015bci i optymalizacja odporno\u015bciowa z\u0142o\u017conych konstrukcji i procesów technologicznych
+p160
+VR Stocki 
+p161
+V2010
+p162
+Vrcin.org.pl
+p163
+g5
+S'http://rcin.org.pl/Content/6731'
+p164
+S'scholar.google.com/scholar?cites=9192568805662500419&as_sdt=2005&sciodt=0,5&hl=en'
+p165
+tp166
+a(I30
+I1
+VNieliniowe prawa Mk jako podstawa wyznaczania ugi\u0119\u0107 belek \u015celbetowych
+p167
+VJ Malesza 
+p168
+V2008
+p169
+Vpbc.biaman.pl
+p170
+g5
+S'http://pbc.biaman.pl/Content/11508/ZN+B.+nr+32.pdf#page=98'
+p171
+S'scholar.google.com/scholar?cites=11047619480657677002&as_sdt=2005&sciodt=0,5&hl=en'
+p172
+tp173
+a(I31
+I0
+VB\u0141\u0118DY PROJEKTOWO-WYKONAWCZE PRZYCZYN\u0104 USZKODZE\u0143 BALKONÓW W BUDYNKACH SYSTEMOWYCH DESIGN AND REALIZATION ERRORS  \u2026
+p174
+VJ D\u0118BOWSKI, M RADO\u0143 
+p175
+g3
+Vsuw.biblos.pk.edu.pl
+p176
+g5
+S'https://suw.biblos.pk.edu.pl/resources/i5/i4/i0/i4/r5404/DebowskiJ_BledyProjektowo.pdf'
+p177
+g7
+tp178
+a(I32
+I0
+VZESZYTY NAUKOWE POLITECHNIKI GDA\u0143SKIEJ 1972 Budownictwo L\u0105dowe XXIII Nr 187
+p179
+VM LUBI\u0143SKI\u2026 
+p180
+V1972
+p181
+VWydan. Politechniki Gda\u0144skiej.
+p182
+g5
+g7
+g7
+tp183
+a(I33
+I0
+VGEOLOGICZNO-IN\u017bYNIERSKICH
+p184
+VJ BA\u017bY\u0143SKI, A DR\u0104GOWSKI, Z FRANKOWSKI\u2026 
+p185
+g3
+Vpgi.gov.pl
+p186
+g5
+S'http://www.pgi.gov.pl/images/stories/NW/okladki/zasady_sporz_dokument_geol_inz.pdf'
+p187
+g7
+tp188
+a(I34
+I0
+VMosty Szanghaju\u2013miasta transformacji
+p189
+VIK D\u0105browiecki 
+p190
+V2010
+p191
+Vnbi.com.pl
+p192
+g5
+S'http://www.nbi.com.pl/assets/NBI-pdf/2010/3_30_2010/pdf/14_krzysztof_dabrowiecki_szanghaj.pdf'
+p193
+g7
+tp194
+a(I35
+I0
+VAnalytic bending solutions of rectangular cantilever thin plates
+p195
+VB Tian, Y Zhong, R Li 
+p196
+V2011
+p197
+Vacme.pwr.wroc.pl
+p198
+g5
+S'http://www.acme.pwr.wroc.pl/repository/365/online.pdf'
+p199
+g7
+tp200
+a(I36
+I0
+VWYNIKI BADA\u0143 DO\u015aWIADCZALNYCH DRGA\u0143 WYMUSZONYCH BELKI Z CIECZ\u0104 MAGNETOREOLOGICZN\u0104 EXPERIMENTAL RESULTS OF FORCED  \u2026
+p201
+VB SAPI\u0143SKI, J SNAMINA, M ROMASZKO 
+p202
+g3
+Vsuw.biblos.pk.edu.pl
+p203
+g5
+S'http://suw.biblos.pk.edu.pl/resources/i5/i3/i7/i7/r5377/SapinskiB_WynikiBadan.pdf'
+p204
+g7
+tp205
+a(I37
+I0
+VZWICHRZENIE CZTEROCZ\u0141ONOWEGO WYSI\u0118GNIKA WYPADOWEGO PRZYCZYN\u0104 KATASTROFY D\u0179WIGU
+p206
+VAM BUDOWY 
+p207
+V1965
+p208
+VArchiwum Budowy Maszyn, 1965
+p209
+g5
+g7
+g7
+tp210
+a(I38
+I0
+VForma a konstrukcja mebli. Meble o konstrukcji wspornikowej
+p211
+VA Kozikowska 
+p212
+V2010
+p213
+Vwa.pb.edu.pl
+p214
+g5
+S'http://www.wa.pb.edu.pl/uploads/downloads/Architektura---4-2010---do-internetu-7.pdf'
+p215
+g7
+tp216
+a(I39
+I0
+VZastosowanie podstawowych technik wytwarzania cz\u0119\u015bci maszyn 315 [01]. O4. 02
+p217
+VWJ Klimasara 
+p218
+g3
+Vdarsa.pl
+p219
+g5
+S'http://darsa.pl/edukacja/1/16/Technik_bezpieczenstwa_i_higieny_pracy_315[01].O4.02_u.pdf'
+p220
+g7
+tp221
+a(I40
+I0
+VRozró\u017cnianie podzespo\u0142ów stosowanych w maszynach i urz\u0105dzeniach elektrycznych 311 [08]. O2. 03
+p222
+VA Szymczak 
+p223
+g3
+Vsites.google.com
+p224
+g5
+S'http://sites.google.com/site/jacekprs/ftp/technik.elektryk_311%5B08%5D_o2.03_u.pdf'
+p225
+g7
+tp226
+a(I41
+I0
+VBIOMECHANICZNA OCENA ZDOLNO\u015aCI SI\u0141OWYCH SIATKAREK
+p227
+VR MICHNIK, J JURKOJ\u0106, K CZAPLA 
+p228
+g3
+Vkms.polsl.pl
+p229
+g5
+S'http://www.kms.polsl.pl/mi/pelne_13/26_13_44.pdf'
+p230
+g7
+tp231
+a(I42
+I0
+VCHRZCICIELA W OWI\u0143SKACH KO\u0141O POZNANIA
+p232
+VM WIERSZYCKI, D IN\u017b, T \u0141ODYGOWSKI 
+p233
+g3
+Vikb.poznan.pl
+p234
+g5
+S'http://www.ikb.poznan.pl/zaklady/komp/dydaktyka/dyplomy/prace_dyplomowe/mwierszycki_mgr.pdf'
+p235
+g7
+tp236
+a(I43
+I5
+VDamage detection in beams using wavelet transform on higher vibration modes
+p237
+VM Rucka 
+p238
+V2011
+p239
+Vwarminski.pollub.plwww.ptmts.org.pl
+p240
+g5
+S'http://warminski.pollub.plwww.ptmts.org.pl/2011-2-rucka.pdf'
+p241
+S'scholar.google.com/scholar?cites=15633976953951518869&as_sdt=2005&sciodt=0,5&hl=en'
+p242
+tp243
+a(I44
+I2
+VBudownictwo z technologia 2
+p244
+VJZ Mirski, K \u0141\u0105cki 
+p245
+V2010
+p246
+Vbooks.google.com
+p247
+g5
+S'http://books.google.com/books?hl=en&lr=&id=oPmfFjmZeiUC&oi=fnd&pg=PA7&dq=metoda+wspornikowa&ots=bJLHGFgbkv&sig=FuFi2vUpfyCk78QUU692oLSJ7io'
+p248
+S'scholar.google.com/scholar?cites=11111508087139578653&as_sdt=2005&sciodt=0,5&hl=en'
+p249
+tp250
+a(I45
+I0
+VWykonywanie cz\u0119\u015bci maszyn w procesach obróbki skrawaniem 311 [20]. Z1. 02
+p251
+VJ Górny 
+p252
+g3
+Vzscku.konin.pl
+p253
+g5
+S'http://www.zscku.konin.pl/przedmiotyzawodowe/files/obrobka%20skrawaniem.pdf'
+p254
+g7
+tp255
+a.

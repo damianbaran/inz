@@ -1,0 +1,96 @@
+(lp0
+(I35
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p1
+VE Lisowski, G Filo, W Czy\u017cycki 
+p2
+V2009
+p3
+VBergen
+p4
+S''
+p5
+S'Brak'
+p6
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p7
+tp8
+a(I36
+I0
+VGroup Transformations with Discrete Parameter and Invariant Schrödinger Equation
+p9
+VI Tsyfra, T Czy\u017cycki 
+p10
+V2009
+p11
+Vpdfserv.aip.org
+p12
+g5
+S'http://pdfserv.aip.org/APCPCS/vol_1191/iss_1/182_1.pdf'
+p13
+g6
+tp14
+a(I37
+I1
+VTransport ciek\u0142ego LNG w zbiornikach kontenerowych
+p15
+VE Lisowski, W Czy\u017cycki 
+p16
+V2009
+p17
+Vbaztech.icm.edu.pl
+p18
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSW1-0084-0043'
+p19
+S'scholar.google.com/scholar?cites=16501406923719738295&as_sdt=2005&sciodt=0,5&hl=en'
+p20
+tp21
+a(I38
+I3
+VAn automatic recognition of the frontal sinus in x-ray images of skull
+p22
+VZ Tabor, D Karpisz, L Wojnar\u2026 
+p23
+V2009
+p24
+Vieeexplore.ieee.org
+p25
+g5
+S'http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4599235'
+p26
+S'scholar.google.com/scholar?cites=12246024197540960480&as_sdt=2005&sciodt=0,5&hl=en'
+p27
+tp28
+a(I39
+I0
+VDedykowany system monitoringu instancji bazy danych dla systemu Oracle
+p29
+VD Karpisz 
+p30
+V2009
+p31
+Vbaztech.icm.edu.pl
+p32
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSL8-0027-0012'
+p33
+g6
+tp34
+a(I40
+I0
+VImplementacja metod do monitoringu nieu\u017cywanych obiektów dla serwera Oracle
+p35
+VD Karpisz 
+p36
+V2009
+p37
+Vbaztech.icm.edu.pl
+p38
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSL8-0027-0011'
+p39
+g6
+tp40
+a.

@@ -1,0 +1,808 @@
+(lp0
+(I85
+I0
+VPakiet MAPLE
+p1
+VM Czyzycki
+p2
+S' '
+p3
+g2
+S''
+p4
+S'Brak'
+p5
+g5
+tp6
+a(I86
+I7
+VThe ins and outs of open source
+p7
+VI Kalina, A Czyzycki 
+p8
+V2005
+p9
+VJOURNAL OF MANAGEMENT  \u2026
+p10
+g4
+S'/citations?user=ilJ75ZYAAAAJ&hl=en&oi=ao'
+p11
+S'scholar.google.com/scholar?cites=14095097636255753413&as_sdt=2005&sciodt=0,5&hl=en'
+p12
+tp13
+a(I87
+I7
+VQuantitative elemental analysis of individual particles with the use of micro\u2010beam X\u2010ray fluorescence method and Monte Carlo simulation
+p14
+VM Czyzycki, M Bielewski, M Lankosz 
+p15
+V2009
+p16
+VWiley Online Library
+p17
+g4
+g5
+S'scholar.google.com/scholar?cites=17641611954504655175&as_sdt=2005&sciodt=0,5&hl=en'
+p18
+tp19
+a(I88
+I8
+VNeuroprotective action of FK-506 (tacrolimus) after seizures induced with pilocarpine: quantitative and topographic elemental analysis of brain tissue
+p20
+VJ Chwiej, K Janeczko, M Marciszko, M Czyzycki\u2026 
+p21
+V2010
+p22
+VSpringer
+p23
+g4
+S'http://onlinelibrary.wiley.com/doi/10.1002/xrs.1203/abstract'
+p24
+S'scholar.google.com/scholar?cites=15219824302461492934&as_sdt=2005&sciodt=0,5&hl=en'
+p25
+tp26
+a(I89
+I6
+VMonte Carlo simulation code for confocal 3D micro\u2010beam X\u2010ray fluorescence analysis of stratified materials
+p27
+VM Czyzycki, D Wegrzynek, P Wrobel\u2026 
+p28
+V2011
+p29
+VWiley Online Library
+p30
+g4
+S'http://www.springerlink.com/index/N678U85487M14400.pdf'
+p31
+S'scholar.google.com/scholar?cites=6864892534320953492&as_sdt=2005&sciodt=0,5&hl=en'
+p32
+tp33
+a(I90
+I3
+VThe Tresse theorem and differential invariants for the nonlinear Schrödinger equation
+p34
+VT Czy\u017cycki 
+p35
+V2007
+p36
+Viopscience.iop.org
+p37
+g4
+S'http://onlinelibrary.wiley.com/doi/10.1002/xrs.1300/full'
+p38
+S'scholar.google.com/scholar?cites=15021802390502025892&as_sdt=2005&sciodt=0,5&hl=en'
+p39
+tp40
+a(I91
+I2
+VComputer Aided Design in Mechanical Engineering, ch. 4: Transport of Liquid Natural Gas by mobile tank container
+p41
+VE Lisowski, G Filo, W Czy\u017cycki 
+p42
+V2009
+p43
+VBergen
+p44
+g4
+S'http://iopscience.iop.org/1751-8121/40/31/011'
+p45
+S'scholar.google.com/scholar?cites=16664372564813366299&as_sdt=2005&sciodt=0,5&hl=en'
+p46
+tp47
+a(I92
+I1
+VEquivalence groups of differential equations and their applications to mathematical physics problems
+p48
+VT Czy\u017cycki 
+p49
+V2008
+p50
+Vpdfserv.aip.org
+p51
+g4
+g5
+S'scholar.google.com/scholar?cites=7677770636796768326&as_sdt=2005&sciodt=0,5&hl=en'
+p52
+tp53
+a(I93
+I1
+VSimulation and experimental research of internal supports in mobile cryogenic tanks
+p54
+VE Lisowski, W Czy\u017cycki\u2026 
+p55
+V2010
+p56
+Vbaztech.icm.edu.pl
+p57
+g4
+S'http://pdfserv.aip.org/APCPCS/vol_1079/iss_1/135_1.pdf'
+p58
+S'scholar.google.com/scholar?cites=13789435394990750133&as_sdt=2005&sciodt=0,5&hl=en'
+p59
+tp60
+a(I94
+I1
+VMethanol content in fruit musts and wines obtained from the depectinized pulp
+p61
+VZ Lukawska
+p62
+V1985
+p63
+Vagris.fao.org
+p64
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3178-2308'
+p65
+S'scholar.google.com/scholar?cites=14415897787817811156&as_sdt=2005&sciodt=0,5&hl=en'
+p66
+tp67
+a(I95
+I1
+VEquivalence and integrability of second order linear ODEs
+p68
+VI Tsyfra, T Czyzycki 
+p69
+V2010
+p70
+Varxiv.org
+p71
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1986/PL/PL86001.xml;PL8600585'
+p72
+S'scholar.google.com/scholar?cites=11475567601751912948&as_sdt=2005&sciodt=0,5&hl=en'
+p73
+tp74
+a(I96
+I1
+VLabVIEW control software for scanning micro-beam X-ray fluorescence spectrometer
+p75
+VP Wrobel, M Czyzycki, L Furman, K Kolasinski\u2026 
+p76
+V2012
+p77
+VElsevier
+p78
+g4
+S'http://www.sciencedirect.com/science/article/pii/S003991401200118X'
+p79
+S'scholar.google.com/scholar?cites=13296559085671692147&as_sdt=2005&sciodt=0,5&hl=en'
+p80
+tp81
+a(I97
+I1
+VEquivalence problem and integrability of the Riccati equations
+p82
+VT Czy\u017cycki, J Hrivnák 
+p83
+V2010
+p84
+VSpringer
+p85
+g4
+S'http://www.springerlink.com/index/087x0t8044902461.pdf'
+p86
+S'scholar.google.com/scholar?cites=12190597190258295186&as_sdt=2005&sciodt=0,5&hl=en'
+p87
+tp88
+a(I98
+I1
+VAn integrated experimental and analytical approach to the chemical state imaging of iron in brain gliomas using X-ray absorption near edge structure spectroscopy
+p89
+V\u2026, M Lankosz, M Czyzycki\u2026 
+p90
+V2011
+p91
+VElsevier
+p92
+g4
+S'http://www.sciencedirect.com/science/article/pii/S0003267011007628'
+p93
+S'scholar.google.com/scholar?cites=14377762995635904864&as_sdt=2005&sciodt=0,5&hl=en'
+p94
+tp95
+a(I99
+I3
+VWybrane zagadnienia z prognozowania
+p96
+VR Klóska, M Hundert, R Czy\u017cycki 
+p97
+V2007
+p98
+VEconomicus
+p99
+g4
+g5
+S'scholar.google.com/scholar?cites=7372378761906413232&as_sdt=2005&sciodt=0,5&hl=en'
+p100
+tp101
+a(I100
+I0
+VSYNCHROTRON RADIATION BASED STUDIES OF THE ELEMENTAL COMPOSITION AND CHEMICAL FORMS OF Fe AND Zn IN BRAIN GLIOMAS
+p102
+V\u2026, M Lankosz, M Czyzycki\u2026 
+p103
+g3
+Vsynchrotron.org.pl
+p104
+g4
+S'http://www.synchrotron.org.pl/publ/biulet/vol11/117_P63_Szczerbowska-Boruchowska.pdf'
+p105
+g5
+tp106
+a(I101
+I0
+VStabilization of wines containing turbidity of dextrin type
+p107
+VE Pogorzelski, A Czyzycki, M Koch 
+p108
+V1999
+p109
+Vagris.fao.org
+p110
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=2000/PL/PL00010.xml;PL2000000833'
+p111
+g5
+tp112
+a(I102
+I0
+VNOTICE OF PLANNING DECISION
+p113
+VMK Czyzycki
+p114
+g3
+Vpam.ealing.gov.uk
+p115
+g4
+S'http://www.pam.ealing.gov.uk/PlanNet/documentstore%5CDC11111404-17-1_AF_A.PDF'
+p116
+g5
+tp117
+a(I103
+I0
+VThe elemental analysis of brain tissue in case of pilocarpine induced epilepsy and the treatment of tacrolimus (FK-506), a neuroprotective agent
+p118
+VJ Chwiej, K Janeczko, M Marciszko, M Czyzycki\u2026 
+p119
+g3
+Vhasylab.desy.de
+p120
+g4
+S'http://hasylab.desy.de/annual_report/files/2008/200896.pdf'
+p121
+g5
+tp122
+a(I104
+I0
+VInvariants of Lie groups and their applications to differential equations
+p123
+VT Czyzycki 
+p124
+V2012
+p125
+Vmat.ug.edu.pl
+p126
+g4
+S'http://mat.ug.edu.pl/kwwk/2012/pdf/czyzycki.pdf'
+p127
+g5
+tp128
+a(I105
+I0
+VFruit wine processing from the concentrated citrus juices
+p129
+VA Czyzycki, J Laskowska, M Wlodarczyk\u2026 
+p130
+V1997
+p131
+Vagris.fao.org
+p132
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1999/PL/PL99004.xml;PL1999000261'
+p133
+g5
+tp134
+a(I106
+I0
+VTransport and storage of LNG in container tanks
+p135
+VE Lisowski, W Czy\u017cycki 
+p136
+V2011
+p137
+Vilot.edu.pl
+p138
+g4
+S'http://ilot.edu.pl/kones/2011/3_2011/2011_lisowski_czyzycki_transport_and_storage.pdf'
+p139
+g5
+tp140
+a(I107
+I0
+VVitamin C in the process of black currant wine production
+p141
+VJ Laskowska, A Czyzycki, M Wlodarczyk 
+p142
+V2001
+p143
+Vagris.fao.org
+p144
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=2003/PL/PL03011.xml;PL2002000426'
+p145
+g5
+tp146
+a(I108
+I0
+VCorrection of the acidity of red fruit wines by using of yeast Schizosaccharomyces pombe
+p147
+VA Czyzycki, Z Lukawska
+p148
+V1989
+p149
+Vagris.fao.org
+p150
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1990/PL/PL90002.xml;PL9000348'
+p151
+g5
+tp152
+a(I109
+I0
+VWine production from blueberries.
+p153
+VS Masior, A Czyzycki, J Kaluzna
+p154
+V1975
+p155
+VPrzemysl Fermentacyjny i  \u2026, 1975
+p156
+g4
+g5
+g5
+tp157
+a(I110
+I0
+VElectromagnetic Calorimeter for HADES
+p158
+VW Czyzycki, E Epple, L Fabbietti, M Golubeva\u2026 
+p159
+V2011
+p160
+Varxiv.org
+p161
+g4
+S'http://arxiv.org/abs/1109.5550'
+p162
+g5
+tp163
+a(I111
+I0
+VDesorption of polyphenols during autolysis of sedimentary wine yeasts
+p164
+VE Pogorzelski, A Czyzycki\u2026 
+p165
+V1991
+p166
+Vagris.fao.org
+p167
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1992/PL/PL92006.xml;PL9200606'
+p168
+g5
+tp169
+a(I112
+I0
+VTechnical Design Report for the: PANDA Micro Vertex Detector
+p170
+V\u2026, P Brandys, T Czyzewski, W Czyzycki\u2026 
+p171
+V2012
+p172
+Varxiv.org
+p173
+g4
+S'http://arxiv.org/multi?%2Ffind=Find&field_1=au&query_1=catania&search_year=past+year'
+p174
+g5
+tp175
+a(I113
+I0
+VApplication of immobilizing barn yeasts for continuous correction of the acidity of fruit mashes [Schizosaccharomyces pombe]
+p176
+VA Czyzycki, E Pogorzelski\u2026 
+p177
+V1991
+p178
+Vagris.fao.org
+p179
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1991/PL/PL91003.xml;PL9100935'
+p180
+g5
+tp181
+a(I114
+I0
+VThe perspective of new multi\u2010layer reference materials for confocal 3D micro X\u2010ray fluorescence spectroscopy
+p182
+VM Czyzycki, P Wrobel\u2026 
+p183
+V2012
+p184
+VWiley Online Library
+p185
+g4
+S'http://onlinelibrary.wiley.com/doi/10.1002/xrs.2395/full'
+p186
+g5
+tp187
+a(I115
+I0
+VUsing of polyamide in construction of supporting blocks of cryogenic tanks on example of LNG container
+p188
+VE Lisowski, W Czy\u017cycki, K \u0141azarczyk 
+p189
+g3
+Vafe.polsl.pl
+p190
+g4
+S'http://www.afe.polsl.pl/index.php/pl/2516/using-of-polyamide-in-construction-of-supporting-blocks-of-cryogenic-tanks-on-example-of-lng-container.pdf'
+p191
+g5
+tp192
+a(I116
+I0
+VErratum to: Equivalence problem and integrability of the Riccati equations
+p193
+VT Czy\u017cycki, J Hrivnák 
+p194
+V2010
+p195
+VSpringer
+p196
+g4
+S'http://www.springerlink.com/index/W8305H6780558348.pdf'
+p197
+g5
+tp198
+a(I117
+I0
+VChanges of the ascorbic acid content during the fermentation musts reconstituted from the concentrated citrus and pineapple juice
+p199
+VA Czyzycki, J Laskowska\u2026 
+p200
+V1998
+p201
+Vagris.fao.org
+p202
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1999/PL/PL99006.xml;PL1999000503'
+p203
+g5
+tp204
+a(I118
+I0
+VInvestigation of iron and zinc oxidation state in different grades of human brain gliomas using XAFS spectro-scopy
+p205
+VK Wolska, A Wandzilak, M Czy\u017cycki, P Wróbel\u2026 
+p206
+g3
+Vscience24.com
+p207
+g4
+S'http://www.science24.com/paper/24552'
+p208
+g5
+tp209
+a(I119
+I0
+VBalance of minerals during a fruit wines and alcoholic beverages production
+p210
+VA Czyzycki, J Laskowska, D Cytlak 
+p211
+V1999
+p212
+Vagris.fao.org
+p213
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=2000/PL/PL00002.xml;PL2000000439'
+p214
+g5
+tp215
+a(I120
+I0
+VGroup Transformations with Discrete Parameter and Invariant Schrödinger Equation
+p216
+VI Tsyfra, T Czy\u017cycki 
+p217
+V2009
+p218
+Vpdfserv.aip.org
+p219
+g4
+S'http://pdfserv.aip.org/APCPCS/vol_1191/iss_1/182_1.pdf'
+p220
+g5
+tp221
+a(I121
+I0
+VAmino acids in natural wine raw materials as precursors of histamine and tyramine in wines
+p222
+VE Pogorzelski, A Czyzycki 
+p223
+V1994
+p224
+Vagris.fao.org
+p225
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1995/PL/PL95008.xml;PL9500103'
+p226
+g5
+tp227
+a(I122
+I0
+VQuantitative Elemental Microanalysis Of Individual Particles With Use Of X\u2010Ray Fluorescence Method And Monte Carlo Simulation
+p228
+VM Czyzycki, M Lankosz, M Bielewski 
+p229
+V2010
+p230
+Vpdfserv.aip.org
+p231
+g4
+S'http://pdfserv.aip.org/APCPCS/vol_1221/iss_1/98_1.pdf'
+p232
+g5
+tp233
+a(I123
+I0
+VBlack fruit aronia as a valuable wine-making raw-material
+p234
+VA Czyzycki, Z Lukawska
+p235
+V1993
+p236
+Vagris.fao.org
+p237
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1994/PL/PL94008.xml;PL9301072'
+p238
+g5
+tp239
+a(I124
+I0
+VChanges of vitamin C contents in the process of fruit wine of wild rose production
+p240
+VJ Laskowska, A Czyzycki, M Wlodarczyk 
+p241
+V2000
+p242
+Vagris.fao.org
+p243
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=2001/PL/PL01004.xml;PL2001000599'
+p244
+g5
+tp245
+a(I125
+I0
+VUse of mountain ash fruits for improvement of apple madeiras and ports
+p246
+VZ Lukawska
+p247
+V1990
+p248
+Vagris.fao.org
+p249
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1991/PL/PL91011.xml;PL9100144'
+p250
+g5
+tp251
+a(I126
+I1
+VTransport ciek\u0142ego LNG w zbiornikach kontenerowych
+p252
+VE Lisowski, W Czy\u017cycki 
+p253
+V2009
+p254
+Vbaztech.icm.edu.pl
+p255
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BSW1-0084-0043'
+p256
+S'scholar.google.com/scholar?cites=16501406923719738295&as_sdt=2005&sciodt=0,5&hl=en'
+p257
+tp258
+a(I127
+I0
+VTechnical Design Report for the: PANDA Micro Vertex Detector
+p259
+V\u2026, A Szczurek, P Brandys, T Czyzewski, W Czyzycki\u2026 
+p260
+V2012
+p261
+Vhal.in2p3.fr
+p262
+g4
+S'http://hal.in2p3.fr/in2p3-00724371/'
+p263
+g5
+tp264
+a(I128
+I0
+VBadania symulacyjne uk\u0142adu hydraulicznego z regulatorem rozmytym o strukturze PI
+p265
+VW Czy\u017cycki 
+p266
+g3
+Vbaztech.icm.edu.pl
+p267
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3802'
+p268
+g5
+tp269
+a(I129
+I0
+VStrategia sterowania zasilaniem uk\u0142adu przy zastosowaniu regulatora cyfrowego na przyk\u0142adzie pompy \u0142opatkowej
+p270
+VW Czy\u017cycki, E Lisowski 
+p271
+V2004
+p272
+Vbaztech.icm.edu.pl
+p273
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPB3-0018-0033'
+p274
+g5
+tp275
+a(I130
+I0
+VPakiet MAPLE
+p276
+VM Czyzycki
+p277
+g3
+g277
+g4
+g5
+g5
+tp278
+a(I131
+I0
+VSterowanie wydajno\u015bci\u0105 pompy \u0142opatkowej
+p279
+VE Lisowski, W Czy\u017cycki 
+p280
+g3
+Vbaztech.icm.edu.pl
+p281
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPP1-0055-0063'
+p282
+g5
+tp283
+a(I132
+I0
+VMODELOWANIE PRZEP\u0141YWU CIEP\u0141A PRZEZ IZOLACJ\u0118 ZBIORNIKÓW KRIOGENICZNYCH W MODULE SOLIDWORKS SIMULATION HEAT FLOW  \u2026
+p284
+VW CZY\u017bYCKI 
+p285
+g3
+Vsuw.biblos.pk.edu.pl
+p286
+g4
+S'http://suw.biblos.pk.edu.pl/resources/i4/i5/i7/i4/r4574/CzyzyckiW_ModelowaniePrzeplywu.pdf'
+p287
+g5
+tp288
+a(I133
+I0
+VKierunki oddzia\u0142ywania grzybni Botrytis cinerea na fermentacj\u0119 i dojrzewanie win owocowych.
+p289
+VA Czy\u017cycki, P\u0141WC Spo\u017cywczej 
+p290
+V1964
+p291
+V\u0141ód\u017a: nak\u0142. autora
+p292
+g4
+g5
+g5
+tp293
+a(I134
+I0
+VBADANIA SYMULACYJNE UK\u0141ADU HYDRAULICZNEGO Z REGULATOREM ROZMYTYM O STRUKTURZE PI SIMULATIONS OF HYDRAULIC SYSTEM WITH \u2026
+p294
+VW CZY\u017bYCKI 
+p295
+g3
+Vsuw.biblos.pk.edu.pl
+p296
+g4
+S'http://suw.biblos.pk.edu.pl/resources/i4/i5/i7/i3/r4573/CzyzyckiW_BadaniaSymulacyjne.pdf'
+p297
+g5
+tp298
+a(I135
+I0
+VStabilization of apple wines containing gelatinized starch and dextrin
+p299
+VA Czyzycki, S Masior, E Pogorzelski\u2026 
+p300
+V1979
+p301
+Vagris.fao.org
+p302
+g4
+S'http://agris.fao.org/agris-search/search/display.do?f=1980/PL/PL80004.xml;PL8000528'
+p303
+g5
+tp304
+a(I136
+I0
+VBudowa programu obs\u0142ugi relacyjnej bazy danych pier\u015bcieni uszczelniaj\u0105cych elementów hydraulicznych
+p305
+VE Lisowski, W Czy\u017cycki, W Zagól 
+p306
+V2001
+p307
+Vbaztech.icm.edu.pl
+p308
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BPOA-0019-0039'
+p309
+g5
+tp310
+a(I137
+I0
+VModelowanie przep\u0142ywu ciep\u0142a przez izolacj\u0119 zbiorników kriogenicznych w module SolidWorks simulation
+p311
+VW Czy\u017cycki 
+p312
+g3
+Vbaztech.icm.edu.pl
+p313
+g4
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BGPK-3590-3834'
+p314
+g5
+tp315
+a(I138
+I0
+VLisowski E
+p316
+VW Czy\u017cycki 
+p317
+V2002
+p318
+VAutomatyzacja zada\u0144 grafiki za pomoc\u0105 Delphi, 2002
+p319
+g4
+g5
+g5
+tp320
+a.

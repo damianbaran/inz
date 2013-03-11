@@ -1,0 +1,49 @@
+(lp0
+(I46
+I0
+VNadzór autorski nad realizacj\u0105 ustroju no\u015bnego mostu TAPP przez Wis\u0142\u0119 ko\u0142o Torunia
+p1
+VS Jendrzejek 
+p2
+V1999
+p3
+Vbaztech.icm.edu.pl
+p4
+S''
+p5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0005-0095'
+p6
+S'Brak'
+p7
+tp8
+a(I47
+I0
+VBudowa mostów z betonu spr\u0119\u017conego w Hiszpanii metod\u0105 wspornikowego monta\u017cu segmentów
+p9
+VP Hrehorów, W Lorenc 
+p10
+V2006
+p11
+Vbaztech.icm.edu.pl
+p12
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0026-0064'
+p13
+g7
+tp14
+a(I48
+I0
+VBudowa mostu drogowego przez rzek\u0119 Bug w Wyszkowie
+p15
+VG Gajewski 
+p16
+S' '
+p17
+Vbaztech.icm.edu.pl
+p18
+g5
+S'http://baztech.icm.edu.pl/baztech/cgi-bin/btgetdoc.cgi?BTB2-0051-0092'
+p19
+g7
+tp20
+a.
