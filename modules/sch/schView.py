@@ -1,4 +1,23 @@
 # -*- coding: utf-8 -*-
+
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
+
 import wx
 import os
 import pickle
@@ -8,13 +27,21 @@ import wx.lib.mixins.listctrl as listmix
 from schControler import sControler
 from popup.publikacja import PubDialog
 
+## Dokumentacja dla klasy
+#
+# Klasa tworzy zaawansowana kontrolke do wyswietlania publikacji
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
+    ##Konstruktor
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok wyszukiwania publikacji i metody do niego
 class sView(wx.Panel, sControler):
+    ##Konstruktor
     def __init__(self, parent):
         wx.Panel.__init__(self, parent=parent)
         
@@ -231,9 +258,9 @@ class sView(wx.Panel, sControler):
         self.m_panel1.Layout()
         bSizer21.Fit( self.m_panel1 )
         
-########################################################################
-##  Bind
-########################################################################
+        ########################################################################
+        ##  Bind
+        ########################################################################
         
         self.but1.Bind(wx.EVT_BUTTON, self.GetData)
         self.dataList.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.RightClickCb)
@@ -242,27 +269,33 @@ class sView(wx.Panel, sControler):
         self.but7.Bind(wx.EVT_BUTTON, self.settmp)
 
         
-########################################################################
-##  Metody sch.controler.py
-########################################################################
+        ########################################################################
+        ##  Metody sch.controler.py
+        ########################################################################
         
         self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
         self.raport = []
     
+    ## Dokumentacja GetChoice
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    # @return void
+    # Funkcja wyświetla uzytkownikowi odfiltrowane dane
     def GetChoice(self, event):
         try:
-            self.updateRecord(self.control.SetFilter(
-                self.control.SetItems(), self.getChoice(), 
-                cDatabase.getUserFilter(self.session)))
+            self.updateRecord(self.control.SetFilter(self.control.SetItems(), self.getChoice(), cDatabase.getUserFilter(self.session)))
         except ValueError:
             wx.MessageBox(u'Nie zaznaczono wartości \
             do filtracji', 'Blad', wx.OK | wx.ICON_INFORMATION)
         else:
             self.dataList.DeleteAllItems()
-            self.updateRecord(self.control.SetFilter(
-                self.control.SetItems(), self.getChoice(), 
-                cDatabase.getUserFilter(self.session)))
+            self.updateRecord(self.control.SetFilter(self.control.SetItems(), self.getChoice(), cDatabase.getUserFilter(self.session)))
     
+    ## Dokumentacja getRaport
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wczytuje do programu zapisane publikacje w raporcie wyszukiwani
     def getRaport(self):
         dlg = wx.FileDialog(self, "Wybierz Plik", 'raport', "", "*.*", wx.OPEN)
         if dlg.ShowModal() == wx.ID_OK:
@@ -273,10 +306,20 @@ class sView(wx.Panel, sControler):
             self.control.getRaportData(f)
             self.backList()
     
+    ## Dokumentacja backList
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja przywraca ostatnio wczytana lub pobrana liste publikacji
     def backList(self):
         self.dataList.DeleteAllItems()
         self.updateRecord(self.control.SetSearchItem())
     
+    ## Dokumentacja addOneRecord
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wyświetla do edycji i dodaje publikacje do bazy danych
     def addOneRecord(self):
         tmp = []
         num = self.dataList.GetItemCount()
@@ -293,6 +336,11 @@ class sView(wx.Panel, sControler):
         
         self.deselectAll()
     
+    ## Dokumentacja addMultiRecord
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja dodaje publikacje do bazy danych
     def addMultiRecord(self):
         tmp = []
         num = self.dataList.GetItemCount()
@@ -313,6 +361,12 @@ class sView(wx.Panel, sControler):
         
         self.deselectAll()
     
+    ## Dokumentacja editPubDial
+    # @param self Wskaźnik obiektu
+    # @param data Lista atrybutów wyszukanej publikacji
+    #
+    # @return void
+    # Funkcja wyświetla wartosci publikacji w okienku do edycji
     def editPubDial(self, data):
         dlg = PubDialog()
         dlg.m_textCtrl2.SetValue(data[2])           #title
@@ -324,16 +378,27 @@ class sView(wx.Panel, sControler):
         dlg.m_staticText12.SetLabel(data[8])        #urlcit
         dlg.ShowModal()
         
+    ## Dokumentacja RightClickCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyświetla popmenu
     def RightClickCb(self, event):        
         self.currentItem = event.m_itemIndex
         menu = wx.Menu()
         for (id,title) in self.menu_title_by_id.items():
             menu.Append(id, title)
             wx.EVT_MENU(menu, id, self.MenuSelectionCb)        
-        ### 5. Launcher displays menu with call to PopupMenu, invoked on the source component, passing event's GetPoint. ###
         self.dataList.PopupMenu(menu, event.GetPoint())
         menu.Destroy()
-            
+
+    ## Dokumentacja MenuSelectionCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wykonuje żadania użytkownika z popup menu
     def MenuSelectionCb(self, event):
         operation = self.menu_title_by_id[event.GetId()]
         print operation
@@ -346,12 +411,23 @@ class sView(wx.Panel, sControler):
         elif operation == 'Odznacz wszystko':
             self.deselectAll()
     
+    ## Dokumentacja openLink
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja otwiera publikacje w przegladarce internetowej
     def openLink(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsChecked(i):
                 self.getLink(i)
             
+    ## Dokumentacja getLink
+    # @param self Wskaźnik obiektu
+    # @param id ID wybranej publikacji
+    #
+    # @return void
+    # Funkcja sprawdza czy wybrana publikacja ma adres url
     def getLink(self, id):
         data = self.control.SetItems()
         t = self.dataList.GetItemCount()
@@ -362,41 +438,75 @@ class sView(wx.Panel, sControler):
                 if tmp[7] == 'Brak':
                     wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja updateRecord
+    # @param self Wskaźnik obiektu
+    # @param data Lista publikacji do wyświetlenia
+    #
+    # @return void
+    # Funkcja przekazuje do kontrolki liste publikacji
     def updateRecord(self, data):
-        """
-        """
         for i in range(len(data)):
             self.dataList.Append(data[i])
     
+    ## Dokumentacja getChoice
+    # @param self Wskaźnik obiektu
+    #
+    # @return string Ciag znaków z imieniem i nazwiskiem autora
+    # Funkcja zwraca Imie i Nazwisko autora wybranego do filtracji
     def getChoice(self):
         h = self.ch4.GetCurrentSelection()
         if h == -1:
             raise ValueError
-        print h
         return self.ch4Choices[h]
         
+    ## Dokumentacja selectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Zaznacza wszytkie publikacje w kontrolce
     def selectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i)
         
+    ## Dokumentacja deselectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Odznacza wszystkie publikacje w kontrolce
     def deselectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i, False)
             
+    ## Dokumentacja selectOne
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zaznacza wybrana publikacje w kontrolce
     def selectOne(self, event):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsSelected(i):
                 self.dataList.CheckItem(i)
     
+    ## Dokumentacja deselectOne
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odznacza wybrana publikacje w kontrolce
     def deselectOne(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsSelected(i):
                 self.dataList.CheckItem(i, False)
     
+    ## Dokumentacja getItem
+    # @param self Wskaźnik obiektu
+    #
+    # @return list Lista ID zaznaczonych publikacji
+    # Funkcja pobiera ID wszystkich zaznaczonych publikacji w kontrolce
     def getItem(self):
         l = []
         num = self.dataList.GetItemCount()
@@ -405,6 +515,11 @@ class sView(wx.Panel, sControler):
                 l.append(i)
         return l
     
+    ## Dokumentacja printWord
+    # @param self Wskaźnik obiektu
+    #
+    # @return tuple Lista z atrybutami do wyszukiwania
+    # Funkcja przekazuje do kontrolera, liste z atrybutami do wyszukiwania publikacji
     def printWord(self):
         txt1 = self.ctrl1.GetValue()
         txt2 = self.ctrl2.GetValue()
@@ -416,43 +531,63 @@ class sView(wx.Panel, sControler):
         txt8 = self.ctrl8.GetValue()
         return (txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8)
         
+    ## Dokumentacja GetGroupName
+    # @param self Wskaźnik obiektu
+    #
+    # @return string Ciag znaków z nazwa grupy
+    # Funkcja zwraca nazwe grupy do wyszukiwania grupowego
     def GetGroupName(self):
         curr = self.ch1.GetStringSelection()
         return curr
     
-    def GetItem(self, event):
-        """Pobieranie danych z wyszukiwania i tworzenie listy do przekazania dla menadzera publikacji"""
-        self.control.SelectAllClick(self.getItem())
-        
-    def GetData(self, evt):
+    ## Dokumentacja GetData
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja czyści listę i wyświetla pobrane publikacje
+    def GetData(self, event):
         self.dataList.DeleteAllItems()
         self.control.AddWord(self.printWord())
         self.updateRecord(self.control.SetItems())
     
-########################################################################
-## Metody cDatabase.py
-########################################################################
-    
+    ## Dokumentacja updateGroupName
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja aktualizuje wartości w kontrolce z nazwami grup
     def updateGroupName(self):
         ch1Choices = cDatabase.getGroupName(self.session)
         self.ch1.Clear()
         self.ch1.AppendItems(ch1Choices)
         self.ch1.SetSelection( 0 )
     
+    ## Dokumentacja updateAutorName
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja aktualizuje wartości w kontrolce z nazwami autorów
     def updateAutorName(self):
         self.ch4Choices = cDatabase.getUserName(self.session)
         self.ch4.Clear()
         self.ch4.AppendItems(self.ch4Choices)
         self.ch4.SetSelection( 0 )
-        
-###########################################
-## Funkcje z Bindowane z kontrlolera bazy danych
-###########################################
     
+    ## Dokumentacja getYearGroup
+    # @param self Wskaźnik obiektu
+    #
+    # @return string Rok do wyszukiwania grupwego
+    # Funkcja pobiera rok podany przez uzytkownika przy wyszukiwaniu grupowym
     def getYearGroup(self):
         t1 = self.m_textCtrl12.GetValue()
         return t1
     
+    ## Dokumentacja settmp
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja czyści listę i wyświetla pobrane publikacje z wyszukiwania grupwego
     def settmp(self,  event):
         self.dataList.DeleteAllItems()
         gname = self.GetGroupName()

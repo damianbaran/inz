@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -16,7 +27,11 @@ import modules.baz.cDatabase as cDatabase
 ## Class JourDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z zarzadzaniem wydawcami
 class JourDialog ( wx.Dialog ):
+    ##Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Wydawcami", pos = wx.DefaultPosition, size = wx.Size( 350,230 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -128,8 +143,13 @@ class JourDialog ( wx.Dialog ):
 ## Metody
 ###################################################
         
+    ## Dokumentacja deleteJournalValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie z usunieciem wybranego wydawcy przez uzytkownika
     def deleteJournalValue(self, event):
-        """Usuwanie wybranego wydawcy z bazy danych"""
         tx1 = self.m_comboBox1.GetValue()   #pobieranie nazwy wydawcy z kontrolki
         
         if tx1 != '':
@@ -146,6 +166,12 @@ class JourDialog ( wx.Dialog ):
         
         self.cancel()
 
+    ## Dokumentacja viewJournalValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie z wyswietleniem wartosci dla wybranego wydawcy
     def viewJournalValue(self, event):
         self.tx1 = self.m_comboBox1.GetValue()
         
@@ -160,8 +186,13 @@ class JourDialog ( wx.Dialog ):
         self.m_button2.Show()
         self.m_button1.Hide()
     
+    ## Dokumentacja addJournalValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o dodanie nowego wydawcy do bazy danych
     def addJournalValue(self, event):
-        """Dodawanie nowego wydawcy do bazy danych"""
         #Pobieranie danych wydawcy z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
@@ -184,8 +215,13 @@ class JourDialog ( wx.Dialog ):
         self.m_textCtrl4.SetValue('')
         self.m_textCtrl2.SetValue('')
         
+    ## Dokumentacja editJournalValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie z edycja wybranego wydawcy przez uzytkownika
     def editJournalValue(self, event):
-        """Edytowanie wybranego wydawcy w bazie danych"""
         #Pobieranie danych wydawcy z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_textCtrl3.GetValue()
@@ -219,6 +255,12 @@ class JourDialog ( wx.Dialog ):
         self.m_button2.Hide()
         self.m_button1.Show()
         
+    ## Dokumentacja cancel
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko z zarzadzaniem wydawcami
     def cancel(self, event):
         #Wyczysczenie wszystkich kontrolek i aktualizacja listy wydawców
         m_comboBox1Choices = cDatabase.getJournalName(self.session)
@@ -235,8 +277,6 @@ class JourDialog ( wx.Dialog ):
         self.m_button1.Show()
         
         self.Destroy()
-    
-    def close(self, event):
         """Zamyka okienko wydawcy"""
         self.Destroy()
 

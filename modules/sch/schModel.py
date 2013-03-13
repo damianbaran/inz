@@ -1,4 +1,23 @@
 # -*- coding: utf-8 -*-
+
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
+
 import wx
 import re
 import os
@@ -75,7 +94,7 @@ class sModel:
     ## Dokumentacja urlScholar
     # @param self Wskaźnik obiektu
     #
-    #return void
+    # @return void
     # Funkcja zawiera url wyszukiwania do ktorego można wprowadzic dane uzytkownika
     def urlScholar(self):
         self.s0 = 'start=%(num)s&'
@@ -91,6 +110,10 @@ class sModel:
         self.scholar_url = 'http://scholar.google.com/scholar?'+self.s0+self.s1+self.s2+self.s3+self.s4+self.s5+self.s6+self.s7+self.s8+self.s9
     
     ## .Dokumentacja firstQuery
+    # @param self Wskaźnik obiektu
+    #
+    # @return number Liczba wyszukanych publikacji
+    # Funkcja pobiera liczbę wszystkich publikacji
     def firstQuery(self):
         self.urlScholar()
         if self.all_item == 0:
@@ -111,6 +134,11 @@ class sModel:
         return self.all_item
 
     ## .Dokumentacja firstQueryGroup
+    # @param self Wskaźnik obiektu
+    # @param data Lista autorów do wyszukiwania grupowego
+    #
+    # @return void
+    # Funkcja zlicza ilość publikacji do pobrania w wyszukiwaniu grupowym
     def firstQueryGroup(self, data):
         self.item['query'] = ''
         self.item['exact'] = ''
@@ -124,6 +152,12 @@ class sModel:
             l = self.firstQuery()
 
     ## .Dokumentacja generateLinks
+    # @param self Wskaźnik obiektu
+    # @param n Liczba wszystkich publikacji
+    # @param rec Atrybuty do wstawienia w wygenerowany link
+    #
+    # @return void
+    # Funkcja generuje wszystkie linki do pobrani publikacji danego wyszukiwnaia
     def generateLinks(self, n, rec):
         d = 0
         for i in range(0,n,10):
@@ -134,12 +168,12 @@ class sModel:
         self.all_number_query += d
 
     ## .Dokumentacja queryScholar
+    # @param self Wskaźnik obiektu
+    # @param link Wygenerowany adres url
+    #
+    # @return string Strone html w postaci cigu znaków
+    # Funkcja pobiera wszystkie strony z wynikami wyszukiwania
     def queryScholar(self, link):
-        """
-        Funkcja pobiera jedna stone wyszukiwania. Zamienia na format do
-        przeszkiwania html'a. Pobiera wszystkie dane z tej strony do
-        kolejnych działań
-        """
         url = link
         r = urllib2.Request(url=url,
             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) \
@@ -151,14 +185,20 @@ class sModel:
         return html
     
     ## .Dokumentacja numberRecordsOnPage
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja zlicza liczbę rekordów na stronie
     def numberRecordsOnPage(self):
-        """Funkcja zlicza liczbę rekordów na stronie"""
         div_count = self.htmlsoup.find_all('div', {'class': "gs_r", 'style': re.compile("z-index:")})
         self.item_count = len(div_count)
     
     ## .Dokumentacja numberPageSearch
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja pobiera liczbę wszystkich rekordów wyszukania
     def numberPageSearch(self):
-        """Funkcja pobiera liczbę wszystkich rekordów wyszukania"""
         num_page = self.htmlsoup.find('div', {'id': "gs_ab_md"}).get_text()
         num_page = num_page.split()
         
@@ -173,13 +213,15 @@ class sModel:
             pass
 
     ## .Dokumentacja findData
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych
     def findData(self):
-        """Funkcja przeszkuje html'a w celu wyciągnięcia poptrzebnych danych"""
         self.title_2 = []
         self.title_url_2 = []
         self.text = []
         
-        """ Nazwa artykulu i link do niego """
         for tag in self.htmlsoup.find_all(True):
             if tag.name == 'div' and tag.get('class') and tag.h3:
                 if tag.h3.span:
@@ -192,11 +234,9 @@ class sModel:
                 else:
                     self.title_url_2.append("Brak")
 
-        """ Autorzy artykułu """
         for tag in self.htmlsoup.find_all('div','gs_a'):
             self.text.append(tag.get_text())
 
-        """ Pobieranie lików do kazdego artykulu i odfiltorwanie ich z opcją dodanie brakującego fragmentu sdresu url"""
         l = ['z-index:400','z-index:399','z-index:398','z-index:397',
              'z-index:396','z-index:395','z-index:394','z-index:393',
              'z-index:392','z-index:391']
@@ -248,8 +288,11 @@ class sModel:
                 ver_url = 'Brak'
     
     ## .Dokumentacja doThis
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wywołuje kolejne funkcje
     def doThis(self):
-        """Funkcja wywołuje kolejne funkcje"""
         self.numberRecordsOnPage()
         self.findData()
         self.parseTitle()
@@ -259,8 +302,11 @@ class sModel:
         self.parsePublisher()
 
     ## .Dokumentacja onePage
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja zapisuje końcowe dane z jednej strony do listy
     def onePage(self):
-        """Funkcja zapisuje końcowe dane z jednej strony do listy"""
         self.all_items = []
         for i in range(self.item_count):
             records = {'title':'','titleurl':'','author':'','year':'',
@@ -284,12 +330,14 @@ class sModel:
         self.fulllist += self.all_items
     
     ## .Dokumentacja filtruj
+    # @param self Wskaźnik obiektu
+    # @param record Lista wszystkich pobranych publikacji
+    # @param filtr Imie i Nazwisko autora do filtracji
+    # @param dbDane Klucze filtrujace dla wybranego autora
+    #
+    # @return list Listę wszystkich przefiltrowanych publikacji
+    # Funkcja filtruje cała listę wyszukanych publikacji
     def filtruj(self, record, filtr, dbDane):
-        """
-        record = [('','',''),('','',''),('','','')]
-        filtr = ''
-        dbDane = {'':'','':''}
-        """
         d = []
         dict = dbDane
         c = dict[filtr].split(', ')
@@ -304,16 +352,29 @@ class sModel:
         return d
     
     ## .Dokumentacja allRecords
+    # @param self Wskaźnik obiektu
+    #
+    # @return list Lista wyszukanych publikacji
+    # Funkcja zwraca pełna liste wyszukanych publikacji
     def allRecords(self):
-        """Funckja sumuje wszystkie pobrane listy"""
         return self.fulllist
     
     ## .Dokumentacja searchList
+    # @param self Wskaźnik obiektu
+    # @param data Lista z publikacjami
+    #
+    # @return list Lista odfiltrowanych publikacji
+    # Funkcja zwraca liste odfiltrowanych publikacji
     def searchList(self, data):
         self.schlist = data
         return self.schlist
     
     ## .Dokumentacja saveResult
+    # @param self Wskaźnik obiektu
+    # @param data Lista wszystkich publikacji
+    #
+    # @return void
+    # Funkcja zapisuje wyszukane publikacje do pliku
     def saveResult(self, data):
         home = os.getcwd()
         os.chdir('raport')
@@ -344,23 +405,32 @@ class sModel:
         os.chdir(home)
     
     ## .Dokumentacja parseUrlTitle
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu
     def parseUrlTitle(self):
-        """Funkcja odfiltrowuje niepotrzebne dane dla hieprłącza tytulu rekordu"""
         self.title_url = []
         for i in range(0,len(self.title_url_2),2):
             self.title_url.append(self.title_url_2[i])
     
     ## .Dokumentacja parseTitle
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odfiltrowuje niepotrzebne dane dla tytulu rekordu
     def parseTitle(self):
-        """Funkcja odfiltrowuje niepotrzebne dane dla tytulu rekordu"""
         self.title = []
         for i in range(0,len(self.title_2),2):
             self.title_2[i] = self.title_2[i].strip()
             self.title.append(self.title_2[i])
     
     ## .Dokumentacja parseYear
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odfiltrowuje rok z pobranego ciągu znaków
     def parseYear(self):
-        """Funkcja odfiltrowuje rok z pobranego ciągu znaków"""
         self.year = []
         for i in range(len(self.text)):
             d = re.findall(r'\b(?:20|19)\d{2}\b',self.text[i])
@@ -370,16 +440,22 @@ class sModel:
             self.year.append(d)                
     
     ## .Dokumentacja parseAuthor
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odfiltrowuje autorów z pobranego ciągu znaków
     def parseAuthor(self):
-        """Funkcja odfiltrowuje autorów z pobranego ciągu znaków"""
         self.author = []
         for i in range(len(self.text)):
             a = self.text[i].split('-',1)
             self.author.append(a[0])
     
     ## .Dokumentacja parsePublisher
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odfiltrowuje wydawce z pobranego ciągu znaków
     def parsePublisher(self):
-        """Funkcja odfiltrowuje wydawce z pobranego ciągu znaków"""
         self.publish = []
         for i in range(len(self.text)):
             p = self.text[i].split('- ',-1)

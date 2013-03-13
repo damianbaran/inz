@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -20,13 +31,21 @@ from popup.dodaj_pub import CitePubDialog
 ## Class CiteDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa tworzy zaawansowana kontrolke do wyswietlania publikacji
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
+    ## Konstruktor
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z łaczeniem publikacji
 class CiteDialog ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Menadźer łączenia publikacji", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -116,22 +135,36 @@ class CiteDialog ( wx.Dialog ):
         Publisher().subscribe(self.change_data, 'change_data')
         Publisher().subscribe(self.update_data, 'update_data')
     
+    ## Dokumentacja close
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko z menadzerem laczenia publikacji
     def close(self, event):
         Publisher().unsubAll('update_data')
         self.Destroy()
     
+    ## Dokumentacja update_data
+    # @param self Wskaźnik obiektu
+    # @param msg Przekazana wartość
+    #
+    # @return void
+    # Funkcja odbiera dane przekazane z innego widoku
     def update_data(self, msg):
         self.data += msg.data
     
+    ## Dokumentacja editPubCit
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie z edycja polaczonych publikacji
     def editPubCit(self, event):
-#        t = cDatabase.getMergePub(self.session)
-#        print self.pubcit
-#        print len(self.pubcit)
         k = self.pubcit.keys()
         for i in range(len(k)):
             if self.pubcit.get(k[i]) == self.m_comboBox1.GetStringSelection():
                 self.id = k[i]
-#                print id
                 self.data = cDatabase.pubCitMerge(self.session, self.id)
         self.updateRecord()
         self.id
@@ -140,12 +173,24 @@ class CiteDialog ( wx.Dialog ):
             if int(self.dataList.GetItemText(i)) == int(self.id):
                 self.dataList.SetItemBackgroundColour(i, "yellow")
     
+    ## Dokumentacja addPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyswietla nowy widok z opcja dodania kolejnych publikacji
     def addPub(self, event):
         print Publisher().getMessageCount()
         dlg = CitePubDialog()
         dlg.ShowModal()
         self.updateRecord()
     
+    ## Dokumentacja delPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o usuniecie publikacji jedynie z listy wyswietlanej dla uzytkownika
     def delPub(self, event):
         tmp = []
         num = self.dataList.GetItemCount()
@@ -161,6 +206,12 @@ class CiteDialog ( wx.Dialog ):
         
         self.updateRecord()
     
+    ## Dokumentacja deletePub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o usuniecie wybranej polaczonej publikacji z tego powiazania w bazie danych
     def deletePub(self, event):
         tmp = []
         base = []
@@ -192,6 +243,12 @@ class CiteDialog ( wx.Dialog ):
         self.updateRecord()
         
     
+    ## Dokumentacja mergePub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o połaczenie wybranych publikacji
     def mergePub(self, event):
         public = []
         result = []
@@ -209,7 +266,6 @@ class CiteDialog ( wx.Dialog ):
                 if self.dataList.IsChecked(i):
                     c = self.dataList.GetItemText(i)
                     c = int(c)
-#                    print str(c) + ' check'
                     result.append(c)
             for i in range(num):
                 if self.dataList.IsChecked(i):
@@ -217,7 +273,6 @@ class CiteDialog ( wx.Dialog ):
                 else:
                     u = self.dataList.GetItemText(i)
                     u = int(u)
-#                    print str(u) + ' uncheck'
                     result.append(u)
             
             id_top = result[0]
@@ -242,17 +297,33 @@ class CiteDialog ( wx.Dialog ):
         self.m_comboBox1.Clear()
         self.m_comboBox1.AppendItems(self.m_comboBox1Choices)
     
+    ## Dokumentacja change_data
+    # @param self Wskaźnik obiektu
+    # @param msg Przekazana wartość
+    #
+    # @return void
+    # Funkcja odbiera liste publikacji wyslanej z innego widoku
     def change_data(self, msg):
         self.data = msg.data
 
-
-    
+    ## Dokumentacja openLinkCit
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyswietla wszystkie cytowania wybranej publikacji
     def openLinkCit(self, event):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsChecked(i):
                 self.getLinkCit(i)
             
+    ## Dokumentacja getLinkCit
+    # @param self Wskaźnik obiektu
+    # @param id Numer ID wybranej publikacji
+    #
+    # @return void
+    # Funkcja wysyla zadania o id wybranej publikacji i odbiera adres url do cytowan
     def getLinkCit(self, id):
         t = self.dataList.GetItemCount()
         print t
@@ -266,12 +337,24 @@ class CiteDialog ( wx.Dialog ):
                 else:
                     self.handlerweb.open_new_tab(t)
     
+    ## Dokumentacja openLinkPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyswietla artykul wybranej publikacji
     def openLinkPub(self, event):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsChecked(i):
                 self.getLinkPub(i)
             
+    ## Dokumentacja getLinkPub
+    # @param self Wskaźnik obiektu
+    # @param id Numer ID wybranej publikacji
+    #
+    # @return void
+    # Funkcja wysyla zadania o id wybranej publikacji i odbiera adres url do tej publikacji
     def getLinkPub(self, id):
         t = self.dataList.GetItemCount()
         print t
@@ -285,12 +368,21 @@ class CiteDialog ( wx.Dialog ):
                 else:
                     self.handlerweb.open_new_tab(t)
     
+    ## Dokumentacja backListPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o przywrocenie wybranych publikacji do laczenia
     def backListPub(self, event):
         self.updateRecord()
     
+    ## Dokumentacja updateRecord
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wyswietla wszystkie publikacje jakie zostaly wyszukane na zadanie uzytkownika
     def updateRecord(self):
-        """
-        """
         self.dataList.DeleteAllItems()
         for i in range(len(self.data)):
             self.dataList.Append(self.data[i])
@@ -300,19 +392,36 @@ class CiteDialog ( wx.Dialog ):
                 if int(self.dataList.GetItemText(i)) == int(self.id):
                     self.dataList.SetItemBackgroundColour(i, "yellow")
     
+    ## Dokumentacja 
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja czysci kontrolke wyswietlajaca publikacje
     def clearData(self, event):
         self.dataList.DeleteAllItems()
     
+    ## Dokumentacja RightClickCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyświetla popmenu
     def RightClickCb(self, event):        
         self.currentItem = event.m_itemIndex
         menu = wx.Menu()
         for (id,title) in self.menu_title_by_id.items():
             menu.Append(id, title)
             wx.EVT_MENU(menu, id, self.MenuSelectionCb)        
-        ### 5. Launcher displays menu with call to PopupMenu, invoked on the source component, passing event's GetPoint. ###
         self.dataList.PopupMenu(menu, event.GetPoint())
         menu.Destroy()
     
+    ## Dokumentacja MenuSelectionCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wykonuje żadania użytkownika z popup menu
     def MenuSelectionCb(self, event):
         operation = self.menu_title_by_id[event.GetId()]
         print operation
@@ -325,22 +434,43 @@ class CiteDialog ( wx.Dialog ):
         elif operation == 'Odznacz wszystko':
             self.deselectAll()
     
+    ## Dokumentacja selectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Zaznacza wszytkie publikacje w kontrolce
     def selectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i)
     
+    ## Dokumentacja deselectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Odznacza wszystkie publikacje w kontrolce
     def deselectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i, False)
 
+    ## Dokumentacja selectOne
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zaznacza wybrana publikacje w kontrolce
     def selectOne(self, event):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsSelected(i):
                 self.dataList.CheckItem(i)
     
+    ## Dokumentacja deselectOne
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odznacza wybrana publikacje w kontrolce
     def deselectOne(self):
         num = self.dataList.GetItemCount()
         for i in range(num):

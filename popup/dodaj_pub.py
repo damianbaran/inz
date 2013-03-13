@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import wx.xrc
@@ -18,13 +29,20 @@ from wx.lib.pubsub import Publisher
 ## Class CiteDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa tworzy zaawansowana kontrolke do wyswietlania publikacji
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z publikacjami
 class CitePubDialog ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Dodaj Publikację", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -82,6 +100,12 @@ class CitePubDialog ( wx.Dialog ):
         self.data = cDatabase.getCitPubData(self.session)
         self.updateRecord()
     
+    ## Dokumentacja addPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja przekazuje wartosci wybranej publikacji do innego widoku
     def addPub(self, event):
         result = []
         num = self.dataList.GetItemCount()
@@ -95,9 +119,12 @@ class CitePubDialog ( wx.Dialog ):
         wx.MessageBox(u'Poprawnie dodano wybrane publikacje', u'Sukces', wx.OK | wx.ICON_INFORMATION)
         self.Destroy()
     
+    ## Dokumentacja updateRecord
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wyswietla liste publikacji w kontrolce
     def updateRecord(self):
-        """
-        """
         for i in range(len(self.data)):
             self.dataList.Append(self.data[i])
 

@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -16,7 +27,11 @@ import modules.baz.cDatabase as cDatabase
 ## Class AuthorDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z danymi o autorze
 class AuthorDialog ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Autorami", pos = wx.DefaultPosition, size = wx.Size( 350,330 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -192,10 +207,12 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button7.Bind(wx.EVT_BUTTON, self.deletePerson)
         self.m_choice1.Bind(wx.EVT_CHOICE,  self.getPersonID)
 
-###################################################
-## Metody
-###################################################
-
+    ## Dokumentacja getUserData
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja pobiera wartości wprowadzone przez użytkownika do dodania nowego autora do bazy danych
     def getUserData(self, event):
         AllDict = {}
         UserDict = {}
@@ -236,6 +253,11 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button7.Hide()
         self.m_button2.Show()
 
+    ## Dokumentacja clear
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odświeza wszystkie kontrolki zawierajace dane z bazy danych
     def clear(self):
         """Aktualizacja kontrolki z nazwami uczelni"""
         m_comboBox1Choices = cDatabase.getCollegeName(self.session)
@@ -260,9 +282,13 @@ class AuthorDialog ( wx.Dialog ):
         self.m_textCtrl41.SetValue('')
         self.m_textCtrl2.SetValue('')
 
+    ## Dokumentacja deletePerson
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyła żadanie o usunieciu autora wybranego przez użytkownika
     def deletePerson(self, event):
-        """Usuwa wybranego autora"""
-        
         #Pobiera Imie i Nazwisko użytkownika, wraz z jego ID
         t = self.m_choice1.GetStringSelection()
         a = cDatabase.getUserNameID(self.session)
@@ -288,9 +314,13 @@ class AuthorDialog ( wx.Dialog ):
         wx.MessageBox(u'Pomyślnie usunięto wybranego \
         Autora!', u'Sukces', wx.OK | wx.ICON_INFORMATION)
 
+    ## Dokumentacja editPersonID
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o edycji wybranego autora wybranego przez uzytkownika
     def editPersonID(self, event):
-        """Edycja wybranego autora"""
-        
         #Pobieranie wartosci z kontrolek
         tx1 = self.m_comboBox1.GetValue()
         tx2 = self.m_comboBox2.GetValue()
@@ -327,10 +357,14 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button2.Show()
         
         
+    ## Dokumentacja getPersonID
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja pobiera wartosci z bazy i wyswietla je w kontrolkach dla uzytkownika
     def getPersonID(self, event):
-        """Funkcja pobiera wartosci z bazy i ustawia je w kontrolkach"""
         self.m_staticText1.SetLabel(u'Edytowanie Autora')
-#        self.st1 = u'Edytuj Autora'
         t = self.m_choice1.GetStringSelection()
         a = cDatabase.getUserNameID(self.session)
         self.tmp = a[t]
@@ -364,6 +398,12 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button7.Show()
         self.m_button2.Hide()
     
+    ## Dokumentacja cancel
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko do zarzadzania autorami
     def cancel(self, event):
         self.m_staticText1.SetLabel(u'Dodawanie Autora')
 #        self.st1 = u'Dodaj Autora'
@@ -379,10 +419,6 @@ class AuthorDialog ( wx.Dialog ):
         self.m_button7.Hide()
         self.m_button2.Show()
         
-        self.Destroy()
-    
-    def close(self, event):
-        """Zamknięcie okienka autorów"""
         self.Destroy()
 
 if __name__ == "__main__":

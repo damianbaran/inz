@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -16,7 +27,11 @@ import modules.baz.cDatabase as cDatabase
 ## Class GroupDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z zarzadzaniem grupami
 class GroupDialog ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Grupami", pos = wx.DefaultPosition, size = wx.Size( 330,330 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -112,24 +127,14 @@ class GroupDialog ( wx.Dialog ):
         self.m_button4.Bind(wx.EVT_BUTTON, self.cancel)
         self.m_button3.Bind(wx.EVT_BUTTON, self.deleteGroupValue)
         self.m_comboBox1.Bind(wx.EVT_COMBOBOX, self.checkDataGroup)
-        
-###################################################
-## Metody
-###################################################
-    
-#    def printList(self):
-#        """Funkcja pobiera dane z bazy i wyswietla w checklistbox.
-#        id, imie i nazwisko autorow"""
-#        t = cDatabase.getAllRecord(self.session)
-#        return t
-    
-#    def printGroupList(self):
-#        t = cDatabase.getGroupName(self.session)
-#        return t
 
+    ## Dokumentacja deleteGroupValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o usuniecie grupy uzytkownikow
     def deleteGroupValue(self, event):
-        """Usuwa grypy wraz z powiazanymi uzytkownikami"""
-        
         #Pobiera wartosci z kontrolek
         gname = self.m_comboBox1.GetValue()
         
@@ -148,9 +153,13 @@ class GroupDialog ( wx.Dialog ):
         self.m_button3.Hide()
         self.m_button1.Show()
     
+    ## Dokumentacja addDataGroup
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie o dodanie lub edycje grupy uzytkownikow
     def addDataGroup(self,  event):
-        """Funkcja pobiera dane do utworzenia grupy widoku bazy danych"""
-        
         #Pobieranie i deklaracji wartosci
         result = []
         gname = self.m_comboBox1.GetValue()
@@ -184,9 +193,13 @@ class GroupDialog ( wx.Dialog ):
         self.m_button3.Hide()
         self.m_button1.Show()
     
+    ## Dokumentacja checkDataGroup
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funcka wysyla zadanie, ktore sprawdza, jacy autorzy naleza do wybranej grupy
     def checkDataGroup(self, event):
-        """Sprawdza ktorzy autorzy sa powiazani z wybrana grupa"""
-        
         #Czyszczenie wszystkich zaznaczeń
         alluser = cDatabase.getUserName(self.session)
         for i in range(len(alluser)):
@@ -215,9 +228,12 @@ class GroupDialog ( wx.Dialog ):
         self.m_button3.Show()
         self.m_button1.Hide()
     
+    ## Dokumentacja clearData
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja czyści wszystkie kontrolki po wykonaniu zadania przez użytkownika
     def clearData(self):
-        """Czyści wszystkie kontrolki po wykonaniu zadania przez użytkownika"""
-        
         #Czyszczenie kontrolkki z nazwami grup
         guser = cDatabase.getUserName(self.session)
         m_comboBox1Choices = cDatabase.getGroupName(self.session)
@@ -230,6 +246,12 @@ class GroupDialog ( wx.Dialog ):
         for i in range(len(guser)):
             self.m_checkList3.Check(i,  False)
     
+    ## Dokumentacja cancel
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko z zarzadzaniem grupami
     def cancel(self, event):
         self.clearData()
         
@@ -240,10 +262,6 @@ class GroupDialog ( wx.Dialog ):
         
         self.Destroy()
     
-    def close(self, event):
-        """Zamyka okienko z grupami"""
-        self.Destroy()
-        
 if __name__ == "__main__":
     app = wx.App(False)
     controller = GroupDialog()

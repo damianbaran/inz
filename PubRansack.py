@@ -1,5 +1,23 @@
 # -*- coding: utf-8 -*-
 
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
+
 import wx
 import os
 from modules.sch.schView import sView
@@ -11,7 +29,11 @@ from popup.autor import AuthorDialog
 from popup.about import About
 from wx.lib.pubsub import Publisher
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera główne GUI programu wraz z wszytkimi wywoływanymi zdarzeniami
 class MainFrame(wx.Frame):
+    ##Konstruktor
     def __init__(self):
         wx.Frame.__init__(self, None, id = wx.ID_ANY, 
             title = u"PubRansack", 
@@ -284,61 +306,156 @@ class MainFrame(wx.Frame):
         self.Bind( wx.EVT_TOOL, self.saveDatabase, backup )
         self.Bind( wx.EVT_TOOL, self.GetDatabase, replace )
     
+    ## Dokumentacja change_statusbar
+    # @param self Wskaźnik obiektu
+    # @param msg Ciag znaków przekazywany pomiędzy widokami
+    #
+    # @return void
     def change_statusbar(self, msg):
         self.statusbar.SetStatusText(msg.data)
     
+    ## Dokumentacja viewAbout
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def viewAbout(self, event):
         dlg = About()
         dlg.ShowModal()
     
+    ## Dokumentacja GetDatabase
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def GetDatabase(self, event):
         self.panel_baz.getBackUpBase()
     
+    ## Dokumentacja saveDatabase
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def saveDatabase(self, event):
         self.panel_baz.backUpBase()
     
+    ## Dokumentacja GHtml
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def GHtml(self, event):
         self.panel_baz.generateHtml()
     
+    ## Dokumentacja GBibtex
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def GBibtex(self, event):
         self.panel_baz.generateBibtex()
     
+    ## Dokumentacja GetCit
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def GetCit(self, event):
         self.panel_baz.getCitPub()
     
+    ## Dokumentacja GetRaport
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def GetRaport(self, event):
         self.panel_sch.getRaport()
     
+    ## Dokumentacja AddOneData
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def AddOneData(self, event):
         self.panel_sch.addOneRecord()
     
+    ## Dokumentacja AddMultiData
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def AddMultiData(self, event):
         self.panel_sch.addMultiRecord()
     
+    ## Dokumentacja DeleteMultiDataBase
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def DeleteMultiDataBase(self, event):
         self.panel_baz.deleteChoices()
     
+    ## Dokumentacja ClearDataBase
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def ClearDataBase(self, event):
         self.panel_baz.dataList.DeleteAllItems()
     
+    ## Dokumentacja ClearDataSearch
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def ClearDataSearch(self, event):
         self.panel_sch.dataList.DeleteAllItems()
     
+    ## Dokumentacja EditDataBase
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def EditDataBase(self, event):
         self.panel_baz.editRecordData()
     
+    ## Dokumentacja BackList
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def BackList(self, event):
         self.panel_sch.backList()
     
+    ## Dokumentacja OpenBrowserLink
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def OpenBrowserLink(self, event):
         self.panel_sch.openLink()
     
+    ## Dokumentacja OpenBaseLink
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def OpenBaseLink(self, event):
         self.panel_baz.openLink()
     
+    ## Dokumentacja OpenBaseCiteLink
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def OpenBaseCiteLink(self, event):
         self.panel_baz.openCite()
     
+    ## Dokumentacja SearchPanel
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def SearchPanel(self, event):
         if self.panel_baz.IsShown():
 #            self.panel_men.Hide()
@@ -375,6 +492,11 @@ class MainFrame(wx.Frame):
 #            self.m_toolBar1.EnableTool(21, False)
         self.Layout()
     
+    ## Dokumentacja BasePanel
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def BasePanel(self, event):
         if self.panel_sch.IsShown():
 #            self.panel_men.Hide()
@@ -410,28 +532,53 @@ class MainFrame(wx.Frame):
             self.m_toolBar1.EnableTool(20, True)
         self.Layout()
     
+    ## Dokumentacja onAddPub
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def onAddPub(self, event):
         dlg = PubDialog()
         dlg.ShowModal()
         dlg.Destroy()
     
+    ## Dokumentacja onAddGroup
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def onAddGroup(self, event):
         dlg = GroupDialog()
         dlg.ShowModal()
         dlg.Destroy()
         self.panel_sch.updateGroupName()
     
+    ## Dokumentacja onAddJournal
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def onAddJournal(self, event):
         dlg = JourDialog()
         dlg.ShowModal()
         dlg.Destroy()
     
+    ## Dokumentacja onEditAuthor
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def onEditAuthor(self, event):
         dlg = AuthorDialog()
         dlg.ShowModal()
         dlg.Destroy()
         self.panel_sch.updateAutorName()
     
+    ## Dokumentacja Close
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
     def Close(self, event):
         self.Destroy()
     

@@ -1,4 +1,23 @@
 # -*- coding: utf-8 -*-
+
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
+
 import wx
 import os
 import re
@@ -15,14 +34,21 @@ from popup.grupa import GroupDialog
 from popup.wydawca import JourDialog
 from popup.wys_cytowania import CiteDialog
 
-
+## Dokumentacja dla klasy
+#
+# Klasa tworzy zaawansowana kontrolke do wyswietlania publikacji
 class TestListCtrl(wx.ListCtrl, listmix.CheckListCtrlMixin, listmix.ListCtrlAutoWidthMixin):
+    ##Konstruktor
     def __init__(self, *args, **kwargs):
         wx.ListCtrl.__init__(self, *args, **kwargs)
         listmix.CheckListCtrlMixin.__init__(self)
         listmix.ListCtrlAutoWidthMixin.__init__(self)
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok bazy danych i metody do niego
 class bView(wx.Panel, PubDialog):
+    ## Konstruktor
     def __init__(self, parent):
         wx.Panel.__init__(self, parent=parent)
         
@@ -77,6 +103,11 @@ class bView(wx.Panel, PubDialog):
         self.menu_title_by_id = {1:'Zaznacz',2:'Odznacz',3:'Zaznacz wszystko',4:'Odznacz wszystko'}
         self.id_cit = []
     
+    ## Dokumentacja getBackUpBase
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wczytuje kopie zapasowa bazy danych do programu
     def getBackUpBase(self):
         dlg = wx.FileDialog(self, "Wybierz Plik", 'archive', "", "*.*", wx.OPEN)
         if dlg.ShowModal() == wx.ID_OK:
@@ -85,16 +116,22 @@ class bView(wx.Panel, PubDialog):
             shutil.copy2(os.path.join(self.dirname, self.filename), 'schdatabase.db')
             wx.MessageBox(u'Wczytano wybrana baze danych!', 'Kopia zapasowa', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja backUpBase
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wykonuje kopie zapasowa bazy danych
     def backUpBase(self):
         t = time.asctime( time.localtime(time.time()) )
         t = re.sub(u':','', t)
         shutil.copy2('schdatabase.db', 'archive/'+t+'.db')
         wx.MessageBox(u'Zrobione kopie zapasowa bazy danych\nDostępna w folderze "archive" pod nazwa '+t+'.db', 'Kopia zapasowa', wx.OK | wx.ICON_INFORMATION)
     
-#############################################################
-## Generowanie html i bibtex
-#############################################################
-
+    ## Dokumentacja generateHtml
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja generuje plik bibliografii html'a z wybranych publikacji
     def generateHtml(self):
         home = os.getcwd()
         os.chdir('bibliography')
@@ -108,6 +145,12 @@ class bView(wx.Panel, PubDialog):
         os.chdir(home)
         wx.MessageBox(u'Poprawnie wygenerowano bibliografię do pliku .html\nZnajdziesz go w folderze "Bibliography"', 'Wygenerowano HTML', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja htm
+    # @param self Wskaźnik obiektu
+    # @param data Wartości publikacji
+    #
+    # @return void
+    # Funkcja tworzy kod html dla wybranych publikacji
     def htm(self, data):
         aut = 'Czyzycki, W.; Filo, G.; Domagala, M.;'
         html = E.DIV(E.CLASS("iso-690"), 
@@ -118,6 +161,11 @@ class bView(wx.Panel, PubDialog):
         fo.write(lxml.html.tostring(html)+'\n')
         fo.close()
     
+    ## Dokumentacja generateBibtex
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja generuje plik bibliografii bibtex z wybranych publikacji
     def generateBibtex(self):
         home = os.getcwd()
         os.chdir('bibliography')
@@ -131,6 +179,12 @@ class bView(wx.Panel, PubDialog):
         os.chdir(home)
         wx.MessageBox(u'Poprawnie wygenerowano bibliografię do pliku .bib\nZnajdziesz go w folderze "Bibliography"', 'Wygenerowano Bibtex', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja bib
+    # @param self Wskaźnik obiektu
+    # @param data Wartości publikacji
+    #
+    # @return void
+    # Funkcja tworzy strukturę bibtex dla wybranej publikacji
     def bib(self, data):
         author = data[3].encode('utf-8')
         title = data[2].encode('utf-8')
@@ -147,21 +201,32 @@ class bView(wx.Panel, PubDialog):
         fo.write(book+'\n')
         fo.close()
     
-#############################################################
-## Metody
-#############################################################
-    
+    ## Dokumentacja searchPubClick
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyswietla publikacje zapisane w bazie danych na żadania uzytkownika
     def searchPubClick(self, event):
         self.searchPub()
         
+    ## Dokumentacja searchPub
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wyszukuje wartości w bazie podane przez użytkownika
     def searchPub(self):
-        """Funkcja wyszukuje wartości w bazie podane przez użytkownika"""
         self.dataList.DeleteAllItems() #Ksowanie listy w wx.ListCtrl
         t = self.m_searchCtrl1.GetValue() #Pobieranie wartości wpisanej przez użytkownika
         d = self.m_choice31.GetStringSelection() #pobieranie wartości z listy wybranej przez użytkownika
         tmp = cDatabase.getRecords(self.session, d, t) #zapytanie do bazy, zwracajace szukane elementy
         self.updateRecord(tmp) #wyswietlenie wartosci w ListCtrl
     
+    ## Dokumentacja getCitPub
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja przekazuje wybrane publikacje do łaczenia
     def getCitPub(self):
         self.id_cit = []
         num = self.dataList.GetItemCount()
@@ -176,6 +241,11 @@ class bView(wx.Panel, PubDialog):
         dlg.updateRecord()
         dlg.ShowModal()
     
+    ## Dokumentacja editRecordData
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja dla wybranych publikacji obsluguje ich edycje
     def editRecordData(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
@@ -185,8 +255,14 @@ class bView(wx.Panel, PubDialog):
         
         self.deselectAll()
     
+    ## Dokumentacja editRecord
+    # @param self Wskaźnik obiektu
+    # @param id ID wybranej publikacji
+    # @param data Wartosci wybranej publikacji
+    #
+    # @return void
+    # Funkcja wyswietla w okienku wszystkie wartosci publikacji do edycji dla uzytkownika
     def editRecord(self, id, data):
-        """Ustawienia wartości z zapytania w kontrolkach do edycji wybranej publikacji"""
         dlg = PubDialog()
         dlg.m_staticText1.SetLabel('Edytujesz rekord o nr. '+str(data[0]))
         dlg.m_textCtrl2.SetValue(data[1])
@@ -222,19 +298,18 @@ class bView(wx.Panel, PubDialog):
         dlg.m_button3.Show()
         dlg.ShowModal()
     
+    ## Dokumentacja updateRecord
+    # @param self Wskaźnik obiektu
+    # @param data Lista wszystkich wybranych publikacji
+    #
+    # @return void
+    # Funkcja wyswietla wszystkie publikacje jakie zostaly wyszukane na zadanie uzytkownika
     def updateRecord(self, data):
         """Funkcja uaktualnia wartości listctrl o podane wartosci"""
         a = cDatabase.getPerPubID(self.session)
         c = cDatabase.getCiteID(self.session)
         
-        try:
-#            for i in range(len(data)):
-#                tmp = data[i]
-#                for j in range(len(c)):
-#                    t = c[j]
-#                    if tmp[0] == t[0]:
-#                        tmp[1] = t[1]
-            
+        try:            
             for i in range(len(data)):
                 self.dataList.Append(data[i])
             
@@ -250,6 +325,12 @@ class bView(wx.Panel, PubDialog):
         except TypeError:
             wx.MessageBox(u'Brak wyszukanych danych', 'Brak danych', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja RightClickCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyświetla popmenu
     def RightClickCb(self, event):
         self.currentItem = event.m_itemIndex
 #        print self.currentItem
@@ -261,6 +342,12 @@ class bView(wx.Panel, PubDialog):
         self.dataList.PopupMenu(menu, event.GetPoint())
         menu.Destroy() # destroy to avoid mem leak
 
+    ## Dokumentacja MenuSelectionCb
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wykonuje żadania użytkownika z popup menu
     def MenuSelectionCb(self, event):
         operation = self.menu_title_by_id[event.GetId()]
         print operation
@@ -273,6 +360,11 @@ class bView(wx.Panel, PubDialog):
         elif operation == 'Odznacz wszystko':
             self.deselectAll()
     
+    ## Dokumentacja deleteChoices
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja obsługuje usuwanie publikacji wybranych przez uzytkownika
     def deleteChoices(self):
         tmp = []
         num = self.dataList.GetItemCount()
@@ -294,6 +386,11 @@ class bView(wx.Panel, PubDialog):
         Publisher().sendMessage(('change_statusbar'), text)
         self.searchPub()
     
+    ## Dokumentacja openLink
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja otwiera publikacje w przegladarce internetowej
     def openLink(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
@@ -304,6 +401,11 @@ class bView(wx.Panel, PubDialog):
                 if l == 'Brak':
                     wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja openCite
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja wyswietla wszystkie cytowania dla wybanej publikacji w przegladarce internetowej
     def openCite(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
@@ -315,22 +417,43 @@ class bView(wx.Panel, PubDialog):
                 if l == 'Brak':
                     wx.MessageBox(u'Brak adresu URL do artykułu', u'Bład!', wx.OK | wx.ICON_INFORMATION)
     
+    ## Dokumentacja selectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Zaznacza wszytkie publikacje w kontrolce
     def selectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i)
     
+    ## Dokumentacja deselectAll
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Odznacza wszystkie publikacje w kontrolce
     def deselectAll(self):
         num = self.dataList.GetItemCount()
         for i in range(num):
             self.dataList.CheckItem(i, False)
     
+    ## Dokumentacja selectOne
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zaznacza wybrana publikacje w kontrolce
     def selectOne(self, event):
         num = self.dataList.GetItemCount()
         for i in range(num):
             if self.dataList.IsSelected(i):
                 self.dataList.CheckItem(i)
     
+    ## Dokumentacja deselectOne
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja odznacza wybrana publikacje w kontrolce
     def deselectOne(self):
         num = self.dataList.GetItemCount()
         for i in range(num):

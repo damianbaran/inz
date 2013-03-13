@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Sep  8 2010)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -14,9 +25,13 @@ import os
 ## Class About
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z informacjami o programie
 class About ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
-        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u'O Programie', pos = wx.DefaultPosition, size = wx.Size( 350,290 ), style = wx.DEFAULT_DIALOG_STYLE|wx.MINIMIZE_BOX )
+        wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u'O Programie', pos = wx.DefaultPosition, size = wx.Size( 350,320 ), style = wx.DEFAULT_DIALOG_STYLE|wx.MINIMIZE_BOX )
         
         
         ico = wx.Icon('icon/about.ico', wx.BITMAP_TYPE_ICO)
@@ -49,19 +64,19 @@ class About ( wx.Dialog ):
         
         bSizer5 = wx.BoxSizer( wx.VERTICAL )
         
-        self.m_staticText3 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Program do wyszukiwania oraz zarządzania publikacjami naukowymi. Wyszukiwarka współpracująca z Google Scholar. Tworzy własną bazę publikację, na bazie której generowane są pliki bibliograficzne. Program został wykonany w ramach pracy dyplomowej.", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+        self.m_staticText3 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Program do wyszukiwania oraz zarządzania publikacjami naukowymi. Wyszukiwarka współpracująca z Google Scholar. Tworzy własną bazę publikację, na bazie której generowane są pliki bibliograficzne. Program został wykonany w ramach pracy dyplomowej.\nPubRansack  Copyright \xa9 2013  Damian Baran This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
         self.m_staticText3.Wrap( -1 )
         bSizer5.Add( self.m_staticText3, 1, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
         
         bSizer2.Add( bSizer5, 1, wx.EXPAND, 5 )
         
-        bSizer6 = wx.BoxSizer( wx.VERTICAL )
-        
-        self.m_staticText2 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"\xa9 2013 Damian Baran", wx.DefaultPosition, wx.DefaultSize, 0 )
-        self.m_staticText2.Wrap( -1 )
-        bSizer6.Add( self.m_staticText2, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-        
-        bSizer2.Add( bSizer6, 0, wx.EXPAND, 5 )
+#        bSizer6 = wx.BoxSizer( wx.VERTICAL )
+#        
+#        self.m_staticText2 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"\xa9 2013 Damian Baran", wx.DefaultPosition, wx.DefaultSize, 0 )
+#        self.m_staticText2.Wrap( -1 )
+#        bSizer6.Add( self.m_staticText2, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+#        
+#        bSizer2.Add( bSizer6, 0, wx.EXPAND, 5 )
     
         bSizer7 = wx.BoxSizer( wx.HORIZONTAL )
         
@@ -90,10 +105,22 @@ class About ( wx.Dialog ):
         self.m_button1.Bind(wx.EVT_BUTTON,  self.close)
         self.m_button2.Bind(wx.EVT_BUTTON,  self.license)
     
+    ## Dokumentacja license
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wyswietla plik z licencja
     def license(self, event):
         osCommandString = "notepad.exe license.txt"
         os.system(osCommandString)
         
+    ## Dokumentacja close
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko z informacjami o programie
     def close(self, event):
         self.Destroy()
 

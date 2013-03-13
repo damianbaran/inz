@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*- 
 
-###########################################################################
-## Python code generated with wxFormBuilder (version Oct  8 2012)
-## http://www.wxformbuilder.org/
+################################################
+##    Aplikacja wspomagajaca tworzenie bazy publikacji naukowych wpsółpracujaca z Google Scholar
+##    Copyright (C) 2013  Damian Baran
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
-###########################################################################
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+################################################
 
 import wx
 import os
@@ -17,7 +28,11 @@ import linecache
 ## Class PubDialog
 ###########################################################################
 
+## Dokumentacja dla klasy
+#
+# Klasa zawiera widok z zarzadzaniem publikacjami
 class PubDialog ( wx.Dialog ):
+    ## Konstruktor
     def __init__( self ):
         wx.Dialog.__init__ ( self, None, id = wx.ID_ANY, title = u"Zarządzanie Publikacjami", pos = wx.DefaultPosition, size = wx.Size( 450,430 ), style = wx.DEFAULT_DIALOG_STYLE )
         
@@ -262,14 +277,24 @@ class PubDialog ( wx.Dialog ):
 ###################################################
         self.getType()
     
+    ## Dokumentacja getType
+    # @param self Wskaźnik obiektu
+    #
+    # @return void
+    # Funkcja pobiera typy publikacji z pliku
     def getType(self):
         count = len(open('type.txt', 'rU').readlines())
         for i in range(count):
             self.listType.append(linecache.getline('type.txt',i+1))
         print self.listType
     
+    ## Dokumentacja editPubValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie edycji wybranej publikacji
     def editPubValue(self, event):
-        """Edytowanie wybranej publikacji"""
         #Pobiera wartosci z kontrolek do edycji
         tmp = self.m_staticText1.GetLabel()
         tmp = tmp.split('. ', 1)
@@ -312,6 +337,12 @@ class PubDialog ( wx.Dialog ):
         self.Destroy()
 
         
+    ## Dokumentacja addPubValue
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja wysyla zadanie dodania nowej publikacji
     def addPubValue(self, event):
         #Pobiera wartosci z kontrolek do edycji
         tx1 = self.m_textCtrl2.GetValue()               #tytul
@@ -347,8 +378,12 @@ class PubDialog ( wx.Dialog ):
         
         self.Destroy()
 
+    ## Dokumentacja getCheckUser
+    # @param self Wskaźnik obiektu
+    #
+    # @return list Lista ID autorow powiazanych z publikacja
+    # Funkcja pobiera id wszystkich powiazanych autorów do publikacji
     def getCheckUser(self):
-        """Pobiera id wszystkich powiazanych autorów do publikacji"""
         result = []
         guser = cDatabase.getUserName(self.session) 
         t = cDatabase.getUserNameID(self.session)
@@ -359,6 +394,12 @@ class PubDialog ( wx.Dialog ):
                 result.append(id)
         return result
     
+    ## Dokumentacja close
+    # @param self Wskaźnik obiektu
+    # @param event Wywołanie żadania
+    #
+    # @return void
+    # Funkcja zamyka okienko z zarzadzaniem publikacjami
     def close(self, event):
         """Zamyka okienko publikacji"""
         self.Destroy()
